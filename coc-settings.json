@@ -1,4 +1,12 @@
 {
+	"coc.preferences.hoverTarget": "preview",
+	"suggest.noselect": true,
+	"suggest.enablePreselect": false,
+	"suggest.triggerAfterInsertEnter": true,
+	"suggest.autoTrigger": "always",
+	"suggest.timeout": 5000,
+	"suggest.enablePreview": true,
+	"suggest.floatEnable": true,
 	"suggest.completionItemKindLabels": {
 		"class": "\uf0e8",
 		"color": "\ue22b",
@@ -35,7 +43,8 @@
 		"python",
 		"vue",
 		"svelte",
-		"c"
+		"c",
+		"rust"
 	],
 	"explorer.file.showHiddenFiles": true,
 	"explorer.keyMappingMode": "none",
@@ -57,5 +66,7 @@
 		"cw": "rename",
 		"dD": "deleteForever",
 		"<tab>": "actionMenu"
-	}
+	},
+	"typescript.suggest.enabled": true,
+	"typescript.suggestionActions.enabled": true
 }

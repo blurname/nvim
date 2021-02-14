@@ -1,9 +1,7 @@
 
-" set termguicolors
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set t_Co=256
 set termguicolors
-
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
@@ -27,6 +25,11 @@ set smartcase
 set wrap
 set showcmd
 set wildmenu
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set foldenable
+set autoindent
 
 " Save & quit
 noremap Q :q<CR>
@@ -51,14 +54,18 @@ noremap B 5b
 noremap J 0
 noremap L $
 
+" Copy to system clipboard
+vnoremap Y "+y
+
+
 " Ctrl + U or E will move up/down the view port without moving the cursor
-noremap <C-i> 5<C-y>
-noremap <C-k> 5<C-e>
+" noremap <C-i> 5<C-y>
+" noremap <C-k> 5<C-e>
 
 
 " Resize splits with arrow keys
-noremap <up> :res +5<CR>
-noremap <down> :res -5<CR>
+noremap <up> :res -5<CR>
+noremap <down> :res +5<CR>
 noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
 
@@ -99,12 +106,26 @@ noremap <C-l> :+tabnext<CR>
 
 " Search
 noremap <LEADER><CR> :nohlsearch<CR>
-
+" Opening a terminal window
+" noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
 
 " plugin
 call plug#begin('~/AppData/Local/nvim/plugged')
+" dress up
 Plug 'theniceboy/vim-deus'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" terminal
+Plug 'skywind3000/vim-terminal-help'
+
+Plug 'skywind3000/asynctasks.vim'
+Plug 'skywind3000/asyncrun.vim'
+
+Plug 'gcmt/wildfire.vim'
+
+" web
+Plug 'othree/html5.vim'
+Plug 'alvan/vim-closetag'
 
 " statusline
 Plug 'theniceboy/eleline.vim'
@@ -112,6 +133,14 @@ Plug 'ojroques/vim-scrollstatus'
 let g:scrollstatus_size = 15
 call plug#end()
 
+" ===
+" === terminalHelp
+" ===
+let g:terminal_shell = 'pwsh'
+
+
+let g:closetag_filetypes = 'html,jsx,tsx'
+let g:closetag_xhtml_filetypes = 'html,tsx,jsx'
 
 " ===
 " === coc.nvim 
@@ -121,7 +150,9 @@ let g:coc_global_extensions = ['coc-json',
 			\ 'coc-html',
 			\ 'coc-css',
 			\ 'coc-tsserver',
-			\ 'coc-explorer']
+			\ 'coc-explorer',
+			\ 'coc-rust-analyzer',
+			\ 'coc-rls']
 function! Show_documentation()
 	call CocActionAsync('highlight')
 	if (index(['vim','help'], &filetype) >= 0)
@@ -130,7 +161,8 @@ function! Show_documentation()
 		call CocAction('doHover')
 	endif
 endfunction
-nnoremap <LEADER>o :call Show_documentation()<CR>
+nnoremap <c-h> :call Show_documentation()<CR>
+nnoremap <c-p> <c-^>
 inoremap <silent><expr> <TAB>
 	\ pumvisible() ? "\<C-n>" :
 	\ <SID>check_back_space() ? "\<TAB>" :
@@ -138,6 +170,10 @@ inoremap <silent><expr> <TAB>
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 noremap tt :CocCommand explorer<CR>
 
