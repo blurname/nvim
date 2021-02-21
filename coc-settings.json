@@ -1,5 +1,7 @@
 {
 	"coc.preferences.hoverTarget": "preview",
+	//"list.nextKeymap": "<C-k>",
+	//"list.previousKeymap": "<C-i>",
 	"suggest.noselect": true,
 	"suggest.enablePreselect": false,
 	"suggest.triggerAfterInsertEnter": true,
@@ -34,6 +36,7 @@
 		"value": "\uf89f",
 		"variable": "\ue71b"
 	},
+	"html.autoClosingTags": true,
 	"coc.preferences.formatOnSaveFiletypes": [
 		"javascript",
 		"typescript",
@@ -46,6 +49,17 @@
 		"c",
 		"rust"
 	],
+	// "diagnostic.signOffset": 1,
+	"diagnostic.errorSign": "\uf467",
+	"diagnostic.warningSign": "\uf071",
+	"diagnostic.infoSign": "\uf129",
+	"diagnostic.hintSign": "\uf864",
+	"diagnostic.displayByAle": false,
+	"diagnostic.refreshOnInsertMode": false,
+	//"diagnostic.refreshAfterSave": false,
+	"diagnostic.checkCurrentLine": true,
+	"diagnostic.virtualTextPrefix": " ❯❯❯ ",
+	"diagnostic.virtualText": true,
 	"explorer.file.showHiddenFiles": true,
 	"explorer.keyMappingMode": "none",
 	"explorer.keyMappings.global": {
@@ -68,5 +82,7 @@
 		"<tab>": "actionMenu"
 	},
 	"typescript.suggest.enabled": true,
-	"typescript.suggestionActions.enabled": true
+	"typescript.suggestionActions.enabled": true,
+	"javascript.suggest.enabled": true,
+	"javascript.suggestionActions.enabled": true
 }

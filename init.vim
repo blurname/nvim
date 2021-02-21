@@ -1,10 +1,8 @@
-
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set t_Co=256
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
 "set background=dark    " Setting dark mode
 colors deus
 let g:deus_termcolors=256
@@ -30,7 +28,8 @@ set shiftwidth=2
 set softtabstop=2
 set foldenable
 set autoindent
-
+set ttimeoutlen=0
+set notimeout
 " Save & quit
 noremap Q :q<CR>
 noremap <C-q> :qa<CR>
@@ -53,7 +52,6 @@ noremap W 5w
 noremap B 5b
 noremap J 0
 noremap L $
-
 " Copy to system clipboard
 vnoremap Y "+y
 
@@ -61,6 +59,8 @@ vnoremap Y "+y
 " Ctrl + U or E will move up/down the view port without moving the cursor
 " noremap <C-i> 5<C-y>
 " noremap <C-k> 5<C-e>
+
+"source $XDG_CONFIG_HOME/nvim/cursor.vim
 
 
 " Resize splits with arrow keys
@@ -91,7 +91,6 @@ noremap sl :set splitright<CR>:vsplit<CR>
 noremap <LEADER>q <C-w>j:q<CR>
 
 
-
 " ===
 " === Tab management
 " ===
@@ -107,7 +106,6 @@ noremap <C-l> :+tabnext<CR>
 " Search
 noremap <LEADER><CR> :nohlsearch<CR>
 " Opening a terminal window
-" noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
 
 " plugin
 call plug#begin('~/AppData/Local/nvim/plugged')
@@ -124,12 +122,14 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'gcmt/wildfire.vim'
 
 " web
-Plug 'othree/html5.vim'
-Plug 'alvan/vim-closetag'
+" Plug 'alvan/vim-closetag'
 
 " statusline
 Plug 'theniceboy/eleline.vim'
 Plug 'ojroques/vim-scrollstatus'
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'tomtom/tcomment_vim'
 let g:scrollstatus_size = 15
 call plug#end()
 
@@ -140,7 +140,7 @@ let g:terminal_shell = 'pwsh'
 
 
 let g:closetag_filetypes = 'html,jsx,tsx'
-let g:closetag_xhtml_filetypes = 'html,tsx,jsx'
+let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
 
 " ===
 " === coc.nvim 
@@ -152,7 +152,9 @@ let g:coc_global_extensions = ['coc-json',
 			\ 'coc-tsserver',
 			\ 'coc-explorer',
 			\ 'coc-rust-analyzer',
-			\ 'coc-rls']
+			\ 'coc-rls',
+			\ 'coc-yank',
+			\ 'coc-emmet']
 function! Show_documentation()
 	call CocActionAsync('highlight')
 	if (index(['vim','help'], &filetype) >= 0)
@@ -169,7 +171,10 @@ inoremap <silent><expr> <TAB>
 	\ coc#refresh()
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
 inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~# '\s'
@@ -177,3 +182,21 @@ endfunction
 
 noremap tt :CocCommand explorer<CR>
 
+"comments map
+nmap <LEADER>cl g>c
+vmap <LEADER>cl g>
+nmap <LEADER>cj g<c
+vmap <LEADER>cj g<
+
+
+" Useful commands
+nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
+" ===
+" === asyncrun ===
+" ===
+noremap <silent><f5> :AsyncTask file-build<cr>
+noremap <silent><f6> :AsyncTask file-run<cr>
+noremap <silent><f7> :AsyncTask project-build<cr>
+noremap <silent><f10> :AsyncTask project-run<cr>
+let g:asynctasks_term_pos = 'bottom'
+let g:asyncrun_open = 6
