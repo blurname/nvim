@@ -1,11 +1,12 @@
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set t_Co=256
-set termguicolors
+" set background=dark    " Setting dark mode
+colors deus
+" LuciusLightLowContrast
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"set background=dark    " Setting dark mode
-colors deus
 let g:deus_termcolors=256
+set termguicolors
 
 " ===
 " === Basic Mappings
@@ -16,6 +17,7 @@ noremap ; :
 set exrc
 set secure
 set number
+set formatoptions
 set relativenumber
 set cursorline
 set ignorecase
@@ -29,7 +31,7 @@ set softtabstop=2
 set foldenable
 set autoindent
 set ttimeoutlen=0
-set notimeout
+"set notimeout
 " Save & quit
 noremap Q :q<CR>
 noremap <C-q> :qa<CR>
@@ -163,13 +165,15 @@ function! Show_documentation()
 		call CocAction('doHover')
 	endif
 endfunction
-nnoremap <c-h> :call Show_documentation()<CR>
-nnoremap <c-p> <c-^>
+noremap <C-h> <nop>
+nnoremap <C-h> :call Show_documentation()<CR>
+" nnoremap <c-p> <c-^>
 inoremap <silent><expr> <TAB>
 	\ pumvisible() ? "\<C-n>" :
 	\ <SID>check_back_space() ? "\<TAB>" :
 	\ coc#refresh()
-inoremap <silent><expr> <c-space> coc#refresh()
+
+inoremap <silent><expr> <C-h> coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
