@@ -40,19 +40,12 @@ noremap R :source $MYVIMRC<CR>
 " Open the vimrc file anytime
 noremap <LEADER>rc :e $MYVIMRC<CR>
 
-" Insert key
-noremap h i
-noremap H I
-
 " move key
-noremap j h
-noremap k j
-noremap i k
-noremap K 5j
-noremap I 5k
+noremap J 5j
+noremap K 5k
 noremap W 5w
 noremap B 5b
-noremap J 0
+noremap H 0
 noremap L $
 " Copy to system clipboard
 vnoremap Y "+y
@@ -79,15 +72,15 @@ noremap = n
 " ===
 " === Use <space> + new arrow keys for moving the cursor around windows
 " ===
-noremap <LEADER>i <C-w>k
-noremap <LEADER>k <C-w>j
-noremap <LEADER>j <C-w>h
+noremap <LEADER>k <C-w>k
+noremap <LEADER>j <C-w>j
+noremap <LEADER>h <C-w>h
 noremap <LEADER>l <C-w>l
 
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
-noremap si :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
-noremap sk :set splitbelow<CR>:split<CR>
-noremap sj :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
+noremap sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
+noremap sj :set splitbelow<CR>:split<CR>
+noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 noremap sl :set splitright<CR>:vsplit<CR>
 " Press <SPACE> + q to close the window below the current window
 noremap <LEADER>q <C-w>j:q<CR>
@@ -99,7 +92,7 @@ noremap <LEADER>q <C-w>j:q<CR>
 " Create a new tab with tu
 noremap tl :tabe<CR>
 " Move around tabs with tn and ti
-noremap <C-j> :-tabnext<CR>
+noremap <C-h> :-tabnext<CR>
 noremap <C-l> :+tabnext<CR>
 " Move the tabs with tmn and tmi
 " noremap tmn :-tabmove<CR>
@@ -109,6 +102,8 @@ noremap <C-l> :+tabnext<CR>
 noremap <LEADER><CR> :nohlsearch<CR>
 " Opening a terminal window
 
+
+let g:plug_url_format = 'https://git::@github.com.cnpmjs.org/%s.git'
 " plugin
 call plug#begin('~/AppData/Local/nvim/plugged')
 " dress up
@@ -189,8 +184,8 @@ noremap tt :CocCommand explorer<CR>
 "comments map
 nmap <LEADER>cl g>c
 vmap <LEADER>cl g>
-nmap <LEADER>cj g<c
-vmap <LEADER>cj g<
+nmap <LEADER>ch g<c
+vmap <LEADER>ch g<
 
 
 " Useful commands
