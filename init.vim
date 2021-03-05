@@ -13,7 +13,7 @@ set termguicolors
 " ===
 " Set <LEADER> as <SPACE>, ; as :
 let mapleader =" "
-noremap ; :
+" noremap ; :
 set exrc
 set secure
 set number
@@ -127,9 +127,15 @@ Plug 'ojroques/vim-scrollstatus'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'tomtom/tcomment_vim'
+Plug 'justinmk/vim-sneak'
 let g:scrollstatus_size = 15
 call plug#end()
-
+"
+"
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+"
+"
 " ===
 " === terminalHelp
 " ===
