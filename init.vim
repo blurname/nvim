@@ -18,7 +18,6 @@ set exrc
 set secure
 set number
 set formatoptions
-set relativenumber
 set cursorline
 set ignorecase
 set smartcase
@@ -66,8 +65,8 @@ noremap <right> :vertical resize+5<CR>
 
 " searching
 " ===
-noremap - N
-noremap = n
+" noremap - N
+" noremap = n
 
 " ===
 " === Use <space> + new arrow keys for moving the cursor around windows
@@ -117,6 +116,7 @@ Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
 
 Plug 'gcmt/wildfire.vim'
+" Plug 'Yggdroot/LeaderF',{'do':':LeaderfInstallCExtension'}
 
 " web
 " Plug 'alvan/vim-closetag'
@@ -133,7 +133,7 @@ call plug#end()
 " ===
 " === terminalHelp
 " ===
-let g:terminal_shell = 'pwsh'
+let g:terminal_shell = 'zsh'
 
 
 let g:closetag_filetypes = 'html,jsx,tsx'
@@ -199,3 +199,6 @@ noremap <silent><f7> :AsyncTask project-build<cr>
 noremap <silent><f10> :AsyncTask project-run<cr>
 let g:asynctasks_term_pos = 'bottom'
 let g:asyncrun_open = 6
+
+
+" let g:Lf_WindowPosition = 'popup'
