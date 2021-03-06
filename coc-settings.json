@@ -1,7 +1,5 @@
 {
 	"coc.preferences.hoverTarget": "preview",
-	//"list.nextKeymap": "<C-k>",
-	//"list.previousKeymap": "<C-i>",
 	"suggest.noselect": true,
 	"suggest.enablePreselect": false,
 	"suggest.triggerAfterInsertEnter": true,

@@ -1,13 +1,12 @@
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set t_Co=256
 " set background=dark    " Setting dark mode
-colors deus
-" LuciusLightLowContrast
+
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:deus_termcolors=256
 set termguicolors
-
+colorscheme deus
 " ===
 " === Basic Mappings
 " ===
@@ -104,32 +103,20 @@ noremap <LEADER><CR> :nohlsearch<CR>
 
 let g:plug_url_format = 'https://git::@github.com.cnpmjs.org/%s.git'
 " plugin
-call plug#begin('~/AppData/Local/nvim/plugged')
-" dress up
-Plug 'theniceboy/vim-deus'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" terminal
-Plug 'skywind3000/vim-terminal-help'
-
-Plug 'skywind3000/asynctasks.vim'
-Plug 'skywind3000/asyncrun.vim'
-
-Plug 'gcmt/wildfire.vim'
-" Plug 'Yggdroot/LeaderF',{'do':':LeaderfInstallCExtension'}
-
-" web
-" Plug 'alvan/vim-closetag'
-
-" statusline
-Plug 'theniceboy/eleline.vim'
-Plug 'ojroques/vim-scrollstatus'
-
-Plug 'jiangmiao/auto-pairs'
-Plug 'tomtom/tcomment_vim'
-Plug 'justinmk/vim-sneak'
-let g:scrollstatus_size = 15
+call plug#begin('~/.vim/bundle/')
+ Plug 'neoclide/coc.nvim', {'branch': 'release'}
+ Plug 'skywind3000/vim-terminal-help'
+ Plug 'skywind3000/asynctasks.vim'
+ Plug 'skywind3000/asyncrun.vim'
+ Plug 'gcmt/wildfire.vim'
+ Plug 'Yggdroot/LeaderF',{'do':':LeaderfInstallCExtension'}
+ Plug 'theniceboy/eleline.vim'
+ Plug 'ojroques/vim-scrollstatus'
+ Plug 'jiangmiao/auto-pairs'
+ Plug 'tomtom/tcomment_vim'
+ Plug 'justinmk/vim-sneak'
 call plug#end()
+let g:scrollstatus_size = 15
 "
 "
 map f <Plug>Sneak_f
@@ -174,11 +161,14 @@ inoremap <silent><expr> <TAB>
 	\ <SID>check_back_space() ? "\<TAB>" :
 	\ coc#refresh()
 
-inoremap <silent><expr> <C-h> coc#refresh()
+inoremap <silent><expr> <C-i> coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 function! s:check_back_space() abort
 	let col = col('.') - 1
@@ -206,5 +196,7 @@ noremap <silent><f10> :AsyncTask project-run<cr>
 let g:asynctasks_term_pos = 'bottom'
 let g:asyncrun_open = 6
 
-
-" let g:Lf_WindowPosition = 'popup'
+" Leaderf
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_ShortcutF = "<leader>ff"
