@@ -6,7 +6,7 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:deus_termcolors=256
 set termguicolors
-colorscheme deus
+lua require('zephyr')
 " ===
 " === Basic Mappings
 " ===
@@ -115,6 +115,8 @@ call plug#begin('~/.vim/bundle/')
  Plug 'jiangmiao/auto-pairs'
  Plug 'tomtom/tcomment_vim'
  Plug 'justinmk/vim-sneak'
+ Plug 'glepnir/zephyr-nvim'
+ Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
 let g:scrollstatus_size = 15
 "
