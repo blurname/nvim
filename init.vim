@@ -16,7 +16,7 @@ let mapleader =" "
 set exrc
 set secure
 set number
-set formatoptions
+" set formatoptions
 set cursorline
 set ignorecase
 set smartcase
@@ -200,3 +200,4 @@ let g:asyncrun_open = 6
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_ShortcutF = "<leader>ff"
+let g:Lf_fuzzyEngine_C = 1
