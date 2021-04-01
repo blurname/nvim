@@ -5,8 +5,10 @@ set t_Co=256
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:deus_termcolors=256
+colorscheme deus
 set termguicolors
-lua require('zephyr')
+"" lua require('zephyr')
+" lua require('myline')
 " ===
 " === Basic Mappings
 " ===
@@ -16,6 +18,7 @@ let mapleader =" "
 set exrc
 set secure
 set number
+set relativenumber
 " set formatoptions
 set cursorline
 set ignorecase
@@ -34,13 +37,11 @@ set ttimeoutlen=0
 noremap Q :q<CR>
 noremap <C-q> :qa<CR>
 noremap S :w<CR>
-noremap R :source $MYVIMRC<CR>
+noremap <LEADER>re :source $MYVIMRC<CR>
 " Open the vimrc file anytime
 noremap <LEADER>rc :e $MYVIMRC<CR>
 
 " move key
-noremap J 5j
-noremap K 5k
 noremap W 5w
 noremap B 5b
 noremap H 0
@@ -61,7 +62,6 @@ noremap <up> :res -5<CR>
 noremap <down> :res +5<CR>
 noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
-
 " searching
 " ===
 " noremap - N
@@ -87,21 +87,21 @@ noremap <LEADER>q <C-w>j:q<CR>
 " ===
 " === Tab management
 " ===
-" Create a new tab with tu
+" Create a new tab with tl
 noremap tl :tabe<CR>
 " Move around tabs with tn and ti
-noremap <C-h> :-tabnext<CR>
-noremap <C-l> :+tabnext<CR>
+noremap <C-k> :-tabnext<CR>
+noremap <C-j> :+tabnext<CR>
 " Move the tabs with tmn and tmi
 " noremap tmn :-tabmove<CR>
 " noremap tmi :+tabmove<CR>
 
 " Search
 noremap <LEADER><CR> :nohlsearch<CR>
-" Opening a terminal window
 
 
 let g:plug_url_format = 'https://git::@github.com.cnpmjs.org/%s.git'
+
 " plugin
 call plug#begin('~/.vim/bundle/')
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -111,12 +111,15 @@ call plug#begin('~/.vim/bundle/')
  Plug 'gcmt/wildfire.vim'
  Plug 'Yggdroot/LeaderF',{'do':':LeaderfInstallCExtension'}
  Plug 'theniceboy/eleline.vim'
- Plug 'ojroques/vim-scrollstatus'
+"  Plug 'ojroques/vim-scrollstatus'
  Plug 'jiangmiao/auto-pairs'
  Plug 'tomtom/tcomment_vim'
  Plug 'justinmk/vim-sneak'
- Plug 'glepnir/zephyr-nvim'
+"  Plug 'glepnir/zephyr-nvim'
  Plug 'nvim-treesitter/nvim-treesitter'
+"  Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+" Plug 'kyazdani42/nvim-web-devicons'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 call plug#end()
 let g:scrollstatus_size = 15
 "
@@ -128,9 +131,11 @@ map F <Plug>Sneak_F
 " ===
 " === terminalHelp
 " ===
-let g:terminal_shell = 'zsh'
-
-
+if has('win32')
+  let g:terminal_shell = 'powershell'
+else
+  let g:terminal_shell = 'zsh'
+endif
 let g:closetag_filetypes = 'html,jsx,tsx'
 let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
 
@@ -155,18 +160,18 @@ function! Show_documentation()
 		call CocAction('doHover')
 	endif
 endfunction
-noremap <C-h> <nop>
+inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <C-h> :call Show_documentation()<CR>
 " nnoremap <c-p> <c-^>
 inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ coc#refresh()
-
-inoremap <silent><expr> <C-i> coc#refresh()
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -178,6 +183,12 @@ function! s:check_back_space() abort
 endfunction
 
 noremap tt :CocCommand explorer<CR>
+
+
+" You will have to run :CHADdeps when installing / updating.
+nnoremap <leader>v <cmd>CHADopen<cr>
+
+
 
 "comments map
 nmap <LEADER>cl g>c
