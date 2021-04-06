@@ -5,9 +5,9 @@ set t_Co=256
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:deus_termcolors=256
-colorscheme deus
+colorscheme nord
 set termguicolors
-hi Normal guibg=NONE ctermbg=NONE
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 "" lua require('zephyr')
 " lua require('myline')
 " ===
@@ -48,8 +48,8 @@ noremap B 5b
 noremap H 0
 noremap L $
 " Copy to system clipboard
-vnoremap Y "+y
-
+vnoremap <LEADER>y "+y
+noremap <LEADER>p "+p
 
 " Ctrl + U or E will move up/down the view port without moving the cursor
 " noremap <C-i> 5<C-y>
@@ -105,22 +105,22 @@ let g:plug_url_format = 'https://git::@github.com.cnpmjs.org/%s.git'
 
 " plugin
 call plug#begin('~/.vim/bundle/')
- Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
  Plug 'skywind3000/vim-terminal-help'
  Plug 'skywind3000/asynctasks.vim'
  Plug 'skywind3000/asyncrun.vim'
  Plug 'gcmt/wildfire.vim'
- Plug 'Yggdroot/LeaderF',{'do':':LeaderfInstallCExtension'}
- Plug 'theniceboy/eleline.vim'
+" Plug 'Yggdroot/LeaderF',{'do':':LeaderfInstallCExtension'}
+" Plug 'theniceboy/eleline.vim'
 "  Plug 'ojroques/vim-scrollstatus'
  Plug 'jiangmiao/auto-pairs'
  Plug 'tomtom/tcomment_vim'
- Plug 'justinmk/vim-sneak'
+" Plug 'justinmk/vim-sneak'
 "  Plug 'glepnir/zephyr-nvim'
- Plug 'nvim-treesitter/nvim-treesitter'
+"  Plug 'nvim-treesitter/nvim-treesitter'
 "  Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 " Plug 'kyazdani42/nvim-web-devicons'
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 call plug#end()
 let g:scrollstatus_size = 15
 "
@@ -143,47 +143,47 @@ let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
 " ===
 " === coc.nvim 
 " ===
-let g:coc_global_extensions = ['coc-json',
-			\ 'coc-vimlsp',
-			\ 'coc-html',
-			\ 'coc-css',
-			\ 'coc-tsserver',
-			\ 'coc-explorer',
-			\ 'coc-rust-analyzer',
-			\ 'coc-rls',
-			\ 'coc-yank',
-			\ 'coc-emmet']
-function! Show_documentation()
-	call CocActionAsync('highlight')
-	if (index(['vim','help'], &filetype) >= 0)
-		execute 'h '.expand('<cword>')
-	else
-		call CocAction('doHover')
-	endif
-endfunction
-inoremap <silent><expr> <c-space> coc#refresh()
-nnoremap <C-h> :call Show_documentation()<CR>
-" nnoremap <c-p> <c-^>
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-noremap tt :CocCommand explorer<CR>
+" let g:coc_global_extensions = ['coc-json',
+" 			\ 'coc-vimlsp',
+" 			\ 'coc-html',
+" 			\ 'coc-css',
+" 			\ 'coc-tsserver',
+" 			\ 'coc-explorer',
+" 			\ 'coc-rust-analyzer',
+" 			\ 'coc-rls',
+" 			\ 'coc-yank',
+" 			\ 'coc-emmet']
+" function! Show_documentation()
+" 	call CocActionAsync('highlight')
+" 	if (index(['vim','help'], &filetype) >= 0)
+" 		execute 'h '.expand('<cword>')
+" 	else
+" 		call CocAction('doHover')
+" 	endif
+" endfunction
+" inoremap <silent><expr> <c-space> coc#refresh()
+" nnoremap <C-h> :call Show_documentation()<CR>
+" " nnoremap <c-p> <c-^>
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+"                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"
+"
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
+"
+" function! s:check_back_space() abort
+" 	let col = col('.') - 1
+" 	return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
+"
+" noremap tt :CocCommand explorer<CR>
 
 
 " You will have to run :CHADdeps when installing / updating.
