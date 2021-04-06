@@ -7,6 +7,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:deus_termcolors=256
 colorscheme deus
 set termguicolors
+hi Normal guibg=NONE ctermbg=NONE
 "" lua require('zephyr')
 " lua require('myline')
 " ===
