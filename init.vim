@@ -8,8 +8,7 @@ let g:deus_termcolors=256
 colorscheme nord
 set termguicolors
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
-"" lua require('zephyr')
-" lua require('myline')
+lua require('plugins')
 " ===
 " === Basic Mappings
 " ===
@@ -33,6 +32,7 @@ set softtabstop=2
 set foldenable
 set autoindent
 set ttimeoutlen=0
+set modifiable
 "set notimeout
 " Save & quit
 noremap Q :q<CR>
@@ -71,10 +71,8 @@ noremap <right> :vertical resize+5<CR>
 " ===
 " === Use <space> + new arrow keys for moving the cursor around windows
 " ===
-noremap <LEADER>k <C-w>k
 noremap <LEADER>j <C-w>j
-noremap <LEADER>h <C-w>h
-noremap <LEADER>l <C-w>l
+noremap <LEADER>k <C-w>k
 
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
 noremap sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
@@ -104,25 +102,23 @@ noremap <LEADER><CR> :nohlsearch<CR>
 let g:plug_url_format = 'https://git::@github.com.cnpmjs.org/%s.git'
 
 " plugin
-call plug#begin('~/.vim/bundle/')
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
- Plug 'skywind3000/vim-terminal-help'
- Plug 'skywind3000/asynctasks.vim'
- Plug 'skywind3000/asyncrun.vim'
- Plug 'gcmt/wildfire.vim'
-" Plug 'Yggdroot/LeaderF',{'do':':LeaderfInstallCExtension'}
+ call plug#begin('~/.vim/bundle/')
+"  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"  Plug 'skywind3000/vim-terminal-help'
+"  Plug 'skywind3000/asynctasks.vim'
+"  Plug 'skywind3000/asyncrun.vim'
+"  Plug 'gcmt/wildfire.vim'
+"  Plug 'Yggdroot/LeaderF',{'do':':LeaderfInstallCExtension'}
 " Plug 'theniceboy/eleline.vim'
-"  Plug 'ojroques/vim-scrollstatus'
- Plug 'jiangmiao/auto-pairs'
- Plug 'tomtom/tcomment_vim'
+"  Plug 'jiangmiao/auto-pairs'
+"  Plug 'tomtom/tcomment_vim'
 " Plug 'justinmk/vim-sneak'
 "  Plug 'glepnir/zephyr-nvim'
 "  Plug 'nvim-treesitter/nvim-treesitter'
 "  Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 " Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
-call plug#end()
-let g:scrollstatus_size = 15
+ call plug#end()
 "
 "
 map f <Plug>Sneak_f
@@ -135,7 +131,7 @@ map F <Plug>Sneak_F
 if has('win32')
   let g:terminal_shell = 'powershell'
 else
-  let g:terminal_shell = 'zsh'
+  let g:terminal_shell = 'bash'
 endif
 let g:closetag_filetypes = 'html,jsx,tsx'
 let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
@@ -143,47 +139,47 @@ let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
 " ===
 " === coc.nvim 
 " ===
-" let g:coc_global_extensions = ['coc-json',
-" 			\ 'coc-vimlsp',
-" 			\ 'coc-html',
-" 			\ 'coc-css',
-" 			\ 'coc-tsserver',
-" 			\ 'coc-explorer',
-" 			\ 'coc-rust-analyzer',
-" 			\ 'coc-rls',
-" 			\ 'coc-yank',
-" 			\ 'coc-emmet']
-" function! Show_documentation()
-" 	call CocActionAsync('highlight')
-" 	if (index(['vim','help'], &filetype) >= 0)
-" 		execute 'h '.expand('<cword>')
-" 	else
-" 		call CocAction('doHover')
-" 	endif
-" endfunction
-" inoremap <silent><expr> <c-space> coc#refresh()
-" nnoremap <C-h> :call Show_documentation()<CR>
-" " nnoremap <c-p> <c-^>
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-"                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-"
-"
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
-"
-" function! s:check_back_space() abort
-" 	let col = col('.') - 1
-" 	return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
-"
-" noremap tt :CocCommand explorer<CR>
+let g:coc_global_extensions = ['coc-json',
+			\ 'coc-vimlsp',
+			\ 'coc-html',
+			\ 'coc-css',
+			\ 'coc-tsserver',
+			\ 'coc-explorer',
+			\ 'coc-rust-analyzer',
+			\ 'coc-rls',
+			\ 'coc-yank',
+			\ 'coc-emmet']
+function! Show_documentation()
+	call CocActionAsync('highlight')
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	else
+		call CocAction('doHover')
+	endif
+endfunction
+inoremap <silent><expr> <c-space> coc#refresh()
+nnoremap <C-h> :call Show_documentation()<CR>
+" nnoremap <c-p> <c-^>
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+noremap tt :CocCommand explorer<CR>
 
 
 " You will have to run :CHADdeps when installing / updating.
@@ -215,3 +211,4 @@ let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_ShortcutF = "<leader>ff"
 let g:Lf_fuzzyEngine_C = 1
+let g:Lf_StlColorscheme = 'one'

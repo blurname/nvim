@@ -6,12 +6,12 @@ local colors = {
   bg = '#282c34',
   yellow = '#fabd2f',
   cyan = '#008080',
-  darkblue = '#081633',
+  darkblue = '#4c566a',
   green = '#afd700',
   orange = '#FF8800',
-  purple = '#5d4d7a',
-  magenta = '#d16d9e',
-  grey = '#c0c0c0',
+  purple = '#88c0d0',
+  magenta = '#d8dee9',
+  grey = '#3b4252',
   blue = '#0087d7',
   red = '#ec5f67'
 }
@@ -23,35 +23,35 @@ local buffer_not_empty = function()
   return false
 end
 
-gls.left[1] = {
-  FirstElement = {
-    provider = function() return '▋' end,
-    highlight = {colors.blue,colors.yellow}
-  },
-}
-gls.left[2] = {
-  ViMode = {
-    provider = function()
-      local alias = {n = 'NORMAL',i = 'INSERT',c= 'COMMAND',V= 'VISUAL', [''] = 'VISUAL'}
-      return alias[vim.fn.mode()]
-    end,
-    separator = '',
-    separator_highlight = {colors.yellow,function()
-      if not buffer_not_empty() then
-        return colors.purple
-      end
-      return colors.darkblue
-    end},
-    highlight = {colors.magenta,colors.yellow,'bold'},
-  },
-}
-gls.left[3] ={
-  FileIcon = {
-    provider = 'FileIcon',
-    condition = buffer_not_empty,
-    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.darkblue},
-  },
-}
+-- gls.left[1] = {
+--   FirstElement = {
+--     provider = function() return '▋' end,
+--     highlight = {colors.blue,colors.yellow}
+--   },
+-- }
+-- gls.left[2] = {
+--   ViMode = {
+--     provider = function()
+--       local alias = {n = 'NORMAL',i = 'INSERT',c= 'COMMAND',V= 'VISUAL', [''] = 'VISUAL'}
+--       return alias[vim.fn.mode()]
+--     end,
+--     separator = '',
+--     separator_highlight = {colors.yellow,function()
+--       if not buffer_not_empty() then
+--         return colors.purple
+--       end
+--       return colors.darkblue
+--     end},
+--     highlight = {colors.magenta,colors.yellow,'bold'},
+--   },
+-- }
+-- gls.left[3] ={
+--   FileIcon = {
+--     provider = 'FileIcon',
+--     condition = buffer_not_empty,
+--     highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.darkblue},
+--   },
+-- }
 gls.left[4] = {
   FileName = {
     provider = {'FileName','FileSize'},
@@ -157,7 +157,7 @@ gls.right[3] = {
     provider = 'LinePercent',
     separator = '',
     separator_highlight = {colors.darkblue,colors.purple},
-    highlight = {colors.grey,colors.darkblue},
+    highlight = {colors.yellow,colors.darkblue},
   }
 }
 gls.right[4] = {
