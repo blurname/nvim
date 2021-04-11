@@ -6,22 +6,23 @@
 -- vim._update_package_paths()
 
 return require('packer').startup(function()
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-	 use 'tomtom/tcomment_vim'
-	 use 'jiangmiao/auto-pairs'
-	 use 'gcmt/wildfire.vim'
-   use 'skywind3000/vim-terminal-help'
-   use 'skywind3000/asynctasks.vim'
-   use 'skywind3000/asyncrun.vim'
-   use {
-     'glepnir/galaxyline.nvim', branch = 'main', config = function() require'myline' end,
-     requires = {'kyazdani42/nvim-web-devicons'}
-   }
-  
-   use {'neoclide/coc.nvim', branch = 'release'}
-	 use {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'} 
+	-- Packer can manage itself
+	use 'wbthomason/packer.nvim'
+	use 'tomtom/tcomment_vim'
+	use 'jiangmiao/auto-pairs'
+	use 'gcmt/wildfire.vim'
+	use 'skywind3000/vim-terminal-help'
+	use 'skywind3000/asynctasks.vim'
+	use 'skywind3000/asyncrun.vim'
+	use 'norcalli/nvim-colorizer.lua'
+	use {
+		'glepnir/galaxyline.nvim', branch = 'main', config = function() require'myline' end,
+		requires = {'kyazdani42/nvim-web-devicons'}
+	}
 
+	use {'neoclide/coc.nvim', branch = 'release'}
+	use {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'} 
+	use {'tpope/vim-surround'}
 	
 
 

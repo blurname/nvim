@@ -32,10 +32,34 @@ local function try_loadstring(s, component, name)
 end
 
 _G.packer_plugins = {
+  LeaderF = {
+    loaded = true,
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/LeaderF"
+  },
+  ["asyncrun.vim"] = {
+    loaded = true,
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/asyncrun.vim"
+  },
+  ["asynctasks.vim"] = {
+    loaded = true,
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/asynctasks.vim"
+  },
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/auto-pairs"
+  },
+  ["coc.nvim"] = {
+    loaded = true,
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/coc.nvim"
+  },
   ["galaxyline.nvim"] = {
     config = { "\27LJ\1\2&\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\vmyline\frequire\0" },
     loaded = true,
     path = "/home/b/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+  },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -44,6 +68,22 @@ _G.packer_plugins = {
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/b/.local/share/nvim/site/pack/packer/start/packer.nvim"
+  },
+  tcomment_vim = {
+    loaded = true,
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/tcomment_vim"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/vim-surround"
+  },
+  ["vim-terminal-help"] = {
+    loaded = true,
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/vim-terminal-help"
+  },
+  ["wildfire.vim"] = {
+    loaded = true,
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/wildfire.vim"
   }
 }
 

@@ -12,7 +12,6 @@ lua require('plugins')
 " ===
 " === Basic Mappings
 " ===
-" Set <LEADER> as <SPACE>, ; as :
 let mapleader =" "
 " noremap ; :
 set exrc
@@ -31,13 +30,13 @@ set shiftwidth=2
 set softtabstop=2
 set foldenable
 set autoindent
-set ttimeoutlen=0
+" set ttimeoutlen=0
 set modifiable
 "set notimeout
 " Save & quit
-noremap Q :q<CR>
-noremap <C-q> :qa<CR>
-noremap S :w<CR>
+noremap <C-q> :q<CR>
+noremap <C-s> :w<CR>
+noremap s <nop>
 noremap <LEADER>re :source $MYVIMRC<CR>
 " Open the vimrc file anytime
 noremap <LEADER>rc :e $MYVIMRC<CR>
@@ -51,22 +50,12 @@ noremap L $
 vnoremap <LEADER>y "+y
 noremap <LEADER>p "+p
 
-" Ctrl + U or E will move up/down the view port without moving the cursor
-" noremap <C-i> 5<C-y>
-" noremap <C-k> 5<C-e>
-
-"source $XDG_CONFIG_HOME/nvim/cursor.vim
-
 
 " Resize splits with arrow keys
 noremap <up> :res -5<CR>
 noremap <down> :res +5<CR>
 noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
-" searching
-" ===
-" noremap - N
-" noremap = n
 
 " ===
 " === Use <space> + new arrow keys for moving the cursor around windows
@@ -99,26 +88,11 @@ noremap <C-j> :+tabnext<CR>
 noremap <LEADER><CR> :nohlsearch<CR>
 
 
-let g:plug_url_format = 'https://git::@github.com.cnpmjs.org/%s.git'
-
-" plugin
- call plug#begin('~/.vim/bundle/')
-"  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"  Plug 'skywind3000/vim-terminal-help'
-"  Plug 'skywind3000/asynctasks.vim'
-"  Plug 'skywind3000/asyncrun.vim'
-"  Plug 'gcmt/wildfire.vim'
-"  Plug 'Yggdroot/LeaderF',{'do':':LeaderfInstallCExtension'}
-" Plug 'theniceboy/eleline.vim'
-"  Plug 'jiangmiao/auto-pairs'
-"  Plug 'tomtom/tcomment_vim'
-" Plug 'justinmk/vim-sneak'
-"  Plug 'glepnir/zephyr-nvim'
-"  Plug 'nvim-treesitter/nvim-treesitter'
-"  Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
-" Plug 'kyazdani42/nvim-web-devicons'
-" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
- call plug#end()
+" let g:plug_url_format = 'https://git::@github.com.cnpmjs.org/%s.git'
+"
+" " plugin
+"  call plug#begin('~/.vim/bundle/')
+"  call plug#end()
 "
 "
 map f <Plug>Sneak_f
@@ -211,4 +185,4 @@ let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_ShortcutF = "<leader>ff"
 let g:Lf_fuzzyEngine_C = 1
-let g:Lf_StlColorscheme = 'one'
+let g:Lf_StlColorscheme = 'powerline'
