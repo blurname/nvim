@@ -62,6 +62,8 @@ noremap <right> :vertical resize+5<CR>
 " ===
 noremap <LEADER>j <C-w>j
 noremap <LEADER>k <C-w>k
+noremap <LEADER>h <C-w>h
+noremap <LEADER>l <C-w>l
 
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
 noremap sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
