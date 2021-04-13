@@ -5,7 +5,7 @@ set t_Co=256
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:deus_termcolors=256
-colorscheme nord
+colorscheme zephyr
 set termguicolors
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 lua require('plugins')
@@ -35,7 +35,7 @@ set modifiable
 "set notimeout
 " Save & quit
 noremap <C-q> :q<CR>
-noremap <C-s> :w<CR>
+noremap <LEADER>w :w<CR>
 noremap s <nop>
 noremap <LEADER>re :source $MYVIMRC<CR>
 " Open the vimrc file anytime
@@ -71,7 +71,7 @@ noremap sj :set splitbelow<CR>:split<CR>
 noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 noremap sl :set splitright<CR>:vsplit<CR>
 " Press <SPACE> + q to close the window below the current window
-noremap <LEADER>q <C-w>j:q<CR>
+noremap <LEADER>q <C-w>:q<CR>
 
 
 " ===
@@ -180,7 +180,7 @@ noremap <silent><f6> :AsyncTask file-run<cr>
 noremap <silent><f7> :AsyncTask project-build<cr>
 noremap <silent><f10> :AsyncTask project-run<cr>
 let g:asynctasks_term_pos = 'bottom'
-let g:asyncrun_open = 6
+let g:asyncrun_open = 3
 
 " Leaderf
 let g:Lf_WindowPosition = 'popup'

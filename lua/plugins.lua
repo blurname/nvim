@@ -8,20 +8,31 @@
 return require('packer').startup(function()
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
+
 	use 'tomtom/tcomment_vim'
 	use 'jiangmiao/auto-pairs'
+	-- press enter to selcet the whole
 	use 'gcmt/wildfire.vim'
+	-- asyncSeries
 	use 'skywind3000/vim-terminal-help'
 	use 'skywind3000/asynctasks.vim'
 	use 'skywind3000/asyncrun.vim'
+	-- themes
+	use 'glepnir/zephyr-nvim'
+	-- show color
 	use 'norcalli/nvim-colorizer.lua'
+	-- statusline
 	use {
 		'glepnir/galaxyline.nvim', branch = 'main', config = function() require'myline' end,
 		requires = {'kyazdani42/nvim-web-devicons'}
 	}
 
+	--coc
 	use {'neoclide/coc.nvim', branch = 'release'}
+	-- fuzzy file finder
 	use {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'} 
+
+	-- change surrounding symbol
 	use {'tpope/vim-surround'}
 	
 
