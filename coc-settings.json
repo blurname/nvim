@@ -1,5 +1,5 @@
 {
-	"coc.preferences.hoverTarget": "preview",
+	"coc.preferences.hoverTarget": "float",
 	"suggest.noselect": true,
 	"suggest.enablePreselect": false,
 	"suggest.triggerAfterInsertEnter": true,
@@ -14,7 +14,7 @@
 		"field": "  ",
 		"typeParameter": "<>",
 		"constant": "  ",
-		"class": " פּ ",
+		"class": " class ",
 		"interface": " 蘒",
 		"struct": "  ",
 		"event": " event ",

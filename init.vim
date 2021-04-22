@@ -107,7 +107,7 @@ map F <Plug>Sneak_F
 if has('win32')
   let g:terminal_shell = 'powershell'
 else
-  let g:terminal_shell = 'bash'
+  let g:terminal_shell = 'elvish'
 endif
 let g:closetag_filetypes = 'html,jsx,tsx'
 let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
@@ -125,16 +125,19 @@ let g:coc_global_extensions = ['coc-json',
 			\ 'coc-rls',
 			\ 'coc-yank',
 			\ 'coc-emmet']
-function! Show_documentation()
-	call CocActionAsync('highlight')
-	if (index(['vim','help'], &filetype) >= 0)
-		execute 'h '.expand('<cword>')
-	else
-		call CocAction('doHover')
-	endif
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
 endfunction
+
 inoremap <silent><expr> <c-space> coc#refresh()
-nnoremap <C-h> :call Show_documentation()<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 " nnoremap <c-p> <c-^>
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -149,6 +152,15 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+
+
 
 function! s:check_back_space() abort
 	let col = col('.') - 1
@@ -185,6 +197,8 @@ let g:asyncrun_open = 3
 " Leaderf
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
-let g:Lf_ShortcutF = "<leader>ff"
+let g:Lf_ShortcutF = "<leader>f"
 let g:Lf_fuzzyEngine_C = 1
-let g:Lf_StlColorscheme = 'powerline'
+let g:Lf_StlColorscheme = 'popup'
+let g:Lf_PopupColorscheme = 'default'
+let g:Lf_CursorBlink = 0
