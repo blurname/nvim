@@ -21,9 +21,10 @@ return require('packer').startup(function()
 	use 'glepnir/zephyr-nvim'
 	-- show color
 	use 'norcalli/nvim-colorizer.lua'
+  use 'equalsraf/neovim-gui-shim'
 	-- statusline
 	use {
-		'glepnir/galaxyline.nvim', branch = 'main', config = function() require'myline' end,
+		'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'myline' end,
 		requires = {'kyazdani42/nvim-web-devicons'}
 	}
 

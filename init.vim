@@ -7,7 +7,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:deus_termcolors=256
 colorscheme zephyr
 set termguicolors
-autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 lua require('plugins')
 " ===
 " === Basic Mappings
