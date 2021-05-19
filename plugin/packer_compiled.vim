@@ -91,10 +91,18 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\coc.nvim"
   },
+  edge = {
+    loaded = true,
+    path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\edge"
+  },
   ["galaxyline.nvim"] = {
     config = { "\27LJ\2\n&\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\vmyline\frequire\0" },
     loaded = true,
     path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\galaxyline.nvim"
+  },
+  ["neovim-gui-shim"] = {
+    loaded = true,
+    path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neovim-gui-shim"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
@@ -111,6 +119,14 @@ _G.packer_plugins = {
   tcomment_vim = {
     loaded = true,
     path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tcomment_vim"
+  },
+  ["vim-deus"] = {
+    loaded = true,
+    path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-deus"
+  },
+  ["vim-snippets"] = {
+    loaded = true,
+    path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-snippets"
   },
   ["vim-surround"] = {
     loaded = true,

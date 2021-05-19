@@ -18,9 +18,9 @@ if exists(':GuiPopupmenu')
 endif
 
 " Enable GUI ScrollBar
-if exists(':GuiScrollBar')
-    GuiScrollBar 1
-endif
+" if exists(':GuiScrollBar')
+"     GuiScrollBar 1
+" endif
 
 " Right Click Context Menu (Copy-Cut-Paste)
 nnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>

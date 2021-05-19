@@ -35,9 +35,10 @@ return require('packer').startup(function()
 
 	-- change surrounding symbol
 	use {'tpope/vim-surround'}
-	
+  use {'sainnhe/edge'}
+  use {'ajmwagar/vim-deus'}
 
-
+  use {'honza/vim-snippets'}
 
 
   -- Lazy loading:

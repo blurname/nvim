@@ -78,7 +78,8 @@
 		"R": "refresh",
 		"cw": "rename",
 		"dD": "deleteForever",
-		"<tab>": "actionMenu"
+		"<tab>": "actionMenu",
+		"P": "pasteFile"
 	},
 	"typescript.suggest.enabled": true,
 	"typescript.suggestionActions.enabled": true,

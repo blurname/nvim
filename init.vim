@@ -1,12 +1,14 @@
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set t_Co=256
 " set background=dark    " Setting dark mode
-
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:deus_termcolors=256
-colorscheme zephyr
+colorscheme edge
 set termguicolors
+set bg=light
+
+" let g:edge_style = 'aura'
 " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 lua require('plugins')
 " ===
@@ -124,7 +126,10 @@ let g:coc_global_extensions = ['coc-json',
 			\ 'coc-rust-analyzer',
 			\ 'coc-rls',
 			\ 'coc-yank',
-			\ 'coc-emmet']
+			\ 'coc-emmet',
+			\ 'coc-pyright',
+			\ 'coc-snippets']
+
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -153,12 +158,12 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
 
 
@@ -169,6 +174,8 @@ endfunction
 
 noremap tt :CocCommand explorer<CR>
 
+"coc snippets"
+imap <C-l> <Plug>(coc-snippets-expand) 
 
 " You will have to run :CHADdeps when installing / updating.
 nnoremap <leader>v <cmd>CHADopen<cr>
@@ -202,3 +209,29 @@ let g:Lf_fuzzyEngine_C = 1
 let g:Lf_StlColorscheme = 'popup'
 let g:Lf_PopupColorscheme = 'default'
 let g:Lf_CursorBlink = 0
+
+
+" auto save
+""" Save file on each edit exit
+function FileAutoSave()
+  if exists('g:file_autosave_async')
+    return
+  endif
+
+  if @% == ""
+    return
+  elseif !filewritable(@%)
+    return
+  endif
+
+
+  let g:file_autosave_async = 1
+  call timer_start(500, 'FileAutoSaveAsync', {'repeat': 1})
+endfunction
+
+function FileAutoSaveAsync(timer)
+  update
+  unlet g:file_autosave_async
+endfunction
+
+:autocmd InsertLeave,TextChanged * call FileAutoSave()
