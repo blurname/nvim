@@ -75,6 +75,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LeaderF"
   },
+  ["LeaderF-snippet"] = {
+    loaded = true,
+    path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LeaderF-snippet"
+  },
   ["asyncrun.vim"] = {
     loaded = true,
     path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\asyncrun.vim"
@@ -120,13 +124,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tcomment_vim"
   },
+  ultisnips = {
+    loaded = true,
+    path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\ultisnips"
+  },
   ["vim-deus"] = {
     loaded = true,
     path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-deus"
-  },
-  ["vim-snippets"] = {
-    loaded = true,
-    path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-snippets"
   },
   ["vim-surround"] = {
     loaded = true,

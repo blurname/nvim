@@ -39,8 +39,11 @@ return require('packer').startup(function()
   use {'ajmwagar/vim-deus'}
 
   use {'honza/vim-snippets'}
-
-
+  use {'skywind3000/LeaderF-snippet'} 
+	use {'SirVer/ultisnips'}
+  use 'brooth/far.vim'
+  use 'justinmk/vim-sneak'
+	
   -- Lazy loading:
   -- Load on specific commands
   -- use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}

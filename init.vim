@@ -4,13 +4,15 @@ set t_Co=256
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:deus_termcolors=256
-colorscheme edge
+colorscheme deus
 set termguicolors
-set bg=light
+" set bg=light
 
 " let g:edge_style = 'aura'
 " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 lua require('plugins')
+source $HOME\AppData\Local\nvim\cursor.vim
+
 " ===
 " === Basic Mappings
 " ===
@@ -36,7 +38,6 @@ set autoindent
 set modifiable
 "set notimeout
 " Save & quit
-noremap <C-q> :q<CR>
 noremap <LEADER>w :w<CR>
 noremap s <nop>
 noremap <LEADER>re :source $MYVIMRC<CR>
@@ -82,8 +83,8 @@ noremap <LEADER>q <C-w>:q<CR>
 " Create a new tab with tl
 noremap tl :tabe<CR>
 " Move around tabs with tn and ti
-noremap <C-k> :-tabnext<CR>
-noremap <C-j> :+tabnext<CR>
+noremap tk :-tabnext<CR>
+noremap tj :+tabnext<CR>
 " Move the tabs with tmn and tmi
 " noremap tmn :-tabmove<CR>
 " noremap tmi :+tabmove<CR>
@@ -99,6 +100,10 @@ noremap <LEADER><CR> :nohlsearch<CR>
 "  call plug#end()
 "
 "
+"""""""""""
+"  Sneak  "
+"""""""""""
+
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
 "
@@ -127,8 +132,7 @@ let g:coc_global_extensions = ['coc-json',
 			\ 'coc-rls',
 			\ 'coc-yank',
 			\ 'coc-emmet',
-			\ 'coc-pyright',
-			\ 'coc-snippets']
+			\ 'coc-pyright',]
 
 
 function! s:show_documentation()
@@ -175,7 +179,11 @@ endfunction
 noremap tt :CocCommand explorer<CR>
 
 "coc snippets"
-imap <C-l> <Plug>(coc-snippets-expand) 
+" imap <C-l> <Plug>(coc-snippets-expand) 
+inoremap <C-l> <c-\><c-o>:Leaderf snippet<cr>
+
+let g:Lf_PreviewResult = get(g:, 'Lf_PreviewResult', {})
+let g:Lf_PreviewResult.snippet = 1
 
 " You will have to run :CHADdeps when installing / updating.
 nnoremap <leader>v <cmd>CHADopen<cr>
@@ -194,6 +202,7 @@ nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 " ===
 " === asyncrun ===
 " ===
+
 noremap <silent><f5> :AsyncTask file-build<cr>
 noremap <silent><f6> :AsyncTask file-run<cr>
 noremap <silent><f7> :AsyncTask project-build<cr>
@@ -233,5 +242,19 @@ function FileAutoSaveAsync(timer)
   update
   unlet g:file_autosave_async
 endfunction
+" :autocmd InsertLeave,TextChanged * call FileAutoSave()
 
-:autocmd InsertLeave,TextChanged * call FileAutoSave()
+
+
+"""""""""""""""
+"  Ultisnips  "
+"""""""""""""""
+
+
+let g:UltiSnipsExpandTrigger="<ab>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+
+
+" let g:far#source="rg"
+" let g:far#glob_mode="rg"
