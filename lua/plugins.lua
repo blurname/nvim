@@ -18,15 +18,20 @@ return require('packer').startup(function()
 	use 'skywind3000/asynctasks.vim'
 	use 'skywind3000/asyncrun.vim'
 	-- themes
+	
 	use 'glepnir/zephyr-nvim'
+  use {'sainnhe/edge'}
+  use {'ajmwagar/vim-deus'}
+	use 'sainnhe/everforest'
+
 	-- show color
 	use 'norcalli/nvim-colorizer.lua'
   use 'equalsraf/neovim-gui-shim'
 	-- statusline
 	use {
 		'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'myline' end,
-		requires = {'kyazdani42/nvim-web-devicons'}
 	}
+	use 'kyazdani42/nvim-web-devicons'
 
 	--coc
 	use {'neoclide/coc.nvim', branch = 'release'}
@@ -35,13 +40,14 @@ return require('packer').startup(function()
 
 	-- change surrounding symbol
 	use {'tpope/vim-surround'}
-  use {'sainnhe/edge'}
-  use {'ajmwagar/vim-deus'}
 
+	-- snippet
   use {'honza/vim-snippets'}
   use {'skywind3000/LeaderF-snippet'} 
 	use {'SirVer/ultisnips'}
+	-- replace
   use 'brooth/far.vim'
+	-- char search
   use 'justinmk/vim-sneak'
 	
   -- Lazy loading:

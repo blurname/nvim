@@ -46,8 +46,8 @@
 		"svelte",
 		"c",
 		"rust",
-		"tsx",
-		"jsx"
+		"javascriptreact",
+		"typescriptreact"
 	],
 	// "diagnostic.signOffset": 1,
 	"diagnostic.errorSign": "\uf467",
@@ -84,5 +84,24 @@
 	"typescript.suggest.enabled": true,
 	"typescript.suggestionActions.enabled": true,
 	"javascript.suggest.enabled": true,
-	"javascript.suggestionActions.enabled": true
+	"javascript.suggestionActions.enabled": true,
+	"languageserver": {
+		"haskell": {
+			"command": "haskell-language-server-wrapper",
+			"args": [
+				"--lsp"
+			],
+			"rootPatterns": [
+				"*.cabal",
+				"stack.yaml",
+				"cabal.project",
+				"package.yaml",
+				"hie.yaml"
+			],
+			"filetypes": [
+				"haskell",
+				"lhaskell"
+			]
+		}
+	}
 }
