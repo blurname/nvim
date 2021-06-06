@@ -33,9 +33,10 @@ set shiftwidth=2
 set softtabstop=2
 set foldenable
 set autoindent
-" set ttimeoutlen=0
+set ttimeoutlen=0
 set modifiable
-"set notimeout
+set signcolumn=number
+" set notimeout
 " Save & quit
 noremap <LEADER>w :w<CR>
 noremap s <nop>
@@ -130,7 +131,6 @@ let g:coc_global_extensions = ['coc-json',
 			\ 'coc-tsserver',
 			\ 'coc-explorer',
 			\ 'coc-rust-analyzer',
-			\ 'coc-rls',
 			\ 'coc-yank',
 			\ 'coc-emmet',
 			\ 'coc-pyright',]
@@ -163,12 +163,27 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(0.5) : "\<C-f>"
 nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0.5)\<cr>" : "\<Right>"
 inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(0.5) : "\<C-f>"
 vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>ac  <Plug>(coc-codeaction)
+
+" Show all diagnostics.
+nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 
 
 
@@ -182,9 +197,8 @@ noremap tt :CocCommand explorer<CR>
 "coc snippets"
 " imap <C-l> <Plug>(coc-snippets-expand) 
 inoremap <C-l> <c-\><c-o>:Leaderf snippet<cr>
+noremap <LEADER>fh :LeaderfHelp<CR>
 
-let g:Lf_PreviewResult = get(g:, 'Lf_PreviewResult', {})
-let g:Lf_PreviewResult.snippet = 1
 
 " You will have to run :CHADdeps when installing / updating.
 nnoremap <leader>v <cmd>CHADopen<cr>
@@ -200,6 +214,7 @@ vmap <LEADER>ch g<
 
 " Useful commands
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
+
 " ===
 " === asyncrun ===
 " ===
@@ -211,18 +226,36 @@ noremap <silent><f10> :AsyncTask project-run<cr>
 let g:asynctasks_term_pos = 'bottom'
 let g:asyncrun_open = 3
 
-" Leaderf
+"""""""""""""
+"  Leaderf  "
+"""""""""""""
+
+
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
-let g:Lf_ShortcutF = "<leader>f"
+let g:Lf_ShortcutF = "<leader>ff"
 let g:Lf_fuzzyEngine_C = 1
 let g:Lf_StlColorscheme = 'popup'
 let g:Lf_PopupColorscheme = 'default'
 let g:Lf_CursorBlink = 0
 
+let g:Lf_PreviewResult = get(g:, 'Lf_PreviewResult', {})
+let g:Lf_PreviewResult.snippet = 1
+let g:Lf_WildIgnore = {
+			\ 'dir': ['.svn','.git','.hg','node_modules'],
+			\ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+			\}
+
+let g:Lf_GtagsAutoGenerate = 1
+let g:Lf_Gtagslabel = 'native-pygments'
+noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
 " auto save
-""" Save file on each edit exit
+" Save file on each edit exit
 function FileAutoSave()
   if exists('g:file_autosave_async')
     return
@@ -243,7 +276,7 @@ function FileAutoSaveAsync(timer)
   update
   unlet g:file_autosave_async
 endfunction
-" :autocmd InsertLeave,TextChanged * call FileAutoSave()
+:autocmd InsertLeave,TextChanged * call FileAutoSave()
 
 
 

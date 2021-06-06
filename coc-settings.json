@@ -85,9 +85,10 @@
 	"typescript.suggestionActions.enabled": true,
 	"javascript.suggest.enabled": true,
 	"javascript.suggestionActions.enabled": true,
+	"rust-analyzer.server.path": "~/lsp/rust-analyzer",
 	"languageserver": {
 		"haskell": {
-			"command": "haskell-language-server-wrapper",
+			"command": "hls.exe",
 			"args": [
 				"--lsp"
 			],
