@@ -8,6 +8,7 @@ colorscheme everforest
 set termguicolors
 " set bg=light
 
+" set background=light
 " let g:edge_style = 'aura'
 " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 lua require('plugins')
@@ -196,12 +197,10 @@ noremap tt :CocCommand explorer<CR>
 
 "coc snippets"
 " imap <C-l> <Plug>(coc-snippets-expand) 
-inoremap <C-l> <c-\><c-o>:Leaderf snippet<cr>
-noremap <LEADER>fh :LeaderfHelp<CR>
 
 
 " You will have to run :CHADdeps when installing / updating.
-nnoremap <leader>v <cmd>CHADopen<cr>
+nnoremap <leader>v <cmd>NvimTreeToggle<cr>
 
 
 
@@ -226,6 +225,7 @@ noremap <silent><f10> :AsyncTask project-run<cr>
 let g:asynctasks_term_pos = 'bottom'
 let g:asyncrun_open = 3
 
+
 """""""""""""
 "  Leaderf  "
 """""""""""""
@@ -238,7 +238,9 @@ let g:Lf_fuzzyEngine_C = 1
 let g:Lf_StlColorscheme = 'popup'
 let g:Lf_PopupColorscheme = 'default'
 let g:Lf_CursorBlink = 0
+" let g:Lf_WorkingDirectory = finddir('.git', '.;')
 
+let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_PreviewResult = get(g:, 'Lf_PreviewResult', {})
 let g:Lf_PreviewResult.snippet = 1
 let g:Lf_WildIgnore = {
@@ -254,6 +256,9 @@ noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
 noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
+noremap <leader>fc :Leaderf cmdHistory<CR>
+inoremap <C-l> <c-\><c-o>:Leaderf snippet<CR>
+noremap <LEADER>fh :LeaderfHelp<CR>
 " auto save
 " Save file on each edit exit
 function FileAutoSave()
@@ -276,7 +281,7 @@ function FileAutoSaveAsync(timer)
   update
   unlet g:file_autosave_async
 endfunction
-:autocmd InsertLeave,TextChanged * call FileAutoSave()
+" :autocmd InsertLeave,TextChanged * call FileAutoSave()
 
 
 

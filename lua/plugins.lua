@@ -49,6 +49,9 @@ return require('packer').startup(function()
   use 'brooth/far.vim'
 	-- char search
   use 'justinmk/vim-sneak'
+
+	-- file-tree
+	use 'kyazdani42/nvim-tree.lua'
 	
   -- Lazy loading:
   -- Load on specific commands
