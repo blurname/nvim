@@ -52,6 +52,9 @@ return require('packer').startup(function()
 
 	-- file-tree
 	use 'kyazdani42/nvim-tree.lua'
+
+	-- auto-save 	
+	use "Pocco81/AutoSave.nvim"
 	
   -- Lazy loading:
   -- Load on specific commands

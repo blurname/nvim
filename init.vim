@@ -7,7 +7,7 @@ let g:deus_termcolors=256
 colorscheme everforest
 set termguicolors
 " set bg=light
-
+set bg=dark
 " set background=light
 " let g:edge_style = 'aura'
 " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
@@ -257,7 +257,7 @@ noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
 noremap <leader>fc :Leaderf cmdHistory<CR>
-inoremap <C-l> <c-\><c-o>:Leaderf snippet<CR>
+inoremap <C-j> <c-\><c-o>:Leaderf snippet<CR>
 noremap <LEADER>fh :LeaderfHelp<CR>
 " auto save
 " Save file on each edit exit
@@ -294,6 +294,9 @@ let g:UltiSnipsExpandTrigger="<ab>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
+""""""""""""""""""""""""""
+"  move the side window  "
+""""""""""""""""""""""""""
 
 " let g:far#source="rg"
 " let g:far#glob_mode="rg"
@@ -328,3 +331,29 @@ function! Tools_PreviousCursor(mode)
 endfunc
 nnoremap <M-u> call:Tools_PreviousCursor(0)
 nnoremap <M-d> call:Tools_PreviousCursor(1)
+
+
+"""""""""""""""""""
+"  AutoSave.nvim  "
+"""""""""""""""""""
+
+lua << EOF
+local autosave = require("autosave")
+
+autosave.setup(
+    {
+        enabled = true,
+        execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
+
+        events = {"InsertLeave"},
+        conditions = {
+            exists = true,
+            filetype_is_not = {},
+            modifiable = true
+        },
+        write_all_buffers = false,
+        on_off_commands = true,
+        clean_command_line_interval = 2500
+    }
+)
+EOF
