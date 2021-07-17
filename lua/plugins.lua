@@ -1,115 +1,60 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+return require('packer').startup({
+	config = {
+		opt_default = false,
+		git = {
+			default_url_format = 'https://github.com.cnpmjs.org/%s'
+		}
+	},
+	function()
+		-- Packer can manage itself
+		use {'wbthomason/packer.nvim'}
 
--- Only required if you have packer configured as `opt`
--- vim.cmd [[packadd packer.nvim]]
--- Only if your version of Neovim doesn't have https://github.com/neovim/neovim/pull/12632 merged
--- vim._update_package_paths()
+		use {'tomtom/tcomment_vim'}
+		use {'jiangmiao/auto-pairs'}
+		-- press enter to selcet the whole
+		use {'gcmt/wildfire.vim'}
+		-- asyncSeries
+		use {'skywind3000/vim-terminal-help'}
+		use {'skywind3000/asynctasks.vim'}
+		use {'skywind3000/asyncrun.vim'}
+		-- themes
 
-return require('packer').startup(function()
-	-- Packer can manage itself
-	use 'wbthomason/packer.nvim'
+		use {'glepnir/zephyr-nvim'}
+		use {'sainnhe/edge'}
+		use {'ajmwagar/vim-deus'}
+		use {'sainnhe/everforest'}
 
-	use 'tomtom/tcomment_vim'
-	use 'jiangmiao/auto-pairs'
-	-- press enter to selcet the whole
-	use 'gcmt/wildfire.vim'
-	-- asyncSeries
-	use 'skywind3000/vim-terminal-help'
-	use 'skywind3000/asynctasks.vim'
-	use 'skywind3000/asyncrun.vim'
-	-- themes
-	
-	use 'glepnir/zephyr-nvim'
-  use {'sainnhe/edge'}
-  use {'ajmwagar/vim-deus'}
-	use 'sainnhe/everforest'
+		-- show color
+		use {'norcalli/nvim-colorizer.lua'}
 
-	-- show color
-	use 'norcalli/nvim-colorizer.lua'
-  use 'equalsraf/neovim-gui-shim'
-	-- statusline
-	use {
-		'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'myline' end,
-	}
-	use 'kyazdani42/nvim-web-devicons'
+		use {'equalsraf/neovim-gui-shim'}
+		-- statusline
+		use	{'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'myline' end}
 
-	--coc
-	use {'neoclide/coc.nvim', branch = 'release'}
-	-- fuzzy file finder
-	use {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'} 
+		use {'kyazdani42/nvim-web-devicons'}
 
-	-- change surrounding symbol
-	use {'tpope/vim-surround'}
+		--coc
+		use {'neoclide/coc.nvim', branch = 'release'}
+		-- fuzzy file finder
+		use {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'} 
 
-	-- snippet
-  use {'honza/vim-snippets'}
-  use {'skywind3000/LeaderF-snippet'} 
-	use {'SirVer/ultisnips'}
-	-- replace
-  use 'brooth/far.vim'
-	-- char search
-  use 'justinmk/vim-sneak'
+		-- change surrounding symbol
+		use {'tpope/vim-surround'}
 
-	-- file-tree
-	use 'kyazdani42/nvim-tree.lua'
+		-- snippet
+		use {'honza/vim-snippets'}
+		use {'skywind3000/LeaderF-snippet',disable = false,} 
+		use {'SirVer/ultisnips',}
+		--
+		-- replace
+		use {'brooth/far.vim'}
+		-- char search
+		use {'justinmk/vim-sneak'}
 
-	-- auto-save 	
-	use "Pocco81/AutoSave.nvim"
-	
-  -- Lazy loading:
-  -- Load on specific commands
-  -- use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
+		-- file-tree
+		use {'kyazdani42/nvim-tree.lua'}
+		-- auto-save {	
+		use {'Pocco81/AutoSave.nvim'}
 
-  -- Load on an autocommand event
-  -- use {'andymass/vim-matchup', event = 'VimEnter'}
-
-  -- Load on a combination of conditions: specific filetypes or commands
-  -- Also run code after load (see the "config" key)
-  -- use {
-  --   'w0rp/ale',
-  --   ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex'},
-  --   cmd = 'ALEEnable',
-  --   config = 'vim.cmd[[ALEEnable]]'
-  -- }
-
-  -- Plugins can have dependencies on other plugins
-  -- use {
-  --   'haorenW1025/completion-nvim',
-  --   opt = true,
-  --   requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}}
-  -- }
-
-  -- Plugins can also depend on rocks from luarocks.org:
-  -- use {
-  --   'my/supercoolplugin',
-  --   rocks = {'lpeg', {'lua-cjson', version = '2.1.0'}}
-  -- }
-
-  -- You can specify rocks in isolation
-  -- use_rocks 'penlight'
-  -- use_rocks {'lua-resty-http', 'lpeg'}
-
-  -- Local plugins can be included
-  -- use '~/projects/personal/hover.nvim'
-	-- Plugins can have post-install/update hooks
-  -- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
-
-  -- Post-install/update hook with neovim command
-  -- use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
-  -- Post-install/update hook with call of vimscript function with argument
-  -- use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
-
-  -- Use specific branch, dependency and run lua file after load
-  -- Use dependency and run lua function after load
-  -- use {
-  --   'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
-  --   config = function() require('gitsigns').setup() end
-  -- }
-
-  -- You can specify multiple plugins in a single call
-  -- use {'tjdevries/colorbuddy.vim', {'nvim-treesitter/nvim-treesitter', opt = true}}
-
-  -- You can alias plugin names
-  -- use {'dracula/vim', as = 'dracula'}
-end)
+	end
+})

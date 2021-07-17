@@ -1,24 +1,21 @@
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-set t_Co=256
 " set background=dark    " Setting dark mode
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-let g:deus_termcolors=256
 colorscheme everforest
 set termguicolors
 " set bg=light
 set bg=dark
-" set background=light
 " let g:edge_style = 'aura'
+let g:everforest_enable_italic = 0
 " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 lua require('plugins')
 
 " ===
 " === Basic Mappings
 " ===
-let mapleader =" "
+let mapleader = " "
 " noremap ; :
 set exrc
+set nobackup
+set noswapfile
 set secure
 set number
 set relativenumber
@@ -37,7 +34,9 @@ set autoindent
 set ttimeoutlen=0
 set modifiable
 set signcolumn=number
+
 " set notimeout
+
 " Save & quit
 noremap <LEADER>w :w<CR>
 noremap s <nop>
@@ -134,7 +133,9 @@ let g:coc_global_extensions = ['coc-json',
 			\ 'coc-rust-analyzer',
 			\ 'coc-yank',
 			\ 'coc-emmet',
-			\ 'coc-pyright',]
+			\ 'coc-snippets',
+			\ 'coc-pyright',
+			\ 'coc-prettier']
 
 
 function! s:show_documentation()
@@ -148,16 +149,25 @@ function! s:show_documentation()
 endfunction
 
 inoremap <silent><expr> <c-space> coc#refresh()
+
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 " nnoremap <c-p> <c-^>
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+ 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+			\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -171,6 +181,9 @@ inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float
 vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(0.5) : "\<C-f>"
 vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
+" Find symbol of current document.
+nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
@@ -181,30 +194,38 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " nmap <leader>qf  <Plug>(coc-fix-current)
-nmap <leader>ac  <Plug>(coc-codeaction)
+" nmap <leader>ac  <Plug>(coc-codeaction)
 
 " Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 
+noremap  <leader>v :CocCommand explorer<CR>
 
+""""""""""""""""""""""
+"  coc-snippet  "
+""""""""""""""""""""""
 
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-noremap tt :CocCommand explorer<CR>
-
-"coc snippets"
-" imap <C-l> <Plug>(coc-snippets-expand) 
+" imap <leader>l <Plug>(coc-snippets-expand) 
+"
+" " Use <C-j> for select text for visual placeholder of snippet.
+" vmap <C-j> <Plug>(coc-snippets-select)
+"
+" " Use <C-j> for jump to next placeholder, it's default of coc.nvim
+" let g:coc_snippet_next = '<c-j>'
+"
+" " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+" let g:coc_snippet_prev = '<c-k>'
+"
+" let g:coc_snippet_next = '<tab>'
 
 
 " You will have to run :CHADdeps when installing / updating.
-nnoremap <leader>v <cmd>NvimTreeToggle<cr>
+" nnoremap <leader>v <cmd>NvimTreeToggle<cr>
 
 
 
 "comments map
+
 nmap <LEADER>cl g>c
 vmap <LEADER>cl g>
 nmap <LEADER>ch g<c
@@ -250,6 +271,11 @@ let g:Lf_WildIgnore = {
 
 let g:Lf_GtagsAutoGenerate = 1
 let g:Lf_Gtagslabel = 'native-pygments'
+noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+
+noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+
 noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
 noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
@@ -257,32 +283,12 @@ noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
 noremap <leader>fc :Leaderf cmdHistory<CR>
-inoremap <C-j> <c-\><c-o>:Leaderf snippet<CR>
+
+inoremap <C-l> <c-\><c-o>:Leaderf snippet<CR>
+
 noremap <LEADER>fh :LeaderfHelp<CR>
-" auto save
+
 " Save file on each edit exit
-function FileAutoSave()
-  if exists('g:file_autosave_async')
-    return
-  endif
-
-  if @% == ""
-    return
-  elseif !filewritable(@%)
-    return
-  endif
-
-
-  let g:file_autosave_async = 1
-  call timer_start(500, 'FileAutoSaveAsync', {'repeat': 1})
-endfunction
-
-function FileAutoSaveAsync(timer)
-  update
-  unlet g:file_autosave_async
-endfunction
-" :autocmd InsertLeave,TextChanged * call FileAutoSave()
-
 
 
 """""""""""""""
@@ -346,6 +352,7 @@ autosave.setup(
         execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
 
         events = {"InsertLeave"},
+				events = ("TextChanged"),
         conditions = {
             exists = true,
             filetype_is_not = {},
