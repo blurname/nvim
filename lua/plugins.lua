@@ -55,6 +55,8 @@ return require('packer').startup({
 		use {'kyazdani42/nvim-tree.lua'}
 		-- auto-save {	
 		use {'Pocco81/AutoSave.nvim'}
+		
+		use {'tpope/vim-fugitive'}
 
 	end
 })

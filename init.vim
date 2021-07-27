@@ -44,7 +44,12 @@ noremap <LEADER>re :source $MYVIMRC<CR>
 " Open the vimrc file anytime
 noremap <LEADER>rc :e $MYVIMRC<CR>
 let a = stdpath("config")
-noremap <LEADER>rv :e ~/AppData/Local/nvim/lua/plugins.lua<CR>
+
+if has('win32')
+	noremap <LEADER>rv :e ~/AppData/Local/nvim/lua/plugins.lua<CR>
+else
+	noremap <LEADER>rv :e ~/.config/nvim/lua/plugins.lua<CR>
+endif
 
 " move key
 noremap W 5w
@@ -118,6 +123,7 @@ if has('win32')
 else
   let g:terminal_shell = 'elvish'
 endif
+
 let g:closetag_filetypes = 'html,jsx,tsx'
 let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
 

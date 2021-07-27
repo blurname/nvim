@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "C:\\Users\\blurname\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?.lua;C:\\Users\\blurname\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\blurname\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\blurname\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
-local install_cpath_pattern = "C:\\Users\\blurname\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\lua\\5.1\\?.so"
+local package_path_str = "/home/b/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/b/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/b/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/b/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/b/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -71,103 +71,111 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["AutoSave.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\AutoSave.nvim"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/AutoSave.nvim"
   },
   LeaderF = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LeaderF"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/LeaderF"
+  },
+  ["LeaderF-snippet"] = {
+    loaded = true,
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/LeaderF-snippet"
   },
   ["asyncrun.vim"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\asyncrun.vim"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/asyncrun.vim"
   },
   ["asynctasks.vim"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\asynctasks.vim"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/asynctasks.vim"
   },
   ["auto-pairs"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\auto-pairs"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/auto-pairs"
   },
   ["coc.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\coc.nvim"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/coc.nvim"
   },
   edge = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\edge"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/edge"
   },
   everforest = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\everforest"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/everforest"
   },
   ["far.vim"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\far.vim"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/far.vim"
   },
   ["galaxyline.nvim"] = {
-    config = { "\27LJ\2\n&\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\vmyline\frequire\0" },
+    config = { "\27LJ\1\2&\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\vmyline\frequire\0" },
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\galaxyline.nvim"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
   },
   ["neovim-gui-shim"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neovim-gui-shim"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/neovim-gui-shim"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-colorizer.lua"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
   tcomment_vim = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tcomment_vim"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/tcomment_vim"
+  },
+  ultisnips = {
+    loaded = true,
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/ultisnips"
   },
   ["vim-deus"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-deus"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/vim-deus"
   },
   ["vim-sneak"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-sneak"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/vim-sneak"
   },
   ["vim-snippets"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-snippets"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/vim-snippets"
   },
   ["vim-surround"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-surround"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/vim-surround"
   },
   ["vim-terminal-help"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-terminal-help"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/vim-terminal-help"
   },
   ["wildfire.vim"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\wildfire.vim"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/wildfire.vim"
   },
   ["zephyr-nvim"] = {
     loaded = true,
-    path = "C:\\Users\\blurname\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\zephyr-nvim"
+    path = "/home/b/.local/share/nvim/site/pack/packer/start/zephyr-nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
 -- Config for: galaxyline.nvim
 time([[Config for galaxyline.nvim]], true)
-try_loadstring("\27LJ\2\n&\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\vmyline\frequire\0", "config", "galaxyline.nvim")
+try_loadstring("\27LJ\1\2&\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\vmyline\frequire\0", "config", "galaxyline.nvim")
 time([[Config for galaxyline.nvim]], false)
 if should_profile then save_profiles() end
 
