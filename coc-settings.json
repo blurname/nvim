@@ -41,8 +41,6 @@
   "diagnostic.hintSign": "",
   "html.autoClosingTags": true,
   "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
     "html",
     "css",
     "json",
@@ -50,9 +48,7 @@
     "vue",
     "svelte",
     "c",
-    "rust",
-    "javascriptreact",
-    "typescriptreact"
+    "rust"
   ],
   // "diagnostic.signOffset": 1,
   //"diagnostic.errorSign": "\uf467",
@@ -89,6 +85,8 @@
   "prettier.singleQuote": true,
   "prettier.semi": false,
   "prettier.arrowParens": "always",
+  "prettier.trailingComma": "all",
+  "prettier.endOfLine": "auto",
   "typescript.suggest.enabled": true,
   "typescript.suggestionActions.enabled": true,
   "javascript.suggest.enabled": true,

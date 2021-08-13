@@ -20,9 +20,10 @@ return require('packer').startup({
 		-- themes
 
 		use {'glepnir/zephyr-nvim'}
-		use {'sainnhe/edge'}
 		use {'ajmwagar/vim-deus'}
+		use {'sainnhe/edge'}
 		use {'sainnhe/everforest'}
+		use {'joshdick/onedark.vim'}
 
 		-- show color
 		use {'norcalli/nvim-colorizer.lua'}

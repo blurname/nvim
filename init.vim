@@ -1,9 +1,9 @@
 " set background=dark    " Setting dark mode
-colorscheme everforest
+colorscheme edge
 set termguicolors
 " set bg=light
 set bg=dark
-" let g:edge_style = 'aura'
+"let g:edge_style = 'aura'
 let g:everforest_enable_italic = 0
 " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 lua require('plugins')
@@ -206,7 +206,8 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 
 noremap  <leader>v :CocCommand explorer<CR>
-
+noremap <leader>fp :CocCommand prettier.formatFile
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 """"""""""""""""""""""
 "  coc-snippet  "
 """"""""""""""""""""""
@@ -263,7 +264,7 @@ let g:Lf_PreviewInPopup = 1
 let g:Lf_ShortcutF = "<leader>ff"
 let g:Lf_fuzzyEngine_C = 1
 let g:Lf_StlColorscheme = 'popup'
-let g:Lf_PopupColorscheme = 'default'
+let g:Lf_PopupColorscheme = 'one'
 let g:Lf_CursorBlink = 0
 " let g:Lf_WorkingDirectory = finddir('.git', '.;')
 
@@ -282,11 +283,11 @@ noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
-noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
-noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
-noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
-noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
-noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+" noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+" noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+" noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+" noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+" noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
 noremap <leader>fc :Leaderf cmdHistory<CR>
 
