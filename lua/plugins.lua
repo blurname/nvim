@@ -8,17 +8,19 @@ return require('packer').startup({
 	function()
 		-- Packer can manage itself
 		use {'wbthomason/packer.nvim'}
-
 		use {'tomtom/tcomment_vim'}
 		use {'jiangmiao/auto-pairs'}
+
 		-- press enter to selcet the whole
 		use {'gcmt/wildfire.vim'}
+
 		-- asyncSeries
+		
 		use {'skywind3000/vim-terminal-help'}
 		use {'skywind3000/asynctasks.vim'}
 		use {'skywind3000/asyncrun.vim'}
-		-- themes
 
+		-- themes
 		use {'glepnir/zephyr-nvim'}
 		use {'ajmwagar/vim-deus'}
 		use {'sainnhe/edge'}
@@ -27,36 +29,41 @@ return require('packer').startup({
 
 		-- show color
 		use {'norcalli/nvim-colorizer.lua'}
-
 		use {'equalsraf/neovim-gui-shim'}
+
 		-- statusline
 		use	{'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'myline' end}
-
 		use {'kyazdani42/nvim-web-devicons'}
 
 		--coc
 		use {'neoclide/coc.nvim', branch = 'release'}
+
+		--vista.vim symbol navigation
+		use {'liuchengxu/vista.vim'}
+
 		-- fuzzy file finder
 		use {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'} 
 
 		-- change surrounding symbol
-		use {'tpope/vim-surround'}
+		-- use {'tpope/vim-surround'}
+		use {'machakann/vim-sandwich'}
 
 		-- snippet
 		use {'honza/vim-snippets'}
 		use {'skywind3000/LeaderF-snippet',disable = false,} 
 		use {'SirVer/ultisnips',}
-		--
+
 		-- replace
 		use {'brooth/far.vim'}
+
 		-- char search
 		use {'justinmk/vim-sneak'}
 
 		-- file-tree
 		use {'kyazdani42/nvim-tree.lua'}
+
 		-- auto-save {	
 		use {'Pocco81/AutoSave.nvim'}
-		
 		use {'tpope/vim-fugitive'}
 
 	end
