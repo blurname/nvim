@@ -57,8 +57,7 @@ return require('packer').startup({
 		use {'brooth/far.vim'}
 
 		-- char search
-		use {'justinmk/vim-sneak'}
-
+		use {'kevinhwang91/nvim-hlslens'}
 		-- file-tree
 		use {'kyazdani42/nvim-tree.lua'}
 

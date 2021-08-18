@@ -3,7 +3,7 @@ colorscheme edge
 set termguicolors
 set bg=light
 " set bg=dark
-"let g:edge_style = 'aura'
+let g:edge_style = 'aura'
 let g:everforest_enable_italic = 0
 " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 lua require('plugins')
@@ -371,3 +371,15 @@ autosave.setup(
     }
 )
 EOF
+""""""""""""""""""
+"  nvim-hlslens  "
+""""""""""""""""""
+noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR>
+            \<Cmd>lua require('hlslens').start()<CR>
+noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR>
+            \<Cmd>lua require('hlslens').start()<CR>
+noremap * *<Cmd>lua require('hlslens').start()<CR>
+noremap # #<Cmd>lua require('hlslens').start()<CR>
+noremap g* g*<Cmd>lua require('hlslens').start()<CR>
+noremap g# g#<Cmd>lua require('hlslens').start()<CR>
+
