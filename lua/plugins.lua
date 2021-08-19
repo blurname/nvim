@@ -8,8 +8,16 @@ return require('packer').startup({
 	function()
 		-- Packer can manage itself
 		use {'wbthomason/packer.nvim'}
+-- comment
 		use {'tomtom/tcomment_vim'}
-		use {'jiangmiao/auto-pairs'}
+		-- use {'jiangmiao/auto-pairs'}
+		-- autopair
+		use {'Raimondi/delimitMate', event = 'InsertEnter',opt = true }
+
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
 
 		-- press enter to selcet the whole
 		use {'gcmt/wildfire.vim'}
@@ -58,6 +66,7 @@ return require('packer').startup({
 
 		-- char search
 		use {'kevinhwang91/nvim-hlslens'}
+
 		-- file-tree
 		use {'kyazdani42/nvim-tree.lua'}
 

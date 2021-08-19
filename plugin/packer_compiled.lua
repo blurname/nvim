@@ -89,13 +89,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\asynctasks.vim"
   },
-  ["auto-pairs"] = {
-    loaded = true,
-    path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\auto-pairs"
-  },
   ["coc.nvim"] = {
     loaded = true,
     path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\coc.nvim"
+  },
+  delimitMate = {
+    loaded = false,
+    needs_bufread = false,
+    path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\delimitMate"
   },
   edge = {
     loaded = true,
@@ -122,9 +123,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-colorizer.lua"
   },
+  ["nvim-hlslens"] = {
+    loaded = true,
+    path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-hlslens"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -154,21 +163,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive"
   },
-  ["vim-sneak"] = {
+  ["vim-sandwich"] = {
     loaded = true,
-    path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-sneak"
+    path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-sandwich"
   },
   ["vim-snippets"] = {
     loaded = true,
     path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-snippets"
   },
-  ["vim-surround"] = {
-    loaded = true,
-    path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-surround"
-  },
   ["vim-terminal-help"] = {
     loaded = true,
     path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-terminal-help"
+  },
+  ["vista.vim"] = {
+    loaded = true,
+    path = "C:\\Users\\naugh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vista.vim"
   },
   ["wildfire.vim"] = {
     loaded = true,
@@ -185,6 +194,13 @@ time([[Defining packer_plugins]], false)
 time([[Config for galaxyline.nvim]], true)
 try_loadstring("\27LJ\2\n&\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\vmyline\frequire\0", "config", "galaxyline.nvim")
 time([[Config for galaxyline.nvim]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'delimitMate'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)
