@@ -40,7 +40,7 @@ return require('packer').startup({
 		use {'equalsraf/neovim-gui-shim'}
 
 		-- statusline
-		use	{'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'myline' end}
+		use	{'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'eviline' end}
 		use {'kyazdani42/nvim-web-devicons'}
 
 		--coc
