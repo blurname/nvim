@@ -1,7 +1,7 @@
 " set background=dark    " Setting dark mode
 colorscheme edge
 set termguicolors
-" set bg=light
+"  set bg=light
  set bg=dark
 let g:edge_style = 'aura'
 let g:everforest_enable_italic = 0
