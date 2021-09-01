@@ -1,8 +1,8 @@
 " set background=dark    " Setting dark mode
-colorscheme edge
+colorscheme everforest
 set termguicolors
-"  set bg=light
- set bg=dark
+ set bg=light
+"  set bg=dark
 let g:edge_style = 'aura'
 let g:everforest_enable_italic = 0
 " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
@@ -192,10 +192,10 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " nmap <leader>qf  <Plug>(coc-fix-current)
-" nmap <leader>ac  <Plug>(coc-codeaction)
+nnoremap  <leader>af <plug>(coc-codeaction-line)
 
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
 
 noremap  <leader>v :CocCommand explorer<CR>
 noremap <leader>fp :CocCommand prettier.formatFile
@@ -391,5 +391,4 @@ ensure_installed = {"rust","javascript"}, -- one of "all", "maintained" (parsers
   },
 }
 EOF
-
 

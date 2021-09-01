@@ -22,6 +22,9 @@ return require('packer').startup({
 		-- press enter to selcet the whole
 		use {'gcmt/wildfire.vim'}
 
+		-- imporve f action
+		use {'rhysd/clever-f.vim'}
+
 		-- asyncSeries
 		
 		use {'skywind3000/vim-terminal-help'}
