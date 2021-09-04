@@ -72,6 +72,7 @@ return require('packer').startup({
 
 		-- file-tree
 		use {'kyazdani42/nvim-tree.lua'}
+		use {'kevinhwang91/rnvimr',opt = false}
 
 		-- auto-save {	
 		use {'Pocco81/AutoSave.nvim'}

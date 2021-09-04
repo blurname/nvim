@@ -1,8 +1,8 @@
 " set background=dark    " Setting dark mode
 colorscheme everforest
 set termguicolors
- set bg=light
-"  set bg=dark
+" set bg=light
+set bg=dark
 let g:edge_style = 'aura'
 let g:everforest_enable_italic = 0
 " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
@@ -192,13 +192,21 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " nmap <leader>qf  <Plug>(coc-fix-current)
-nnoremap  <leader>af <plug>(coc-codeaction-line)
+nmap  <leader>ac <plug>(coc-codeaction)
 
 " Show all diagnostics.
 nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
 
-noremap  <leader>v :CocCommand explorer<CR>
-noremap <leader>fp :CocCommand prettier.formatFile
+" filetree
+
+" noremap  <leader>v  :CocCommand explorer<CR>
+"  noremap  <leader>v  <cmd>CHADopen<cr>
+noremap  <leader>v  <cmd>NvimTreeToggle<cr>
+
+" You will have to run :CHADdeps when installing / updating.
+nnoremap <C-n> <cmd>RnvimrToggle<cr>
+"
+noremap <leader>fp :Prettier<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 """"""""""""""""""""""
 "  coc-snippet  "
@@ -218,8 +226,6 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " let g:coc_snippet_next = '<tab>'
 
 
-" You will have to run :CHADdeps when installing / updating.
-" nnoremap <leader>v <cmd>NvimTreeToggle<cr>
 
 
 
@@ -274,12 +280,6 @@ noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
-
-" noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
-" noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
-" noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
-" noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
-" noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
 noremap <leader>fc :Leaderf cmdHistory<CR>
 
@@ -392,3 +392,34 @@ ensure_installed = {"rust","javascript"}, -- one of "all", "maintained" (parsers
 }
 EOF
 
+" rnvimr
+let g:rnvimr_enable_bw = 1
+let g:rnvimr_enable_picker = 1
+" let g:rnvimr_draw_border = 0
+" let g:rnvimr_layout = {
+"             \ 'relative': 'editor',
+"             \ 'width': float2nr(round(0.7 * &columns)),
+"             \ 'height': float2nr(round(0.7 * &lines)),
+"             \ 'col': float2nr(round(0.15 * &columns)),
+"             \ 'row': float2nr(round(0.15 * &lines)),
+"             \ 'style': 'minimal'
+"             \ }
+" let g:rnvimr_presets = [
+"             \ {'width': 0.600, 'height': 0.600},
+"             \ {},
+"             \ {'width': 0.800, 'height': 0.800},
+"             \ {'width': 0.950, 'height': 0.950},
+"             \ {'width': 0.500, 'height': 0.500, 'col': 0, 'row': 0},
+"             \ {'width': 0.500, 'height': 0.500, 'col': 0, 'row': 0.5},
+"             \ {'width': 0.500, 'height': 0.500, 'col': 0.5, 'row': 0},
+"             \ {'width': 0.500, 'height': 0.500, 'col': 0.5, 'row': 0.5},
+"             \ {'width': 0.500, 'height': 1.000, 'col': 0, 'row': 0},
+"             \ {'width': 0.500, 'height': 1.000, 'col': 0.5, 'row': 0},
+"             \ {'width': 1.000, 'height': 0.500, 'col': 0, 'row': 0},
+"             \ {'width': 1.000, 'height': 0.500, 'col': 0, 'row': 0.5}
+"             \ ]
+" let g:rnvimr_ranger_views = [
+"             \ {'minwidth': 90, 'ratio': []},
+"             \ {'minwidth': 50, 'maxwidth': 89, 'ratio': [1,1]},
+"             \ {'maxwidth': 49, 'ratio': [1]}
+"             \ ]
