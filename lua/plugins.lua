@@ -47,7 +47,7 @@ return require('packer').startup({
 		use {'kyazdani42/nvim-web-devicons'}
 
 		--coc
-		use {'neoclide/coc.nvim', branch = 'release'}
+		use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
 
 		--vista.vim symbol navigation
 		use {'liuchengxu/vista.vim'}
@@ -71,7 +71,7 @@ return require('packer').startup({
 		use {'kevinhwang91/nvim-hlslens'}
 
 		-- file-tree
-		use {'kyazdani42/nvim-tree.lua'}
+		use {'kyazdani42/nvim-tree.lua',disable = true}
 		use {'kevinhwang91/rnvimr',opt = false}
 
 		-- auto-save {	

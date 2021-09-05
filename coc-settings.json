@@ -1,5 +1,17 @@
 {
-  "coc.preferences.hoverTarget": "float",
+  "hover.target": "float",
+  "hover.floatConfig": {
+    "border": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloating",
+    "maxHeight": 100,
+    "maxWidth": 100
+  },
+  "diagnostic.floatConfig": {
+    "border": false,
+    "borderhighlight": "CocFloating"
+  },
+	"suggest.floatConfig": {"border": true},
   "suggest.noselect": true,
   "suggest.enablePreselect": true,
   "suggest.triggerAfterInsertEnter": true,
@@ -40,24 +52,9 @@
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
   "html.autoClosingTags": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "html",
-    "css",
-    "json",
-    "python",
-    "vue",
-    "svelte",
-    "c",
-    "rust"
-  ],
-  // "diagnostic.signOffset": 1,
-  //"diagnostic.errorSign": "\uf467",
-  //"diagnostic.warningSign": "\uf071",
-  //"diagnostic.infoSign": "\uf129",
-  //"diagnostic.hintSign": "\uf864",
-  "diagnostic.displayByAle": false,
+	"diagnostic.enableSign": true,
+	"diagnostic.highlightOffset": 1000,
   "diagnostic.refreshOnInsertMode": false,
-  //"diagnostic.refreshAfterSave": false,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualTextPrefix": " ❯❯ ",
   "diagnostic.virtualText": true,
@@ -70,7 +67,7 @@
     "h": "collapse",
     "l": "expand",
     "o": "open",
-    "O": "open:vsplit.intelligent",
+    "<c-v>": "open:vsplit.intelligent",
     "a": "addFile",
     "p": "gotoParent",
     "yp": "copyFilepath",
@@ -78,7 +75,7 @@
     "yy": "copyFile",
     "R": "refresh",
     "cw": "rename",
-    "dD": "deleteForever",
+    "dF": "deleteForever",
     "<tab>": "actionMenu",
     "P": "pasteFile"
   },

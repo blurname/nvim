@@ -89,6 +89,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/asynctasks.vim"
   },
+  ["clever-f.vim"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/clever-f.vim"
+  },
   ["coc.nvim"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/coc.nvim"
@@ -127,10 +131,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-hlslens"
   },
-  ["nvim-tree.lua"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
@@ -146,6 +146,10 @@ _G.packer_plugins = {
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/packer.nvim"
+  },
+  rnvimr = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/rnvimr"
   },
   tcomment_vim = {
     loaded = true,

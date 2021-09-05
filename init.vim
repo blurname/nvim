@@ -2,10 +2,13 @@
 colorscheme everforest
 set termguicolors
 " set bg=light
-set bg=dark
+" set bg=dark
+" let g:everforest_transparent_background = 1
+let g:everforest_background = 'hard'
 let g:edge_style = 'aura'
-let g:everforest_enable_italic = 0
-" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+let g:everforest_enable_italic = 1
+let g:everforest_lightline_disable_bold = 1
+let g:everforest_diagnostic_line_highlight = 1
 lua require('plugins')
 
 " ===
@@ -33,7 +36,7 @@ set foldenable
 set autoindent
 set ttimeoutlen=0
 set modifiable
-set signcolumn=number
+set signcolumn=yes:1
 
 " set notimeout
 
@@ -199,9 +202,9 @@ nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
 
 " filetree
 
-" noremap  <leader>v  :CocCommand explorer<CR>
+noremap  <leader>v  :CocCommand explorer --position floating<CR>
 "  noremap  <leader>v  <cmd>CHADopen<cr>
-noremap  <leader>v  <cmd>NvimTreeToggle<cr>
+" noremap  <leader>v  <cmd>NvimTreeToggle<cr>
 
 " You will have to run :CHADdeps when installing / updating.
 nnoremap <C-n> <cmd>RnvimrToggle<cr>
@@ -395,6 +398,7 @@ EOF
 " rnvimr
 let g:rnvimr_enable_bw = 1
 let g:rnvimr_enable_picker = 1
+let g:rnvimr_enable_ex = 1
 " let g:rnvimr_draw_border = 0
 " let g:rnvimr_layout = {
 "             \ 'relative': 'editor',
