@@ -76,7 +76,10 @@ return require('packer').startup({
 
 		-- auto-save {	
 		use {'Pocco81/AutoSave.nvim'}
+
+		--git
 		use {'tpope/vim-fugitive'}
+		use {'rbong/vim-flog'}
 
 	end
 })

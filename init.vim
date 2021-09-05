@@ -1,14 +1,17 @@
 " set background=dark    " Setting dark mode
-colorscheme everforest
 set termguicolors
 " set bg=light
 " set bg=dark
 " let g:everforest_transparent_background = 1
-let g:everforest_background = 'hard'
-let g:edge_style = 'aura'
+let g:everforest_background = 'medium'
 let g:everforest_enable_italic = 1
 let g:everforest_lightline_disable_bold = 1
-let g:everforest_diagnostic_line_highlight = 1
+let g:everforest_diagnostic_line_highlight = 0
+let g:everforest_diagnostic_text_highlight = 1
+let g:everforest_diagnostic_virtual_text = 'colored'
+let g:everforest_ui_contrast = 'high'
+let g:everforest_cursor = 'red'
+colorscheme everforest
 lua require('plugins')
 
 " ===
@@ -383,7 +386,7 @@ noremap g# g#<Cmd>lua require('hlslens').start()<CR>
 " """"""""""""""""
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-ensure_installed = {"rust","javascript"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+ensure_installed = {"rust","javascript","typescript"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
     enable = true,              -- false will disable the whole extension
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
@@ -396,10 +399,10 @@ ensure_installed = {"rust","javascript"}, -- one of "all", "maintained" (parsers
 EOF
 
 " rnvimr
-let g:rnvimr_enable_bw = 1
-let g:rnvimr_enable_picker = 1
-let g:rnvimr_enable_ex = 1
-" let g:rnvimr_draw_border = 0
+" let g:rnvimr_enable_bw = 1
+" let g:rnvimr_enable_picker = 1
+" let g:rnvimr_enable_ex = 1
+" let g:rnvimr_draw_border = 1
 " let g:rnvimr_layout = {
 "             \ 'relative': 'editor',
 "             \ 'width': float2nr(round(0.7 * &columns)),
@@ -427,3 +430,6 @@ let g:rnvimr_enable_ex = 1
 "             \ {'minwidth': 50, 'maxwidth': 89, 'ratio': [1,1]},
 "             \ {'maxwidth': 49, 'ratio': [1]}
 "             \ ]
+" let g:rnvimr_ranger_cmd = 'ranger --cmd="set draw_borders both"'
+"
+let g:rnvimr_vanilla = 1 

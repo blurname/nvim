@@ -3,15 +3,18 @@
   "hover.floatConfig": {
     "border": true,
     "highlight": "CocFloating",
-    "borderhighlight": "CocFloating",
-    "maxHeight": 100,
-    "maxWidth": 100
-  },
-  "diagnostic.floatConfig": {
-    "border": false,
     "borderhighlight": "CocFloating"
   },
-	"suggest.floatConfig": {"border": true},
+  "diagnostic.floatConfig": {
+    "border": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloating"
+  },
+  "suggest.floatConfig": { 
+		"border": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloating"
+	},
   "suggest.noselect": true,
   "suggest.enablePreselect": true,
   "suggest.triggerAfterInsertEnter": true,
@@ -52,12 +55,12 @@
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
   "html.autoClosingTags": true,
-	"diagnostic.enableSign": true,
-	"diagnostic.highlightOffset": 1000,
+  "diagnostic.enableSign": true,
+  "diagnostic.highlightOffset": 1000,
   "diagnostic.refreshOnInsertMode": false,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualTextPrefix": " ❯❯ ",
-  "diagnostic.virtualText": true,
+  "diagnostic.virtualText": false,
   "explorer.file.showHiddenFiles": true,
   "explorer.keyMappings.global": {
     "k": "nodePrev",
