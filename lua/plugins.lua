@@ -81,5 +81,11 @@ return require('packer').startup({
 		use {'tpope/vim-fugitive'}
 		use {'rbong/vim-flog'}
 
+		--quickfix
+		use {'kevinhwang91/nvim-bqf'}
+
+		--scroll
+		-- use {'karb94/neoscroll.nvim'}
+
 	end
 })

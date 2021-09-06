@@ -119,9 +119,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
   },
+  ["neoscroll.nvim"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/neoscroll.nvim"
+  },
   ["neovim-gui-shim"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/neovim-gui-shim"
+  },
+  ["nvim-bqf"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-bqf"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
@@ -162,6 +170,10 @@ _G.packer_plugins = {
   ["vim-deus"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-deus"
+  },
+  ["vim-flog"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-flog"
   },
   ["vim-fugitive"] = {
     loaded = true,

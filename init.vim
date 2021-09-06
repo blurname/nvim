@@ -1,9 +1,9 @@
 " set background=dark    " Setting dark mode
 set termguicolors
 " set bg=light
-" set bg=dark
+set bg=dark
 " let g:everforest_transparent_background = 1
-let g:everforest_background = 'medium'
+let g:everforest_background = 'hard'
 let g:everforest_enable_italic = 1
 let g:everforest_lightline_disable_bold = 1
 let g:everforest_diagnostic_line_highlight = 0
@@ -40,6 +40,7 @@ set autoindent
 set ttimeoutlen=0
 set modifiable
 set signcolumn=yes:1
+" set scrolloff
 
 " set notimeout
 
@@ -201,7 +202,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap  <leader>ac <plug>(coc-codeaction)
 
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
 
 " filetree
 
@@ -433,3 +434,65 @@ EOF
 " let g:rnvimr_ranger_cmd = 'ranger --cmd="set draw_borders both"'
 "
 let g:rnvimr_vanilla = 1 
+
+""""""""""""""
+"  nvim-bqf  "
+""""""""""""""
+let g:coc_enable_locationlist = 0
+aug Coc
+    au!
+    au User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
+aug END
+aug Coc
+    au!
+    au User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
+aug END
+
+" if you use coc-fzf, you should disable its CocLocationsChange event make
+" bqf work for <Plug>(coc-references)
+" au VimEnter * au! CocFzfLocation User CocLocationsChange
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> <leader>d <Cmd>call Coc_qf_diagnostic()<CR>
+
+function! Coc_qf_diagnostic() abort
+    let diagnostic_list = CocAction('diagnosticList')
+    let items = []
+    let loc_ranges = []
+    for d in diagnostic_list
+        let text = printf('[%s%s] %s', (empty(d.source) ? 'coc.nvim' : d.source),
+                    \ (d.code ? ' ' . d.code : ''), split(d.message, '\n')[0])
+        let item = {'filename': d.file, 'lnum': d.lnum, 'col': d.col, 'text': text, 'type':
+                    \ d.severity[0]}
+        call add(loc_ranges, d.location.range)
+        call add(items, item)
+    endfor
+    call setqflist([], ' ', {'title': 'CocDiagnosticList', 'items': items,
+                \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
+    botright copen
+endfunction
+
+function! Coc_qf_jump2loc(locs) abort
+    let loc_ranges = map(deepcopy(a:locs), 'v:val.range')
+    call setloclist(0, [], ' ', {'title': 'CocLocationList', 'items': a:locs,
+                \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
+    let winid = getloclist(0, {'winid': 0}).winid
+    if winid == 0
+        aboveleft lwindow
+    else
+        call win_gotoid(winid)
+    endif
+endfunction
+
+" lua << EOF
+" require('neoscroll').setup({
+"     mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>','<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+"     hide_cursor = true,
+"     stop_eof = true,             
+"     use_local_scrolloff = false, 
+"     respect_scrolloff = false,
+"     cursor_scrolls_alone = true, 
+"     easing_function = nil,
+" 		pre_hook = nil, 
+"     post_hook = nil,             
+" })
+" EOF
