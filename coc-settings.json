@@ -10,11 +10,11 @@
     "highlight": "CocFloating",
     "borderhighlight": "CocFloating"
   },
-  "suggest.floatConfig": { 
-		"border": true,
+  "suggest.floatConfig": {
+    "border": true,
     "highlight": "CocFloating",
     "borderhighlight": "CocFloating"
-	},
+  },
   "suggest.noselect": true,
   "suggest.enablePreselect": true,
   "suggest.triggerAfterInsertEnter": true,
@@ -105,5 +105,14 @@
       ],
       "filetypes": ["haskell", "lhaskell"]
     }
+  },
+  "snippets.enableStatusItem": false,
+  "snippets.ultisnips.enable": false,
+  "snippets.snipmate.enable": false,
+  "snippets.loadFromExtensions": false,
+  "snippets.textmateSnippetsRoots": ["/home/bl/.config/nvim/snippets"],
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
   }
 }

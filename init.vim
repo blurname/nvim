@@ -2,7 +2,7 @@
 set termguicolors
 " set bg=light
 set bg=dark
-" let g:everforest_transparent_background = 1
+let g:everforest_transparent_background = 1
 let g:everforest_background = 'hard'
 let g:everforest_enable_italic = 1
 let g:everforest_lightline_disable_bold = 1
@@ -17,6 +17,10 @@ lua require('plugins')
 " ===
 " === Basic Mappings
 " ===
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   basic                                    "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let mapleader = " "
 " noremap ; :
 set exrc
@@ -50,7 +54,7 @@ noremap s <nop>
 noremap <LEADER>re :source $MYVIMRC<CR>
 " Open the vimrc file anytime
 noremap <LEADER>rc :e $MYVIMRC<CR>
-let a = stdpath("config")
+" let a = stdpath("config")
 
 if has('win32')
 	noremap <LEADER>rv :e ~/AppData/Local/nvim/lua/plugins.lua<CR>
@@ -202,7 +206,6 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap  <leader>ac <plug>(coc-codeaction)
 
 " Show all diagnostics.
-" nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
 
 " filetree
 
@@ -215,6 +218,7 @@ nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
 noremap <leader>fp :Prettier<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 """"""""""""""""""""""
 "  coc-snippet  "
 """"""""""""""""""""""
@@ -223,16 +227,7 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "
 " " Use <C-j> for select text for visual placeholder of snippet.
 " vmap <C-j> <Plug>(coc-snippets-select)
-"
-" " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-" let g:coc_snippet_next = '<c-j>'
-"
-" " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-" let g:coc_snippet_prev = '<c-k>'
-"
 " let g:coc_snippet_next = '<tab>'
-
-
 
 
 
@@ -296,15 +291,6 @@ noremap <LEADER>fh :LeaderfHelp<CR>
 
 " Save file on each edit exit
 
-
-"""""""""""""""
-"  Ultisnips  "
-"""""""""""""""
-
-
-let g:UltiSnipsExpandTrigger="<ab>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
 """"""""""""""""""""""""""
 "  move the side window  "
@@ -384,7 +370,7 @@ noremap g# g#<Cmd>lua require('hlslens').start()<CR>
 
 """"""""""""""""
 "  treesitter  "
-" """"""""""""""""
+"""""""""""""""""
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
 ensure_installed = {"rust","javascript","typescript"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -399,7 +385,11 @@ ensure_installed = {"rust","javascript","typescript"}, -- one of "all", "maintai
 }
 EOF
 
-" rnvimr
+
+""""""""""""
+"  rnvimr  "
+""""""""""""
+
 " let g:rnvimr_enable_bw = 1
 " let g:rnvimr_enable_picker = 1
 " let g:rnvimr_enable_ex = 1
@@ -433,7 +423,7 @@ EOF
 "             \ ]
 " let g:rnvimr_ranger_cmd = 'ranger --cmd="set draw_borders both"'
 "
-let g:rnvimr_vanilla = 1 
+" let g:rnvimr_vanilla = 1 
 
 """"""""""""""
 "  nvim-bqf  "

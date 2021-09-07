@@ -61,8 +61,8 @@ return require('packer').startup({
 
 		-- snippet
 		use {'honza/vim-snippets'}
-		use {'skywind3000/LeaderF-snippet',disable = false,} 
-		use {'SirVer/ultisnips',}
+		-- use {'skywind3000/LeaderF-snippet',disable = false,} 
+		-- use {'SirVer/ultisnips',}
 
 		-- replace
 		use {'brooth/far.vim'}
@@ -86,6 +86,8 @@ return require('packer').startup({
 
 		--scroll
 		-- use {'karb94/neoscroll.nvim'}
+
+		--fold
 
 	end
 })
