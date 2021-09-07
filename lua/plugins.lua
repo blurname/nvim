@@ -1,6 +1,8 @@
-return require('packer').startup({
+local packer = require('packer')
+return packer.startup({
 	config = {
 		opt_default = false,
+		display = {open_cmd = 'tabedit', keybindings = {prompt_revert = 'R', diff = 'D'}},
 		git = {
 			default_url_format = 'https://github.com.cnpmjs.org/%s'
 		}
@@ -8,9 +10,10 @@ return require('packer').startup({
 	function()
 		-- Packer can manage itself
 		use {'wbthomason/packer.nvim'}
--- comment
+
+		-- comment
 		use {'tomtom/tcomment_vim'}
-		-- use {'jiangmiao/auto-pairs'}
+
 		-- autopair
 		use {'Raimondi/delimitMate', event = 'InsertEnter',opt = true }
 
@@ -18,9 +21,6 @@ return require('packer').startup({
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
-
-		-- press enter to selcet the whole
-		use {'gcmt/wildfire.vim'}
 
 		-- imporve f action
 		use {'rhysd/clever-f.vim'}
@@ -32,15 +32,11 @@ return require('packer').startup({
 		use {'skywind3000/asyncrun.vim'}
 
 		-- themes
-		use {'glepnir/zephyr-nvim'}
-		use {'ajmwagar/vim-deus'}
 		use {'sainnhe/edge'}
 		use {'sainnhe/everforest'}
-		use {'joshdick/onedark.vim'}
 
 		-- show color
-		use {'norcalli/nvim-colorizer.lua'}
-		use {'equalsraf/neovim-gui-shim'}
+		-- use {'equalsraf/neovim-gui-shim'}
 
 		-- statusline
 		use	{'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'eviline' end}
@@ -50,19 +46,12 @@ return require('packer').startup({
 		use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
 
 		--vista.vim symbol navigation
-		use {'liuchengxu/vista.vim'}
-
+		use {'tweekmonster/startuptime.vim', cmd = 'StartupTime',opt=true}
 		-- fuzzy file finder
 		use {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'} 
 
 		-- change surrounding symbol
-		-- use {'tpope/vim-surround'}
 		use {'machakann/vim-sandwich'}
-
-		-- snippet
-		use {'honza/vim-snippets'}
-		-- use {'skywind3000/LeaderF-snippet',disable = false,} 
-		-- use {'SirVer/ultisnips',}
 
 		-- replace
 		use {'brooth/far.vim'}
@@ -71,7 +60,6 @@ return require('packer').startup({
 		use {'kevinhwang91/nvim-hlslens'}
 
 		-- file-tree
-		use {'kyazdani42/nvim-tree.lua',disable = true}
 		use {'kevinhwang91/rnvimr',opt = false}
 
 		-- auto-save {	
@@ -86,8 +74,6 @@ return require('packer').startup({
 
 		--scroll
 		-- use {'karb94/neoscroll.nvim'}
-
-		--fold
 
 	end
 })

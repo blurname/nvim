@@ -110,14 +110,6 @@ noremap tj :+tabnext<CR>
 " Search
 noremap <LEADER><CR> :nohlsearch<CR>
 
-
-" let g:plug_url_format = 'https://git::@github.com.cnpmjs.org/%s.git'
-"
-" " plugin
-"  call plug#begin('~/.vim/bundle/')
-"  call plug#end()
-
-
 " ===
 " === terminalHelp
 " ===
@@ -210,10 +202,7 @@ nmap  <leader>ac <plug>(coc-codeaction)
 " filetree
 
 noremap  <leader>v  :CocCommand explorer --position floating<CR>
-"  noremap  <leader>v  <cmd>CHADopen<cr>
-" noremap  <leader>v  <cmd>NvimTreeToggle<cr>
 
-" You will have to run :CHADdeps when installing / updating.
 nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
 noremap <leader>fp :Prettier<CR>
@@ -222,14 +211,6 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 """"""""""""""""""""""
 "  coc-snippet  "
 """"""""""""""""""""""
-
-" imap <leader>l <Plug>(coc-snippets-expand) 
-"
-" " Use <C-j> for select text for visual placeholder of snippet.
-" vmap <C-j> <Plug>(coc-snippets-select)
-" let g:coc_snippet_next = '<tab>'
-
-
 
 "comments map
 
@@ -394,36 +375,6 @@ EOF
 " let g:rnvimr_enable_picker = 1
 " let g:rnvimr_enable_ex = 1
 " let g:rnvimr_draw_border = 1
-" let g:rnvimr_layout = {
-"             \ 'relative': 'editor',
-"             \ 'width': float2nr(round(0.7 * &columns)),
-"             \ 'height': float2nr(round(0.7 * &lines)),
-"             \ 'col': float2nr(round(0.15 * &columns)),
-"             \ 'row': float2nr(round(0.15 * &lines)),
-"             \ 'style': 'minimal'
-"             \ }
-" let g:rnvimr_presets = [
-"             \ {'width': 0.600, 'height': 0.600},
-"             \ {},
-"             \ {'width': 0.800, 'height': 0.800},
-"             \ {'width': 0.950, 'height': 0.950},
-"             \ {'width': 0.500, 'height': 0.500, 'col': 0, 'row': 0},
-"             \ {'width': 0.500, 'height': 0.500, 'col': 0, 'row': 0.5},
-"             \ {'width': 0.500, 'height': 0.500, 'col': 0.5, 'row': 0},
-"             \ {'width': 0.500, 'height': 0.500, 'col': 0.5, 'row': 0.5},
-"             \ {'width': 0.500, 'height': 1.000, 'col': 0, 'row': 0},
-"             \ {'width': 0.500, 'height': 1.000, 'col': 0.5, 'row': 0},
-"             \ {'width': 1.000, 'height': 0.500, 'col': 0, 'row': 0},
-"             \ {'width': 1.000, 'height': 0.500, 'col': 0, 'row': 0.5}
-"             \ ]
-" let g:rnvimr_ranger_views = [
-"             \ {'minwidth': 90, 'ratio': []},
-"             \ {'minwidth': 50, 'maxwidth': 89, 'ratio': [1,1]},
-"             \ {'maxwidth': 49, 'ratio': [1]}
-"             \ ]
-" let g:rnvimr_ranger_cmd = 'ranger --cmd="set draw_borders both"'
-"
-" let g:rnvimr_vanilla = 1 
 
 """"""""""""""
 "  nvim-bqf  "

@@ -77,10 +77,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/LeaderF"
   },
-  ["LeaderF-snippet"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/LeaderF-snippet"
-  },
   ["asyncrun.vim"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/asyncrun.vim"
@@ -119,21 +115,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
   },
-  ["neoscroll.nvim"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/neoscroll.nvim"
-  },
-  ["neovim-gui-shim"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/neovim-gui-shim"
-  },
   ["nvim-bqf"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-bqf"
-  },
-  ["nvim-colorizer.lua"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
   },
   ["nvim-hlslens"] = {
     loaded = true,
@@ -147,10 +131,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
-  ["onedark.vim"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/onedark.vim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/packer.nvim"
@@ -159,17 +139,15 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/rnvimr"
   },
+  ["startuptime.vim"] = {
+    commands = { "StartupTime" },
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/opt/startuptime.vim"
+  },
   tcomment_vim = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/tcomment_vim"
-  },
-  ultisnips = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/ultisnips"
-  },
-  ["vim-deus"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-deus"
   },
   ["vim-flog"] = {
     loaded = true,
@@ -183,25 +161,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-sandwich"
   },
-  ["vim-snippets"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-snippets"
-  },
   ["vim-terminal-help"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-terminal-help"
-  },
-  ["vista.vim"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/vista.vim"
-  },
-  ["wildfire.vim"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/wildfire.vim"
-  },
-  ["zephyr-nvim"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/zephyr-nvim"
   }
 }
 
@@ -210,6 +172,12 @@ time([[Defining packer_plugins]], false)
 time([[Config for galaxyline.nvim]], true)
 try_loadstring("\27LJ\1\2'\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\feviline\frequire\0", "config", "galaxyline.nvim")
 time([[Config for galaxyline.nvim]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file StartupTime lua require("packer.load")({'startuptime.vim'}, { cmd = "StartupTime", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+time([[Defining lazy-load commands]], false)
+
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
