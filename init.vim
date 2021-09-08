@@ -44,6 +44,7 @@ set autoindent
 set ttimeoutlen=0
 set modifiable
 set signcolumn=yes:1
+filetype plugin on
 " set scrolloff
 
 " set notimeout
@@ -56,11 +57,7 @@ noremap <LEADER>re :source $MYVIMRC<CR>
 noremap <LEADER>rc :e $MYVIMRC<CR>
 " let a = stdpath("config")
 
-if has('win32')
-	noremap <LEADER>rv :e ~/AppData/Local/nvim/lua/plugins.lua<CR>
-else
-	noremap <LEADER>rv :e ~/.config/nvim/lua/plugins.lua<CR>
-endif
+noremap <LEADER>rv :e ~/.config/nvim/lua/plugins.lua<CR>
 
 " move key
 noremap W 5w
@@ -99,6 +96,7 @@ noremap <LEADER>q <C-w>:q<CR>
 " === Tab management
 " ===
 " Create a new tab with tl
+
 noremap tl :tabe<CR>
 " Move around tabs with tn and ti
 noremap tk :-tabnext<CR>
@@ -113,11 +111,7 @@ noremap <LEADER><CR> :nohlsearch<CR>
 " ===
 " === terminalHelp
 " ===
-if has('win32')
-  let g:terminal_shell = 'powershell'
-else
-  let g:terminal_shell = 'elvish'
-endif
+let g:terminal_shell = 'elvish'
 
 let g:closetag_filetypes = 'html,jsx,tsx'
 let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
@@ -136,7 +130,8 @@ let g:coc_global_extensions = ['coc-json',
 			\ 'coc-emmet',
 			\ 'coc-snippets',
 			\ 'coc-pyright',
-			\ 'coc-prettier']
+			\ 'coc-prettier',
+			\'coc-sumneko-lua']
 
 
 function! s:show_documentation()
@@ -201,24 +196,12 @@ nmap  <leader>ac <plug>(coc-codeaction)
 
 " filetree
 
-noremap  <leader>v  :CocCommand explorer --position floating<CR>
+noremap  <leader>v  :CocCommand explorer<CR>
 
 nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
 noremap <leader>fp :Prettier<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-""""""""""""""""""""""
-"  coc-snippet  "
-""""""""""""""""""""""
-
-"comments map
-
-nmap <LEADER>cl g>c
-vmap <LEADER>cl g>
-nmap <LEADER>ch g<c
-vmap <LEADER>ch g<
-
 
 " Useful commands
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
@@ -242,7 +225,7 @@ let g:asyncrun_open = 3
 
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
-let g:Lf_ShortcutF = "<leader>ff"
+let g:Lf_ShortcutF = "<leader>fl"
 let g:Lf_fuzzyEngine_C = 1
 let g:Lf_StlColorscheme = 'popup'
 let g:Lf_PopupColorscheme = 'one'
@@ -250,23 +233,18 @@ let g:Lf_CursorBlink = 0
 " let g:Lf_WorkingDirectory = finddir('.git', '.;')
 
 let g:Lf_WorkingDirectoryMode = 'Ac'
-let g:Lf_PreviewResult = get(g:, 'Lf_PreviewResult', {})
-let g:Lf_PreviewResult.snippet = 1
 let g:Lf_WildIgnore = {
 			\ 'dir': ['.svn','.git','.hg','node_modules'],
 			\ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
 			\}
 
-"  let g:Lf_GtagsAutoGenerate = 0
-" let g:Lf_Gtagslabel = 'native-pygments'
-noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
 
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
-noremap <leader>fc :Leaderf cmdHistory<CR>
-
-inoremap <C-l> <c-\><c-o>:Leaderf snippet<CR>
+noremap <leader>f; :Leaderf cmdHistory<CR>
+noremap go :<C-U>Leaderf! rg --recall<CR>
 
 noremap <LEADER>fh :LeaderfHelp<CR>
 
@@ -280,36 +258,36 @@ noremap <LEADER>fh :LeaderfHelp<CR>
 " let g:far#source="rg"
 " let g:far#glob_mode="rg"
 " 0:up, 1:down, 2:pgup, 3:pgdown, 4:top, 5:bottom
-function! Tools_PreviousCursor(mode)
-    if winnr('$') <= 1
-        return
-    endif
-    noautocmd silent! wincmd p
-    if a:mode == 0
-        exec "normal! \<c-y>"
-    elseif a:mode == 1
-        exec "normal! \<c-e>"
-    elseif a:mode == 2
-        exec "normal! ".winheight('.')."\<c-y>"
-    elseif a:mode == 3
-        exec "normal! ".winheight('.')."\<c-e>"
-    elseif a:mode == 4
-        normal! gg
-    elseif a:mode == 5
-        normal! G
-    elseif a:mode == 6
-        exec "normal! \<c-u>"
-    elseif a:mode == 7
-        exec "normal! \<c-d>"
-    elseif a:mode == 8
-        exec "normal! k"
-    elseif a:mode == 9
-        exec "normal! j"
-    endif
-    noautocmd silent! wincmd p
-endfunc
-nnoremap <M-u> call:Tools_PreviousCursor(0)
-nnoremap <M-d> call:Tools_PreviousCursor(1)
+" function! Tools_PreviousCursor(mode)
+"     if winnr('$') <= 1
+"         return
+"     endif
+"     noautocmd silent! wincmd p
+"     if a:mode == 0
+"         exec "normal! \<c-y>"
+"     elseif a:mode == 1
+"         exec "normal! \<c-e>"
+"     elseif a:mode == 2
+"         exec "normal! ".winheight('.')."\<c-y>"
+"     elseif a:mode == 3
+"         exec "normal! ".winheight('.')."\<c-e>"
+"     elseif a:mode == 4
+"         normal! gg
+"     elseif a:mode == 5
+"         normal! G
+"     elseif a:mode == 6
+"         exec "normal! \<c-u>"
+"     elseif a:mode == 7
+"         exec "normal! \<c-d>"
+"     elseif a:mode == 8
+"         exec "normal! k"
+"     elseif a:mode == 9
+"         exec "normal! j"
+"     endif
+"     noautocmd silent! wincmd p
+" endfunc
+" nnoremap <M-u> call:Tools_PreviousCursor(0)
+" nnoremap <M-d> call:Tools_PreviousCursor(1)
 
 
 """""""""""""""""""
@@ -437,3 +415,7 @@ endfunction
 "     post_hook = nil,             
 " })
 " EOF
+
+"NERDCommenter
+let g:NERDCreateDefaultMappings = 0
+map <LEADER>cl <plug>NERDCommenterToggle

@@ -9,10 +9,13 @@ return packer.startup({
 	},
 	function()
 		-- Packer can manage itself
+		local function conf(name)
+            return ([[require('config').%s()]]):format(name)
+        end
 		use {'wbthomason/packer.nvim'}
 
 		-- comment
-		use {'tomtom/tcomment_vim'}
+		use {'preservim/nerdcommenter',keys ='<Plug>NERDCommenterToggle',opt=true}
 
 		-- autopair
 		use {'Raimondi/delimitMate', event = 'InsertEnter',opt = true }
@@ -39,7 +42,7 @@ return packer.startup({
 		-- use {'equalsraf/neovim-gui-shim'}
 
 		-- statusline
-		use	{'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'eviline' end}
+		use	{'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'myline' end}
 		use {'kyazdani42/nvim-web-devicons'}
 
 		--coc

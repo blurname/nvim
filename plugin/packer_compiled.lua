@@ -111,9 +111,15 @@ _G.packer_plugins = {
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/far.vim"
   },
   ["galaxyline.nvim"] = {
-    config = { "\27LJ\1\2'\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\feviline\frequire\0" },
+    config = { "\27LJ\1\2&\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\vmyline\frequire\0" },
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+  },
+  nerdcommenter = {
+    keys = { { "", "<Plug>NERDCommenterToggle" } },
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/opt/nerdcommenter"
   },
   ["nvim-bqf"] = {
     loaded = true,
@@ -145,10 +151,6 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/home/bl/.local/share/nvim/site/pack/packer/opt/startuptime.vim"
   },
-  tcomment_vim = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/tcomment_vim"
-  },
   ["vim-flog"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-flog"
@@ -170,13 +172,18 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: galaxyline.nvim
 time([[Config for galaxyline.nvim]], true)
-try_loadstring("\27LJ\1\2'\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\feviline\frequire\0", "config", "galaxyline.nvim")
+try_loadstring("\27LJ\1\2&\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\vmyline\frequire\0", "config", "galaxyline.nvim")
 time([[Config for galaxyline.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file StartupTime lua require("packer.load")({'startuptime.vim'}, { cmd = "StartupTime", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
+
+-- Keymap lazy-loads
+time([[Defining lazy-load keymaps]], true)
+vim.cmd [[noremap <silent> <Plug>NERDCommenterToggle <cmd>lua require("packer.load")({'nerdcommenter'}, { keys = "<lt>Plug>NERDCommenterToggle", prefix = "" }, _G.packer_plugins)<cr>]]
+time([[Defining lazy-load keymaps]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
