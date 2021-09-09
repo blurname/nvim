@@ -82,7 +82,7 @@
     "<tab>": "actionMenu",
     "P": "pasteFile"
   },
-	"explorer.icon.source": "nvim-web-devicons",
+	"explorer.icon.source": "builtin",
 	"explorer.icon.enableNerdfont": true,
   "prettier.singleQuote": true,
   "prettier.semi": false,
