@@ -78,10 +78,10 @@ noremap <right> :vertical resize+5<CR>
 " ===
 " === Use <space> + new arrow keys for moving the cursor around windows
 " ===
-noremap <LEADER>j <C-w>j
-noremap <LEADER>k <C-w>k
-noremap <LEADER>h <C-w>h
-noremap <LEADER>l <C-w>l
+noremap <A-j> <C-w>j
+noremap <A-k> <C-w>k
+noremap <A-h> <C-w>h
+noremap <A-l> <C-w>l
 
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
 noremap sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
@@ -132,7 +132,7 @@ let g:coc_global_extensions = ['coc-json',
 			\ 'coc-pyright',
 			\ 'coc-prettier',
 			\'coc-sumneko-lua']
-
+let g:coc_default_semantic_highlight_groups = 0
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -186,8 +186,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+nmap <silent> g] <Plug>(coc-diagnostic-next)
 
 " nmap <leader>qf  <Plug>(coc-fix-current)
 nmap  <leader>ac <plug>(coc-codeaction)
@@ -338,7 +338,6 @@ ensure_installed = {"rust","javascript","typescript"}, -- one of "all", "maintai
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
 }
