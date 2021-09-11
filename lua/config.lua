@@ -6,9 +6,12 @@ local g = vim.g
 local map = require('remap').map
 
 function M.asynctask()
-	g.let g:asynctasks_term_pos = 'bottom'
-	g.let g:asyncrun_open = 3
-	map()
+	g.asynctasks_term_pos = 'bottom'
+	g.asyncrun_open = 3
+  map('', '<F5>', '<cmd>AsyncTask file-build<cr>', {})
+  map('', '<F6>', '<cmd>AsyncTask file-run<cr>', {})
+  map('', '<F7>', '<cmd>AsyncTask project-build<cr>', {})
+  map('', '<F10>', '<cmd>AsyncTask project-run<cr>', {})
 end
 function M.cleverf()
     g.clever_f_across_no_line = 1
@@ -17,3 +20,7 @@ function M.cleverf()
     map('', ',', '<Plug>(clever-f-repeat-back)', {})
 end
 
+function M.suda()
+    map('n', '<Leader>W', '<Cmd>SudaWrite<CR>')
+end
+return M

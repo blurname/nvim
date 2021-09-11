@@ -78,12 +78,17 @@ _G.packer_plugins = {
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/LeaderF"
   },
   ["asyncrun.vim"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/asyncrun.vim"
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/opt/asyncrun.vim"
   },
   ["asynctasks.vim"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/asynctasks.vim"
+    config = { "require('config').asynctask()" },
+    keys = { { "", "<F5>" }, { "", "<F6>" }, { "", "<F7>" }, { "", "<F8>" } },
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/opt/asynctasks.vim",
+    wants = { "asyncrun.vim" }
   },
   ["clever-f.vim"] = {
     loaded = true,
@@ -151,6 +156,10 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/home/bl/.local/share/nvim/site/pack/packer/opt/startuptime.vim"
   },
+  ["vim-asterisk"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-asterisk"
+  },
   ["vim-flog"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-flog"
@@ -166,6 +175,10 @@ _G.packer_plugins = {
   ["vim-terminal-help"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-terminal-help"
+  },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-visual-multi"
   }
 }
 
@@ -182,6 +195,10 @@ time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
+vim.cmd [[noremap <silent> <F7> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F7>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <F6> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F6>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <F5> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F5>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <F8> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F8>", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <Plug>NERDCommenterToggle <cmd>lua require("packer.load")({'nerdcommenter'}, { keys = "<lt>Plug>NERDCommenterToggle", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 

@@ -31,8 +31,8 @@ return packer.startup({
 		-- asyncSeries
 		
 		use {'skywind3000/vim-terminal-help'}
-		use {'skywind3000/asynctasks.vim'}
-		use {'skywind3000/asyncrun.vim'}
+		use {'skywind3000/asynctasks.vim',keys={'<F5>','<F6>','<F7>','<F8>'},wants={'asyncrun.vim'},opt=true,config=conf('asynctask')}
+		use {'skywind3000/asyncrun.vim',opt=true}
 
 		-- themes
 		use {'sainnhe/edge'}
@@ -61,6 +61,8 @@ return packer.startup({
 
 		-- char search
 		use {'kevinhwang91/nvim-hlslens'}
+		use {'mg979/vim-visual-multi'}
+		use {'haya14busa/vim-asterisk'}
 
 		-- file-tree
 		use {'kevinhwang91/rnvimr',opt = false}
@@ -74,6 +76,9 @@ return packer.startup({
 
 		--quickfix
 		use {'kevinhwang91/nvim-bqf'}
+
+		
+
 
 		--scroll
 		-- use {'karb94/neoscroll.nvim'}

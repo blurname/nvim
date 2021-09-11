@@ -220,12 +220,12 @@ nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 " === asyncrun ===
 " ===
 
-noremap <silent><f5> :AsyncTask file-build<cr>
-noremap <silent><f6> :AsyncTask file-run<cr>
-noremap <silent><f7> :AsyncTask project-build<cr>
-noremap <silent><f10> :AsyncTask project-run<cr>
-let g:asynctasks_term_pos = 'bottom'
-let g:asyncrun_open = 3
+"noremap <silent><f5> :AsyncTask file-build<cr>
+"noremap <silent><f6> :AsyncTask file-run<cr>
+"noremap <silent><f7> :AsyncTask project-build<cr>
+"noremap <silent><f10> :AsyncTask project-run<cr>
+"let g:asynctasks_term_pos = 'bottom'
+"let g:asyncrun_open = 3
 
 
 """""""""""""
@@ -257,47 +257,6 @@ noremap <leader>f; :Leaderf cmdHistory<CR>
 noremap go :<C-U>Leaderf! rg --recall<CR>
 
 noremap <LEADER>fh :LeaderfHelp<CR>
-
-" Save file on each edit exit
-
-
-""""""""""""""""""""""""""
-"  move the side window  "
-""""""""""""""""""""""""""
-
-" let g:far#source="rg"
-" let g:far#glob_mode="rg"
-" 0:up, 1:down, 2:pgup, 3:pgdown, 4:top, 5:bottom
-" function! Tools_PreviousCursor(mode)
-"     if winnr('$') <= 1
-"         return
-"     endif
-"     noautocmd silent! wincmd p
-"     if a:mode == 0
-"         exec "normal! \<c-y>"
-"     elseif a:mode == 1
-"         exec "normal! \<c-e>"
-"     elseif a:mode == 2
-"         exec "normal! ".winheight('.')."\<c-y>"
-"     elseif a:mode == 3
-"         exec "normal! ".winheight('.')."\<c-e>"
-"     elseif a:mode == 4
-"         normal! gg
-"     elseif a:mode == 5
-"         normal! G
-"     elseif a:mode == 6
-"         exec "normal! \<c-u>"
-"     elseif a:mode == 7
-"         exec "normal! \<c-d>"
-"     elseif a:mode == 8
-"         exec "normal! k"
-"     elseif a:mode == 9
-"         exec "normal! j"
-"     endif
-"     noautocmd silent! wincmd p
-" endfunc
-" nnoremap <M-u> call:Tools_PreviousCursor(0)
-" nnoremap <M-d> call:Tools_PreviousCursor(1)
 
 
 """""""""""""""""""
@@ -332,10 +291,20 @@ noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR>
             \<Cmd>lua require('hlslens').start()<CR>
 noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR>
             \<Cmd>lua require('hlslens').start()<CR>
-noremap * *<Cmd>lua require('hlslens').start()<CR>
-noremap # #<Cmd>lua require('hlslens').start()<CR>
-noremap g* g*<Cmd>lua require('hlslens').start()<CR>
-noremap g# g#<Cmd>lua require('hlslens').start()<CR>
+"noremap * *<Cmd>lua require('hlslens').start()<CR>
+"noremap # #<Cmd>lua require('hlslens').start()<CR>
+"noremap g* g*<Cmd>lua require('hlslens').start()<CR>
+"noremap g# g#<Cmd>lua require('hlslens').start()<CR>
+
+map *  <Plug>(asterisk-z*)<Cmd>lua require('hlslens').start()<CR>
+map #  <Plug>(asterisk-z#)<Cmd>lua require('hlslens').start()<CR>
+map g* <Plug>(asterisk-gz*)<Cmd>lua require('hlslens').start()<CR>
+map g# <Plug>(asterisk-gz#)<Cmd>lua require('hlslens').start()<CR>
+aug VMlens
+    au!
+    au User visual_multi_start lua require('vmlens').start()
+    au User visual_multi_exit lua require('vmlens').exit()
+aug END
 
 """"""""""""""""
 "  treesitter  "
@@ -376,9 +345,6 @@ aug Coc
     au User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
 aug END
 
-" if you use coc-fzf, you should disable its CocLocationsChange event make
-" bqf work for <Plug>(coc-references)
-" au VimEnter * au! CocFzfLocation User CocLocationsChange
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> <leader>d <Cmd>call Coc_qf_diagnostic()<CR>
 
@@ -410,20 +376,6 @@ function! Coc_qf_jump2loc(locs) abort
         call win_gotoid(winid)
     endif
 endfunction
-
-" lua << EOF
-" require('neoscroll').setup({
-"     mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>','<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
-"     hide_cursor = true,
-"     stop_eof = true,             
-"     use_local_scrolloff = false, 
-"     respect_scrolloff = false,
-"     cursor_scrolls_alone = true, 
-"     easing_function = nil,
-" 		pre_hook = nil, 
-"     post_hook = nil,             
-" })
-" EOF
 
 "NERDCommenter
 let g:NERDCreateDefaultMappings = 0
