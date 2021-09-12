@@ -11,7 +11,7 @@ function M.asynctask()
   map('', '<F5>', '<cmd>AsyncTask file-build<cr>', {})
   map('', '<F6>', '<cmd>AsyncTask file-run<cr>', {})
   map('', '<F7>', '<cmd>AsyncTask project-build<cr>', {})
-  map('', '<F10>', '<cmd>AsyncTask project-run<cr>', {})
+  map('', '<F8>', '<cmd>AsyncTask project-run<cr>', {})
 end
 function M.cleverf()
     g.clever_f_across_no_line = 1

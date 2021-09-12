@@ -1,4 +1,6 @@
 {
+	"coc.preferences.colorSupport": false,
+	"coc.preferences.semanticTokensHighlights": false,
   "hover.target": "float",
   "hover.floatConfig": {
     "border": true,

@@ -26,7 +26,7 @@ return packer.startup({
     }
 
 		-- imporve f action
-		use {'rhysd/clever-f.vim'}
+		use {'rhysd/clever-f.vim',keys={'f','F','t','T'},config=conf(cleverf)}
 
 		-- asyncSeries
 		
@@ -56,9 +56,6 @@ return packer.startup({
 		-- change surrounding symbol
 		use {'machakann/vim-sandwich'}
 
-		-- replace
-		use {'brooth/far.vim'}
-
 		-- char search
 		use {'kevinhwang91/nvim-hlslens'}
 		use {'mg979/vim-visual-multi'}
@@ -72,16 +69,11 @@ return packer.startup({
 
 		--git
 		use {'tpope/vim-fugitive'}
-		use {'rbong/vim-flog'}
+		use {'rbong/vim-flog',opt=true,cmd={'Flog','Flogsplit'}}
 
 		--quickfix
 		use {'kevinhwang91/nvim-bqf'}
-
-		
-
-
-		--scroll
-		-- use {'karb94/neoscroll.nvim'}
+		use {'lambdalisue/suda.vim',opt=true,keys={'n','<leader>W'},config=conf(suda)}
 
 	end
 })

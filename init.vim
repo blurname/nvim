@@ -1,6 +1,6 @@
 " set background=dark    " Setting dark mode
 set termguicolors
-" set bg=light
+ "set bg=light
 set bg=dark
 let g:everforest_transparent_background = 1
 let g:everforest_background = 'hard'
