@@ -175,38 +175,6 @@
     "prefix": "cel",
     "body": "${1:document}.createElement(${2:elem})"
   },
-  "classList.add": {
-    "prefix": "hecla",
-    "body": "${1:el}.classList.add('${2:class}')"
-  },
-  "classList.remove": {
-    "prefix": "heclr",
-    "body": "${1:el}.classList.remove('${2:class}')"
-  },
-  "classList.toggle": {
-    "prefix": "hect",
-    "body": "${1:el}.classList.toggle('${2:class}')"
-  },
-  "getAttribute": {
-    "prefix": "hega",
-    "body": "${1:el}.getAttribute('${2:attr}')"
-  },
-  "removeAttribute": {
-    "prefix": "hera",
-    "body": "${1:el}.removeAttribute('${2:attr}')"
-  },
-  "setAttribute": {
-    "prefix": "hesa",
-    "body": "${1:el}.setAttribute('${2:attr}', ${3:value})"
-  },
-  "appendChild": {
-    "prefix": "heac",
-    "body": "${1:el}.appendChild(${2:elem})"
-  },
-  "removeChild": {
-    "prefix": "herc",
-    "body": "${1:el}.removeChild(${2:elem})"
-  },
   "forEach loop": {
     "prefix": "fe",
     "body": "${1:iterable}.forEach((${2:item}) => {\n\t${0}\n})"
@@ -459,6 +427,10 @@
     "prefix": "afr",
     "body": "(${1:arguments}) => {\n\treturn ${0}\n}"
   },
+  "class method": {
+    "prefix": "m",
+    "body": "${0:name}(${1:arguments}) => {\n\t\n}"
+  },
   "generator function": {
     "prefix": "gf",
     "body": "function* (${1:arguments}) {\n\t${0}\n}"
@@ -502,10 +474,6 @@
   "getter + setter": {
     "prefix": "gs",
     "body": "get ${1:property} () {\n\t${0}\n}\nset ${1:property} (${2:value}) {\n\t\n}"
-  },
-  "prototype method": {
-    "prefix": "proto",
-    "body": "${1:Class}.prototype.${2:method} = function (${3:arguments}) {\n\t${0}\n}"
   },
   "Object.assign": {
     "prefix": "oa",

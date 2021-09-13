@@ -13,6 +13,7 @@ let g:everforest_ui_contrast = 'high'
 let g:everforest_cursor = 'red'
 colorscheme everforest
 lua require('plugins')
+"lua require('stl')
 
 " ===
 " === Basic Mappings
@@ -208,7 +209,7 @@ nmap  <leader>ac <plug>(coc-codeaction)
 
 noremap  <leader>v  :CocCommand explorer<CR>
 
-nnoremap <C-n> <cmd>RnvimrToggle<cr>
+"nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
 noremap <leader>fp :Prettier<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile

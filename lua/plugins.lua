@@ -26,7 +26,7 @@ return packer.startup({
     }
 
 		-- imporve f action
-		use {'rhysd/clever-f.vim',keys={'f','F','t','T'},config=conf(cleverf)}
+		use {'rhysd/clever-f.vim',keys={'f','F','t','T'},config=conf('cleverf')}
 
 		-- asyncSeries
 		
@@ -42,7 +42,7 @@ return packer.startup({
 		-- use {'equalsraf/neovim-gui-shim'}
 
 		-- statusline
-		use	{'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'myline' end}
+		use	{'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'myline' end,disable=false}
 		use {'kyazdani42/nvim-web-devicons'}
 
 		--coc
@@ -62,7 +62,7 @@ return packer.startup({
 		use {'haya14busa/vim-asterisk'}
 
 		-- file-tree
-		use {'kevinhwang91/rnvimr',opt = false}
+		--use {'kevinhwang91/rnvimr',opt = false}
 
 		-- auto-save {	
 		use {'Pocco81/AutoSave.nvim'}
