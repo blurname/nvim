@@ -29,7 +29,6 @@ return packer.startup({
 		use {'rhysd/clever-f.vim',keys={'f','F','t','T'},config=conf('cleverf')}
 
 		-- asyncSeries
-		
 		use {'skywind3000/vim-terminal-help'}
 		use {'skywind3000/asynctasks.vim',keys={'<F5>','<F6>','<F7>','<F8>'},wants={'asyncrun.vim'},opt=true,config=conf('asynctask')}
 		use {'skywind3000/asyncrun.vim',opt=true}
@@ -37,13 +36,16 @@ return packer.startup({
 		-- themes
 		use {'sainnhe/edge'}
 		use {'sainnhe/everforest'}
+		use 'EdenEast/nightfox.nvim'
+
 
 		-- show color
 		-- use {'equalsraf/neovim-gui-shim'}
+		use {'norcalli/nvim-colorizer.lua'}
 
 		-- statusline
-		use	{'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'myline' end,disable=false}
 		use {'kyazdani42/nvim-web-devicons'}
+		use {'famiu/feline.nvim'}
 
 		--coc
 		use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
@@ -72,7 +74,7 @@ return packer.startup({
 		use {'rbong/vim-flog',opt=true,cmd={'Flog','Flogsplit'}}
 
 		--quickfix
-		use {'kevinhwang91/nvim-bqf'}
+		use {'kevinhwang91/nvim-bqf',branch = 'dev'}
 		use {'lambdalisue/suda.vim',opt=true,keys={'n','<leader>W'},config=conf(suda)}
 
 	end

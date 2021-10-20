@@ -15,13 +15,15 @@
   "suggest.floatConfig": {
     "border": true,
     "highlight": "CocFloating",
-    "borderhighlight": "CocFloating"
+    "borderhighlight": "CocFloating",
+		"winblend": 8
+
   },
   "suggest.noselect": true,
   "suggest.enablePreselect": true,
-  "suggest.triggerAfterInsertEnter": true,
+  "suggest.triggerAfterInsertEnter": false,
   "suggest.autoTrigger": "always",
-  "suggest.timeout": 5000,
+  "suggest.timeout": 1000,
   "suggest.enablePreview": true,
   "suggest.floatEnable": true,
   "suggest.completionItemKindLabels": {

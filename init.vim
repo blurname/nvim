@@ -1,20 +1,30 @@
-" set background=dark    " Setting dark mode
 set termguicolors
- "set bg=light
-set bg=dark
-let g:everforest_transparent_background = 1
-let g:everforest_background = 'hard'
-let g:everforest_enable_italic = 1
-let g:everforest_lightline_disable_bold = 1
-let g:everforest_diagnostic_line_highlight = 0
-let g:everforest_diagnostic_text_highlight = 1
-let g:everforest_diagnostic_virtual_text = 'colored'
-let g:everforest_ui_contrast = 'high'
-let g:everforest_cursor = 'red'
-colorscheme everforest
+set bg=light
+"set bg=dark
+"let g:everforest_transparent_background = 1
+"let g:everforest_background = 'soft'
+"let g:everforest_enable_italic = 1
+"let g:everforest_lightline_disable_bold = 1
+"let g:everforest_diagnostic_line_highlight = 0
+"let g:everforest_diagnostic_text_highlight = 1
+"let g:everforest_diagnostic_virtual_text = 'colored'
+"let g:everforest_ui_contrast = 'high'
+"let g:everforest_cursor = 'auto'
+colorscheme nordfox
+"let g:edge_transparent_background = 1
+"let g:edge_style="aura"
+"let g:edge_enable_italic = 1
+"let g:edge_lightline_disable_bold = 1
+"let g:edge_diagnostic_line_highlight = 0
+"let g:edge_diagnostic_text_highlight = 1
+"let g:edge_diagnostic_virtual_text = 'colored'
+"let g:edge_better_performance = 1
+"let g:edge_ui_contrast = 'high'
+"let g:edge_cursor = 'red'
+"colorscheme edge
 lua require('plugins')
-"lua require('stl')
-
+lua require('feline-config')
+lua require('colorizer').setup()
 " ===
 " === Basic Mappings
 " ===
@@ -45,6 +55,7 @@ set autoindent
 set ttimeoutlen=0
 set modifiable
 set signcolumn=yes:1
+set pumblend=8
 filetype plugin on
 " set scrolloff
 
@@ -71,8 +82,8 @@ noremap <LEADER>p "+p
 
 
 " Resize splits with arrow keys
-noremap <up> :res -5<CR>
-noremap <down> :res +5<CR>
+noremap <down> :res -5<CR>
+noremap <up> :res +5<CR>
 noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
 
@@ -189,7 +200,7 @@ omap ac <Plug>(coc-classobj-a)
 
 
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>l  :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -239,7 +250,7 @@ let g:Lf_PreviewInPopup = 1
 let g:Lf_ShortcutF = "<leader>fl"
 let g:Lf_fuzzyEngine_C = 1
 let g:Lf_StlColorscheme = 'popup'
-let g:Lf_PopupColorscheme = 'one'
+let g:Lf_PopupColorscheme = 'default'
 let g:Lf_CursorBlink = 0
 " let g:Lf_WorkingDirectory = finddir('.git', '.;')
 
@@ -266,7 +277,6 @@ noremap <LEADER>fh :LeaderfHelp<CR>
 
 lua << EOF
 local autosave = require("autosave")
-
 autosave.setup(
     {
         enabled = true,
@@ -380,4 +390,5 @@ endfunction
 
 "NERDCommenter
 let g:NERDCreateDefaultMappings = 0
-map <LEADER>cl <plug>NERDCommenterToggle
+"map <LEADER>cl <plug>NERDCommenterToggle
+map <c-_> <plug>NERDCommenterToggle

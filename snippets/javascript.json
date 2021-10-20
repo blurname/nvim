@@ -209,7 +209,7 @@
   },
   "const statement": {
     "prefix": "c",
-    "body": "const ${1:name} ="
+    "body": "const ${1:name} = ${2}"
   },
   "const statement from destructuring": {
     "prefix": "cd",
@@ -342,8 +342,8 @@
   "For Loop": {
     "prefix": "forlet",
     "body": [
-      "for (let ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
-      "\tconst ${3:element} = ${2:array}[${1:index}];",
+      "for (let ${1:i} = 0; ${1:i} < ${2:array}.length; ${1:i}++) {",
+      "\tconst ${3:element} = ${2:array}[${1:i}];",
       "\t$0",
       "}"
     ],
@@ -429,7 +429,7 @@
   },
   "class method": {
     "prefix": "m",
-    "body": "${0:name}(${1:arguments}) => {\n\t\n}"
+    "body": "${1:name}(${2:arguments}){\n\t\n}"
   },
   "generator function": {
     "prefix": "gf",
