@@ -109,14 +109,6 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/home/bl/.local/share/nvim/site/pack/packer/opt/delimitMate"
   },
-  edge = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/edge"
-  },
-  everforest = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/everforest"
-  },
   ["feline.nvim"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/feline.nvim"
@@ -136,6 +128,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-bqf"
   },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
+  },
   ["nvim-hlslens"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-hlslens"
@@ -152,6 +148,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
+  playground = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/playground"
+  },
   ["startuptime.vim"] = {
     commands = { "StartupTime" },
     loaded = false,
@@ -160,12 +160,16 @@ _G.packer_plugins = {
     path = "/home/bl/.local/share/nvim/site/pack/packer/opt/startuptime.vim"
   },
   ["suda.vim"] = {
-    config = { "require('config').nil()" },
+    config = { "require('config').suda()" },
     keys = { { "", "n" }, { "", "<leader>W" } },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
     path = "/home/bl/.local/share/nvim/site/pack/packer/opt/suda.vim"
+  },
+  ["vCoolor.vim"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/vCoolor.vim"
   },
   ["vim-asterisk"] = {
     loaded = true,
@@ -207,16 +211,16 @@ time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> <F6> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F6>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <leader>W <cmd>lua require("packer.load")({'suda.vim'}, { keys = "<lt>leader>W", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> f <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "f", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> F <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "F", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <F8> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F8>", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> t <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "t", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> <F7> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F7>", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> f <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "f", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> <Plug>NERDCommenterToggle <cmd>lua require("packer.load")({'nerdcommenter'}, { keys = "<lt>Plug>NERDCommenterToggle", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <F5> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F5>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <F6> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F6>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <Plug>NERDCommenterToggle <cmd>lua require("packer.load")({'nerdcommenter'}, { keys = "<lt>Plug>NERDCommenterToggle", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <F7> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F7>", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> T <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "T", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> <leader>W <cmd>lua require("packer.load")({'suda.vim'}, { keys = "<lt>leader>W", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> t <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "t", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> n <cmd>lua require("packer.load")({'suda.vim'}, { keys = "n", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 

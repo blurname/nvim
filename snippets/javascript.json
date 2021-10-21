@@ -129,11 +129,11 @@
   },
   "module as class": {
     "prefix": "mec",
-    "body": "class ${1:name} {\n\tconstructor (${2:arguments}) {\n\t\t${0}\n\t}\n}\n\nmodule.exports = ${1:name}\n"
+    "body": "class ${1:name} {\n\tconstructor (${2:args}) {\n\t\t${0}\n\t}\n}\n\nmodule.exports = ${1:name}\n"
   },
   "event handler": {
     "prefix": "on",
-    "body": "${1:emitter}.on('${2:event}', (${3:arguments}) => {\n\t${0}\n})"
+    "body": "${1:emitter}.on('${2:event}', (${3:args}) => {\n\t${0}\n})"
   },
   "dom event cancel default and propagation": {
     "prefix": "evc",
@@ -229,7 +229,7 @@
   },
   "const arrow function assignment": {
     "prefix": "cf",
-    "body": "const ${1:name} = (${2:arguments}) => {\n\treturn ${0}\n}"
+    "body": "const ${1:name} = (${2:args}) => {\n\treturn ${0}\n}"
   },
   "let assignment awaited": {
     "prefix": "la",
@@ -261,11 +261,11 @@
   },
   "class": {
     "prefix": "cs",
-    "body": "class ${1:name} {\n\tconstructor (${2:arguments}) {\n\t\t${0}\n\t}\n}"
+    "body": "class ${1:name} {\n\tconstructor (${2:args}) {\n\t\t${0}\n\t}\n}"
   },
   "class extends": {
     "prefix": "csx",
-    "body": "class ${1:name} extends ${2:base} {\n\tconstructor (${3:arguments}) {\n\t\tsuper(${3:arguments})\n\t\t${0}\n\t}\n}"
+    "body": "class ${1:name} extends ${2:base} {\n\tconstructor (${3:args}) {\n\t\tsuper(${3:args})\n\t\t${0}\n\t}\n}"
   },
   "module export": {
     "prefix": "e",
@@ -277,7 +277,7 @@
   },
   "export named function": {
     "prefix": "ef",
-    "body": "export function ${1:member} (${2:arguments}) {\n\t${0}\n}"
+    "body": "export function ${1:member} (${2:args}) {\n\t${0}\n}"
   },
   "module default export": {
     "prefix": "ed",
@@ -285,7 +285,7 @@
   },
   "module default export function": {
     "prefix": "edf",
-    "body": "export default function ${1:name} (${2:arguments}) {\n\t${0}\n}"
+    "body": "export default function ${1:name} (${2:args}) {\n\t${0}\n}"
   },
   "import module": {
     "prefix": "im",
@@ -389,55 +389,55 @@
   },
   "anonymous function": {
     "prefix": "fan",
-    "body": "function (${1:arguments}) {${0}}"
+    "body": "function (${1:args}) {${0}}"
   },
   "named function": {
     "prefix": "fn",
-    "body": "function ${1:name} (${2:arguments}) {\n\t${0}\n}"
+    "body": "function ${1:name} (${2:args}) {\n\t${0}\n}"
   },
   "named function in class": {
     "prefix": "fcl",
-    "body": "${1:name} (${2:arguments}) {\n\t${0}\n}"
+    "body": "${1:name} (${2:args}) {\n\t${0}\n}"
   },
   "async function": {
     "prefix": "asf",
-    "body": "async function (${1:arguments}) {\n\t${0}\n}"
+    "body": "async function (${1:args}) {\n\t${0}\n}"
   },
   "async arrow function": {
     "prefix": "aa",
-    "body": "async (${1:arguments}) => {\n\t${0}\n}"
+    "body": "async (${1:args}) => {\n\t${0}\n}"
   },
   "arrow function": {
     "prefix": "af",
-    "body": "(${1:arguments}) => ${2:statement}"
+    "body": "(${1:args}) => ${2:statement}"
   },
   "arrow function with destructuring": {
     "prefix": "afd",
-    "body": "({${1:arguments}}) => ${2:statement}"
+    "body": "({${1:args}}) => ${2:statement}"
   },
   "arrow function with destructuring returning destructured": {
     "prefix": "afdr",
-    "body": "({${1:arguments}}) => ${1:arguments}"
+    "body": "({${1:args}}) => ${1:args}"
   },
   "arrow function with body": {
     "prefix": "afb",
-    "body": "(${1:arguments}) => {\n\t${0}\n}"
+    "body": "(${1:args}) => {\n\t${0}\n}"
   },
   "arrow function with return": {
     "prefix": "afr",
-    "body": "(${1:arguments}) => {\n\treturn ${0}\n}"
+    "body": "(${1:args}) => {\n\treturn ${0}\n}"
   },
   "class method": {
     "prefix": "m",
-    "body": "${1:name}(${2:arguments}){\n\t\n}"
+    "body": "${1:name}(${2:args}){\n\t\n}"
   },
   "generator function": {
     "prefix": "gf",
-    "body": "function* (${1:arguments}) {\n\t${0}\n}"
+    "body": "function* (${1:args}) {\n\t${0}\n}"
   },
   "named generator": {
     "prefix": "gfn",
-    "body": "function* ${1:name}(${2:arguments}) {\n\t${0}\n}"
+    "body": "function* ${1:name}(${2:args}) {\n\t${0}\n}"
   },
   "console.log": {
     "prefix": "cl",
@@ -525,7 +525,7 @@
   },
   "New Statement": {
     "prefix": "cn",
-    "body": ["const ${1:name} = new ${2:type}(${3:arguments});$0"],
+    "body": ["const ${1:name} = new ${2:type}(${3:args});$0"],
     "description": "New Statement"
   },
   "Switch Statement": {

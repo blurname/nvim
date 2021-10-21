@@ -1,30 +1,8 @@
 set termguicolors
-set bg=light
-"set bg=dark
-"let g:everforest_transparent_background = 1
-"let g:everforest_background = 'soft'
-"let g:everforest_enable_italic = 1
-"let g:everforest_lightline_disable_bold = 1
-"let g:everforest_diagnostic_line_highlight = 0
-"let g:everforest_diagnostic_text_highlight = 1
-"let g:everforest_diagnostic_virtual_text = 'colored'
-"let g:everforest_ui_contrast = 'high'
-"let g:everforest_cursor = 'auto'
-colorscheme nordfox
-"let g:edge_transparent_background = 1
-"let g:edge_style="aura"
-"let g:edge_enable_italic = 1
-"let g:edge_lightline_disable_bold = 1
-"let g:edge_diagnostic_line_highlight = 0
-"let g:edge_diagnostic_text_highlight = 1
-"let g:edge_diagnostic_virtual_text = 'colored'
-"let g:edge_better_performance = 1
-"let g:edge_ui_contrast = 'high'
-"let g:edge_cursor = 'red'
-"colorscheme edge
 lua require('plugins')
 lua require('feline-config')
 lua require('colorizer').setup()
+lua require('nightfox-config')
 " ===
 " === Basic Mappings
 " ===
@@ -41,7 +19,7 @@ set secure
 set number
 set relativenumber
 " set formatoptions
-set cursorline
+"set cursorline
 set ignorecase
 set smartcase
 set wrap
@@ -56,6 +34,7 @@ set ttimeoutlen=0
 set modifiable
 set signcolumn=yes:1
 set pumblend=8
+set cole=1
 filetype plugin on
 " set scrolloff
 
@@ -332,16 +311,6 @@ ensure_installed = {"rust","javascript","typescript"}, -- one of "all", "maintai
   },
 }
 EOF
-
-
-""""""""""""
-"  rnvimr  "
-""""""""""""
-
-" let g:rnvimr_enable_bw = 1
-" let g:rnvimr_enable_picker = 1
-" let g:rnvimr_enable_ex = 1
-" let g:rnvimr_draw_border = 1
 
 """"""""""""""
 "  nvim-bqf  "

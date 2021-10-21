@@ -21,6 +21,6 @@ function M.cleverf()
 end
 
 function M.suda()
-    map('n', '<Leader>W', '<Cmd>SudaWrite<CR>')
+    map('n', '<Leader>W', '<Cmd>SudaWrite<cr>')
 end
 return M

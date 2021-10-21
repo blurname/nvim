@@ -24,6 +24,7 @@ return packer.startup({
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
+		use{'nvim-treesitter/playground'}
 
 		-- imporve f action
 		use {'rhysd/clever-f.vim',keys={'f','F','t','T'},config=conf('cleverf')}
@@ -34,8 +35,8 @@ return packer.startup({
 		use {'skywind3000/asyncrun.vim',opt=true}
 
 		-- themes
-		use {'sainnhe/edge'}
-		use {'sainnhe/everforest'}
+		--use {'sainnhe/edge'}
+		--use {'sainnhe/everforest'}
 		use 'EdenEast/nightfox.nvim'
 
 
@@ -75,7 +76,7 @@ return packer.startup({
 
 		--quickfix
 		use {'kevinhwang91/nvim-bqf',branch = 'dev'}
-		use {'lambdalisue/suda.vim',opt=true,keys={'n','<leader>W'},config=conf(suda)}
-
+		use {'lambdalisue/suda.vim',opt=true,keys={'n','<leader>W'},config=conf('suda')}
+		use {'KabbAmine/vCoolor.vim'}
 	end
 })
