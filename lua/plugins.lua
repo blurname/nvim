@@ -78,5 +78,7 @@ return packer.startup({
 		use {'kevinhwang91/nvim-bqf',branch = 'dev'}
 		use {'lambdalisue/suda.vim',opt=true,keys={'n','<leader>W'},config=conf('suda')}
 		use {'KabbAmine/vCoolor.vim'}
+		use {'elkowar/yuck.vim'}
+		use {'sbdchd/neoformat'}
 	end
 })

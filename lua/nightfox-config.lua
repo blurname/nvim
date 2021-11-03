@@ -14,12 +14,7 @@ nightfox.setup({
     --match_paren = true, -- inverse the highlighting of match_parens
   --},
   colors = {
-    --red = "#FF0000", -- Override the red color for MAX POWER
-		--bg_alt = "#c94f6d",
-		--black ="#c94f6d",
-		--black_dm ="#c94f6d",
-		--black_br ="#c94f6d",
-		--none = "#c94f6d",
+
   },
   hlgroups = {
     --TSPunctDelimiter = { fg = "${red}" }, -- Override a highlight group with the color red

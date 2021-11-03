@@ -19,7 +19,7 @@ set secure
 set number
 set relativenumber
 " set formatoptions
-"set cursorline
+set cursorline
 set ignorecase
 set smartcase
 set wrap
@@ -108,7 +108,7 @@ let g:closetag_filetypes = 'html,jsx,tsx'
 let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
 
 " ===
-" === coc.nvim 
+" === coc.nvim
 " ===
 let g:coc_global_extensions = ['coc-json',
 			\ 'coc-vimlsp',
@@ -126,34 +126,34 @@ let g:coc_global_extensions = ['coc-json',
 let g:coc_default_semantic_highlight_groups = 0
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	elseif (coc#rpc#ready())
+		call CocActionAsync('doHover')
+	else
+		execute '!' . &keywordprg . " " . expand('<cword>')
+	endif
 endfunction
 
 inoremap <silent><expr> <c-space> coc#refresh()
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 " nnoremap <c-p> <c-^>
- 
+
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+			\ pumvisible() ? "\<C-n>" :
 			\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ coc#refresh()
 
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 nmap <silent> gd <Plug>(coc-definition)
@@ -239,7 +239,7 @@ let g:Lf_WildIgnore = {
 			\ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
 			\}
 
-noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
+noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
@@ -257,30 +257,30 @@ noremap <LEADER>fh :LeaderfHelp<CR>
 lua << EOF
 local autosave = require("autosave")
 autosave.setup(
-    {
-        enabled = true,
-        execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
+{
+enabled = true,
+execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
 
-        events = {"InsertLeave"},
-				events = ("TextChanged"),
-        conditions = {
-            exists = true,
-            filetype_is_not = {},
-            modifiable = true
-        },
-        write_all_buffers = false,
-        on_off_commands = true,
-        clean_command_line_interval = 2500
-    }
+events = {"InsertLeave"},
+events = ("TextChanged"),
+conditions = {
+	exists = true,
+	filetype_is_not = {},
+	modifiable = true
+	},
+write_all_buffers = false,
+on_off_commands = true,
+clean_command_line_interval = 2500
+}
 )
 EOF
 """"""""""""""""""
 "  nvim-hlslens  "
 """"""""""""""""""
 noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR>
-            \<Cmd>lua require('hlslens').start()<CR>
+			\<Cmd>lua require('hlslens').start()<CR>
 noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR>
-            \<Cmd>lua require('hlslens').start()<CR>
+			\<Cmd>lua require('hlslens').start()<CR>
 "noremap * *<Cmd>lua require('hlslens').start()<CR>
 "noremap # #<Cmd>lua require('hlslens').start()<CR>
 "noremap g* g*<Cmd>lua require('hlslens').start()<CR>
@@ -291,9 +291,9 @@ map #  <Plug>(asterisk-z#)<Cmd>lua require('hlslens').start()<CR>
 map g* <Plug>(asterisk-gz*)<Cmd>lua require('hlslens').start()<CR>
 map g# <Plug>(asterisk-gz#)<Cmd>lua require('hlslens').start()<CR>
 aug VMlens
-    au!
-    au User visual_multi_start lua require('vmlens').start()
-    au User visual_multi_exit lua require('vmlens').exit()
+	au!
+	au User visual_multi_start lua require('vmlens').start()
+	au User visual_multi_exit lua require('vmlens').exit()
 aug END
 
 """"""""""""""""
@@ -302,13 +302,13 @@ aug END
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
 ensure_installed = {"rust","javascript","typescript"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    additional_vim_regex_highlighting = false,
-  },
+highlight = {
+enable = true,              -- false will disable the whole extension
+-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+-- Using this option may slow down your editor, and you may see some duplicate highlights.
+additional_vim_regex_highlighting = false,
+},
 }
 EOF
 
@@ -317,47 +317,70 @@ EOF
 """"""""""""""
 let g:coc_enable_locationlist = 0
 aug Coc
-    au!
-    au User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
+	au!
+	au User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
 aug END
 aug Coc
-    au!
-    au User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
+	au!
+	au User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
 aug END
 
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> <leader>d <Cmd>call Coc_qf_diagnostic()<CR>
 
 function! Coc_qf_diagnostic() abort
-    let diagnostic_list = CocAction('diagnosticList')
-    let items = []
-    let loc_ranges = []
-    for d in diagnostic_list
-        let text = printf('[%s%s] %s', (empty(d.source) ? 'coc.nvim' : d.source),
-                    \ (d.code ? ' ' . d.code : ''), split(d.message, '\n')[0])
-        let item = {'filename': d.file, 'lnum': d.lnum, 'col': d.col, 'text': text, 'type':
-                    \ d.severity[0]}
-        call add(loc_ranges, d.location.range)
-        call add(items, item)
-    endfor
-    call setqflist([], ' ', {'title': 'CocDiagnosticList', 'items': items,
-                \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
-    botright copen
+	let diagnostic_list = CocAction('diagnosticList')
+	let items = []
+	let loc_ranges = []
+	for d in diagnostic_list
+		let text = printf('[%s%s] %s', (empty(d.source) ? 'coc.nvim' : d.source),
+					\ (d.code ? ' ' . d.code : ''), split(d.message, '\n')[0])
+		let item = {'filename': d.file, 'lnum': d.lnum, 'col': d.col, 'text': text, 'type':
+					\ d.severity[0]}
+		call add(loc_ranges, d.location.range)
+		call add(items, item)
+	endfor
+	call setqflist([], ' ', {'title': 'CocDiagnosticList', 'items': items,
+				\ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
+	botright copen
 endfunction
 
 function! Coc_qf_jump2loc(locs) abort
-    let loc_ranges = map(deepcopy(a:locs), 'v:val.range')
-    call setloclist(0, [], ' ', {'title': 'CocLocationList', 'items': a:locs,
-                \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
-    let winid = getloclist(0, {'winid': 0}).winid
-    if winid == 0
-        aboveleft lwindow
-    else
-        call win_gotoid(winid)
-    endif
+	let loc_ranges = map(deepcopy(a:locs), 'v:val.range')
+	call setloclist(0, [], ' ', {'title': 'CocLocationList', 'items': a:locs,
+				\ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
+	let winid = getloclist(0, {'winid': 0}).winid
+	if winid == 0
+		aboveleft lwindow
+	else
+		call win_gotoid(winid)
+	endif
 endfunction
 
 "NERDCommenter
 let g:NERDCreateDefaultMappings = 0
 "map <LEADER>cl <plug>NERDCommenterToggle
 map <c-_> <plug>NERDCommenterToggle
+" Enable alignment globally
+let g:neoformat_basic_format_align = 1
+
+" Enable tab to spaces conversion globally
+let g:neoformat_basic_format_retab = 1
+
+let g:neoformat_basic_format_trim = 1
+" Enable trimmming of trailing whitespace globally
+"let g:neoformat_javascript_prettier = {
+			"\ 'exe':'prettier',
+			"\ 'args':['--trailing-comma none','--no-semi','--single-quote'],
+			"\}
+"let g:neoformat_typescript_prettier = {
+			"\ 'exe':'prettier',
+			"\ 'args':['--no-semi','--single-quote'],
+			"\}
+
+"let g:neoformat_enabled_javascript = ['prettier']
+"let g:neoformat_enabled_typescript = ['prettier']
+"let g:neoformat_enabled_json = ['prettier']
+"let g:neoformat_enabled_yaml = ['prettier']
+
+let g:neoformat_enabled_rust = ['rustfmt']

@@ -271,7 +271,7 @@ table.insert(components.active[1], comps.file.info)
 --table.insert(components.active[1], comps.git.add)
 --table.insert(components.active[1], comps.git.change)
 --table.insert(components.active[1], comps.git.remove)
-table.insert(components.inactive[1], comps.vi_mode.left)
+--table.insert(components.inactive[1], comps.vi_mode.left)
 table.insert(components.inactive[1], comps.file.info)
 table.insert(components.active[2], comps.diagnos.err)
 table.insert(components.active[2], comps.diagnos.warn)
@@ -306,14 +306,14 @@ require'feline'.setup {
 		colors = { bg = colors.bg, fg = colors.fg },
 		components = components,
 		vi_mode_colors = vi_mode_colors,
-		force_inactive = {
-				filetypes = {
-						'packer',
-						'NvimTree',
-						'fugitive',
-						'fugitiveblame'
-				},
-				buftypes = {'terminal'},
-				bufnames = {}
-		}
+		--force_inactive = {
+				--filetypes = {
+						--'packer',
+						--'NvimTree',
+						--'fugitive',
+						--'fugitiveblame'
+				--},
+				--buftypes = {'terminal'},
+				--bufnames = {}
+		--}
 }
