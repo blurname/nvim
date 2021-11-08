@@ -201,7 +201,7 @@ noremap  <leader>v  :CocCommand explorer<CR>
 
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
-noremap <leader>fp :Prettier<CR>
+noremap <leader>fi :Prettier<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Useful commands
@@ -360,27 +360,36 @@ endfunction
 "NERDCommenter
 let g:NERDCreateDefaultMappings = 0
 "map <LEADER>cl <plug>NERDCommenterToggle
+"map <c-_> instead of <c-/>
 map <c-_> <plug>NERDCommenterToggle
+
 " Enable alignment globally
 let g:neoformat_basic_format_align = 1
 
 " Enable tab to spaces conversion globally
-let g:neoformat_basic_format_retab = 1
+"let g:neoformat_basic_format_retab = 1
 
 let g:neoformat_basic_format_trim = 1
+
 " Enable trimmming of trailing whitespace globally
 "let g:neoformat_javascript_prettier = {
 			"\ 'exe':'prettier',
-			"\ 'args':['--trailing-comma none','--no-semi','--single-quote'],
+			"\ 'args':['--no-semi']
 			"\}
-"let g:neoformat_typescript_prettier = {
-			"\ 'exe':'prettier',
-			"\ 'args':['--no-semi','--single-quote'],
-			"\}
+let g:neoformat_typescript_prettier = {
+			\ 'exe':'prettier',
+			\ 'args': ['--parser', 'typescript','--no-semi','--single-quote'],
+			\}
+			"\ 'args':['--no-semi']
+			"\ 'stdin': 1
 
 "let g:neoformat_enabled_javascript = ['prettier']
-"let g:neoformat_enabled_typescript = ['prettier']
-"let g:neoformat_enabled_json = ['prettier']
-"let g:neoformat_enabled_yaml = ['prettier']
+let g:neoformat_enabled_typescript = ['prettier']
+let g:neoformat_enabled_json = ['prettier']
+let g:neoformat_enabled_yaml = ['prettier']
 
 let g:neoformat_enabled_rust = ['rustfmt']
+"let g:neoformat_verbose = 1 "
+noremap <leader>gg :G<CR>
+noremap <leader>gl :diffget //3<CR>
+noremap <leader>gh :diffget //2<CR>
