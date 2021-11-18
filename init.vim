@@ -182,7 +182,7 @@ omap ac <Plug>(coc-classobj-a)
 nnoremap <silent><nowait> <space>l  :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+"autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -245,7 +245,7 @@ noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
 noremap <leader>f; :Leaderf cmdHistory<CR>
-noremap go :<C-U>Leaderf! rg --recall<CR>
+noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
 
 noremap <LEADER>fh :LeaderfHelp<CR>
 
