@@ -50,6 +50,7 @@ return packer.startup({
 
 		--coc
 		use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
+		--use {'neoclide/coc.nvim', branch = 'release'}
 
 		--vista.vim symbol navigation
 		use {'tweekmonster/startuptime.vim', cmd = 'StartupTime',opt=true}

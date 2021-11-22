@@ -389,6 +389,7 @@ let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_yaml = ['prettier']
 
 let g:neoformat_enabled_rust = ['rustfmt']
+let g:neoformat_enabled_nix = ['nixpkgs-fmt']
 "let g:neoformat_verbose = 1 "
 noremap <leader>gg :G<CR>
 noremap <leader>gl :diffget //3<CR>

@@ -1,6 +1,6 @@
 {
-	"coc.preferences.colorSupport": false,
-	"coc.preferences.semanticTokensHighlights": false,
+  "coc.preferences.colorSupport": false,
+  "coc.preferences.semanticTokensHighlights": false,
   "hover.target": "float",
   "hover.floatConfig": {
     "border": true,
@@ -16,8 +16,7 @@
     "border": true,
     "highlight": "CocFloating",
     "borderhighlight": "CocFloating",
-		"winblend": 8
-
+    "winblend": 8
   },
   "suggest.noselect": true,
   "suggest.enablePreselect": true,
@@ -86,8 +85,8 @@
     "<tab>": "actionMenu",
     "P": "pasteFile"
   },
-	"explorer.icon.source": "builtin",
-	"explorer.icon.enableNerdfont": true,
+  "explorer.icon.source": "builtin",
+  "explorer.icon.enableNerdfont": true,
   "prettier.singleQuote": true,
   "prettier.semi": false,
   "prettier.arrowParens": "always",
@@ -98,7 +97,7 @@
   "javascript.suggest.enabled": true,
   "javascript.suggestionActions.enabled": true,
   "rust-analyzer.server.path": "~/lsp/rust-analyzer",
-	"sumneko-lua.checkUpdate": false,
+  "sumneko-lua.checkUpdate": false,
   "languageserver": {
     "haskell": {
       "command": "hls.exe",
@@ -111,6 +110,10 @@
         "hie.yaml"
       ],
       "filetypes": ["haskell", "lhaskell"]
+    },
+    "nix": {
+      "command": "rnix-lsp",
+      "filetypes": ["nix"]
     }
   },
   "snippets.enableStatusItem": false,
