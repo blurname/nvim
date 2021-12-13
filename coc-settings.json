@@ -97,7 +97,6 @@
   "javascript.suggest.enabled": true,
   "javascript.suggestionActions.enabled": true,
   "rust-analyzer.server.path": "~/lsp/rust-analyzer",
-  "sumneko-lua.checkUpdate": false,
   "languageserver": {
     "haskell": {
       "command": "hls.exe",
@@ -114,7 +113,11 @@
     "nix": {
       "command": "rnix-lsp",
       "filetypes": ["nix"]
-    }
+    },
+		"lua":{
+			"command": "lua-language-server",
+			"filetypes": ["lua"]
+		}
   },
   "snippets.enableStatusItem": false,
   "snippets.ultisnips.enable": false,

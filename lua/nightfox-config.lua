@@ -3,7 +3,7 @@ local nightfox = require('nightfox')
 -- This function set the configuration of nightfox. If a value is not passed in the setup function
 -- it will be taken from the default configuration above
 nightfox.setup({
-  fox = "dayfox", -- change the colorscheme to use nordfox
+  fox = "nordfox", -- change the colorscheme to use nordfox
 	--transparent = true,
 	--alt_nc = true,
   styles = {
