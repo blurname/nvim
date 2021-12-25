@@ -102,8 +102,14 @@ noremap <LEADER><CR> :nohlsearch<CR>
 " ===
 " === terminalHelp
 " ===
-let g:terminal_shell = 'elvish'
+"let g:terminal_shell = 'elvish'
 
+if(has('win32'))
+	let g:terminal_shell = 'powershell'
+else
+	let g:terminal_shell = 'elvish'
+endif
+		
 let g:closetag_filetypes = 'html,jsx,tsx'
 let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
 
@@ -299,18 +305,18 @@ aug END
 """"""""""""""""
 "  treesitter  "
 """""""""""""""""
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-ensure_installed = {"rust","javascript","typescript"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-highlight = {
-enable = true,              -- false will disable the whole extension
--- Setting this to true will run `:h syntax` and tree-sitter at the same time.
--- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
--- Using this option may slow down your editor, and you may see some duplicate highlights.
-additional_vim_regex_highlighting = false,
-},
-}
-EOF
+"lua <<EOF
+"require'nvim-treesitter.configs'.setup {
+"ensure_installed = {"rust","javascript","typescript"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+"highlight = {
+"enable = false,              -- false will disable the whole extension
+"-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+"-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+"-- Using this option may slow down your editor, and you may see some duplicate highlights.
+"additional_vim_regex_highlighting = false,
+"},
+"}
+"EOF
 
 """"""""""""""
 "  nvim-bqf  "
@@ -393,3 +399,7 @@ let g:neoformat_enabled_rust = ['rustfmt']
 noremap <leader>gg :G<CR>
 noremap <leader>gl :diffget //3<CR>
 noremap <leader>gh :diffget //2<CR>
+
+"au ModeChanged *:s set clipboard=
+"au ModeChanged s:* set clipboard=unnamedplus
+map <leader>3 <Cmd>b #<CR>
