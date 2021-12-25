@@ -2,7 +2,6 @@ local M = {}
 local cmd = vim.cmd
 
 local g = vim.g
-
 local map = require('remap').map
 
 function M.asynctask()

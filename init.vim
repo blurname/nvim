@@ -1,8 +1,6 @@
 set termguicolors
 lua require('plugins')
-lua require('feline-config')
-lua require('colorizer').setup()
-lua require('nightfox-config')
+lua require('door')
 " ===
 " === Basic Mappings
 " ===
@@ -126,9 +124,7 @@ let g:coc_global_extensions = ['coc-json',
 			\ 'coc-yank',
 			\ 'coc-emmet',
 			\ 'coc-snippets',
-			\ 'coc-pyright',
-			\ 'coc-prettier',
-			\'coc-sumneko-lua']
+			\ 'coc-prettier']
 let g:coc_default_semantic_highlight_groups = 0
 
 function! s:show_documentation()
@@ -173,7 +169,6 @@ inoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? "\<c-r>=coc#float
 inoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
 vnoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 vnoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
@@ -182,7 +177,6 @@ xmap ic <Plug>(coc-classobj-i)
 omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
-
 
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>l  :<C-u>CocList outline<cr>
@@ -381,7 +375,7 @@ let g:neoformat_basic_format_trim = 1
 "let g:neoformat_javascript_prettier = {
 			"\ 'exe':'prettier',
 			"\ 'args':['--no-semi']
-			"\}
+"\}
 let g:neoformat_typescript_prettier = {
 			\ 'exe':'prettier',
 			\ 'args': ['--parser', 'typescript','--no-semi','--single-quote'],
@@ -395,6 +389,7 @@ let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_yaml = ['prettier']
 
 let g:neoformat_enabled_rust = ['rustfmt']
+let g:neoformat_enabled_nix = ['nixpkgs-fmt']
 "let g:neoformat_verbose = 1 "
 noremap <leader>gg :G<CR>
 noremap <leader>gl :diffget //3<CR>
