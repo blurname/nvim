@@ -1,4 +1,6 @@
 require('conf.treesitter')
 require('feline-config')
 require('nightfox-config')
+require('autosave-config')
+require('gitsigns-config')
 require('colorizer').setup()

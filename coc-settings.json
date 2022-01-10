@@ -74,6 +74,7 @@
     "l": "expand",
     "o": "open",
     "<c-v>": "open:vsplit.intelligent",
+		"<c-x>": "open:split.intelligent",
     "a": "addFile",
     "p": "gotoParent",
     "yp": "copyFilepath",
@@ -123,7 +124,7 @@
   "snippets.ultisnips.enable": false,
   "snippets.snipmate.enable": false,
   "snippets.loadFromExtensions": false,
-  "snippets.textmateSnippetsRoots": ["C:/Users/bl/AppData/Local/nvim/snippets"],
+  "snippets.textmateSnippetsRoots": ["/home/bl/.config/nvim/snippets"],
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]

@@ -41,9 +41,9 @@ filetype plugin on
 " Save & quit
 noremap <LEADER>w :w<CR>
 noremap s <nop>
-noremap <LEADER>re :source /home/bl/Nyx/config/.config/nvim/entry.vim<CR>
+noremap <LEADER>re :source /home/bl/.config/nvim/entry.vim<CR>
 " Open the vimrc file anytime
-noremap <LEADER>rc :e /home/bl/Nyx/config/.config/nvim/entry.vim<CR>
+noremap <LEADER>rc :e /home/bl/.config/nvim/entry.vim<CR>
 " let a = stdpath("config")
 
 noremap <LEADER>rv :e ~/.config/nvim/lua/plugins.lua<CR>
@@ -246,34 +246,10 @@ noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
 noremap <leader>f; :Leaderf cmdHistory<CR>
 noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
+noremap <leader>ff :Leaderf rg
 
 noremap <LEADER>fh :LeaderfHelp<CR>
 
-
-"""""""""""""""""""
-"  AutoSave.nvim  "
-"""""""""""""""""""
-
-lua << EOF
-local autosave = require("autosave")
-autosave.setup(
-{
-enabled = true,
-execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
-
-events = {"InsertLeave"},
-events = ("TextChanged"),
-conditions = {
-	exists = true,
-	filetype_is_not = {},
-	modifiable = true
-	},
-write_all_buffers = false,
-on_off_commands = true,
-clean_command_line_interval = 2500
-}
-)
-EOF
 """"""""""""""""""
 "  nvim-hlslens  "
 """"""""""""""""""
@@ -378,6 +354,7 @@ let g:neoformat_enabled_nix = ['nixpkgs-fmt']
 noremap <leader>gg :G<CR>
 noremap <leader>gl :diffget //3<CR>
 noremap <leader>gh :diffget //2<CR>
+noremap <leader>gb :Git blame <CR>
 
 "au ModeChanged *:s set clipboard=
 "au ModeChanged s:* set clipboard=unnamedplus

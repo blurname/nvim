@@ -37,7 +37,8 @@ return packer.startup({
 		-- themes
 		--use {'sainnhe/edge'}
 		--use {'sainnhe/everforest'}
-		use 'EdenEast/nightfox.nvim'
+		use{ 'EdenEast/nightfox.nvim'}
+		use {'folke/tokyonight.nvim'}
 
 
 		-- show color
@@ -96,5 +97,8 @@ return packer.startup({
 		--nvim-snip
 		use {'L3MON4D3/LuaSnip'}
 		use {'saadparwaiz1/cmp_luasnip'}
+
+		use {'nvim-lua/plenary.nvim'}
+		use {'lewis6991/gitsigns.nvim'}
 	end
 })
