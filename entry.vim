@@ -124,7 +124,7 @@ let g:coc_global_extensions = ['coc-json',
 			\ 'coc-yank',
 			\ 'coc-emmet',
 			\ 'coc-snippets',
-			\ 'coc-prettier']
+			\ 'coc-eslint']
 let g:coc_default_semantic_highlight_groups = 0
 
 function! s:show_documentation()
@@ -201,8 +201,8 @@ noremap  <leader>v  :CocCommand explorer<CR>
 
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
-noremap <leader>fi :Prettier<CR>
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+noremap <leader>fi :CocCommand eslint.executeAutofix<CR>
+"command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Useful commands
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
@@ -351,7 +351,7 @@ let g:neoformat_enabled_yaml = ['prettier']
 let g:neoformat_enabled_rust = ['rustfmt']
 let g:neoformat_enabled_nix = ['nixpkgs-fmt']
 "let g:neoformat_verbose = 1 "
-noremap <leader>gg :G<CR>
+"noremap <leader>gg :G<CR>
 noremap <leader>gl :diffget //3<CR>
 noremap <leader>gh :diffget //2<CR>
 noremap <leader>gb :Git blame <CR>

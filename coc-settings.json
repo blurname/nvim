@@ -88,11 +88,6 @@
   },
   "explorer.icon.source": "builtin",
   "explorer.icon.enableNerdfont": true,
-  "prettier.singleQuote": true,
-  "prettier.semi": false,
-  "prettier.arrowParens": "always",
-  "prettier.trailingComma": "all",
-  "prettier.endOfLine": "auto",
   "typescript.suggest.enabled": true,
   "typescript.suggestionActions.enabled": true,
   "javascript.suggest.enabled": true,
@@ -128,5 +123,8 @@
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]
-  }
+  },
+	"eslint.alwaysShowStatus": true,
+	"eslint.autoFixOnSave": true, 
+	"eslint.format.enable": true
 }
