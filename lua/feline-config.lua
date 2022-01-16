@@ -1,14 +1,9 @@
-if not pcall(require, "feline") then
-  return
-end
-
 local colors = {
-    --bg = '#465d4c',
-    bg = '#373c38',
+    bg = '#3b4252',
     fg = '#abb2bf',
     yellow = '#e0af68',
     cyan = '#56b6c2',
-    darkblue = '#081633',
+    darkblue = '#5e81ac',
     green = '#98c379',
     orange = '#d19a66',
     violet = '#a9a1e1',
@@ -39,8 +34,6 @@ local function file_osinfo()
     local icon
     if os == 'UNIX' then
         icon = ' '
-    elseif os == 'MAC' then
-        icon = ' '
     else
         icon = ' '
     end
@@ -94,14 +87,13 @@ local comps = {
     vi_mode = {
         left = {
             provider = function()
-              return '  ' .. vi_mode_utils.get_vim_mode()
+              return ' '..vi_mode_utils.get_vim_mode()
             end,
             hl = function()
                 local val = {
                     name = vi_mode_utils.get_mode_highlight_name(),
                     fg = vi_mode_utils.get_mode_color(),
-										style = 'bold'
-                    -- fg = colors.bg
+										style = 'bold',
                 }
                 return val
             end,
@@ -115,7 +107,8 @@ local comps = {
             hl = {
                 fg = colors.blue,
                 style = 'bold'
-            }
+            },
+						opts ={type = "relative"},
         },
         encoding = {
             provider = 'file_encoding',
@@ -144,13 +137,12 @@ local comps = {
             }
         },
     },
-    left_end = {
-        provider = function() return '' end,
-        hl = {
-            fg = colors.bg,
-            bg = colors.blue,
-        }
-    },
+    --left_end = {
+        --provider = function() return '' end,
+        --hl = {
+            --fg = colors.blue,
+        --}
+    --},
     line_percentage = {
         provider = 'line_percentage',
         left_sep = ' ',
@@ -175,7 +167,7 @@ local comps = {
 						-- left_sep = ' ',
 						enabled = function() return coc_diag_exist('error') end,
 						hl = {
-								fg = colors.red
+								fg = colors.red,
 						}
 				},
 				warn = {
@@ -198,7 +190,7 @@ local comps = {
 						-- left_sep = ' ',
 						enabled = function() return coc_diag_exist('Information') end,
 						hl = {
-								fg = colors.blue
+								fg = colors.blue,
 						}
 				},
 				hint = {
@@ -209,7 +201,7 @@ local comps = {
 						-- left_sep = ' ',
 						enabled = function() return coc_diag_exist('hint') end,
 						hl = {
-								fg = colors.cyan
+								fg = colors.cyan,
 						}
 				},
 		},
@@ -219,39 +211,39 @@ local comps = {
 						right_sep = ' ',
 						icon = '  ',
 						hl = {
-								fg = colors.yellow
+								fg = colors.yellow,
 						}
 				}
 		},
-    --git = {
-        --branch = {
-            --provider = 'git_branch',
-            --icon = ' ',
-            --left_sep = ' ',
-            --hl = {
-                --fg = colors.violet,
-                --style = 'bold'
-            --},
-        --},
-        --add = {
-            --provider = 'git_diff_added',
-            --hl = {
-                --fg = colors.green
-            --}
-        --},
-        --change = {
-            --provider = 'git_diff_changed',
-            --hl = {
-                --fg = colors.orange
-            --}
-        --},
-        --remove = {
-            --provider = 'git_diff_removed',
-            --hl = {
-                --fg = colors.red
-            --}
-        --}
-    --}
+		git = {
+				branch = {
+						provider = 'git_branch',
+						icon = ' ',
+						left_sep = ' ',
+						hl = {
+								fg = colors.violet,
+								style = 'bold'
+						},
+				},
+				--add = {
+						--provider = 'git_diff_added',
+						--hl = {
+								--fg = colors.green
+						--}
+				--},
+				--change = {
+						--provider = 'git_diff_changed',
+						--hl = {
+								--fg = colors.orange
+						--}
+				--},
+				--remove = {
+						--provider = 'git_diff_removed',
+						--hl = {
+								--fg = colors.red
+						--}
+				--}
+		}
 }
 
 local components = {
@@ -267,7 +259,7 @@ table.insert(components.inactive, {})
 
 table.insert(components.active[1], comps.vi_mode.left)
 table.insert(components.active[1], comps.file.info)
---table.insert(components.active[1], comps.git.branch)
+table.insert(components.active[1], comps.git.branch)
 --table.insert(components.active[1], comps.git.add)
 --table.insert(components.active[1], comps.git.change)
 --table.insert(components.active[1], comps.git.remove)
@@ -284,26 +276,9 @@ table.insert(components.active[3], comps.line_percentage)
 table.insert(components.active[3], comps.scroll_bar)
 --table.insert(components.active[3], comps.vi_mode.right)
 
-
--- TreeSitter
--- local ts_utils = require("nvim-treesitter.ts_utils")
--- local ts_parsers = require("nvim-treesitter.parsers")
--- local ts_queries = require("nvim-treesitter.query")
---[[ table.insert(components.active[2], {
-  provider = function()
-    local node = require("nvim-treesitter.ts_utils").get_node_at_cursor()
-    return ("%d:%s [%d, %d] - [%d, %d]")
-      :format(node:symbol(), node:type(), node:range())
-  end,
-  enabled = function()
-    local ok, ts_parsers = pcall(require, "nvim-treesitter.parsers")
-    return ok and ts_parsers.has_parser()
-  end
-}) ]]
-
 -- require'feline'.setup {}
+
 require'feline'.setup {
-		colors = { bg = colors.bg, fg = colors.fg },
 		components = components,
 		vi_mode_colors = vi_mode_colors,
 		--force_inactive = {

@@ -228,8 +228,7 @@ let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_ShortcutF = "<leader>fl"
 let g:Lf_fuzzyEngine_C = 1
-let g:Lf_StlColorscheme = 'popup'
-let g:Lf_PopupColorscheme = 'default'
+let g:Lf_PopupColorscheme = 'nord'
 let g:Lf_CursorBlink = 0
 " let g:Lf_WorkingDirectory = finddir('.git', '.;')
 
@@ -246,7 +245,8 @@ noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
 noremap <leader>f; :Leaderf cmdHistory<CR>
 noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
-noremap <leader>ff :Leaderf rg
+noremap <leader>ff :Leaderf rg 
+xnoremap fv :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
 
 noremap <LEADER>fh :LeaderfHelp<CR>
 

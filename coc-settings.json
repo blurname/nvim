@@ -95,7 +95,7 @@
   "rust-analyzer.server.path": "~/lsp/rust-analyzer",
   "languageserver": {
     "haskell": {
-      "command": "hls.exe",
+      "command": "haskell-language-server",
       "args": ["--lsp"],
       "rootPatterns": [
         "*.cabal",
