@@ -100,5 +100,8 @@ return packer.startup({
 
 		use {'nvim-lua/plenary.nvim'}
 		use {'lewis6991/gitsigns.nvim'}
+
+		-- init.lua
+		use {"lukas-reineke/indent-blankline.nvim"}
 	end
 })

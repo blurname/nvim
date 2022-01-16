@@ -278,7 +278,7 @@ table.insert(components.active[3], comps.scroll_bar)
 
 -- require'feline'.setup {}
 
-require'feline'.setup {
+require('feline').setup {
 		components = components,
 		vi_mode_colors = vi_mode_colors,
 		--force_inactive = {
