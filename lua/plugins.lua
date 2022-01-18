@@ -50,7 +50,7 @@ return packer.startup({
 		use {'famiu/feline.nvim'}
 
 		--coc
-		use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile',disable=false}
+		--use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile',disable=false}
 		--use {'neoclide/coc.nvim', branch = 'release'}
 
 		--vista.vim symbol navigation
@@ -85,7 +85,7 @@ return packer.startup({
 
 		--nvim-lsp
 		use{'neovim/nvim-lspconfig'}
-		use{'williamboman/nvim-lsp-installer'}
+    use{'williamboman/nvim-lsp-installer'}
 		
 		--nvim-cmp
 		use {'hrsh7th/cmp-nvim-lsp'}

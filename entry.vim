@@ -26,6 +26,7 @@ set wildmenu
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+set expandtab
 set foldenable
 set autoindent
 set ttimeoutlen=0
@@ -111,101 +112,6 @@ endif
 let g:closetag_filetypes = 'html,jsx,tsx'
 let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
 
-" ===
-" === coc.nvim
-" ===
-let g:coc_global_extensions = ['coc-json',
-			\ 'coc-vimlsp',
-			\ 'coc-html',
-			\ 'coc-css',
-			\ 'coc-tsserver',
-			\ 'coc-explorer',
-			\ 'coc-rust-analyzer',
-			\ 'coc-yank',
-			\ 'coc-emmet',
-			\ 'coc-snippets',
-			\ 'coc-eslint']
-let g:coc_default_semantic_highlight_groups = 0
-
-function! s:show_documentation()
-	if (index(['vim','help'], &filetype) >= 0)
-		execute 'h '.expand('<cword>')
-	elseif (coc#rpc#ready())
-		call CocActionAsync('doHover')
-	else
-		execute '!' . &keywordprg . " " . expand('<cword>')
-	endif
-endfunction
-
-inoremap <silent><expr> <c-space> coc#refresh()
-
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-" nnoremap <c-p> <c-^>
-
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-inoremap <silent><expr> <TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-			\ <SID>check_back_space() ? "\<TAB>" :
-			\ coc#refresh()
-
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-nnoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-nnoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-inoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-inoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-vnoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-vnoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
-" Find symbol of current document.
-nnoremap <silent><nowait> <space>l  :<C-u>CocList outline<cr>
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Highlight the symbol and its references when holding the cursor.
-"autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-nmap <silent> g[ <Plug>(coc-diagnostic-prev)
-nmap <silent> g] <Plug>(coc-diagnostic-next)
-
-" nmap <leader>qf  <Plug>(coc-fix-current)
-nmap  <leader>ac <plug>(coc-codeaction)
-
-" Show all diagnostics.
-
-" filetree
-
-noremap  <leader>v  :CocCommand explorer<CR>
-
-"nnoremap <C-n> <cmd>RnvimrToggle<cr>
-"
-noremap <leader>fi :CocCommand eslint.executeAutofix<CR>
-"command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-" Useful commands
-nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
 " ===
 " === asyncrun ===
@@ -355,6 +261,7 @@ let g:neoformat_enabled_nix = ['nixpkgs-fmt']
 noremap <leader>gl :diffget //3<CR>
 noremap <leader>gh :diffget //2<CR>
 noremap <leader>gb :Git blame <CR>
+noremap <leader>gg :Git<CR>
 
 "au ModeChanged *:s set clipboard=
 "au ModeChanged s:* set clipboard=unnamedplus
