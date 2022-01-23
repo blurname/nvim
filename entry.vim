@@ -40,7 +40,6 @@ filetype plugin on
 " set notimeout
 
 " Save & quit
-noremap <LEADER>w :w<CR>
 noremap s <nop>
 noremap <LEADER>re :source /home/bl/.config/nvim/entry.vim<CR>
 " Open the vimrc file anytime
@@ -103,11 +102,7 @@ noremap <LEADER><CR> :nohlsearch<CR>
 " ===
 "let g:terminal_shell = 'elvish'
 
-if(has('win32'))
-	let g:terminal_shell = 'powershell'
-else
-	let g:terminal_shell = 'elvish'
-endif
+let g:terminal_shell = 'elvish'
 		
 let g:closetag_filetypes = 'html,jsx,tsx'
 let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
@@ -249,7 +244,7 @@ noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 noremap <leader>f; :Leaderf cmdHistory<CR>
 noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
 noremap <leader>ff :Leaderf rg 
-xnoremap fv :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
 
 noremap <LEADER>fh :LeaderfHelp<CR>
 
