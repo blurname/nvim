@@ -50,7 +50,7 @@ return packer.startup({
 		use {'famiu/feline.nvim'}
 
 		--coc
-		--use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile',disable=false}
+    use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile',disable=false}
 		--use {'neoclide/coc.nvim', branch = 'release'}
 
 		--vista.vim symbol navigation
