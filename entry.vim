@@ -8,7 +8,6 @@ lua require('door')
 "                                   basic                                    "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let mapleader = " "
 " noremap ; :
 set exrc
 set nobackup
@@ -183,6 +182,7 @@ nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>cl  <Plug>(coc-codelens-action)
 
 nmap <silent> g[ <Plug>(coc-diagnostic-prev)
 nmap <silent> g] <Plug>(coc-diagnostic-next)
@@ -203,18 +203,6 @@ noremap <leader>fi :CocCommand eslint.executeAutofix<CR>
 
 " Useful commands
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
-
-
-" ===
-" === asyncrun ===
-" ===
-
-"noremap <silent><f5> :AsyncTask file-build<cr>
-"noremap <silent><f6> :AsyncTask file-run<cr>
-"noremap <silent><f7> :AsyncTask project-build<cr>
-"noremap <silent><f10> :AsyncTask project-run<cr>
-"let g:asynctasks_term_pos = 'bottom'
-"let g:asyncrun_open = 3
 
 
 """""""""""""
@@ -349,12 +337,11 @@ let g:neoformat_enabled_yaml = ['prettier']
 let g:neoformat_enabled_rust = ['rustfmt']
 let g:neoformat_enabled_nix = ['nixpkgs-fmt']
 "let g:neoformat_verbose = 1 "
-"noremap <leader>gg :G<CR>
 noremap <leader>gl :diffget //3<CR>
 noremap <leader>gh :diffget //2<CR>
 noremap <leader>gb :Git blame <CR>
-noremap <leader>gg :Git<CR>
+"noremap <leader>gg :Git<CR>
 
-"au ModeChanged *:s set clipboard=
-"au ModeChanged s:* set clipboard=unnamedplus
+au ModeChanged *:s set clipboard=
+au ModeChanged s:* set clipboard=unnamedplus
 map <leader>3 <Cmd>b #<CR>

@@ -6,6 +6,7 @@ require('feline-config')
 require('nightfox-config')
 require('autosave-config')
 require('gitsigns-config')
---require('mapping').setup()
+require('stl')
+require('mappings')
 require('colorizer').setup()
 

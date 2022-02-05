@@ -47,7 +47,7 @@ return packer.startup({
 
 		-- statusline
 		use {'kyazdani42/nvim-web-devicons'}
-		use {'famiu/feline.nvim'}
+    use {'famiu/feline.nvim'}
 
 		--coc
     use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile',disable=false}
