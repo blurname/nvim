@@ -1,12 +1,10 @@
 require('conf.treesitter')
 --require('conf.lsp')
 --require('conf.comp')
---require("luasnip.loaders.from_vscode").load({paths = {'../snippets'}})
 require('feline-config')
 require('nightfox-config')
 require('autosave-config')
 require('gitsigns-config')
 require('stl')
-require('mappings')
+require('config')
 require('colorizer').setup()
-

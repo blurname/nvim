@@ -329,8 +329,6 @@ let g:neoformat_typescript_prettier = {
 			\ 'exe':'prettier',
 			\ 'args': ['--parser', 'typescript','--no-semi','--single-quote'],
 			\}
-			"\ 'args':['--no-semi']
-			"\ 'stdin': 1
 
 "let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_typescript = ['prettier']
@@ -340,10 +338,8 @@ let g:neoformat_enabled_yaml = ['prettier']
 let g:neoformat_enabled_rust = ['rustfmt']
 let g:neoformat_enabled_nix = ['nixpkgs-fmt']
 "let g:neoformat_verbose = 1 "
-noremap <leader>gl :diffget //3<CR>
-noremap <leader>gh :diffget //2<CR>
-noremap <leader>gb :Git blame <CR>
-"noremap <leader>gg :Git<CR>
+"noremap <leader>gl :diffget //3<CR>
+"noremap <leader>gh :diffget //2<CR>
 
 au ModeChanged *:s set clipboard=
 au ModeChanged s:* set clipboard=unnamedplus

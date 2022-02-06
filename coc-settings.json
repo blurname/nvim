@@ -125,6 +125,6 @@
 	"eslint.alwaysShowStatus": true,
 	"eslint.autoFixOnSave": true, 
 	"eslint.format.enable": true,
-  "typescript.autoClosingTags": true
-
+  "typescript.autoClosingTags": true,
+  "typescript.referencesCodeLens.enable": true
 }

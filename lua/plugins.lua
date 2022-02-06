@@ -38,8 +38,6 @@ return packer.startup({
 		--use {'sainnhe/edge'}
 		--use {'sainnhe/everforest'}
 		use{ 'EdenEast/nightfox.nvim'}
-		use {'folke/tokyonight.nvim'}
-
 
 		-- show color
 		-- use {'equalsraf/neovim-gui-shim'}
@@ -67,13 +65,12 @@ return packer.startup({
 		use {'haya14busa/vim-asterisk'}
 
 		-- file-tree
-		--use {'kevinhwang91/rnvimr',opt = false}
 
 		-- auto-save {	
 		use {'Pocco81/AutoSave.nvim'}
 
 		--git
-		use {'tpope/vim-fugitive'}
+		use {'tpope/vim-fugitive',config=conf('fugitive')}
 		use {'rbong/vim-flog',opt=true,cmd={'Flog','Flogsplit'}}
 
 		--quickfix
@@ -84,24 +81,22 @@ return packer.startup({
 		use {'sbdchd/neoformat'}
 
 		--nvim-lsp
-		use{'neovim/nvim-lspconfig'}
-    use{'williamboman/nvim-lsp-installer'}
+		--use{'neovim/nvim-lspconfig'}
+    --use{'williamboman/nvim-lsp-installer'}
 		
 		--nvim-cmp
-		use {'hrsh7th/cmp-nvim-lsp'}
-		use {'hrsh7th/cmp-buffer'}
-		use {'hrsh7th/cmp-path'}
+		--use {'hrsh7th/cmp-nvim-lsp'}
+		--use {'hrsh7th/cmp-buffer'}
+		--use {'hrsh7th/cmp-path'}
 		--use {'hrsh7th/cmp-cmdline'}
-		use {'hrsh7th/nvim-cmp'}
+		--use {'hrsh7th/nvim-cmp'}
 		
 		--nvim-snip
-		use {'L3MON4D3/LuaSnip'}
-		use {'saadparwaiz1/cmp_luasnip'}
+		--use {'L3MON4D3/LuaSnip'}
+		--use {'saadparwaiz1/cmp_luasnip'}
 
 		use {'nvim-lua/plenary.nvim'}
 		use {'lewis6991/gitsigns.nvim'}
 
-		-- init.lua
-		use {"lukas-reineke/indent-blankline.nvim"}
 	end
 })

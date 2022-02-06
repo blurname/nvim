@@ -137,12 +137,6 @@ local comps = {
             }
         },
     },
-    --left_end = {
-        --provider = function() return '' end,
-        --hl = {
-            --fg = colors.blue,
-        --}
-    --},
     line_percentage = {
         provider = 'line_percentage',
         left_sep = ' ',
@@ -225,24 +219,6 @@ local comps = {
 								style = 'bold'
 						},
 				},
-				--add = {
-						--provider = 'git_diff_added',
-						--hl = {
-								--fg = colors.green
-						--}
-				--},
-				--change = {
-						--provider = 'git_diff_changed',
-						--hl = {
-								--fg = colors.orange
-						--}
-				--},
-				--remove = {
-						--provider = 'git_diff_removed',
-						--hl = {
-								--fg = colors.red
-						--}
-				--}
 		}
 }
 
@@ -260,10 +236,6 @@ table.insert(components.inactive, {})
 table.insert(components.active[1], comps.vi_mode.left)
 table.insert(components.active[1], comps.file.info)
 table.insert(components.active[1], comps.git.branch)
---table.insert(components.active[1], comps.git.add)
---table.insert(components.active[1], comps.git.change)
---table.insert(components.active[1], comps.git.remove)
---table.insert(components.inactive[1], comps.vi_mode.left)
 table.insert(components.inactive[1], comps.file.info)
 table.insert(components.active[2], comps.diagnos.err)
 table.insert(components.active[2], comps.diagnos.warn)

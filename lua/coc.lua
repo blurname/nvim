@@ -3,7 +3,6 @@ local api = vim.api
 local fn = vim.fn
 local cmd = vim.cmd
 
-local map = require('remap').map
 local utils = require('kutils')
 local diag_qfid
 local sign_icons
