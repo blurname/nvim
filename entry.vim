@@ -77,7 +77,7 @@ noremap sj :set splitbelow<CR>:split<CR>
 noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 noremap sl :set splitright<CR>:vsplit<CR>
 " Press <SPACE> + q to close the window below the current window
-noremap <LEADER>q <C-w>:q<CR>
+noremap <LEADER>q :q<CR>
 
 
 " ===
@@ -307,6 +307,9 @@ endfunction
 let g:NERDCreateDefaultMappings = 0
 "map <LEADER>cl <plug>NERDCommenterToggle
 "map <c-_> instead of <c-/>
+let g:NERDAltDelims_javascriptreact=1
+let g:NERDAltDelims_typescriptreact=1
+let g:NERDCustomDelimiters = { 'typescriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },'javascriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' } }
 map <c-_> <plug>NERDCommenterToggle
 
 " Enable alignment globally
