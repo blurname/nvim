@@ -1,5 +1,4 @@
 {
-  "codeLens.enable": true,
   "hover.target": "float",
   "hover.floatConfig": {
     "border": true,
@@ -123,8 +122,7 @@
     "typescript": ["javascript"]
   },
 	"eslint.alwaysShowStatus": true,
-	"eslint.autoFixOnSave": true, 
+	"eslint.autoFixOnSave": false, 
 	"eslint.format.enable": true,
-  "typescript.autoClosingTags": true,
-  "typescript.referencesCodeLens.enable": true
+  "typescript.autoClosingTags": true
 }

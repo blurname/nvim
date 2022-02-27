@@ -40,6 +40,7 @@ filetype plugin on
 
 " Save & quit
 noremap s <nop>
+noremap q: <nop>
 noremap <LEADER>re :source /home/bl/.config/nvim/entry.vim<CR>
 " Open the vimrc file anytime
 noremap <LEADER>rc :e /home/bl/.config/nvim/entry.vim<CR>
@@ -89,6 +90,7 @@ noremap tl :tabe<CR>
 " Move around tabs with tn and ti
 noremap tk :-tabnext<CR>
 noremap tj :+tabnext<CR>
+noremap tn <C-w>T
 " Move the tabs with tmn and tmi
 " noremap tmn :-tabmove<CR>
 " noremap tmi :+tabmove<CR>
@@ -188,8 +190,10 @@ nmap <silent> g[ <Plug>(coc-diagnostic-prev)
 nmap <silent> g] <Plug>(coc-diagnostic-next)
 
 " nmap <leader>qf  <Plug>(coc-fix-current)
-nmap  <leader>ac <plug>(coc-codeaction)
-
+nmap  <leader>ca <plug>(coc-codeaction)
+command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Show all diagnostics.
 
 " filetree
@@ -198,7 +202,7 @@ noremap  <leader>v  :CocCommand explorer<CR>
 
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
-noremap <leader>fi :CocCommand eslint.executeAutofix<CR>
+"noremap <leader>fi :CocCommand eslint.executeAutofix<CR>
 "command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Useful commands
@@ -231,7 +235,7 @@ noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
 noremap <leader>f; :Leaderf cmdHistory<CR>
 noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
-noremap <leader>ff :Leaderf rg 
+noremap <leader>ff :Leaderf rg -F -e 
 xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
 
 noremap <LEADER>fh :LeaderfHelp<CR>
@@ -307,9 +311,9 @@ endfunction
 let g:NERDCreateDefaultMappings = 0
 "map <LEADER>cl <plug>NERDCommenterToggle
 "map <c-_> instead of <c-/>
-let g:NERDAltDelims_javascriptreact=1
-let g:NERDAltDelims_typescriptreact=1
-let g:NERDCustomDelimiters = { 'typescriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },'javascriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' } }
+"let g:NERDAltDelims_javascriptreact=1
+"let g:NERDAltDelims_typescriptreact=1
+"let g:NERDCustomDelimiters = { 'typescriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },'javascriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' } }
 map <c-_> <plug>NERDCommenterToggle
 
 " Enable alignment globally
