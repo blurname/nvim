@@ -119,6 +119,7 @@ let g:coc_global_extensions = ['coc-json',
 			\ 'coc-tsserver',
 			\ 'coc-explorer',
 			\ 'coc-rust-analyzer',
+      \ 'coc-deno',
 			\ 'coc-yank',
 			\ 'coc-emmet',
 			\ 'coc-snippets',
@@ -202,7 +203,7 @@ noremap  <leader>v  :CocCommand explorer<CR>
 
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
-"noremap <leader>fi :CocCommand eslint.executeAutofix<CR>
+noremap <leader>fi :CocCommand eslint.executeAutofix<CR>
 "command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Useful commands
@@ -220,7 +221,7 @@ let g:Lf_ShortcutF = "<leader>fl"
 let g:Lf_fuzzyEngine_C = 1
 let g:Lf_PopupColorscheme = 'nord'
 let g:Lf_CursorBlink = 0
-" let g:Lf_WorkingDirectory = finddir('.git', '.;')
+"let g:Lf_WorkingDirectory = finddir('.git', '.;')
 
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_WildIgnore = {
