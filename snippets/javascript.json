@@ -67,70 +67,6 @@
     "prefix": "pc",
     "body": "${1:promise}.catch(error => {\n\t${0}\n})"
   },
-  "describe": {
-    "prefix": "desc",
-    "body": "describe('${1:description}', () => {\n\t${0}\n})"
-  },
-  "describe top level": {
-    "prefix": "dt",
-    "body": "describe('${TM_FILENAME_BASE}', () => {\n\t${0}\n})"
-  },
-  "it asynchronous": {
-    "prefix": "it",
-    "body": "it('${1:description}', async () => {\n\t${0}\n})"
-  },
-  "it.todo": {
-    "prefix": "itt",
-    "body": "it.todo('${1:description}')"
-  },
-  "it with a callback": {
-    "prefix": "itd",
-    "body": "it('${1:description}', (done) => {\n\t${0}\n})"
-  },
-  "it synchronous": {
-    "prefix": "its",
-    "body": "it('${1:description}', () => {\n\t${0}\n})"
-  },
-  "before": {
-    "prefix": "bf",
-    "body": "before(async () => {\n\t${0}\n})"
-  },
-  "beforeAll": {
-    "prefix": "ba",
-    "body": "beforeAll(async () => {\n\t${0}\n})"
-  },
-  "beforeEach": {
-    "prefix": "bfe",
-    "body": "beforeEach(async () => {\n\t${0}\n})"
-  },
-  "after": {
-    "prefix": "aft",
-    "body": "after(() => {\n\t${0}\n})"
-  },
-  "afterEach": {
-    "prefix": "afe",
-    "body": "afterEach(() => {\n\t${0}\n})"
-  },
-  "require": {
-    "prefix": "rq",
-    "body": "require('${1:module}')"
-  },
-  "const module = require('module')": {
-    "prefix": "cr",
-    "body": "const ${1:module} = require('${1:module}')"
-  },
-  "exports.member": {
-    "prefix": "em",
-    "body": "exports.${1:member} = ${2:value}"
-  },
-  "module.exports": {
-    "prefix": "me",
-    "body": "module.exports = ${1:name}"
-  },
-  "module as class": {
-    "prefix": "mec",
-    "body": "class ${1:name} {\n\tconstructor (${2:args}) {\n\t\t${0}\n\t}\n}\n\nmodule.exports = ${1:name}\n"
-  },
   "event handler": {
     "prefix": "on",
     "body": "${1:emitter}.on('${2:event}', (${3:args}) => {\n\t${0}\n})"
@@ -140,7 +76,7 @@
     "body": "ev.preventDefault()\nev.stopPropagation()\nreturn false"
   },
   "addEventListener": {
-    "prefix": "ae",
+    "prefix": "ael",
     "body": "${1:document}.addEventListener('${2:event}', ${3:ev} => {\n\t${0}\n})"
   },
   "removeEventListener": {
@@ -339,19 +275,9 @@
     "prefix": "wid",
     "body": "let ${1:array}Index = ${1:array}.length\nwhile (${1:array}Index--) {\n\t${0}\n}"
   },
-  "For Loop": {
-    "prefix": "forlet",
-    "body": [
-      "for (let ${1:i} = 0; ${1:i} < ${2:array}.length; ${1:i}++) {",
-      "\tconst ${3:element} = ${2:array}[${1:i}];",
-      "\t$0",
-      "}"
-    ],
-    "description": "For Loop"
-  },
   "For-Each Loop": {
     "prefix": "foreach",
-    "body": ["${1:array}.forEach(${2:element} => {", "\t$0", "});"],
+    "body": ["${1:array}.forEach(${2:element} => {", "\t$0", "})"],
     "description": "For-Each Loop"
   },
   "For-In Loop": {
@@ -359,7 +285,7 @@
     "body": [
       "for (const ${1:key} in ${2:object}) {",
       "\tif (${2:object}.hasOwnProperty(${1:key})) {",
-      "\t\tconst ${3:element} = ${2:object}[${1:key}];",
+      "\t\tconst ${3:element} = ${2:object}[${1:key}]",
       "\t\t$0",
       "\t}",
       "}"
@@ -428,7 +354,7 @@
     "body": "(${1:args}) => {\n\treturn ${0}\n}"
   },
   "class method": {
-    "prefix": "m",
+    "prefix": "cm",
     "body": "${1:name}(${2:args}){\n\t\n}"
   },
   "generator function": {
@@ -442,6 +368,10 @@
   "console.log": {
     "prefix": "cl",
     "body": "console.log(${0})"
+  },
+  "console.log with name": {
+    "prefix": "cln",
+    "body": "console.log('${0}', ${1})"
   },
   "console.log a variable": {
     "prefix": "cv",
@@ -505,19 +435,6 @@
     "body": "async () => {\n\t{$TM_SELECTED_TEXT}\n}",
     "description": "wraps text in arrow function"
   },
-  "define module": {
-    "prefix": "define",
-    "body": [
-      "define([",
-      "\t'require',",
-      "\t'${1:dependency}'",
-      "], function(require, ${2:factory}) {",
-      "\t'use strict';",
-      "\t$0",
-      "});"
-    ],
-    "description": "define module"
-  },
   "Function Statement": {
     "prefix": "function",
     "body": ["function ${1:name}(${2:params}) {", "\t$0", "}"],
@@ -552,11 +469,6 @@
     "body": ["do {", "\t$0", "} while (${1:condition});"],
     "description": "Do-While Statement"
   },
-  "Try-Catch Statement": {
-    "prefix": "trycatch",
-    "body": ["try {", "\t$0", "} catch (${1:error}) {", "\t", "}"],
-    "description": "Try-Catch Statement"
-  },
   "Set Timeout Function": {
     "prefix": "settimeout",
     "body": ["setTimeout(() => {", "\t$0", "}, ${1:timeout});"],
@@ -568,40 +480,40 @@
     "description": "Set Interval Function"
   },
   "Import external module.": {
-    "prefix": "import statement",
-    "body": ["import { $0 } from \"${1:module}\";"],
+    "prefix": "if",
+    "body": ["import { $1 } from \"$0\""],
     "description": "Import external module."
   },
   "Log warning to console": {
     "prefix": "warn",
-    "body": ["console.warn($1);", "$0"],
+    "body": ["console.warn($1)", "$0"],
     "description": "Log warning to the console"
   },
   "Log error to console": {
     "prefix": "error",
-    "body": ["console.error($1);", "$0"],
+    "body": ["console.error($1)", "$0"],
     "description": "Log error to the console"
   },
   "useState": {
     "prefix": "ush",
-    "body": ["const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState($2);$0"],
+    "body": ["const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState($2)$0"],
     "description": "React useState() hook"
   },
   "useEffect": {
     "prefix": "ueh",
     "body": [
       "useEffect(() => {",
-      "\t$1",
-      "\n\treturn cleanUp = () => {",
+      "\t",
+      "\n\treturn () => {",
       "\t\t$2",
       "\t}",
-      "}, [${3}]);$0"
+      "}, [${3}])$0"
     ],
     "description": "React useEffect() hook"
   },
   "useContext": {
     "prefix": "uch",
-    "body": ["const $1 = useContext($2);$0"],
+    "body": ["const $1 = useContext($2)$0"],
     "description": "React useContext() hook"
   },
   "useCallback": {
@@ -612,45 +524,45 @@
       "\t\t${2:doSomething}(${3:a}, ${4:b})",
       "\t},",
       "\t[${5:a}, ${6:b}],",
-      ");$0"
+      ")$0"
     ],
     "description": "React useCallback() hook"
   },
   "useMemo": {
     "prefix": "umh",
     "body": [
-      "const ${1:memoizedValue} = useMemo(() => ${2:computeExpensiveValue}(${3:a}, ${4:b}), [${5:a}, ${6:b}]);$0"
+      "const ${1:memoizedValue} = useMemo(() => ${2:computeExpensiveValue}(${3:a}, ${4:b}), [${5:a}, ${6:b}])$0"
     ],
     "description": "React useMemo() hook"
   },
   "import react hooks": {
     "prefix": "irh",
     "body": [
-      "import React, { useState, useContext, useEffect, useCallback, useMemo } from 'react';"
+      "import React, { useState, useContext, useEffect, useCallback, useMemo } from 'react'"
     ]
   },
   "useRef": {
     "prefix": "urh",
-    "body": ["const $1 = useRef($2);$0"],
+    "body": ["const $1 = useRef($2)$0"],
     "description": "React useRef() hook"
   },
   "useReducer": {
     "prefix": "urdh",
     "body": [
-      "const [${1:state},${2: dispatch}] = useReducer(${3:reducer}, ${4:initialArg}, ${5:init});"
+      "const [${1:state},${2: dispatch}] = useReducer(${3:reducer}, ${4:initialArg}, ${5:init})"
     ],
     "description": "React useReducer() hook"
   },
   "useSelector": {
     "prefix": "uss",
-    "body": ["const $1 = useSelector(state => state.$1);"]
+    "body": ["const $1 = useSelector(state => state.$1)"]
   },
   "useDispatchFunction": {
     "prefix": "usdf",
-    "body": ["const $1 = useDispatch($2);$3"]
+    "body": ["const $1 = useDispatch($2)$3"]
   },
   "useDispatch": {
     "prefix": "usd",
-    "body": ["const $1 = $2 => dispatch($3);"]
+    "body": ["const $1 = $2 => dispatch($3)"]
   }
 }

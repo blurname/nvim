@@ -14,8 +14,8 @@ require('gitsigns').setup {
     -- Default keymap options
     noremap = true,
 
-    ['n [j'] = { expr = true, "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'"},
-    ['n ]k'] = { expr = true, "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'"},
+    ['n <leader>hj'] = { expr = true, "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'"},
+    ['n <leader>hk'] = { expr = true, "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'"},
 
     ['n <leader>hs'] = '<cmd>Gitsigns stage_hunk<CR>',
     ['v <leader>hs'] = ':Gitsigns stage_hunk<CR>',

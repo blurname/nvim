@@ -1,17 +1,17 @@
 {
   "hover.target": "float",
   "hover.floatConfig": {
-    "border": true,
+    "border": false,
     "highlight": "CocFloating",
     "borderhighlight": "CocFloating"
   },
   "diagnostic.floatConfig": {
-    "border": true,
+    "border": false,
     "highlight": "CocFloating",
     "borderhighlight": "CocFloating"
   },
   "suggest.floatConfig": {
-    "border": true,
+    "border": false,
     "highlight": "CocFloating",
     "borderhighlight": "CocFloating",
     "winblend": 8
