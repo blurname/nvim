@@ -222,25 +222,45 @@ let g:Lf_fuzzyEngine_C = 1
 let g:Lf_PopupColorscheme = 'nord'
 let g:Lf_CursorBlink = 0
 "let g:Lf_WorkingDirectory = finddir('.git', '.;')
-
+let g:Lf_HideHep = 1
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_WildIgnore = {
 			\ 'dir': ['.svn','.git','.hg','node_modules'],
 			\ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
 			\}
 
-noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
 
-noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
 
 noremap <leader>f; :Leaderf cmdHistory<CR>
 noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
 noremap <leader>ff :Leaderf rg -F -e 
-xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
 
 noremap <LEADER>fh :LeaderfHelp<CR>
 
+let g:Lf_NormalMap = {
+      \ "_":      [["<C-j>", "j"],
+      \            ["<C-k>", "k"]
+      \           ],
+      \ "File":   [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>'],
+      \            ["<F6>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']
+      \           ],
+      \ "Buffer": [["<ESC>", ':exec g:Lf_py "bufExplManager.quit()"<CR>'],
+      \            ["<F6>", ':exec g:Lf_py "bufExplManager.quit()"<CR>']
+      \           ],
+      \ "Mru":    [["<ESC>", ':exec g:Lf_py "mruExplManager.quit()"<CR>']],
+      \ "Tag":    [],
+      \ "BufTag": [],
+      \ "Function": [],
+      \ "Line":   [],
+      \ "History":[],
+      \ "Help":   [],
+      \ "Self":   [],
+      \ "Colorscheme": []
+      \}
 """"""""""""""""""
 "  nvim-hlslens  "
 """"""""""""""""""
