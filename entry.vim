@@ -199,7 +199,8 @@ nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 
 " filetree
 
-noremap  <leader>v  :CocCommand explorer<CR>
+"noremap  <leader>v  :CocCommand explorer --position right <CR>
+noremap  <leader>v  :Neotree filesystem reveal reveal_force_cwd right <CR>
 
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "

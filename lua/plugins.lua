@@ -65,7 +65,8 @@ return packer.startup({
     use {'haya14busa/vim-asterisk'}
 
     -- file-tree
-
+    use {'nvim-neo-tree/neo-tree.nvim', branch='v2.x'}
+    use {'MunifTanjim/nui.nvim'}
     -- auto-save {	
     use {'Pocco81/AutoSave.nvim'}
 
