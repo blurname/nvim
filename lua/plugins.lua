@@ -27,8 +27,7 @@ return packer.startup({
     use{'nvim-treesitter/playground'}
 
     -- imporve f action
-    use {'rhysd/clever-f.vim',keys={'f','F','t','T'},config=conf('cleverf')}
-
+    use {'kevinhwang91/nvim-fFHighlight',opt = false}
     -- asyncSeries
     use {'skywind3000/vim-terminal-help'}
     use {'skywind3000/asynctasks.vim',keys={'<F5>','<F6>','<F7>','<F8>'},wants={'asyncrun.vim'},opt=true,config=conf('asynctask')}

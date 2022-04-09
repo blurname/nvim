@@ -20,7 +20,7 @@
   "suggest.enablePreselect": true,
   "suggest.triggerAfterInsertEnter": false,
   "suggest.autoTrigger": "always",
-  "suggest.timeout": 1000,
+  "suggest.timeout": 500,
   "suggest.enablePreview": true,
   "suggest.floatEnable": true,
   "suggest.completionItemKindLabels": {
@@ -57,7 +57,6 @@
   "diagnostic.hintSign": "",
   "html.autoClosingTags": true,
   "diagnostic.enableSign": true,
-  "diagnostic.highlightOffset": 1000,
   "diagnostic.refreshOnInsertMode": false,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualTextPrefix": " ❯❯ ",
@@ -112,7 +111,6 @@
 			"filetypes": ["lua"]
 		}
   },
-  "snippets.enableStatusItem": false,
   "snippets.ultisnips.enable": false,
   "snippets.snipmate.enable": false,
   "snippets.loadFromExtensions": false,
@@ -125,4 +123,5 @@
 	"eslint.autoFixOnSave": false, 
 	"eslint.format.enable": true,
   "typescript.autoClosingTags": true
+  
 }
