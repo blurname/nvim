@@ -1,3 +1,10 @@
 {
-
+  "type": {
+    "prefix": "t",
+    "body": "type ${1:name} = {\n\t${0:}\n}"
+  },
+  "export type": {
+    "prefix": "et",
+    "body": "export type ${1:name}= {\n\t${0}\n}"
+  }
 }

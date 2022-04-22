@@ -200,7 +200,7 @@ nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " filetree
 
 "noremap  <leader>v  :CocCommand explorer --position right <CR>
-noremap  <leader>v  :Neotree filesystem reveal reveal_force_cwd right <CR>
+noremap  <leader>v  :Neotree filesystem toggle reveal_force_cwd float <CR>
 
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
@@ -240,7 +240,7 @@ noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
 noremap <leader>ff :Leaderf rg -F -e 
 xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
 
-noremap <LEADER>fh :LeaderfHelp<CR>
+noremap <LEADER>fh :Leaderf searchHistory<CR>
 
 let g:Lf_NormalMap = {
       \ "_":      [["<C-j>", "j"],
