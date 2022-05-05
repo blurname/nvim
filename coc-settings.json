@@ -16,6 +16,7 @@
     "borderhighlight": "CocFloating",
     "winblend": 8
   },
+  "semanticTokens.filetypes": ["*"],
   "suggest.noselect": true,
   "suggest.enablePreselect": true,
   "suggest.triggerAfterInsertEnter": false,

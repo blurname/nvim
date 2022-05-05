@@ -98,5 +98,7 @@ return packer.startup({
     use {'nvim-lua/plenary.nvim'}
     use {'lewis6991/gitsigns.nvim'}
 
+    -- session
+    use {'Shatur/neovim-session-manager'}
 	end
 })
