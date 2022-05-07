@@ -33,6 +33,8 @@ set modifiable
 set signcolumn=yes:1
 set pumblend=8
 set cole=1
+"set foldmethod=expr
+"set foldexpr=nvim_treesitter#foldexpr()
 filetype plugin on
 " set scrolloff
 
@@ -204,7 +206,8 @@ noremap  <leader>v  :Neotree filesystem toggle reveal_force_cwd float <CR>
 
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
-noremap <leader>fi :CocCommand eslint.executeAutofix<CR>
+"noremap <leader>fi :CocCommand eslint.executeAutofix<CR>
+noremap <leader>fi :Neoformat eslint_d<CR>
 "command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Useful commands
@@ -351,13 +354,13 @@ let g:neoformat_basic_format_trim = 1
 			"\ 'exe':'prettier',
 			"\ 'args':['--no-semi']
 "\}
-let g:neoformat_typescript_prettier = {
-			\ 'exe':'prettier',
-			\ 'args': ['--parser', 'typescript','--no-semi','--single-quote'],
-			\}
+"let g:neoformat_typescript_prettier = {
+			"\ 'exe':'prettier',
+			"\ 'args': ['--parser', 'typescript','--no-semi','--single-quote'],
+			"\}
 
-"let g:neoformat_enabled_javascript = ['prettier']
-let g:neoformat_enabled_typescript = ['prettier']
+let g:neoformat_enabled_javascript = ['eslint_d']
+let g:neoformat_enabled_typescript = ['eslint_d']
 let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_yaml = ['prettier']
 

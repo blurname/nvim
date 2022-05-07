@@ -100,5 +100,8 @@ return packer.startup({
 
     -- session
     use {'Shatur/neovim-session-manager'}
+
+    -- fold
+    use { 'anuvyklack/pretty-fold.nvim', requires = 'anuvyklack/nvim-keymap-amend' }
 	end
 })

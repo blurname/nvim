@@ -110,7 +110,12 @@
 		"lua":{
 			"command": "lua-language-server",
 			"filetypes": ["lua"]
-		}
+		},
+    "elvish": {
+      "command": "elvish",
+      "args": ["-lsp"],
+      "filetypes": ["elv"]
+    }
   },
   "snippets.ultisnips.enable": false,
   "snippets.snipmate.enable": false,
