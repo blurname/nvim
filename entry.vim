@@ -124,8 +124,7 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-deno',
 			\ 'coc-yank',
 			\ 'coc-emmet',
-			\ 'coc-snippets',
-			\ 'coc-eslint']
+			\ 'coc-snippets']
 let g:coc_default_semantic_highlight_groups = 0
 
 function! s:show_documentation()
@@ -207,7 +206,7 @@ noremap  <leader>v  :Neotree filesystem toggle reveal_force_cwd float <CR>
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
 "noremap <leader>fi :CocCommand eslint.executeAutofix<CR>
-noremap <leader>fi :Neoformat eslint_d<CR>
+noremap <c-]> :Neoformat<CR>
 "command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Useful commands
@@ -360,12 +359,13 @@ let g:neoformat_basic_format_trim = 1
 			"\}
 
 let g:neoformat_enabled_javascript = ['eslint_d']
-let g:neoformat_enabled_typescript = ['eslint_d']
+let g:neoformat_enabled_typescript = ['eslint_d ', 'deno fmt']
 let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_yaml = ['prettier']
 
 let g:neoformat_enabled_rust = ['rustfmt']
 let g:neoformat_enabled_nix = ['nixpkgs-fmt']
+let g:neoformat_enabled_lua = ['stylua']
 "let g:neoformat_verbose = 1 "
 "noremap <leader>gl :diffget //3<CR>
 "noremap <leader>gh :diffget //2<CR>

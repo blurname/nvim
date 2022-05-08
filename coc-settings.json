@@ -109,7 +109,14 @@
     },
 		"lua":{
 			"command": "lua-language-server",
-			"filetypes": ["lua"]
+			"filetypes": ["lua"],
+      "settings": {
+        "lua":{
+          "telemetry":{
+            "enable": false
+          }
+        }
+      }
 		},
     "elvish": {
       "command": "elvish",
@@ -125,9 +132,6 @@
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]
   },
-	"eslint.alwaysShowStatus": true,
-	"eslint.autoFixOnSave": false, 
-	"eslint.format.enable": true,
   "typescript.autoClosingTags": true
   
 }
