@@ -12,13 +12,6 @@ function M.asynctask()
   k.set('', '<F8>', '<cmd>AsyncTask project-run<cr>')
 end
 
-function M.cleverf()
-  g.clever_f_across_no_line = 1
-  g.clever_f_timeout_ms = 1
-  k.set('', ';', '<plug>(clever-f-repeat-forward)')
-  k.set('', ',', '<plug>(clever-f-repeat-back)')
-end
-
 function M.suda()
   k.set('n', '<leader>W', '<cmd>SudaWrite<cr>')
 end

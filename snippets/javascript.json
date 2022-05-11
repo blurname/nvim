@@ -117,15 +117,15 @@
   },
   "map": {
     "prefix": "map",
-    "body": "${1:iterable}.map((${2:item}) => {\n\t${0}\n})"
+    "body": "$1.map(($2) => {\n\t$0\n})"
   },
   "reduce": {
     "prefix": "reduce",
-    "body": "${1:iterable}.reduce((${2:previous}, ${3:current}) => {\n\t${0}\n}${4:, initial})"
+    "body": "${1}.reduce((${2}, ${3}) => {\n\t${0}\n}${4:, initial})"
   },
   "filter": {
     "prefix": "filter",
-    "body": "${1:iterable}.filter((${2:item}) => {\n\t${0}\n})"
+    "body": "1.filter(($2) => {\n\t${0}\n})"
   },
   "find": {
     "prefix": "find",
@@ -149,23 +149,35 @@
   },
   "const statement from destructuring": {
     "prefix": "cd",
-    "body": "const { ${2:prop} } = ${1:value}"
+    "body": "const { ${2} } = ${1}"
   },
   "const statement from array destructuring": {
     "prefix": "cad",
-    "body": "const [ ${2:prop} ] = ${1:value}"
+    "body": "const [ ${2} ] = ${1}"
   },
   "const assignment awaited": {
     "prefix": "ca",
-    "body": "const ${1:name} = await ${2:value}"
+    "body": "const ${1} = await ${2}"
   },
   "const destructuring assignment awaited": {
     "prefix": "cda",
     "body": "const { ${1:name} } = await ${2:value}"
   },
+  "const literal object": {
+    "prefix": "clo",
+    "body": "const $1 = {\n\t$2\n}"
+  },
+  "const literal array": {
+    "prefix": "cla",
+    "body": "const $1 = [\n\t$2\n]"
+  },
   "const arrow function assignment": {
     "prefix": "cf",
-    "body": "const ${1:name} = (${2:args}) => {\n\treturn ${0}\n}"
+    "body": "const $1 = ($2) => {\n\t$3\n\treturn ${0}\n}"
+  },
+  "epxort const arrow function assignment": {
+    "prefix": "ecf",
+    "body": "export const $1 = ($2) => {\n\t$3\n\treturn ${0}\n}"
   },
   "let assignment awaited": {
     "prefix": "la",
@@ -207,41 +219,17 @@
     "prefix": "e",
     "body": "export ${1:member}"
   },
-  "module export const": {
-    "prefix": "ec",
-    "body": "export const ${1:member} = ${2:value}"
-  },
-  "export named function": {
-    "prefix": "ef",
-    "body": "export function ${1:member} (${2:args}) {\n\t${0}\n}"
-  },
-  "module default export": {
-    "prefix": "ed",
-    "body": "export default ${1:member}"
-  },
-  "module default export function": {
-    "prefix": "edf",
-    "body": "export default function ${1:name} (${2:args}) {\n\t${0}\n}"
-  },
   "import module": {
     "prefix": "im",
-    "body": "import ${2:*} from '${1:module}'"
+    "body": "import { $2 } from '${1}'"
   },
   "import module as": {
     "prefix": "ima",
     "body": "import ${2:*} as ${3:name} from '${1:module}'"
   },
-  "import module destructured": {
-    "prefix": "imd",
-    "body": "import {$2} from '${1:module}'"
-  },
   "typeof": {
     "prefix": "to",
     "body": "typeof ${1:source} === '${2:undefined}'"
-  },
-  "this": {
-    "prefix": "t",
-    "body": "this."
   },
   "instanceof": {
     "prefix": "iof",
@@ -265,11 +253,11 @@
   },
   "if/else statement": {
     "prefix": "ife",
-    "body": "if (${1:condition}) {\n\t${0}\n} else {\n\t\n}"
+    "body": "if (${1}) {\n\t${0}\n} else {\n\t\n}"
   },
   "else if statement": {
     "prefix": "ei",
-    "body": "else if (${1:condition}) {\n\t${0}\n}"
+    "body": "else if (${1}) {\n\t${0}\n}"
   },
   "while iteration decrementing": {
     "prefix": "wid",
@@ -321,12 +309,16 @@
     "prefix": "fn",
     "body": "function ${1:name} (${2:args}) {\n\t${0}\n}"
   },
+  "export named function": {
+    "prefix": "efn",
+    "body": "export function ${1} (${2}) {\n\treturn ${0}\n}"
+  },
   "named function in class": {
     "prefix": "fcl",
     "body": "${1:name} (${2:args}) {\n\t${0}\n}"
   },
   "async function": {
-    "prefix": "asf",
+    "prefix": "afn",
     "body": "async function (${1:args}) {\n\t${0}\n}"
   },
   "async arrow function": {
@@ -335,27 +327,27 @@
   },
   "arrow function": {
     "prefix": "af",
-    "body": "(${1:args}) => ${2:statement}"
+    "body": "($1) => $2"
   },
   "arrow function with destructuring": {
     "prefix": "afd",
-    "body": "({${1:args}}) => ${2:statement}"
+    "body": "($1) => $2"
   },
   "arrow function with destructuring returning destructured": {
     "prefix": "afdr",
-    "body": "({${1:args}}) => ${1:args}"
+    "body": "($1) => $1"
   },
   "arrow function with body": {
     "prefix": "afb",
-    "body": "(${1:args}) => {\n\t${0}\n}"
+    "body": "($1) => {\n\t$2\n}"
   },
   "arrow function with return": {
     "prefix": "afr",
-    "body": "(${1:args}) => {\n\treturn ${0}\n}"
+    "body": "($1) => {\n\treturn $0\n}"
   },
   "class method": {
     "prefix": "cm",
-    "body": "${1:name}(${2:args}){\n\t\n}"
+    "body": "$1($2){\n\t\n}"
   },
   "generator function": {
     "prefix": "gf",
@@ -407,7 +399,7 @@
   },
   "Object.assign": {
     "prefix": "oa",
-    "body": "Object.assign(${1:dest}, ${2:source})"
+    "body": "Object.assign(${1}, ${2})"
   },
   "Object.keys": {
     "prefix": "ok",
@@ -464,14 +456,9 @@
     "body": ["while (${1:condition}) {", "\t$0", "}"],
     "description": "While Statement"
   },
-  "Do-While Statement": {
-    "prefix": "dowhile",
-    "body": ["do {", "\t$0", "} while (${1:condition});"],
-    "description": "Do-While Statement"
-  },
   "Set Timeout Function": {
     "prefix": "settimeout",
-    "body": ["setTimeout(() => {", "\t$0", "}, ${1:timeout});"],
+    "body": ["setTimeout(() => {", "\t$0", "}, ${1});"],
     "description": "Set Timeout Function"
   },
   "Set Interval Function": {
@@ -519,11 +506,11 @@
   "useCallback": {
     "prefix": "ucbh",
     "body": [
-      "const ${1:memoizedCallback} = useCallback(",
+      "const ${1} = useCallback(",
       "\t() => {",
-      "\t\t${2:doSomething}(${3:a}, ${4:b})",
+      "\t\t${2}(${3})",
       "\t},",
-      "\t[${5:a}, ${6:b}],",
+      "\t[${4}],",
       ")$0"
     ],
     "description": "React useCallback() hook"
@@ -531,7 +518,7 @@
   "useMemo": {
     "prefix": "umh",
     "body": [
-      "const ${1:memoizedValue} = useMemo(() => ${2:computeExpensiveValue}(${3:a}, ${4:b}), [${5:a}, ${6:b}])$0"
+      "const ${1} = useMemo(() => ${2}( ${3} ), [${4}])$0"
     ],
     "description": "React useMemo() hook"
   },

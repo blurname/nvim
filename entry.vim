@@ -124,6 +124,7 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-deno',
 			\ 'coc-yank',
 			\ 'coc-emmet',
+      \ 'coc-eslint',
 			\ 'coc-snippets']
 let g:coc_default_semantic_highlight_groups = 0
 
@@ -137,9 +138,18 @@ function! s:show_documentation()
 	endif
 endfunction
 
-inoremap <silent><expr> <c-space> coc#refresh()
+function! s:show_documentation2()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+inoremap <silent><expr> <c-space> coc#refresh()
+
 " nnoremap <c-p> <c-^>
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
@@ -147,7 +157,6 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 
 inoremap <silent><expr> <TAB>
 			\ pumvisible() ? "\<C-n>" :
-			\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
 			\ <SID>check_back_space() ? "\<TAB>" :
 			\ coc#refresh()
 
@@ -217,7 +226,6 @@ nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 "  Leaderf  "
 """""""""""""
 
-
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_ShortcutF = "<leader>fl"
@@ -228,25 +236,16 @@ let g:Lf_CursorBlink = 0
 let g:Lf_HideHep = 1
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_WildIgnore = {
-			\ 'dir': ['.svn','.git','.hg','node_modules'],
-			\ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+			\ 'dir': ['.svn','.git','.hg','node_modules','output-gitignore'],
+			\ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.min.js', '.svg']
 			\}
-
-noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
-
-noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
-
-noremap <leader>f; :Leaderf cmdHistory<CR>
-noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
-noremap <leader>ff :Leaderf rg -F -e 
-xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
-
-noremap <LEADER>fh :Leaderf searchHistory<CR>
-
+let g:Lf_RgConfig = [
+      \ "--max-columns=130",
+      \ ]
 let g:Lf_NormalMap = {
       \ "_":      [["<C-j>", "j"],
-      \            ["<C-k>", "k"]
+      \            ["<C-k>", "k"],
+      \            ["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']
       \           ],
       \ "File":   [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>'],
       \            ["<F6>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']
@@ -264,6 +263,18 @@ let g:Lf_NormalMap = {
       \ "Self":   [],
       \ "Colorscheme": []
       \}
+noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
+
+noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
+
+noremap <leader>f; :Leaderf cmdHistory<CR>
+noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
+noremap <leader>ff :Leaderf rg -F -e 
+xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
+
+noremap <LEADER>fh :Leaderf searchHistory<CR>
+
 """"""""""""""""""
 "  nvim-hlslens  "
 """"""""""""""""""
@@ -293,10 +304,7 @@ let g:coc_enable_locationlist = 0
 aug Coc
 	au!
 	au User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
-aug END
-aug Coc
-	au!
-	au User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 aug END
 
 nmap <silent> gr <Plug>(coc-references)
