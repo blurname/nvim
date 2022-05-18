@@ -106,7 +106,7 @@ noremap <LEADER><CR> :nohlsearch<CR>
 "let g:terminal_shell = 'elvish'
 
 let g:terminal_shell = 'elvish'
-		
+
 let g:closetag_filetypes = 'html,jsx,tsx'
 let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
 
@@ -115,27 +115,27 @@ let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
 " === coc.nvim
 " ===
 let g:coc_global_extensions = ['coc-json',
-			\ 'coc-vimlsp',
-			\ 'coc-html',
-			\ 'coc-css',
-			\ 'coc-tsserver',
-			\ 'coc-explorer',
-			\ 'coc-rust-analyzer',
+      \ 'coc-vimlsp',
+      \ 'coc-html',
+      \ 'coc-css',
+      \ 'coc-tsserver',
+      \ 'coc-explorer',
+      \ 'coc-rust-analyzer',
       \ 'coc-deno',
-			\ 'coc-yank',
-			\ 'coc-emmet',
+      \ 'coc-yank',
+      \ 'coc-emmet',
       \ 'coc-eslint',
-			\ 'coc-snippets']
+      \ 'coc-snippets']
 let g:coc_default_semantic_highlight_groups = 0
 
 function! s:show_documentation()
-	if (index(['vim','help'], &filetype) >= 0)
-		execute 'h '.expand('<cword>')
-	elseif (coc#rpc#ready())
-		call CocActionAsync('doHover')
-	else
-		execute '!' . &keywordprg . " " . expand('<cword>')
-	endif
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
 endfunction
 
 function! s:show_documentation2()
@@ -153,18 +153,18 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " nnoremap <c-p> <c-^>
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 inoremap <silent><expr> <TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ <SID>check_back_space() ? "\<TAB>" :
-			\ coc#refresh()
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 nmap <silent> gd <Plug>(coc-definition)
@@ -215,7 +215,7 @@ noremap  <leader>v  :Neotree filesystem toggle reveal_force_cwd float <CR>
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
 "noremap <leader>fi :CocCommand eslint.executeAutofix<CR>
-noremap <c-]> :Neoformat<CR>
+noremap <leader>w :Neoformat<CR>
 "command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Useful commands
@@ -236,9 +236,9 @@ let g:Lf_CursorBlink = 0
 let g:Lf_HideHep = 1
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_WildIgnore = {
-			\ 'dir': ['.svn','.git','.hg','node_modules','output-gitignore'],
-			\ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.min.js', '.svg']
-			\}
+      \ 'dir': ['.svn','.git','.hg','node_modules','output-gitignore'],
+      \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.min.js', '.svg']
+      \}
 let g:Lf_RgConfig = [
       \ "--max-columns=130",
       \ ]
@@ -270,7 +270,7 @@ noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR
 
 noremap <leader>f; :Leaderf cmdHistory<CR>
 noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
-noremap <leader>ff :Leaderf rg -F -e 
+noremap <leader>ff :Leaderf rg -F -e
 xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
 
 noremap <LEADER>fh :Leaderf searchHistory<CR>
@@ -279,9 +279,9 @@ noremap <LEADER>fh :Leaderf searchHistory<CR>
 "  nvim-hlslens  "
 """"""""""""""""""
 noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR>
-			\<Cmd>lua require('hlslens').start()<CR>
+      \<Cmd>lua require('hlslens').start()<CR>
 noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR>
-			\<Cmd>lua require('hlslens').start()<CR>
+      \<Cmd>lua require('hlslens').start()<CR>
 "noremap * *<Cmd>lua require('hlslens').start()<CR>
 "noremap # #<Cmd>lua require('hlslens').start()<CR>
 "noremap g* g*<Cmd>lua require('hlslens').start()<CR>
@@ -292,9 +292,9 @@ map #  <Plug>(asterisk-z#)<Cmd>lua require('hlslens').start()<CR>
 map g* <Plug>(asterisk-gz*)<Cmd>lua require('hlslens').start()<CR>
 map g# <Plug>(asterisk-gz#)<Cmd>lua require('hlslens').start()<CR>
 aug VMlens
-	au!
-	au User visual_multi_start lua require('vmlens').start()
-	au User visual_multi_exit lua require('vmlens').exit()
+  au!
+  au User visual_multi_start lua require('vmlens').start()
+  au User visual_multi_exit lua require('vmlens').exit()
 aug END
 
 """"""""""""""
@@ -302,8 +302,8 @@ aug END
 """"""""""""""
 let g:coc_enable_locationlist = 0
 aug Coc
-	au!
-	au User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
+  au!
+  au User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 aug END
 
@@ -311,41 +311,41 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> <leader>d <Cmd>call Coc_qf_diagnostic()<CR>
 
 function! Coc_qf_diagnostic() abort
-	let diagnostic_list = CocAction('diagnosticList')
-	let items = []
-	let loc_ranges = []
-	for d in diagnostic_list
-		let text = printf('[%s%s] %s', (empty(d.source) ? 'coc.nvim' : d.source),
-					\ (d.code ? ' ' . d.code : ''), split(d.message, '\n')[0])
-		let item = {'filename': d.file, 'lnum': d.lnum, 'col': d.col, 'text': text, 'type':
-					\ d.severity[0]}
-		call add(loc_ranges, d.location.range)
-		call add(items, item)
-	endfor
-	call setqflist([], ' ', {'title': 'CocDiagnosticList', 'items': items,
-				\ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
-	botright copen
+  let diagnostic_list = CocAction('diagnosticList')
+  let items = []
+  let loc_ranges = []
+  for d in diagnostic_list
+    let text = printf('[%s%s] %s', (empty(d.source) ? 'coc.nvim' : d.source),
+          \ (d.code ? ' ' . d.code : ''), split(d.message, '\n')[0])
+    let item = {'filename': d.file, 'lnum': d.lnum, 'col': d.col, 'text': text, 'type':
+          \ d.severity[0]}
+    call add(loc_ranges, d.location.range)
+    call add(items, item)
+  endfor
+  call setqflist([], ' ', {'title': 'CocDiagnosticList', 'items': items,
+        \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
+  botright copen
 endfunction
 
 function! Coc_qf_jump2loc(locs) abort
-	let loc_ranges = map(deepcopy(a:locs), 'v:val.range')
-	call setloclist(0, [], ' ', {'title': 'CocLocationList', 'items': a:locs,
-				\ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
-	let winid = getloclist(0, {'winid': 0}).winid
-	if winid == 0
-		aboveleft lwindow
-	else
-		call win_gotoid(winid)
-	endif
+  let loc_ranges = map(deepcopy(a:locs), 'v:val.range')
+  call setloclist(0, [], ' ', {'title': 'CocLocationList', 'items': a:locs,
+        \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
+  let winid = getloclist(0, {'winid': 0}).winid
+  if winid == 0
+    aboveleft lwindow
+  else
+    call win_gotoid(winid)
+  endif
 endfunction
 
 "NERDCommenter
 let g:NERDCreateDefaultMappings = 0
-"map <LEADER>cl <plug>NERDCommenterToggle
+"
 "map <c-_> instead of <c-/>
-"let g:NERDAltDelims_javascriptreact=1
-"let g:NERDAltDelims_typescriptreact=1
-"let g:NERDCustomDelimiters = { 'typescriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },'javascriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' } }
+let g:NERDAltDelims_javascriptreact=1
+let g:NERDAltDelims_typescriptreact=1
+let g:NERDCustomDelimiters = { 'typescriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },'javascriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' } }
 map <c-_> <plug>NERDCommenterToggle
 
 " Enable alignment globally
@@ -356,19 +356,10 @@ let g:neoformat_basic_format_align = 1
 
 let g:neoformat_basic_format_trim = 1
 
-" Enable trimmming of trailing whitespace globally
-"let g:neoformat_javascript_prettier = {
-			"\ 'exe':'prettier',
-			"\ 'args':['--no-semi']
-"\}
-"let g:neoformat_typescript_prettier = {
-			"\ 'exe':'prettier',
-			"\ 'args': ['--parser', 'typescript','--no-semi','--single-quote'],
-			"\}
-
-let g:neoformat_enabled_javascript = ['eslint_d']
-let g:neoformat_enabled_typescript = ['eslint_d ', 'deno fmt']
-let g:neoformat_enabled_json = ['prettier']
+let g:neoformat_enabled_javascript = ['deno fmt']
+let g:neoformat_enabled_typescript = ['deno fmt']
+"let g:neoformat_enabled_typescript = ['eslint_d', 'deno fmt']
+let g:neoformat_enabled_json = ['deno fmt']
 let g:neoformat_enabled_yaml = ['prettier']
 
 let g:neoformat_enabled_rust = ['rustfmt']
