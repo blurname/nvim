@@ -343,9 +343,9 @@ endfunction
 let g:NERDCreateDefaultMappings = 0
 "
 "map <c-_> instead of <c-/>
-let g:NERDAltDelims_javascriptreact=1
-let g:NERDAltDelims_typescriptreact=1
-let g:NERDCustomDelimiters = { 'typescriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },'javascriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' } }
+"let g:NERDAltDelims_javascriptreact=1
+"let g:NERDAltDelims_typescriptreact=1
+"let g:NERDCustomDelimiters = { 'typescriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },'javascriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' } }
 map <c-_> <plug>NERDCommenterToggle
 
 " Enable alignment globally
@@ -356,6 +356,12 @@ let g:neoformat_basic_format_align = 1
 
 let g:neoformat_basic_format_trim = 1
 
+"let g:neoformat_typescript_denofmt = {
+      "\ 'exe':'deno fmt',
+      "\ 'args': ['--parser', 'typescript','--no-semi','--single-quote'],
+      "\}
+ " https://github.com/denoland/deno/issues/13616
+ " 2022.5.18: deno fmt not suppport remove semicolons (ASI)
 let g:neoformat_enabled_javascript = ['deno fmt']
 let g:neoformat_enabled_typescript = ['deno fmt']
 "let g:neoformat_enabled_typescript = ['eslint_d', 'deno fmt']
