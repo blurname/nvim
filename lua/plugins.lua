@@ -72,6 +72,7 @@ return packer.startup({
     --git
     use {'tpope/vim-fugitive',config=conf('fugitive')}
     use {'rbong/vim-flog',opt=true,cmd={'Flog','Flogsplit'}}
+    use {'TimUntersberger/neogit'}
 
     --quickfix
     use {'kevinhwang91/nvim-bqf',branch = 'dev'}
