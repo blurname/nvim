@@ -16,7 +16,7 @@ function M.suda()
   k.set('n', '<leader>W', '<cmd>SudaWrite<cr>')
 end
 function M.fugitive()
-  k.set('n','<leader>gg',':Git<cr>')
+  --k.set('n','<leader>gg',':Git<cr>')
   k.set('n','<leader>gb',':Git blame<cr>')
 end
 

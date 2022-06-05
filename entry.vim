@@ -119,9 +119,7 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-html',
       \ 'coc-css',
       \ 'coc-tsserver',
-      \ 'coc-explorer',
       \ 'coc-rust-analyzer',
-      \ 'coc-deno',
       \ 'coc-yank',
       \ 'coc-emmet',
       \ 'coc-eslint',
@@ -378,3 +376,5 @@ let g:neoformat_enabled_lua = ['stylua']
 au ModeChanged *:s set clipboard=
 au ModeChanged s:* set clipboard=unnamedplus
 map <leader>3 <Cmd>b #<CR>
+
+nnoremap <leader>gg :Neogit<CR>
