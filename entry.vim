@@ -19,7 +19,10 @@ set relativenumber
 set cursorline
 set ignorecase
 set smartcase
-set wrap
+set smartindent
+set mouse=a
+set nowrap
+set nowritebackup
 set showcmd
 set wildmenu
 set tabstop=2
@@ -33,6 +36,9 @@ set modifiable
 set signcolumn=yes:1
 set pumblend=8
 set cole=1
+set fileencoding=utf-8
+set splitright
+set splitbelow
 "set foldmethod=expr
 "set foldexpr=nvim_treesitter#foldexpr()
 filetype plugin on
@@ -268,7 +274,7 @@ noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR
 
 noremap <leader>f; :Leaderf cmdHistory<CR>
 noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
-noremap <leader>ff :Leaderf rg -F -e
+noremap <leader>ff :Leaderf rg -F -e 
 xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
 
 noremap <LEADER>fh :Leaderf searchHistory<CR>
@@ -357,12 +363,13 @@ let g:neoformat_basic_format_trim = 1
 "let g:neoformat_typescript_denofmt = {
       "\ 'exe':'deno fmt',
       "\ 'args': ['--parser', 'typescript','--no-semi','--single-quote'],
-      "\}
- " https://github.com/denoland/deno/issues/13616
- " 2022.5.18: deno fmt not suppport remove semicolons (ASI)
-let g:neoformat_enabled_javascript = ['deno fmt']
-let g:neoformat_enabled_typescript = ['deno fmt']
-"let g:neoformat_enabled_typescript = ['eslint_d', 'deno fmt']
+"\}
+" https://github.com/denoland/deno/issues/13616
+" 2022.5.18: deno fmt not suppport remove semicolons (ASI)
+"let g:neoformat_enabled_javascript = ['deno fmt']
+"let g:neoformat_enabled_typescript = ['deno fmt']
+let g:neoformat_enabled_typescript = ['eslint_d']
+let g:neoformat_enabled_typescript = ['eslint_d']
 let g:neoformat_enabled_json = ['deno fmt']
 let g:neoformat_enabled_yaml = ['prettier']
 
