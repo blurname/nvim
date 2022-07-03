@@ -104,5 +104,6 @@ return packer.startup({
 
     -- fold
     use { 'anuvyklack/pretty-fold.nvim', requires = 'anuvyklack/nvim-keymap-amend' }
+    use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 	end
 })

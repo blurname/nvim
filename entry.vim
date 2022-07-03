@@ -29,7 +29,6 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set foldenable
 set autoindent
 set ttimeoutlen=0
 set modifiable
@@ -39,6 +38,10 @@ set cole=1
 set fileencoding=utf-8
 set splitright
 set splitbelow
+set foldlevel=99 
+set foldenable
+set foldcolumn=1
+set winbar=%F
 "set foldmethod=expr
 "set foldexpr=nvim_treesitter#foldexpr()
 filetype plugin on
