@@ -75,7 +75,7 @@ return packer.startup({
     use {'TimUntersberger/neogit'}
 
     --quickfix
-    use {'kevinhwang91/nvim-bqf',branch = 'dev'}
+    use {'kevinhwang91/nvim-bqf'}
     use {'lambdalisue/suda.vim',opt=true,keys={'n','<leader>W'},config=conf('suda')}
     use {'KabbAmine/vCoolor.vim'}
     use {'elkowar/yuck.vim'}

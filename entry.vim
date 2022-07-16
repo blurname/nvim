@@ -41,8 +41,28 @@ set splitbelow
 set foldlevel=99 
 set foldenable
 set foldcolumn=1
+set foldlevelstart=1
 set winbar=%F
-"set foldmethod=expr
+" auto reload when file changed
+" path1
+" problem: will cause TSServer error
+"if ! exists("g:CheckUpdateStarted")
+    "let g:CheckUpdateStarted=1
+    "call timer_start(1,'CheckUpdate')
+"endif
+"function! CheckUpdate(timer)
+    "silent! checktime
+    "call timer_start(1000,'CheckUpdate')
+"endfunction
+
+" path2
+" not relaod immedately
+set autoread
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+autocmd FileChangedShellPost *
+      \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+set foldmethod=expr
 "set foldexpr=nvim_treesitter#foldexpr()
 filetype plugin on
 " set scrolloff
@@ -195,7 +215,7 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>l  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Highlight the symbol and its references when holding the cursor.
 "autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -208,7 +228,7 @@ nmap <silent> g[ <Plug>(coc-diagnostic-prev)
 nmap <silent> g] <Plug>(coc-diagnostic-next)
 
 " nmap <leader>qf  <Plug>(coc-fix-current)
-nmap  <leader>ca <plug>(coc-codeaction)
+nmap  <leader>af <plug>(coc-codeaction)
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
@@ -388,3 +408,5 @@ au ModeChanged s:* set clipboard=unnamedplus
 map <leader>3 <Cmd>b #<CR>
 
 nnoremap <leader>gg :Neogit<CR>
+
+
