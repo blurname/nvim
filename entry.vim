@@ -21,7 +21,6 @@ set ignorecase
 set smartcase
 set smartindent
 set mouse=a
-set nowrap
 set nowritebackup
 set showcmd
 set wildmenu
@@ -34,12 +33,13 @@ set ttimeoutlen=0
 set modifiable
 set signcolumn=yes:1
 set pumblend=8
-set cole=1
+set title
+"set cole=1
 set fileencoding=utf-8
 set splitright
 set splitbelow
 set foldlevel=99 
-set foldenable
+"set foldenable
 set foldcolumn=1
 set foldlevelstart=1
 set winbar=%F
@@ -152,7 +152,8 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-yank',
       \ 'coc-emmet',
       \ 'coc-eslint',
-      \ 'coc-snippets']
+      \ 'coc-snippets',
+      \ 'coc-eslint']
 let g:coc_default_semantic_highlight_groups = 0
 
 function! s:show_documentation()
@@ -220,6 +221,8 @@ nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Highlight the symbol and its references when holding the cursor.
 "autocmd CursorHold * silent call CocActionAsync('highlight')
 
+
+
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>cl  <Plug>(coc-codelens-action)
@@ -228,12 +231,11 @@ nmap <silent> g[ <Plug>(coc-diagnostic-prev)
 nmap <silent> g] <Plug>(coc-diagnostic-next)
 
 " nmap <leader>qf  <Plug>(coc-fix-current)
-nmap  <leader>af <plug>(coc-codeaction)
+nmap  <leader>ca <plug>(coc-codeaction)
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Show all diagnostics.
-
 " filetree
 
 "noremap  <leader>v  :CocCommand explorer --position right <CR>
@@ -242,7 +244,7 @@ noremap  <leader>v  :Neotree filesystem toggle reveal_force_cwd float <CR>
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
 "noremap <leader>fi :CocCommand eslint.executeAutofix<CR>
-noremap <leader>w :Neoformat<CR>
+noremap <leader>w :w<CR>
 "command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Useful commands
@@ -368,12 +370,18 @@ endfunction
 
 "NERDCommenter
 let g:NERDCreateDefaultMappings = 0
+map <c-_> <plug>NERDCommenterToggle
 "
-"map <c-_> instead of <c-/>
+" map <c-_> instead of <c-/>
 "let g:NERDAltDelims_javascriptreact=1
 "let g:NERDAltDelims_typescriptreact=1
 "let g:NERDCustomDelimiters = { 'typescriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },'javascriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' } }
-map <c-_> <plug>NERDCommenterToggle
+
+"
+" 很奇怪，现在保存，会触发两次 formmat , deno_fmt and coc-eslint
+"
+
+" map <c-_> :w
 
 " Enable alignment globally
 let g:neoformat_basic_format_align = 1
@@ -393,7 +401,7 @@ let g:neoformat_basic_format_trim = 1
 "let g:neoformat_enabled_typescript = ['deno fmt']
 let g:neoformat_enabled_typescript = ['eslint_d']
 let g:neoformat_enabled_typescript = ['eslint_d']
-let g:neoformat_enabled_json = ['deno fmt']
+"let g:neoformat_enabled_json = ['deno fmt']
 let g:neoformat_enabled_yaml = ['prettier']
 
 let g:neoformat_enabled_rust = ['rustfmt']
@@ -410,3 +418,10 @@ map <leader>3 <Cmd>b #<CR>
 nnoremap <leader>gg :Neogit<CR>
 
 
+" winbar
+highlight WinBar guifg=#a3b38c guibg=#3b4252 gui=bold
+"highlight WinBarNC guifg=#e5e9f0 guibg=#3b4252
+"highlight WinBarIndicator guifg=#bf616a guibg=#3b4252
+"highlight WinBarInactive guifg=#bf616a guibg=#3b4252
+
+"highlight WinBar 

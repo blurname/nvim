@@ -132,6 +132,7 @@
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]
   },
-  "typescript.autoClosingTags": true
-  
+  "typescript.autoClosingTags": true,
+  "eslint.run": "onSave",
+  "eslint.autoFixOnSave": true
 }
