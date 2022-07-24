@@ -109,7 +109,7 @@ noremap sj :set splitbelow<CR>:split<CR>
 noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 noremap sl :set splitright<CR>:vsplit<CR>
 " Press <SPACE> + q to close the window below the current window
-noremap <LEADER>q :q<CR>
+noremap <C-w> :q<CR>
 
 
 " ===
@@ -121,7 +121,10 @@ noremap tl :tabe<CR>
 " Move around tabs with tn and ti
 noremap tk :-tabnext<CR>
 noremap tj :+tabnext<CR>
+
+" move current window to new tab
 noremap tn <C-w>T
+
 " Move the tabs with tmn and tmi
 " noremap tmn :-tabmove<CR>
 " noremap tmi :+tabmove<CR>
@@ -153,6 +156,7 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-emmet',
       \ 'coc-eslint',
       \ 'coc-snippets',
+      \ 'coc-pyright',
       \ 'coc-eslint']
 let g:coc_default_semantic_highlight_groups = 0
 
@@ -274,7 +278,6 @@ let g:Lf_RgConfig = [
 let g:Lf_NormalMap = {
       \ "_":      [["<C-j>", "j"],
       \            ["<C-k>", "k"],
-      \            ["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']
       \           ],
       \ "File":   [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>'],
       \            ["<F6>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']
@@ -294,15 +297,23 @@ let g:Lf_NormalMap = {
       \}
 noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
 
-noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
+"noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
+"window jump
+noremap <c-b> :Leaderf! window<CR> 
 
 noremap <leader>f; :Leaderf cmdHistory<CR>
-noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
-noremap <leader>ff :Leaderf rg -F -e 
-xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
 
-noremap <LEADER>fh :Leaderf searchHistory<CR>
+" use rg for content search
+" ! means list results in normal mode
+noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
+noremap <leader>ff :Leaderf! rg -F -e 
+noremap <leader>fs :Leaderf! --stayOpen --right rg -F -e 
+xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
+noremap <leader>fh :Leaderf searchHistory<CR>
+"command! -nargs=0 RS :Leaderf --stayOpen --right rg -F -e 
+"command! -nargs=? Ls :Leaderf --auto-preview --stayOpen --popup --nameOnly rg -F -e %s
+
 
 """"""""""""""""""
 "  nvim-hlslens  "
