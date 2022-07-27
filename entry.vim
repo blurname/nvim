@@ -41,7 +41,7 @@ set splitbelow
 set foldlevel=99 
 "set foldenable
 set foldcolumn=1
-set foldlevelstart=1
+set foldlevelstart=99
 set winbar=%F
 " auto reload when file changed
 " path1
@@ -248,7 +248,7 @@ noremap  <leader>v  :Neotree filesystem toggle reveal_force_cwd float <CR>
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
 "noremap <leader>fi :CocCommand eslint.executeAutofix<CR>
-noremap <leader>w :w<CR>
+noremap <c-s> :w<CR>
 "command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Useful commands

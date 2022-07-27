@@ -22,8 +22,8 @@
   "suggest.triggerAfterInsertEnter": false,
   "suggest.autoTrigger": "always",
   "suggest.timeout": 500,
-  "suggest.enablePreview": true,
-  "suggest.floatEnable": true,
+  "suggest.enablePreview": false,
+  "suggest.floatEnable": false,
   "suggest.completionItemKindLabels": {
     "keyword": "",
     "variable": "",
