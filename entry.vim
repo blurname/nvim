@@ -431,6 +431,7 @@ nnoremap <leader>gg :Neogit<CR>
 
 " winbar
 highlight WinBar guifg=#a3b38c guibg=#3b4252 gui=bold
+highlight FoldColumn guifg=#bf616a guibg=#3b4252
 "highlight WinBarNC guifg=#e5e9f0 guibg=#3b4252
 "highlight WinBarIndicator guifg=#bf616a guibg=#3b4252
 "highlight WinBarInactive guifg=#bf616a guibg=#3b4252

@@ -3,5 +3,5 @@
     --dynamicRegistration = false,
     --lineFoldingOnly = true
 --}
-
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 require('ufo').setup()
