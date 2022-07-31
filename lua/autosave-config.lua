@@ -13,3 +13,8 @@ require("autosave").setup{
 	clean_command_line_interval = 2500
 }
 
+vim.api.nvim_create_autocmd("BufWritePost",{
+  callback = function()
+
+  end
+})
