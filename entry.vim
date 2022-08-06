@@ -111,6 +111,7 @@ noremap sl :set splitright<CR>:vsplit<CR>
 " Press <SPACE> + q to close the window below the current window
 noremap <C-w> :q<CR>
 
+noremap <c-a> ggVG
 
 " ===
 " === Tab management
@@ -161,7 +162,7 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-eslint']
 let g:coc_default_semantic_highlight_groups = 0
 
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
@@ -365,7 +366,7 @@ function! Coc_qf_jump2loc(locs) abort
         \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
   let winid = getloclist(0, {'winid': 0}).winid
   if winid == 0
-    aboveleft lwindow
+    botright lwindow
   else
     call win_gotoid(winid)
   endif

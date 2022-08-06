@@ -17,13 +17,12 @@
     "winblend": 8
   },
   "semanticTokens.filetypes": ["*"],
-  "suggest.noselect": true,
+  "suggest.noselect": false,
   "suggest.enablePreselect": true,
   "suggest.triggerAfterInsertEnter": false,
   "suggest.autoTrigger": "always",
   "suggest.timeout": 500,
-  "suggest.enablePreview": false,
-  "suggest.floatEnable": false,
+  "suggest.virtualText": true,
   "suggest.completionItemKindLabels": {
     "keyword": "",
     "variable": "",
