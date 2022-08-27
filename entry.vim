@@ -72,6 +72,7 @@ filetype plugin on
 " Save & quit
 noremap s <nop>
 noremap q: <nop>
+noremap <F2> :%s/VERSION/d/g
 noremap <LEADER>re :source /home/bl/.config/nvim/entry.vim<CR>
 " Open the vimrc file anytime
 noremap <LEADER>rc :e /home/bl/.config/nvim/entry.vim<CR>
@@ -159,7 +160,9 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-snippets',
       \ 'coc-pyright',
       \ 'coc-sumneko-lua',
-      \ 'coc-eslint']
+      \ 'coc-eslint',
+      \ 'coc-git',
+      \ 'coc-explorer']
 let g:coc_default_semantic_highlight_groups = 0
 
 nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -196,6 +199,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+imap <c-l> <Plug>(coc-snippets-expand)
 
 nnoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
@@ -254,7 +258,7 @@ nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
-let g:Lf_ShortcutF = "<leader>fl"
+let g:Lf_ShortcutF = "<c-p>"
 let g:Lf_fuzzyEngine_C = 1
 let g:Lf_PopupColorscheme = 'nord'
 let g:Lf_CursorBlink = 0
@@ -304,6 +308,8 @@ noremap <leader>ff :Leaderf! rg -F -e
 noremap <leader>fs :Leaderf! --stayOpen --right rg -F -e 
 xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
 noremap <leader>fh :Leaderf searchHistory<CR>
+noremap <F1> :Leaderf command<CR>
+noremap <F2> :Leaderf rg<CR>
 "command! -nargs=0 RS :Leaderf --stayOpen --right rg -F -e 
 "command! -nargs=? Ls :Leaderf --auto-preview --stayOpen --popup --nameOnly rg -F -e %s
 
@@ -430,3 +436,6 @@ highlight FoldColumn guifg=#bf616a guibg=#3b4252
 "highlight WinBarInactive guifg=#bf616a guibg=#3b4252
 
 "highlight WinBar 
+"
+set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}%{get(b:,'coc_current_fcuntion','')}
+autocmd User CocGitStatusChange {command}

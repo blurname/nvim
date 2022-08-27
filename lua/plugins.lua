@@ -97,13 +97,11 @@ return packer.startup({
     --use {'saadparwaiz1/cmp_luasnip'}
 
     use {'nvim-lua/plenary.nvim'}
-    use {'lewis6991/gitsigns.nvim'}
 
     -- session
     use {'Shatur/neovim-session-manager'}
 
     -- fold
-    use { 'anuvyklack/pretty-fold.nvim', requires = 'anuvyklack/nvim-keymap-amend' }
     use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 	end
 })
