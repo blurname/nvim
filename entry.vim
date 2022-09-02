@@ -258,7 +258,7 @@ nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
-let g:Lf_ShortcutF = "<c-p>"
+let g:Lf_ShortcutF = "<leader>fl"
 let g:Lf_fuzzyEngine_C = 1
 let g:Lf_PopupColorscheme = 'nord'
 let g:Lf_CursorBlink = 0
@@ -426,6 +426,7 @@ au ModeChanged s:* set clipboard=unnamedplus
 map <leader>3 <Cmd>b #<CR>
 
 nnoremap <leader>gg :Neogit<CR>
+"nnoremap <silent> <leader>gg :<C-u>CocList --normal gstatus<CR>
 
 
 " winbar
