@@ -43,6 +43,7 @@ set foldlevel=99
 set foldcolumn=1
 set foldlevelstart=99
 set winbar=%F
+"set clipboard=unnamedplus
 " auto reload when file changed
 " path1
 " problem: will cause TSServer error
