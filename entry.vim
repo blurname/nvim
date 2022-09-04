@@ -8,6 +8,7 @@ lua require('door')
 "                                   basic                                    "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:mapleader=' '
 " noremap ; :
 set exrc
 set nobackup
@@ -64,7 +65,6 @@ autocmd FileChangedShellPost *
       \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 set foldmethod=expr
-"set foldexpr=nvim_treesitter#foldexpr()
 filetype plugin on
 " set scrolloff
 
@@ -426,7 +426,7 @@ au ModeChanged *:s set clipboard=
 au ModeChanged s:* set clipboard=unnamedplus
 map <leader>3 <Cmd>b #<CR>
 
-nnoremap <leader>gg :Neogit<CR>
+nnoremap <leader>gg :LazyGit<CR>
 "nnoremap <silent> <leader>gg :<C-u>CocList --normal gstatus<CR>
 
 

@@ -2,7 +2,6 @@ local M = {}
 local k = vim.keymap
 local g = vim.g
 
-g.mapleader = ' '
 k.set('n','zR',require('ufo').openAllFolds)
 k.set('n','zM',require('ufo').closeAllFolds)
 function M.asynctask()

@@ -20,11 +20,11 @@ return packer.startup({
     -- autopair
     use {'Raimondi/delimitMate', event = 'InsertEnter',opt = true }
 
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
-    use{'nvim-treesitter/playground'}
+    --use {
+        --'nvim-treesitter/nvim-treesitter',
+        --run = ':TSUpdate'
+    --}
+    --use{'nvim-treesitter/playground'}
 
     -- imporve f action
     use {'kevinhwang91/nvim-fFHighlight',opt = false}
@@ -66,13 +66,12 @@ return packer.startup({
     -- file-tree
     use {'nvim-neo-tree/neo-tree.nvim', branch='v2.x'}
     use {'MunifTanjim/nui.nvim'}
-    -- auto-save {	
-    use {'Pocco81/AutoSave.nvim'}
 
     --git
     use {'tpope/vim-fugitive',config=conf('fugitive')}
     use {'rbong/vim-flog',opt=true,cmd={'Flog','Flogsplit'}}
     use {'TimUntersberger/neogit'}
+    use {'kdheepak/lazygit.nvim'}
 
     --quickfix
     use {'kevinhwang91/nvim-bqf'}
