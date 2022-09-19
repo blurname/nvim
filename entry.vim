@@ -1,4 +1,5 @@
 set termguicolors
+set t_Co=256
 lua require('plugins')
 lua require('door')
 " ===
@@ -226,7 +227,9 @@ nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+"
+" fit vscode's rename bindings
+nmap <F2> <Plug>(coc-rename)
 nmap <leader>cl  <Plug>(coc-codelens-action)
 
 nmap <silent> g[ <Plug>(coc-diagnostic-prev)
@@ -260,6 +263,10 @@ nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_ShortcutF = "<leader>fl"
+
+" bindings below is to fit my custom keyboard
+nnoremap <c-p> :Leaderf file<cr> 
+
 let g:Lf_fuzzyEngine_C = 1
 let g:Lf_PopupColorscheme = 'nord'
 let g:Lf_CursorBlink = 0
@@ -309,8 +316,12 @@ noremap <leader>ff :Leaderf! rg -F -e
 noremap <leader>fs :Leaderf! --stayOpen --right rg -F -e 
 xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
 noremap <leader>fh :Leaderf searchHistory<CR>
+
+" list commands
 noremap <F1> :Leaderf command<CR>
-noremap <F2> :Leaderf rg<CR>
+" global search
+noremap <F3> :Leaderf rg<CR>
+
 "command! -nargs=0 RS :Leaderf --stayOpen --right rg -F -e 
 "command! -nargs=? Ls :Leaderf --auto-preview --stayOpen --popup --nameOnly rg -F -e %s
 
@@ -436,8 +447,4 @@ highlight FoldColumn guifg=#bf616a guibg=#3b4252
 "highlight WinBarNC guifg=#e5e9f0 guibg=#3b4252
 "highlight WinBarIndicator guifg=#bf616a guibg=#3b4252
 "highlight WinBarInactive guifg=#bf616a guibg=#3b4252
-
-"highlight WinBar 
-"
-set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}%{get(b:,'coc_current_fcuntion','')}
-autocmd User CocGitStatusChange {command}
+"highlight WinBar set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}%{get(b:,'coc_current_fcuntion','')} autocmd User CocGitStatusChange {command}
