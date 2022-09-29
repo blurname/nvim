@@ -101,6 +101,6 @@ return packer.startup({
     use {'Shatur/neovim-session-manager'}
 
     -- fold
-    use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+    --use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 	end
 })
