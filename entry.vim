@@ -45,7 +45,7 @@ set foldlevel=99
 set foldcolumn=1
 set foldlevelstart=99
 set winbar=%F
-"set clipboard=unnamedplus
+set clipboard=unnamedplus
 " auto reload when file changed
 " path1
 " problem: will cause TSServer error
@@ -74,7 +74,7 @@ filetype plugin on
 " Save & quit
 noremap s <nop>
 noremap q: <nop>
-noremap <F2> :%s/VERSION/d/g
+autocmd! BufWritePost /home/bl/.config/nvim/entry.vim source /home/bl/.config/nvim/entry.vim | echom "Reloaded $NVIMRC"
 noremap <LEADER>re :source /home/bl/.config/nvim/entry.vim<CR>
 " Open the vimrc file anytime
 noremap <LEADER>rc :e /home/bl/.config/nvim/entry.vim<CR>
@@ -90,7 +90,6 @@ noremap L $
 " Copy to system clipboard
 vnoremap <LEADER>y "+y
 noremap <LEADER>p "+p
-
 
 " Resize splits with arrow keys
 noremap <down> :res -5<CR>
@@ -130,8 +129,8 @@ noremap tj :+tabnext<CR>
 noremap tn <C-w>T
 
 " Move the tabs with tmn and tmi
-" noremap tmn :-tabmove<CR>
-" noremap tmi :+tabmove<CR>
+ noremap th :-tabmove<CR>
+ noremap tl :+tabmove<CR>
 
 " Search
 noremap <LEADER><CR> :nohlsearch<CR>
@@ -183,12 +182,11 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <c-j>
       \ coc#pum#visible() ? coc#pum#next(1):
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <expr><c-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
@@ -232,8 +230,8 @@ nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 nmap <F2> <Plug>(coc-rename)
 nmap <leader>cl  <Plug>(coc-codelens-action)
 
-nmap <silent> g[ <Plug>(coc-diagnostic-prev)
-nmap <silent> g] <Plug>(coc-diagnostic-next)
+nnoremap <silent> <c-k> <Plug>(coc-diagnostic-prev)
+nnoremap <silent> <c-J> <Plug>(coc-diagnostic-next)
 
 " nmap <leader>qf  <Plug>(coc-fix-current)
 nmap  <leader>ca <plug>(coc-codeaction)
@@ -306,7 +304,8 @@ noremap <c-\> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
 "noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
 "window jump
-noremap <c-b> :Leaderf! window<CR> 
+noremap <tab>w :Leaderf! window<CR> 
+noremap <tab>b :Leaderf! buffer<CR> 
 
 noremap <leader>f; :Leaderf cmdHistory<CR>
 
@@ -434,8 +433,8 @@ let g:neoformat_enabled_lua = ['stylua']
 "noremap <leader>gl :diffget //3<CR>
 "noremap <leader>gh :diffget //2<CR>
 
-au ModeChanged *:s set clipboard=
-au ModeChanged s:* set clipboard=unnamedplus
+"au ModeChanged *:s set clipboard=
+"au ModeChanged s:* set clipboard=unnamedplus
 map <leader>3 <Cmd>b #<CR>
 
 nnoremap <leader>gg :LazyGit<CR>
