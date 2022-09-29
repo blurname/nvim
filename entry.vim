@@ -249,7 +249,7 @@ noremap  <leader>v  :Neotree filesystem toggle reveal_force_cwd float <CR>
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
 "noremap <leader>fi :CocCommand eslint.executeAutofix<CR>
-noremap <c-s> :w<CR>
+noremap <c-s> :wa<CR>
 "command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Useful commands
@@ -301,6 +301,7 @@ let g:Lf_NormalMap = {
       \ "Colorscheme": []
       \}
 noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
+noremap <c-\> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
 
 "noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
