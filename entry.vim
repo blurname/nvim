@@ -124,6 +124,8 @@ noremap <c-a> ggVG
 " Move around tabs with tn and ti
 noremap tk :-tabnext<CR>
 noremap tj :+tabnext<CR>
+noremap <c-h> :-tabnext<CR>
+noremap <c-l> :+tabnext<CR>
 
 " move current window to new tab
 noremap tn <C-w>T
@@ -182,11 +184,11 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-inoremap <silent><expr> <c-j>
+inoremap <silent><expr> <tab>
       \ coc#pum#visible() ? coc#pum#next(1):
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><c-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
