@@ -389,6 +389,10 @@
     "prefix": "jp",
     "body": "JSON.parse($0)"
   },
+  "JSON.stringify & parse": {
+    "prefix": "jsp",
+    "body": "JSON.parse(JSON.stringify($0))"
+  },
   "getter": {
     "prefix": "get",
     "body": "get ${1:property} () {\n\t${0}\n}"
@@ -408,6 +412,14 @@
   "Object.keys": {
     "prefix": "ok",
     "body": "Object.keys(${0})"
+  },
+  "Object.entries": {
+    "prefix": "oe",
+    "body": "Object.entries(${0})"
+  },
+  "Object.values": {
+    "prefix": "ov",
+    "body": "Object.values(${0})"
   },
   "return object": {
     "prefix": "ro",
