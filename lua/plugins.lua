@@ -72,6 +72,7 @@ return packer.startup({
     use {'rbong/vim-flog',opt=true,cmd={'Flog','Flogsplit'}}
     use {'TimUntersberger/neogit'}
     use {'kdheepak/lazygit.nvim'}
+    use {'lewis6991/gitsigns.nvim'}
 
     --quickfix
     use {'kevinhwang91/nvim-bqf'}

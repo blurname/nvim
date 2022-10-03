@@ -1,5 +1,4 @@
 set termguicolors
-set t_Co=256
 lua require('plugins')
 lua require('door')
 " ===
@@ -46,6 +45,8 @@ set foldcolumn=1
 set foldlevelstart=99
 set winbar=%F
 set clipboard=unnamedplus
+"set cmdheight=0
+
 " auto reload when file changed
 " path1
 " problem: will cause TSServer error
@@ -74,7 +75,8 @@ filetype plugin on
 " Save & quit
 noremap s <nop>
 noremap q: <nop>
-autocmd! BufWritePost /home/bl/.config/nvim/entry.vim source /home/bl/.config/nvim/entry.vim | echom "Reloaded $NVIMRC"
+autocmd! BufWritePost /home/bl/.config/nvim/entry.vim source /home/bl/.config/nvim/entry.vim | echo 'reload nvimrc'
+
 noremap <LEADER>re :source /home/bl/.config/nvim/entry.vim<CR>
 " Open the vimrc file anytime
 noremap <LEADER>rc :e /home/bl/.config/nvim/entry.vim<CR>
@@ -164,7 +166,6 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-pyright',
       \ 'coc-sumneko-lua',
       \ 'coc-eslint',
-      \ 'coc-git',
       \ 'coc-explorer']
 let g:coc_default_semantic_highlight_groups = 0
 
@@ -446,7 +447,7 @@ nnoremap <leader>gg :LazyGit<CR>
 " winbar
 highlight WinBar guifg=#a3b38c guibg=#3b4252 gui=bold
 highlight FoldColumn guifg=#bf616a guibg=#3b4252
+set statusline+=%{get(b:,'gitsigns_status','')}
 "highlight WinBarNC guifg=#e5e9f0 guibg=#3b4252
 "highlight WinBarIndicator guifg=#bf616a guibg=#3b4252
 "highlight WinBarInactive guifg=#bf616a guibg=#3b4252
-"highlight WinBar set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}%{get(b:,'coc_current_fcuntion','')} autocmd User CocGitStatusChange {command}
