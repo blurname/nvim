@@ -308,7 +308,7 @@ noremap <c-\> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
 "window jump
 noremap <tab>w :Leaderf! window<CR> 
-noremap <tab>b :Leaderf! buffer<CR> 
+noremap <leader>b :Leaderf! buffer<CR> 
 
 noremap <leader>f; :Leaderf cmdHistory<CR>
 
