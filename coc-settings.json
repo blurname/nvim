@@ -103,13 +103,20 @@
       "filetypes": ["haskell", "lhaskell"]
     },
     "nix": {
-      "command": "rnix-lsp",
+      "command": "nil",
       "filetypes": ["nix"]
     },
     "elvish": {
       "command": "elvish",
       "args": ["-lsp"],
       "filetypes": ["elv"]
+    },
+    "rescript": {
+      "enable": true,
+      "module": "~/.local/share/nvim/site/pack/packer/start/vim-rescript/server/out/server.js",
+      "args": ["--node-ipc"],
+      "filetypes": ["rescript"],
+      "rootPatterns": ["bsconfig.json"]
     }
   },
   "snippets.ultisnips.enable": false,

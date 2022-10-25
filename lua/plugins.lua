@@ -12,7 +12,7 @@ return packer.startup({
 		local function conf(name)
             return ([[require('config').%s()]]):format(name)
         end
-		-- use {'wbthomason/packer.nvim'}
+    use {'wbthomason/packer.nvim'}
 
 		-- comment
 		use {'preservim/nerdcommenter',keys ='<Plug>NERDCommenterToggle',opt=true}
@@ -100,6 +100,9 @@ return packer.startup({
 
     -- session
     use {'Shatur/neovim-session-manager'}
+
+    -- lsp
+    use {'rescript-lang/vim-rescript'}
 
     -- fold
     --use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
