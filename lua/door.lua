@@ -1,4 +1,4 @@
---require('conf.treesitter')
+require('conf.treesitter')
 --require('conf.lsp')
 --require('conf.comp')
 --require('feline-config')

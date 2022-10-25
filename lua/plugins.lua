@@ -20,10 +20,10 @@ return packer.startup({
     -- autopair
     use {'Raimondi/delimitMate', event = 'InsertEnter',opt = true }
 
-    --use {
-        --'nvim-treesitter/nvim-treesitter',
-        --run = ':TSUpdate'
-    --}
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = 'TSUpdate'
+    }
     --use{'nvim-treesitter/playground'}
 
     -- imporve f action
