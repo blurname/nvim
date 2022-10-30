@@ -109,7 +109,7 @@
     "elvish": {
       "command": "elvish",
       "args": ["-lsp"],
-      "filetypes": ["elv"]
+      "filetypes": ["elvish"]
     },
     "rescript": {
       "enable": true,
