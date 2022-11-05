@@ -60,7 +60,7 @@ return packer.startup({
 
     -- char search
     use {'kevinhwang91/nvim-hlslens'}
-    use {'mg979/vim-visual-multi'}
+    --use {'mg979/vim-visual-multi'}
     use {'haya14busa/vim-asterisk'}
 
     -- file-tree

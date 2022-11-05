@@ -117,6 +117,8 @@ noremap <C-w> :q<CR>
 
 noremap <c-a> ggVG
 
+nnoremap <c-n> :%s/
+
 " ===
 " === Tab management
 " ===
@@ -124,8 +126,8 @@ noremap <c-a> ggVG
 
 " noremap tl :tabe<CR>
 " Move around tabs with tn and ti
-noremap tk :-tabnext<CR>
-noremap tj :+tabnext<CR>
+noremap th :-tabnext<CR>
+noremap tl :+tabnext<CR>
 noremap <c-h> :-tabnext<CR>
 noremap <c-l> :+tabnext<CR>
 
