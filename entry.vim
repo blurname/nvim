@@ -135,8 +135,8 @@ noremap <c-l> :+tabnext<CR>
 noremap tn <C-w>T
 
 " Move the tabs with tmn and tmi
- noremap th :-tabmove<CR>
- noremap tl :+tabmove<CR>
+ "noremap th :-tabmove<CR>
+ "noremap tl :+tabmove<CR>
 
 " Search
 noremap <LEADER><CR> :nohlsearch<CR>
@@ -247,7 +247,7 @@ nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " filetree
 
 "noremap  <leader>v  :CocCommand explorer --position right <CR>
-noremap  <leader>v  :Neotree filesystem toggle reveal_force_cwd float <CR>
+"noremap  <leader>v  :Neotree filesystem toggle reveal_force_cwd float <CR>
 
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
 "
@@ -394,6 +394,8 @@ function! Coc_qf_jump2loc(locs) abort
     call win_gotoid(winid)
   endif
 endfunction
+
+nmap <space>v <Cmd>CocCommand explorer<CR>
 
 "NERDCommenter
 let g:NERDCreateDefaultMappings = 0

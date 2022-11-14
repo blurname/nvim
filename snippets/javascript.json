@@ -1,4 +1,8 @@
 {
+  "todo": {
+    "prefix": "td",
+    "body": "// TODO: bl: ${0}"
+  },
   "setTimeout": {
     "prefix": "st",
     "body": "setTimeout(() => {\n\t${0}\n}, ${1:delay})"
