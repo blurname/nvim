@@ -46,6 +46,9 @@ set foldlevelstart=99
 "set winbar=%F
 "set clipboard=unnamedplus
 "set cmdheight=0
+"colorscheme everforest
+colorscheme nordfox
+"let g:everforest_background = 'hard'
 
 " auto reload when file changed
 " path1
@@ -181,7 +184,8 @@ function! ShowDocumentation()
   endif
 endfunction
 
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-x> coc#refresh()
+
 
 " nnoremap <c-p> <c-^>
 

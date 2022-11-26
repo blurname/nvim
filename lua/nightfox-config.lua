@@ -15,4 +15,5 @@ nightfox.setup({
 })
 
 -- Load the configuration set above and apply the colorscheme
-vim.cmd("colorscheme nordfox")
+--vim.cmd("colorscheme nordfox")
+--vim.cmd("colorscheme nightfox")

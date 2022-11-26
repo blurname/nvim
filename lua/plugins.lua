@@ -35,7 +35,7 @@ return packer.startup({
 
     -- themes
     --use {'sainnhe/edge'}
-    --use {'sainnhe/everforest'}
+    use {'sainnhe/everforest'}
     use{ 'EdenEast/nightfox.nvim'}
 
     -- show color

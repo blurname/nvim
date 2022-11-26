@@ -19,7 +19,7 @@
   "semanticTokens.enable": true,
   "suggest.noselect": false,
   "suggest.enablePreselect": true,
-  "suggest.triggerAfterInsertEnter": false,
+  "suggest.triggerAfterInsertEnter": true,
   "suggest.autoTrigger": "always",
   "suggest.timeout": 500,
   "suggest.virtualText": true,
@@ -62,6 +62,7 @@
   "diagnostic.virtualTextPrefix": " ❯❯ ",
   "diagnostic.virtualText": false,
   "explorer.file.showHiddenFiles": true,
+  "explorer.file.reveal.whenOpen": true,
   "explorer.keyMappings.global": {
     "k": "nodePrev",
     "j": "nodeNext",
