@@ -44,7 +44,7 @@ return packer.startup({
 
     -- statusline
     use {'kyazdani42/nvim-web-devicons'}
-    use {'famiu/feline.nvim'}
+    --use {'famiu/feline.nvim'}
 
     --coc
     use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile',disable=false}
@@ -53,24 +53,24 @@ return packer.startup({
     --vista.vim symbol navigation
     use {'tweekmonster/startuptime.vim', cmd = 'StartupTime',opt=true}
     -- fuzzy file finder
-    use {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'} 
+    use {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'}
 
     -- change surrounding symbol
     use {'machakann/vim-sandwich'}
 
     -- char search
     use {'kevinhwang91/nvim-hlslens'}
-    --use {'mg979/vim-visual-multi'}
+    use {'mg979/vim-visual-multi'}
     use {'haya14busa/vim-asterisk'}
 
     -- file-tree
-    use {'nvim-neo-tree/neo-tree.nvim', branch='v2.x'}
+    --use {'nvim-neo-tree/neo-tree.nvim', branch='v2.x'}
     use {'MunifTanjim/nui.nvim'}
 
     --git
     use {'tpope/vim-fugitive',config=conf('fugitive')}
     use {'rbong/vim-flog',opt=true,cmd={'Flog','Flogsplit'}}
-    use {'TimUntersberger/neogit'}
+    --use {'TimUntersberger/neogit'}
     use {'kdheepak/lazygit.nvim'}
     use {'lewis6991/gitsigns.nvim'}
 
@@ -81,20 +81,6 @@ return packer.startup({
     use {'elkowar/yuck.vim'}
     use {'sbdchd/neoformat'}
 
-    --nvim-lsp
-    --use{'neovim/nvim-lspconfig'}
-    --use{'williamboman/nvim-lsp-installer'}
-    
-    --nvim-cmp
-    --use {'hrsh7th/cmp-nvim-lsp'}
-    --use {'hrsh7th/cmp-buffer'}
-    --use {'hrsh7th/cmp-path'}
-    --use {'hrsh7th/cmp-cmdline'}
-    --use {'hrsh7th/nvim-cmp'}
-    
-    --nvim-snip
-    --use {'L3MON4D3/LuaSnip'}
-    --use {'saadparwaiz1/cmp_luasnip'}
 
     use {'nvim-lua/plenary.nvim'}
 
@@ -105,6 +91,6 @@ return packer.startup({
     use {'rescript-lang/vim-rescript'}
 
     -- fold
-    --use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+    use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 	end
 })

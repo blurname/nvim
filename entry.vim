@@ -40,7 +40,7 @@ set fileencoding=utf-8
 set splitright
 set splitbelow
 set foldlevel=99 
-"set foldenable
+set foldenable
 set foldcolumn=1
 set foldlevelstart=99
 "set winbar=%F
@@ -69,7 +69,7 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 autocmd FileChangedShellPost *
       \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-set foldmethod=expr
+"set foldmethod=expr
 filetype plugin on
 " set scrolloff
 
@@ -120,7 +120,7 @@ noremap <C-w> :q<CR>
 
 noremap <c-a> ggVG
 
-nnoremap <c-n> :%s/
+"nnoremap <c-n> :%s/
 
 " ===
 " === Tab management
@@ -250,7 +250,7 @@ nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Show all diagnostics.
 " filetree
 
-"noremap  <leader>v  :CocCommand explorer --position right <CR>
+noremap  <leader>v  :CocCommand explorer --position right <CR>
 "noremap  <leader>v  :Neotree filesystem toggle reveal_force_cwd float <CR>
 
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
@@ -399,7 +399,7 @@ function! Coc_qf_jump2loc(locs) abort
   endif
 endfunction
 
-nmap <space>v <Cmd>CocCommand explorer<CR>
+"nmap <space>v <Cmd>CocCommand explorer<CR>
 
 "NERDCommenter
 let g:NERDCreateDefaultMappings = 0
