@@ -21,7 +21,7 @@ return packer.startup({
     use {'Raimondi/delimitMate', event = 'InsertEnter',opt = true }
 
     use {
-        'nvim-treesitter/nvim-treesitter',
+         'kevinhwang91/nvim-treesitter',
         run = 'TSUpdate'
     }
     --use{'nvim-treesitter/playground'}
