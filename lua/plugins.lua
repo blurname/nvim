@@ -22,19 +22,18 @@ return packer.startup({
 
     use {
          'kevinhwang91/nvim-treesitter',
-        run = 'TSUpdate'
+        run = ':TSUpdate'
     }
-    --use{'nvim-treesitter/playground'}
 
     -- imporve f action
     use {'kevinhwang91/nvim-fFHighlight',opt = false}
+
     -- asyncSeries
     use {'skywind3000/vim-terminal-help'}
     use {'skywind3000/asynctasks.vim',keys={'<F5>','<F6>','<F7>','<F8>'},wants={'asyncrun.vim'},opt=true,config=conf('asynctask')}
     use {'skywind3000/asyncrun.vim',opt=true}
 
     -- themes
-    --use {'sainnhe/edge'}
     use {'sainnhe/everforest'}
     use{ 'EdenEast/nightfox.nvim'}
 
@@ -48,7 +47,6 @@ return packer.startup({
 
     --coc
     use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile',disable=false}
-    --use {'neoclide/coc.nvim', branch = 'release'}
 
     --vista.vim symbol navigation
     use {'tweekmonster/startuptime.vim', cmd = 'StartupTime',opt=true}
@@ -76,6 +74,9 @@ return packer.startup({
 
     --quickfix
     use {'kevinhwang91/nvim-bqf'}
+    use {'junegunn/fzf', run = function()vim.fn['fzf#install']()end}
+    use {'mhinz/vim-grepper', run = function()vim.fn['fzf#install']()end}
+
     use {'lambdalisue/suda.vim',opt=true,keys={'n','<leader>W'},config=conf('suda')}
     use {'KabbAmine/vCoolor.vim'}
     use {'elkowar/yuck.vim'}

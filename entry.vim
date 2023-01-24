@@ -311,7 +311,8 @@ noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
 noremap <c-\> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
 
 "noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
+"noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
+noremap <C-F> :expand("<cword>") | copen 
 "window jump
 noremap <tab>w :Leaderf! window<CR> 
 noremap <leader>b :Leaderf! buffer<CR> 
@@ -320,11 +321,11 @@ noremap <leader>f; :Leaderf cmdHistory<CR>
 
 " use rg for content search
 " ! means list results in normal mode
-noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
-noremap <leader>ff :Leaderf! rg -F -e 
-noremap <leader>fs :Leaderf! --stayOpen --right rg -F -e 
+"noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
+"noremap <leader>ff :Leaderf! rg -F -e 
+"noremap <leader>fs :Leaderf! --stayOpen --right rg -F -e 
 xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
-noremap <leader>fh :Leaderf searchHistory<CR>
+"noremap <leader>fh :Leaderf searchHistory<CR>
 
 " list commands
 noremap <F1> :Leaderf command<CR>
@@ -357,49 +358,6 @@ aug VMlens
   au User visual_multi_exit lua require('vmlens').exit()
 aug END
 
-""""""""""""""
-"  nvim-bqf  "
-""""""""""""""
-let g:coc_enable_locationlist = 0
-aug Coc
-  au!
-  au User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-aug END
-
-nmap <silent> gr <Plug>(coc-references)
-nnoremap <silent> <leader>d <Cmd>call Coc_qf_diagnostic()<CR>
-
-function! Coc_qf_diagnostic() abort
-  let diagnostic_list = CocAction('diagnosticList')
-  let items = []
-  let loc_ranges = []
-  for d in diagnostic_list
-    let text = printf('[%s%s] %s', (empty(d.source) ? 'coc.nvim' : d.source),
-          \ (d.code ? ' ' . d.code : ''), split(d.message, '\n')[0])
-    let item = {'filename': d.file, 'lnum': d.lnum, 'col': d.col, 'text': text, 'type':
-          \ d.severity[0]}
-    call add(loc_ranges, d.location.range)
-    call add(items, item)
-  endfor
-  call setqflist([], ' ', {'title': 'CocDiagnosticList', 'items': items,
-        \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
-  botright copen
-endfunction
-
-function! Coc_qf_jump2loc(locs) abort
-  let loc_ranges = map(deepcopy(a:locs), 'v:val.range')
-  call setloclist(0, [], ' ', {'title': 'CocLocationList', 'items': a:locs,
-        \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
-  let winid = getloclist(0, {'winid': 0}).winid
-  if winid == 0
-    botright lwindow
-  else
-    call win_gotoid(winid)
-  endif
-endfunction
-
-"nmap <space>v <Cmd>CocCommand explorer<CR>
 
 "NERDCommenter
 let g:NERDCreateDefaultMappings = 0
