@@ -327,10 +327,6 @@
     "prefix": "afr",
     "body": "($1) => {\n\treturn $0\n}"
   },
-  "class method": {
-    "prefix": "cm",
-    "body": "$1($2){\n\t\n}"
-  },
   "generator function": {
     "prefix": "gf",
     "body": "function* (${1:args}) {\n\t${0}\n}"
@@ -545,5 +541,9 @@
   "useDispatch": {
     "prefix": "usd",
     "body": ["const $1 = $2 => dispatch($3)"]
+  },
+  "textComment":{
+    "prefix": "cm",
+    "body": ["/*\n  *\n*/"]
   }
 }
