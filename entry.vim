@@ -80,12 +80,10 @@ noremap s <nop>
 noremap q: <nop>
 autocmd! BufWritePost /home/bl/.config/nvim/entry.vim source /home/bl/.config/nvim/entry.vim | echo 'reload nvimrc'
 
-noremap <LEADER>re :source /home/bl/.config/nvim/entry.vim<CR>
+"noremap <LEADER>re :source /home/bl/.config/nvim/entry.vim<CR>
 " Open the vimrc file anytime
-noremap <LEADER>rc :e /home/bl/.config/nvim/entry.vim<CR>
+"noremap <LEADER>rc :e /home/bl/.config/nvim/entry.vim<CR>
 " let a = stdpath("config")
-
-noremap <LEADER>rv :e ~/.config/nvim/lua/plugins.lua<CR>
 
 " move key
 noremap W 5w
@@ -109,6 +107,13 @@ noremap <A-j> <C-w>j
 noremap <A-k> <C-w>k
 noremap <A-h> <C-w>h
 noremap <A-l> <C-w>l
+
+
+" ===
+" move line up/donw
+" ===
+noremap <A-up> :m -2<CR>
+noremap <A-down> :m +1<CR>
 
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
 noremap sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
@@ -207,7 +212,7 @@ endfunction
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+"nmap <silent> gr <Plug>(coc-references)
 imap <c-l> <Plug>(coc-snippets-expand)
 
 nnoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
@@ -359,10 +364,10 @@ aug END
 
 
 "NERDCommenter
+" map <c-_> instead of <c-/>
 let g:NERDCreateDefaultMappings = 0
 map <c-_> <plug>NERDCommenterToggle
 "
-" map <c-_> instead of <c-/>
 "let g:NERDAltDelims_javascriptreact=1
 "let g:NERDAltDelims_typescriptreact=1
 "let g:NERDCustomDelimiters = { 'typescriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },'javascriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' } }
