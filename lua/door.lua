@@ -1,10 +1,14 @@
+-- raw
+require('colorizer').setup()
+require('fFHighlight').setup()
+require('hlslens').setup()
+
+-- config patch
 require('config.treesitter')
 require('config.nightfox')
 require('config.gitsigns')
-require('config.config')
-require('config.colorizer').setup()
-require('config.fFHighlight').setup()
+require('config')
 require('config.session-manager')
-require('config.hlslens').setup()
 require('config.ufo')
 require('config.bqf')
+
