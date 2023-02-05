@@ -277,7 +277,8 @@ let g:Lf_PreviewInPopup = 1
 let g:Lf_ShortcutF = "<leader>fl"
 
 " bindings below is to fit my custom keyboard
-nnoremap <c-p> :Leaderf file<cr> 
+"nnoremap <c-p> :Leaderf file<cr> 
+nnoremap <c-p> :FZF<cr> 
 
 let g:Lf_fuzzyEngine_C = 1
 let g:Lf_PopupColorscheme = 'nord'
