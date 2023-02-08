@@ -35,7 +35,8 @@ return packer.startup({
 
     -- themes
     use {'sainnhe/everforest'}
-    use{ 'EdenEast/nightfox.nvim'}
+    use { 'EdenEast/nightfox.nvim'}
+    use { 'glepnir/zephyr-nvim' }
 
     -- show color
     -- use {'equalsraf/neovim-gui-shim'}
