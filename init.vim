@@ -140,7 +140,7 @@ noremap <c-h> :-tabnext<CR>
 noremap <c-l> :+tabnext<CR>
 
 " move current window to new tab
-noremap tn <C-w>T
+"noremap tn <C-w>T
 
 " Move the tabs with tmn and tmi
  "noremap th :-tabmove<CR>
@@ -156,8 +156,8 @@ noremap <LEADER><CR> :nohlsearch<CR>
 
 let g:terminal_shell = 'elvish'
 
-let g:closetag_filetypes = 'html,jsx,tsx'
-let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
+"let g:closetag_filetypes = 'html,jsx,tsx'
+"let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
 
 
 " ===
@@ -189,8 +189,7 @@ function! ShowDocumentation()
   endif
 endfunction
 
-inoremap <silent><expr> <c-x> coc#refresh()
-
+inoremap <silent><expr> <c-k> coc#refresh()
 
 " nnoremap <c-p> <c-^>
 
@@ -213,7 +212,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 "nmap <silent> gr <Plug>(coc-references)
-imap <c-l> <Plug>(coc-snippets-expand)
+"imap <c-l> <Plug>(coc-snippets-expand)
 
 nnoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
@@ -256,6 +255,9 @@ nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " filetree
 
 noremap  <leader>v  :CocCommand explorer --position right <CR>
+
+nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
+
 "noremap  <leader>v  :Neotree filesystem toggle reveal_force_cwd float <CR>
 
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
@@ -314,7 +316,7 @@ let g:Lf_NormalMap = {
       \ "Colorscheme": []
       \}
 noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
-noremap <c-\> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
+"noremap <c-\> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
 
 "noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
 "noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
@@ -327,7 +329,7 @@ noremap <leader>f; :Leaderf cmdHistory<CR>
 
 " use rg for content search
 " ! means list results in normal mode
-"noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
+noremap <leader>r :<C-U>Leaderf! rg --recall<CR>
 "noremap <leader>ff :Leaderf! rg -F -e 
 "noremap <leader>fs :Leaderf! --stayOpen --right rg -F -e 
 xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>

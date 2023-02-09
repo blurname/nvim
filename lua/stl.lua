@@ -176,8 +176,8 @@ function M.tabline()
 end
 
 local function init()
-    --vim.o.statusline = [[%!v:lua.require'stl'.statusline()]]
-    vim.o.tabline = [[%!v:lua.require'stl'.tabline()]]
+    vim.o.statusline = [[%!v:lua.require'stl'.statusline()]]
+    --vim.o.tabline = [[%!v:lua.require'stl'.tabline()]]
 end
 
 init()
