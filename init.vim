@@ -176,7 +176,8 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-pyright',
       \ 'coc-sumneko-lua',
       \ 'coc-eslint',
-      \ 'coc-explorer']
+      \ 'coc-explorer',
+      \ 'coc-lit-html']
 let g:coc_default_semantic_highlight_groups = 0
 
 nnoremap <silent> K :call ShowDocumentation()<CR>
