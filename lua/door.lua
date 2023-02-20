@@ -11,5 +11,6 @@ require('config')
 require('config.session-manager')
 require('config.ufo')
 require('config.bqf')
+require('config.ufo')
 --require('stl')
 

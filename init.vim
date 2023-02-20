@@ -317,6 +317,7 @@ let g:Lf_NormalMap = {
       \ "Colorscheme": []
       \}
 noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
+command! Bda silent! execute "%bd|e#|bd#"
 "noremap <c-\> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
 
 "noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
@@ -330,7 +331,7 @@ noremap <leader>f; :Leaderf cmdHistory<CR>
 
 " use rg for content search
 " ! means list results in normal mode
-noremap <leader>r :<C-U>Leaderf! rg --recall<CR>
+noremap <leader>ll :<C-U>Leaderf! rg --recall<CR>
 "noremap <leader>ff :Leaderf! rg -F -e 
 "noremap <leader>fs :Leaderf! --stayOpen --right rg -F -e 
 xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>

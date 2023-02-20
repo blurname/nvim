@@ -83,7 +83,6 @@ return packer.startup({
     use {'elkowar/yuck.vim'}
     use {'sbdchd/neoformat'}
 
-
     use {'nvim-lua/plenary.nvim'}
 
     -- session
