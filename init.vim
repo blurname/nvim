@@ -47,7 +47,7 @@ set foldlevelstart=99
 "set clipboard=unnamedplus
 "set cmdheight=0
 "colorscheme everforest
-colorscheme nordfox
+colorscheme nightfox
 "let g:everforest_background = 'hard'
 
 " auto reload when file changed
@@ -138,6 +138,15 @@ noremap th :-tabnext<CR>
 noremap tl :+tabnext<CR>
 noremap <c-h> :-tabnext<CR>
 noremap <c-l> :+tabnext<CR>
+
+
+
+" get file path releated
+command! GetFilePathRelative :let @" = expand("%")
+command! GetFilePathLine     :let @" = expand("%") . ':' . line(".")
+command! GetFilePathAbsolute :let @" = expand("%:p")
+
+
 
 " move current window to new tab
 "noremap tn <C-w>T
