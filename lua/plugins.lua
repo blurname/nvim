@@ -76,6 +76,7 @@ return packer.startup({
     --quickfix
     use {'kevinhwang91/nvim-bqf'}
     use {'junegunn/fzf', run = function()vim.fn['fzf#install']()end}
+    use {'junegunn/fzf.vim', run = function()vim.fn['fzf#install']()end}
     use {'mhinz/vim-grepper', run = function()vim.fn['fzf#install']()end}
 
     use {'lambdalisue/suda.vim',opt=true,keys={'n','<leader>W'},config=conf('suda')}

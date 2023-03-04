@@ -136,5 +136,5 @@
   "sumneko-lua.enable": true,
   "sumneko-lua.prompt": true,
   "sumneko-lua.checkUpdate": false,
-  "git.addGBlameToVirtualText": true
+  "git.addGBlameToVirtualText": false
 }

@@ -9,6 +9,7 @@ lua require('door')
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:mapleader=' '
+let $FZF_DEFAULT_COMMAND = 'fd --type f --strip-cwd-prefix'
 " noremap ; :
 set exrc
 set nobackup
@@ -47,7 +48,7 @@ set foldlevelstart=99
 "set clipboard=unnamedplus
 "set cmdheight=0
 "colorscheme everforest
-colorscheme everforest
+colorscheme nordfox
 "let g:everforest_background = 'hard'
 
 " auto reload when file changed
@@ -299,10 +300,13 @@ let g:Lf_ShortcutF = "<leader>fl"
 
 " bindings below is to fit my custom keyboard
 "nnoremap <c-p> :Leaderf file<cr> 
-nnoremap <c-p> :FZF<cr> 
+" TOOD: ignore file:  https://github.com/junegunn/fzf.vim/issues/453 
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+nnoremap <c-p> :Files<cr> 
 
 let g:Lf_fuzzyEngine_C = 1
-let g:Lf_PopupColorscheme = 'nord'
+"let g:Lf_PopupColorscheme = 'nord'
 let g:Lf_CursorBlink = 0
 "let g:Lf_WorkingDirectory = finddir('.git', '.;')
 let g:Lf_HideHep = 1
@@ -352,13 +356,24 @@ noremap <leader>f; :Leaderf cmdHistory<CR>
 noremap <leader>ll :<C-U>Leaderf! rg --recall<CR>
 "noremap <leader>ff :Leaderf! rg -F -e 
 "noremap <leader>fs :Leaderf! --stayOpen --right rg -F -e 
-xnoremap ff :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
+xnoremap ff :<C-U><C-R>=printf("Leaderf! --auto-preview rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
 "noremap <leader>fh :Leaderf searchHistory<CR>
 
 " list commands
-noremap <F1> :Leaderf command<CR>
+"noremap <F1> :Leaderf command<CR>
+noremap <F1> :Commands<CR>
 " global search
 noremap <F3> :Leaderf rg<CR>
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--disabled', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  let spec = fzf#vim#with_preview(spec, 'right', 'ctrl-/')
+  call fzf#vim#grep(initial_command, 1, spec, a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
 "command! -nargs=0 RS :Leaderf --stayOpen --right rg -F -e 
 "command! -nargs=? Ls :Leaderf --auto-preview --stayOpen --popup --nameOnly rg -F -e %s
