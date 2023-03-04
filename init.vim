@@ -188,7 +188,8 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-eslint',
       \ 'coc-explorer',
       \ 'coc-lit-html',
-      \ 'coc-git']
+      \ 'coc-git',
+      \ 'coc-lists']
 let g:coc_default_semantic_highlight_groups = 0
 
 nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -244,18 +245,29 @@ omap ac <Plug>(coc-classobj-a)
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<cr>
 " Highlight the symbol and its references when holding the cursor.
 "autocmd CursorHold * silent call CocActionAsync('highlight')
 
-nmap gj <Plug>(coc-git-prevchunk)
-nmap gk <Plug>(coc-git-nextchunk)
+nmap gk <Plug>(coc-git-prevchunk)
+nmap gj <Plug>(coc-git-nextchunk)
 nmap gs <Plug>(coc-git-chunkinfo)
 " show commit contains current position
 nmap gc <Plug>(coc-git-commit)
-nnoremap <silent> <space>gl  :<C-u>CocList --normal gstatus<CR>
+nnoremap <silent> <leader>gl :<C-u>CocList --normal --no-quit --auto-preview gstatus<CR>
 command! FoldGit :CocCommand git.foldUnchanged
+nnoremap <silent> <leader>j  :<C-u>CocNext<CR>
+nnoremap <silent> <leader>k  :<C-u>CocPrev<CR>
+" 模糊搜索
+nnoremap <silent> <F3>  :<C-u>CocList --no-quit --auto-preview --interactive grep<CR> 
+" 粘贴文本搜索
+nnoremap <silent> <F4>  :<C-u>CocList --no-quit --auto-preview grep 
+" 文件搜索
+nnoremap <silent> <c-p>  :<C-u>CocList --no-quit --auto-preview files<CR> 
 
 
+noremap <tab>w :CocList windows<CR> 
+noremap <tab>b :CocList buffers<CR> 
 
 " Symbol renaming.
 "
@@ -300,10 +312,6 @@ let g:Lf_ShortcutF = "<leader>fl"
 
 " bindings below is to fit my custom keyboard
 "nnoremap <c-p> :Leaderf file<cr> 
-" TOOD: ignore file:  https://github.com/junegunn/fzf.vim/issues/453 
-command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-nnoremap <c-p> :Files<cr> 
 
 let g:Lf_fuzzyEngine_C = 1
 "let g:Lf_PopupColorscheme = 'nord'
@@ -346,14 +354,13 @@ command! Bda silent! execute "%bd|e#|bd#"
 "noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
 noremap <C-F> :Grepper -noprompt -tool rg -cword<CR><CR>
 "window jump
-noremap <tab>w :Leaderf! window<CR> 
-noremap <leader>b :Leaderf! buffer<CR> 
 
-noremap <leader>f; :Leaderf cmdHistory<CR>
+
+noremap <leader>f; :Leaderf! cmdHistory<CR>
 
 " use rg for content search
 " ! means list results in normal mode
-noremap <leader>ll :<C-U>Leaderf! rg --recall<CR>
+"noremap <leader>ll :<C-U>Leaderf! rg --recall<CR>
 "noremap <leader>ff :Leaderf! rg -F -e 
 "noremap <leader>fs :Leaderf! --stayOpen --right rg -F -e 
 xnoremap ff :<C-U><C-R>=printf("Leaderf! --auto-preview rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
@@ -363,19 +370,10 @@ xnoremap ff :<C-U><C-R>=printf("Leaderf! --auto-preview rg -F -e %s ", leaderf#R
 "noremap <F1> :Leaderf command<CR>
 noremap <F1> :Commands<CR>
 " global search
-noremap <F3> :Leaderf rg<CR>
-function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--disabled', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  let spec = fzf#vim#with_preview(spec, 'right', 'ctrl-/')
-  call fzf#vim#grep(initial_command, 1, spec, a:fullscreen)
-endfunction
+"noremap <F3> :Leaderf rg<CR>
+"noremap <F3> :Rg<CR>
 
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-
-"command! -nargs=0 RS :Leaderf --stayOpen --right rg -F -e 
+";command! -nargs=0 RS :Leaderf --stayOpen --right rg -F -e 
 "command! -nargs=? Ls :Leaderf --auto-preview --stayOpen --popup --nameOnly rg -F -e %s
 
 
@@ -450,7 +448,6 @@ let g:neoformat_enabled_lua = ['stylua']
 map <leader>3 <Cmd>b #<CR>
 
 nnoremap <leader>gg :LazyGit<CR>
-"nnoremap <silent> <leader>gg :<C-u>CocList --normal gstatus<CR>
 
 
 " winbar
