@@ -4,9 +4,9 @@ require('fFHighlight').setup()
 require('hlslens').setup()
 
 -- config patch
-require('config.treesitter')
+--require('config.treesitter')
 require('config.nightfox')
-require('config.gitsigns')
+--require('config.gitsigns')
 require('config')
 require('config.session-manager')
 require('config.ufo')

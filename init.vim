@@ -47,7 +47,7 @@ set foldlevelstart=99
 "set clipboard=unnamedplus
 "set cmdheight=0
 "colorscheme everforest
-colorscheme nightfox
+colorscheme everforest
 "let g:everforest_background = 'hard'
 
 " auto reload when file changed
@@ -186,7 +186,8 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-sumneko-lua',
       \ 'coc-eslint',
       \ 'coc-explorer',
-      \ 'coc-lit-html']
+      \ 'coc-lit-html',
+      \ 'coc-git']
 let g:coc_default_semantic_highlight_groups = 0
 
 nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -244,6 +245,14 @@ nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Highlight the symbol and its references when holding the cursor.
 "autocmd CursorHold * silent call CocActionAsync('highlight')
+
+nmap gj <Plug>(coc-git-prevchunk)
+nmap gk <Plug>(coc-git-nextchunk)
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
+nnoremap <silent> <space>gl  :<C-u>CocList --normal gstatus<CR>
+command! FoldGit :CocCommand git.foldUnchanged
 
 
 
@@ -435,6 +444,8 @@ highlight FoldColumn guifg=#bf616a guibg=#3b4252
 "set statusline
 "set laststatus=0
 "set statusline+=%{get(b:,'gitsigns_status','')}
+set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
+
 "highlight WinBarNC guifg=#e5e9f0 guibg=#3b4252
 "highlight WinBarIndicator guifg=#bf616a guibg=#3b4252
 "highlight WinBarInactive guifg=#bf616a guibg=#3b4252

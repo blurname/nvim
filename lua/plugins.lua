@@ -20,10 +20,10 @@ return packer.startup({
     -- autopair
     use {'Raimondi/delimitMate', event = 'InsertEnter',opt = true }
 
-    use {
-         'kevinhwang91/nvim-treesitter',
-        run = ':TSUpdate'
-    }
+    --use {
+         --'kevinhwang91/nvim-treesitter',
+        --run = ':TSUpdate'
+    --}
 
     -- imporve f action
     use {'kevinhwang91/nvim-fFHighlight',opt = false}
@@ -71,7 +71,7 @@ return packer.startup({
     use {'rbong/vim-flog',opt=true,cmd={'Flog','Flogsplit'}}
     --use {'TimUntersberger/neogit'}
     use {'kdheepak/lazygit.nvim'}
-    use {'lewis6991/gitsigns.nvim'}
+    --use {'lewis6991/gitsigns.nvim'}
 
     --quickfix
     use {'kevinhwang91/nvim-bqf'}

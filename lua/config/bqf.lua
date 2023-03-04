@@ -50,10 +50,10 @@ local fn = vim.fn
 local cmd = vim.cmd
 local api = vim.api
 
+    --packadd nvim-treesitter
 cmd([[
     packadd nvim-bqf
     packadd fzf
-    packadd nvim-treesitter
     packadd vim-grepper
     packadd coc.nvim
 ]])
