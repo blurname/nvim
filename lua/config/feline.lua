@@ -45,6 +45,15 @@ local vi_mode_utils = require 'feline.providers.vi_mode'
 local function coc_status()
     return vim.trim(vim.g.coc_status or '')
 end
+
+local function coc_git()
+    return vim.trim(vim.g.coc_git_status or '')
+end
+
+local function coc_git_blame()
+    return vim.trim(vim.b.coc_git_blame or '')
+end
+
 local coc_diag_get = function(status)
   --local info = vim.b.coc_diagnostic_info
   --return (count > 0) and ' '..count..' ' or ''
@@ -103,7 +112,7 @@ local comps = {
     file = {
         info = {
             provider = 'file_info',
-            file_modified_icon = '',
+            file_modified_icon = '* ',
             hl = {
                 fg = colors.blue,
                 style = 'bold'
@@ -211,14 +220,23 @@ local comps = {
 		},
 		git = {
 				branch = {
-						provider = 'git_branch',
-						icon = ' ',
+						provider = coc_git,
+            icon = ' ',
 						left_sep = ' ',
 						hl = {
 								fg = colors.violet,
 								style = 'bold'
 						},
 				},
+				--blame = {
+						--provider = coc_git_blame,
+            --icon = ' ',
+						--left_sep = ' ',
+						--hl = {
+								--fg = colors.violet,
+								--style = 'bold'
+						--},
+				--},
 		}
 }
 
@@ -236,7 +254,7 @@ table.insert(components.inactive, {})
 table.insert(components.active[1], comps.vi_mode.left)
 table.insert(components.active[1], comps.file.info)
 table.insert(components.active[1], comps.git.branch)
-table.insert(components.inactive[1], comps.file.info)
+--table.insert(components.active[1], comps.git.blame)
 table.insert(components.active[2], comps.diagnos.err)
 table.insert(components.active[2], comps.diagnos.warn)
 table.insert(components.active[2], comps.diagnos.hint)
@@ -248,6 +266,7 @@ table.insert(components.active[3], comps.line_percentage)
 table.insert(components.active[3], comps.scroll_bar)
 --table.insert(components.active[3], comps.vi_mode.right)
 
+table.insert(components.inactive[1], comps.file.info)
 -- require'feline'.setup {}
 
 require('feline').setup {
