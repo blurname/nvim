@@ -52,7 +52,7 @@ return packer.startup({
     --vista.vim symbol navigation
     use {'tweekmonster/startuptime.vim', cmd = 'StartupTime',opt=true}
     -- fuzzy file finder
-    use {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'}
+    --use {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'}
 
     -- change surrounding symbol
     use {'machakann/vim-sandwich'}

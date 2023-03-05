@@ -148,6 +148,7 @@ command! GetFilePathLine     :let @" = expand("%") . ':' . line(".")
 command! GetFilePathAbsolute :let @" = expand("%:p")
 
 
+command! Bda silent! execute "%bd|e#|bd#"
 
 " move current window to new tab
 "noremap tn <C-w>T
@@ -183,7 +184,6 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-emmet',
       \ 'coc-eslint',
       \ 'coc-snippets',
-      \ 'coc-pyright',
       \ 'coc-sumneko-lua',
       \ 'coc-eslint',
       \ 'coc-explorer',
@@ -263,11 +263,19 @@ nnoremap <silent> <F3>  :<C-u>CocList --no-quit --auto-preview --interactive gre
 " 粘贴文本搜索
 nnoremap <silent> <F4>  :<C-u>CocList --no-quit --auto-preview grep 
 " 文件搜索
-nnoremap <silent> <c-p>  :<C-u>CocList --no-quit --auto-preview files<CR> 
+nnoremap <silent> <c-p>  :<C-u>CocList --auto-preview files<CR> 
+" mru
+nnoremap <silent> <c-m>  :<C-u>CocList mru<CR> 
 
+" yank
+nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
+
+noremap <C-F> :Grepper -noprompt -tool rg -cword<CR><CR>
+
+noremap <F1> :Commands<CR>
 
 noremap <tab>w :CocList windows<CR> 
-noremap <tab>b :CocList buffers<CR> 
+noremap <tab>b :CocList --normal buffers<CR> 
 
 " Symbol renaming.
 "
@@ -290,6 +298,22 @@ noremap  <leader>v  :CocCommand explorer --position right <CR>
 
 nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
 
+vnoremap ff :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
+function! s:GrepFromSelected(type)
+  let saved_unnamed_register = @@
+  if a:type ==# 'v'
+    normal! `<v`>y
+  elseif a:type ==# 'char'
+    normal! `[v`]y
+  else
+    return
+  endif
+  let word = substitute(@@, '\n$', '', 'g')
+  let word = escape(word, '| ')
+  let @@ = saved_unnamed_register
+  execute 'CocList --auto-preview --normal grep '.word
+endfunction
+
 "noremap  <leader>v  :Neotree filesystem toggle reveal_force_cwd float <CR>
 
 "nnoremap <C-n> <cmd>RnvimrToggle<cr>
@@ -299,83 +323,6 @@ noremap <c-s> :wa<CR>
 "command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Useful commands
-nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
-
-
-"""""""""""""
-"  Leaderf  "
-"""""""""""""
-
-let g:Lf_WindowPosition = 'popup'
-let g:Lf_PreviewInPopup = 1
-let g:Lf_ShortcutF = "<leader>fl"
-
-" bindings below is to fit my custom keyboard
-"nnoremap <c-p> :Leaderf file<cr> 
-
-let g:Lf_fuzzyEngine_C = 1
-"let g:Lf_PopupColorscheme = 'nord'
-let g:Lf_CursorBlink = 0
-"let g:Lf_WorkingDirectory = finddir('.git', '.;')
-let g:Lf_HideHep = 1
-let g:Lf_WorkingDirectoryMode = 'Ac'
-let g:Lf_WildIgnore = {
-      \ 'dir': ['.svn','.git','.hg','node_modules','output-gitignore'],
-      \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.min.js', '.svg']
-      \}
-let g:Lf_RgConfig = [
-      \ "--max-columns=130",
-      \ ]
-let g:Lf_NormalMap = {
-      \ "_":      [["<C-j>", "j"],
-      \            ["<C-k>", "k"],
-      \           ],
-      \ "File":   [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>'],
-      \            ["<F6>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']
-      \           ],
-      \ "Buffer": [["<ESC>", ':exec g:Lf_py "bufExplManager.quit()"<CR>'],
-      \            ["<F6>", ':exec g:Lf_py "bufExplManager.quit()"<CR>']
-      \           ],
-      \ "Mru":    [["<ESC>", ':exec g:Lf_py "mruExplManager.quit()"<CR>']],
-      \ "Tag":    [],
-      \ "BufTag": [],
-      \ "Function": [],
-      \ "Line":   [],
-      \ "History":[],
-      \ "Help":   [],
-      \ "Self":   [],
-      \ "Colorscheme": []
-      \}
-noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
-command! Bda silent! execute "%bd|e#|bd#"
-"noremap <c-\> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
-
-"noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
-"noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
-noremap <C-F> :Grepper -noprompt -tool rg -cword<CR><CR>
-"window jump
-
-
-noremap <leader>f; :Leaderf! cmdHistory<CR>
-
-" use rg for content search
-" ! means list results in normal mode
-"noremap <leader>ll :<C-U>Leaderf! rg --recall<CR>
-"noremap <leader>ff :Leaderf! rg -F -e 
-"noremap <leader>fs :Leaderf! --stayOpen --right rg -F -e 
-xnoremap ff :<C-U><C-R>=printf("Leaderf! --auto-preview rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
-"noremap <leader>fh :Leaderf searchHistory<CR>
-
-" list commands
-"noremap <F1> :Leaderf command<CR>
-noremap <F1> :Commands<CR>
-" global search
-"noremap <F3> :Leaderf rg<CR>
-"noremap <F3> :Rg<CR>
-
-";command! -nargs=0 RS :Leaderf --stayOpen --right rg -F -e 
-"command! -nargs=? Ls :Leaderf --auto-preview --stayOpen --popup --nameOnly rg -F -e %s
-
 
 """"""""""""""""""
 "  nvim-hlslens  "
@@ -456,7 +403,7 @@ highlight FoldColumn guifg=#bf616a guibg=#3b4252
 "set statusline
 "set laststatus=0
 "set statusline+=%{get(b:,'gitsigns_status','')}
-set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
+"set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
 
 "highlight WinBarNC guifg=#e5e9f0 guibg=#3b4252
 "highlight WinBarIndicator guifg=#bf616a guibg=#3b4252
