@@ -145,8 +145,8 @@
   "typescript.inlayHints.parameterNames.enabled": "all",
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
   "coc.preferences.useQuickfixForLocations": true,
-  "list.source.files.defaultOptions": ["--number-select", "--no-quit"]
-
+  "list.source.files.defaultOptions": ["--number-select", "--no-quit"],
+  "list.source.grep.args": ["--smart-case"]
 
 
 

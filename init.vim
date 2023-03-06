@@ -259,9 +259,9 @@ command! FoldGit :CocCommand git.foldUnchanged
 nnoremap <silent> <leader>j  :<C-u>CocNext<CR>
 nnoremap <silent> <leader>k  :<C-u>CocPrev<CR>
 " 模糊搜索
-nnoremap <silent> <F3>  :<C-u>CocList --no-quit --auto-preview --interactive grep<CR> 
+nnoremap <silent> <F3>  :<C-u>CocList --ignore-case --interactive grep<CR> 
 " 粘贴文本搜索
-nnoremap <silent> <F4>  :<C-u>CocList --no-quit --auto-preview grep 
+nnoremap <silent> <F4>  :<C-u>CocList --ignore-case grep 
 " 文件搜索
 nnoremap <silent> <c-p>  :<C-u>CocList --auto-preview files<CR> 
 " mru
