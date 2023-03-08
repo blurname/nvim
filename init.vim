@@ -265,7 +265,7 @@ nnoremap <silent> <F4>  :<C-u>CocList --ignore-case grep
 " 文件搜索
 nnoremap <silent> <c-p>  :<C-u>CocList --auto-preview files<CR> 
 " mru
-nnoremap <silent> <c-m>  :<C-u>CocList mru<CR> 
+nnoremap <silent> <tab>m  :<C-u>CocList mru<CR> 
 
 " yank
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
