@@ -94,5 +94,6 @@ return packer.startup({
 
     -- fold
     use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+    use {'ThePrimeagen/harpoon'}
 	end
 })

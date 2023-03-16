@@ -245,7 +245,7 @@ omap ac <Plug>(coc-classobj-a)
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<cr>
+nnoremap <silent><nowait> <space>l  :<C-u>CocListResume<cr>
 " Highlight the symbol and its references when holding the cursor.
 "autocmd CursorHold * silent call CocActionAsync('highlight')
 
@@ -261,7 +261,7 @@ nnoremap <silent> <leader>k  :<C-u>CocPrev<CR>
 " 模糊搜索
 nnoremap <silent> <F3>  :<C-u>CocList --ignore-case --interactive grep<CR> 
 " 粘贴文本搜索
-nnoremap <silent> <F4>  :<C-u>CocList --ignore-case grep 
+nnoremap <silent><nowait><F4>  :<C-u>CocList --ignore-case grep 
 " 文件搜索
 nnoremap <silent> <c-p>  :<C-u>CocList --auto-preview files<CR> 
 " mru
@@ -408,3 +408,9 @@ highlight FoldColumn guifg=#bf616a guibg=#3b4252
 "highlight WinBarNC guifg=#e5e9f0 guibg=#3b4252
 "highlight WinBarIndicator guifg=#bf616a guibg=#3b4252
 "highlight WinBarInactive guifg=#bf616a guibg=#3b4252
+
+" ============ harpoon ==========
+nnoremap <silent><A-3> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <silent><A-m> :lua require("harpoon.mark").add_file()<CR>
+nnoremap <silent><A-1> :lua require("harpoon.ui").nav_prev()<CR>
+nnoremap <silent><A-2> :lua require("harpoon.ui").nav_next()<CR>
