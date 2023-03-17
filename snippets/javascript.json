@@ -247,23 +247,21 @@
   "For-In Loop": {
     "prefix": "forin",
     "body": [
-      "for (const ${1:key} in ${2:object}) {",
-      "\tif (${2:object}.hasOwnProperty(${1:key})) {",
-      "\t\tconst ${3:element} = ${2:object}[${1:key}]",
+      "for (const key in ${1:object}) {",
+      "\t\tconst ${3:element} = ${1:object}[key]",
       "\t\t$0",
-      "\t}",
       "}"
     ],
     "description": "For-In Loop"
   },
   "For-Of Loop": {
     "prefix": "forof",
-    "body": ["for (const ${1:iterator} of ${2:object}) {", "\t$0", "}"],
+    "body": ["for (const ${2:iterator} of ${1:object}) {", "\t$0", "}"],
     "description": "For-Of Loop"
   },
   "array for of": {
-    "prefix": "afor",
-    "body": ["for (const [index, val] of ${2:arr}.entries()) {", "\t$0", "}"],
+    "prefix": "forofe",
+    "body": ["for (const [key, value] of ${1:arr}.entries()) {", "\t$0", "}"],
     "description": "array For-Of Loop"
   },
 
@@ -309,23 +307,11 @@
   },
   "arrow function": {
     "prefix": "af",
-    "body": "($1) => $2"
-  },
-  "arrow function with destructuring": {
-    "prefix": "afd",
-    "body": "($1) => $2"
-  },
-  "arrow function with destructuring returning destructured": {
-    "prefix": "afdr",
-    "body": "($1) => $1"
+    "body": "($1) => { return $2}"
   },
   "arrow function with body": {
     "prefix": "afb",
     "body": "($1) => {\n\t$2\n}"
-  },
-  "arrow function with return": {
-    "prefix": "afr",
-    "body": "($1) => {\n\treturn $0\n}"
   },
   "generator function": {
     "prefix": "gf",
@@ -530,20 +516,12 @@
     ],
     "description": "React useReducer() hook"
   },
-  "useSelector": {
-    "prefix": "uss",
-    "body": ["const $1 = useSelector(state => state.$1)"]
-  },
-  "useDispatchFunction": {
-    "prefix": "usdf",
-    "body": ["const $1 = useDispatch($2)$3"]
-  },
   "useDispatch": {
     "prefix": "usd",
     "body": ["const $1 = $2 => dispatch($3)"]
   },
   "textComment":{
     "prefix": "cm",
-    "body": ["/*\n  *\n*/"]
+    "body": ["/*\n  * ${1}\n*/"]
   }
 }
