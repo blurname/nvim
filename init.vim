@@ -224,7 +224,7 @@ endfunction
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-"nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gr <Plug>(coc-references)
 "imap <c-l> <Plug>(coc-snippets-expand)
 
 nnoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
@@ -270,7 +270,8 @@ nnoremap <silent> <tab>m  :<C-u>CocList mru<CR>
 " yank
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
-noremap <C-F> :Grepper -noprompt -tool rg -cword<CR><CR>
+"noremap <C-F> :Grepper -noprompt -tool rg -cword<CR><CR>
+nnoremap <silent> <c-f>  :exe 'CocList -I --normal --auto-preview --input='.expand('<cword>').' words'<CR>
 
 noremap <F1> :Commands<CR>
 
