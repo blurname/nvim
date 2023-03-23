@@ -149,6 +149,7 @@ command! GetFilePathAbsolute :let @" = expand("%:p")
 
 
 command! Bda silent! execute "%bd|e#|bd#"
+nnoremap ss :<C-u>%s/
 
 " move current window to new tab
 "noremap tn <C-w>T
@@ -265,7 +266,7 @@ nnoremap <silent><nowait><F4>  :<C-u>CocList --ignore-case grep
 " 文件搜索
 nnoremap <silent> <c-p>  :<C-u>CocList --auto-preview files<CR> 
 " mru
-nnoremap <silent> <tab>m  :<C-u>CocList mru<CR> 
+nnoremap <silent> <space><space>  :<C-u>CocList mru<CR> 
 
 " yank
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
@@ -412,6 +413,7 @@ highlight FoldColumn guifg=#bf616a guibg=#3b4252
 
 " ============ harpoon ==========
 nnoremap <silent><A-3> :lua require("harpoon.ui").toggle_quick_menu()<CR>
-nnoremap <silent><A-m> :lua require("harpoon.mark").add_file()<CR>
+nnoremap <A-m> :lua require("harpoon.mark").add_file()<CR>
 nnoremap <silent><A-1> :lua require("harpoon.ui").nav_prev()<CR>
 nnoremap <silent><A-2> :lua require("harpoon.ui").nav_next()<CR>
+
