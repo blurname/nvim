@@ -137,17 +137,10 @@
   "sumneko-lua.prompt": true,
   "sumneko-lua.checkUpdate": false,
   "git.addGBlameToVirtualText": false,
-  "javascript.inlayHints.enumMemberValues.enabled": true,
-  "typescript.inlayHints.enumMemberValues.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.preferences.useAliasesForRenames": false,
   "typescript.preferences.jsxAttributeCompletionStyle": "none", 
-  "typescript.inlayHints.parameterNames.enabled": "all",
-  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
   "coc.preferences.useQuickfixForLocations": true,
   "list.source.files.defaultOptions": ["--number-select", "--no-quit"],
   "list.source.grep.args": ["--smart-case"]
-
-
-
 }

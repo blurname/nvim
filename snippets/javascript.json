@@ -259,6 +259,11 @@
     "body": ["for (const ${2:iterator} of ${1:object}) {", "\t$0", "}"],
     "description": "For-Of Loop"
   },
+  "For-let Loop": {
+    "prefix": "forlet",
+    "body": ["for (let x=0; x<${1:array}; x++) {", "\t$0", "}"],
+    "description": "For-let Loop"
+  },
   "array for of": {
     "prefix": "forofe",
     "body": ["for (const [key, value] of ${1:arr}.entries()) {", "\t$0", "}"],
