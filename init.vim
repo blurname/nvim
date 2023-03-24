@@ -272,7 +272,7 @@ nnoremap <silent> <space><space>  :<C-u>CocList mru<CR>
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
 "noremap <C-F> :Grepper -noprompt -tool rg -cword<CR><CR>
-nnoremap <silent> <c-f>  :exe 'CocList -I --normal --auto-preview --input='.expand('<cword>').' words'<CR>
+nnoremap <silent> <c-f>  :exe 'CocList -I --normal --auto-preview --input='.expand('<cword>').' grep'<CR>
 
 noremap <F1> :Commands<CR>
 
