@@ -138,7 +138,7 @@
   "sumneko-lua.checkUpdate": false,
   "git.addGBlameToVirtualText": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.preferences.useAliasesForRenames": false,
+  "typescript.preferences.useAliasesForRenames": true,
   "typescript.preferences.jsxAttributeCompletionStyle": "none", 
   "coc.preferences.useQuickfixForLocations": true,
   "list.source.files.defaultOptions": ["--number-select", "--no-quit"],

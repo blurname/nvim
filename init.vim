@@ -152,7 +152,7 @@ command! Bda silent! execute "%bd|e#|bd#"
 nnoremap ss :<C-u>%s/
 
 " move current window to new tab
-"noremap tn <C-w>T
+noremap tn <C-w>T
 
 " Move the tabs with tmn and tmi
  "noremap th :-tabmove<CR>
@@ -253,6 +253,7 @@ nnoremap <silent><nowait> <space>l  :<C-u>CocListResume<cr>
 nmap gk <Plug>(coc-git-prevchunk)
 nmap gj <Plug>(coc-git-nextchunk)
 nmap gs <Plug>(coc-git-chunkinfo)
+nmap gu  :CocCommand git.chunkUndo<CR>
 " show commit contains current position
 nmap gc <Plug>(coc-git-commit)
 nnoremap <silent> <leader>gl :<C-u>CocList --normal --no-quit --auto-preview gstatus<CR>
@@ -296,7 +297,7 @@ nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Show all diagnostics.
 " filetree
 
-noremap  <leader>v  :CocCommand explorer --position right <CR>
+noremap  <leader>v  :CocCommand explorer --position floating <CR>
 
 nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
 
@@ -426,4 +427,3 @@ nnoremap <silent><A-3> :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <A-m> :lua require("harpoon.mark").add_file()<CR>
 nnoremap <silent><A-1> :lua require("harpoon.ui").nav_prev()<CR>
 nnoremap <silent><A-2> :lua require("harpoon.ui").nav_next()<CR>
-
