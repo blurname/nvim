@@ -34,11 +34,11 @@ return packer.startup({
     use {'skywind3000/asyncrun.vim',opt=true}
 
     -- themes
-    use {'sainnhe/everforest'}
+    --use {'sainnhe/everforest'}
     use { 'EdenEast/nightfox.nvim'}
-    use { 'glepnir/zephyr-nvim' }
-    use { 'glepnir/zephyr-nvim' }
-    use {'hardhackerlabs/theme-vim'}
+    --use { 'glepnir/zephyr-nvim' }
+    --use { 'theniceboy/nvim-deus' }
+    --use {'hardhackerlabs/theme-vim',config=function() vim.cmd.colorscheme 'hardhacker' end}
 
     -- show color
     -- use {'equalsraf/neovim-gui-shim'}
@@ -97,5 +97,6 @@ return packer.startup({
     -- fold
     use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
     use {'ThePrimeagen/harpoon'}
+    --use {'Yggdroot/indentLine'}
 	end
 })
