@@ -81,6 +81,8 @@ noremap s <nop>
 noremap q: <nop>
 autocmd! BufWritePost /home/bl/.config/nvim/init.vim source /home/bl/.config/nvim/init.vim | echo 'reload nvimrc'
 
+source /home/bl/.config/nvim/cursor.vim
+
 "noremap <LEADER>re :source /home/bl/.config/nvim/entry.vim<CR>
 " Open the vimrc file anytime
 "noremap <LEADER>rc :e /home/bl/.config/nvim/entry.vim<CR>
