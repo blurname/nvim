@@ -44,6 +44,7 @@ set foldlevel=99
 set foldenable
 set foldcolumn=1
 set foldlevelstart=99
+set foldopen-=hor "this causes horizontal movements (like l, h) to open folds.
 "set winbar=%F
 "set clipboard=unnamedplus
 "set cmdheight=0
