@@ -84,7 +84,7 @@ autocmd! BufWritePost /home/bl/.config/nvim/init.vim source /home/bl/.config/nvi
 
 source /home/bl/.config/nvim/cursor.vim
 
-"noremap <LEADER>re :source /home/bl/.config/nvim/entry.vim<CR>
+"noremap <LEADER>re :source /home/bl/.config/nvim/init.vim<CR>
 " Open the vimrc file anytime
 "noremap <LEADER>rc :e /home/bl/.config/nvim/entry.vim<CR>
 " let a = stdpath("config")
@@ -249,7 +249,7 @@ omap ac <Plug>(coc-classobj-a)
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent><nowait> <space>l  :<C-u>CocListResume<cr>
+"nnoremap <silent><nowait> <space>l  :<C-u>CocListResume<cr>
 " Highlight the symbol and its references when holding the cursor.
 "autocmd CursorHold * silent call CocActionAsync('highlight')
 
@@ -268,17 +268,17 @@ nnoremap <silent> <F3>  :<C-u>CocList --ignore-case --interactive grep<CR>
 " 粘贴文本搜索
 nnoremap <silent><nowait><F4>  :<C-u>CocList --ignore-case grep 
 " 文件搜索
-nnoremap <silent> <c-p>  :<C-u>CocList --auto-preview files<CR> 
+"nnoremap <silent> <c-p>  :<C-u>CocList --auto-preview files<CR> 
 " mru
-nnoremap <silent> <space><space>  :<C-u>CocList mru<CR> 
-
+"nnoremap <silent> <space><space>  :<C-u>CocList mru<CR> 
+noremap <space><space> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
 " yank
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
 "noremap <C-F> :Grepper -noprompt -tool rg -cword<CR><CR>
-nnoremap <silent> <c-f>  :exe 'CocList -I --normal --auto-preview --input='.expand('<cword>').' grep'<CR>
+"nnoremap <silent> <c-f>  :exe 'CocList -I --normal --auto-preview --input='.expand('<cword>').' grep'<CR>
 
-noremap <F1> :Commands<CR>
+"noremap <F1> :Commands<CR>
 
 noremap <tab>w :CocList windows<CR> 
 noremap <tab>b :CocList --normal buffers<CR> 
@@ -302,7 +302,7 @@ nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 
 noremap  <leader>v  :CocCommand explorer --position floating <CR>
 
-nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
+"nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
 
 vnoremap ff :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 function! s:GrepFromSelected(type)
@@ -439,3 +439,59 @@ autocmd FileType harpoon nnoremap <buffer><silent> 6 :lua require('harpoon.ui').
 autocmd FileType harpoon nnoremap <buffer><silent> 7 :lua require('harpoon.ui').nav_file(7)<CR>
 autocmd FileType harpoon nnoremap <buffer><silent> 8 :lua require('harpoon.ui').nav_file(8)<CR>
 autocmd FileType harpoon nnoremap <buffer><silent> 9 :lua require('harpoon.ui').nav_file(9)<CR>
+
+
+
+
+
+"""""""""""""
+"  Leaderf  "
+"""""""""""""
+
+let g:Lf_WindowPosition = 'popup'
+"let g:Lf_PreviewInPopup = 1
+let g:Lf_ShortcutF = "<leader>fl"
+
+" bindings below is to fit my custom keyboard
+nnoremap <c-p> :Leaderf file<cr> 
+
+let g:Lf_fuzzyEngine_C = 1
+let g:Lf_PopupColorscheme = 'nord'
+let g:Lf_CursorBlink = 0
+"let g:Lf_WorkingDirectory = finddir('.git', '.;')
+let g:Lf_HideHep = 1
+let g:Lf_WorkingDirectoryMode = 'Ac'
+let g:Lf_WildIgnore = {
+      \ 'dir': ['.svn','.git','.hg','node_modules','output-gitignore'],
+      \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.min.js', '.svg']
+      \}
+let g:Lf_RgConfig = [
+      \ "--max-columns=130",
+      \ ]
+let g:Lf_NormalMap = {
+      \ "_":      [["<C-j>", "j"],
+      \            ["<C-k>", "k"],
+      \           ],
+      \ "File":   [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>'],
+      \            ["<F6>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']
+      \           ],
+      \ "Buffer": [["<ESC>", ':exec g:Lf_py "bufExplManager.quit()"<CR>'],
+      \            ["<F6>", ':exec g:Lf_py "bufExplManager.quit()"<CR>']
+      \           ],
+      \ "Mru":    [["<ESC>", ':exec g:Lf_py "mruExplManager.quit()"<CR>']],
+      \ "Tag":    [],
+      \ "BufTag": [],
+      \ "Function": [],
+      \ "Line":   [],
+      \ "History":[],
+      \ "Help":   [],
+      \ "Self":   [],
+      \ "Colorscheme": []
+      \}
+
+noremap <C-F> :<C-U><C-R>=printf("Leaderf rg -e %s ", expand("<cword>"))<CR><CR>
+noremap <leader>f; :Leaderf cmdHistory<CR>
+noremap <leader>r :Leaderf --recall<CR>
+noremap <leader>fj :Leaderf --next<CR>
+noremap <leader>fk :Leaderf --previous<CR>
+noremap <F1> :Leaderf command<CR>
