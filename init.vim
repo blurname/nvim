@@ -449,7 +449,7 @@ autocmd FileType harpoon nnoremap <buffer><silent> 9 :lua require('harpoon.ui').
 """""""""""""
 
 let g:Lf_WindowPosition = 'popup'
-"let g:Lf_PreviewInPopup = 1
+let g:Lf_PreviewInPopup = 1
 let g:Lf_ShortcutF = "<leader>fl"
 
 " bindings below is to fit my custom keyboard
