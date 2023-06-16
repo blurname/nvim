@@ -81,7 +81,7 @@ return packer.startup({
     use {'junegunn/fzf.vim', run = function()vim.fn['fzf#install']()end}
     use {'mhinz/vim-grepper', run = function()vim.fn['fzf#install']()end}
 
-    use {'lambdalisue/suda.vim',opt=true,keys={'n','<leader>W'},config=conf('suda')}
+    use {'lambdalisue/suda.vim'}
     use {'KabbAmine/vCoolor.vim'}
     use {'elkowar/yuck.vim'}
     use {'sbdchd/neoformat'}

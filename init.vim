@@ -249,7 +249,7 @@ omap ac <Plug>(coc-classobj-a)
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-"nnoremap <silent><nowait> <space>l  :<C-u>CocListResume<cr>
+nnoremap <silent><nowait> <space>l  :<C-u>CocListResume<cr>
 " Highlight the symbol and its references when holding the cursor.
 "autocmd CursorHold * silent call CocActionAsync('highlight')
 
@@ -263,6 +263,7 @@ nnoremap <silent> <leader>gl :<C-u>CocList --normal --no-quit --auto-preview gst
 command! FoldGit :CocCommand git.foldUnchanged
 nnoremap <silent> <leader>j  :<C-u>CocNext<CR>
 nnoremap <silent> <leader>k  :<C-u>CocPrev<CR>
++"nnoremap <silent><nowait> <space>l  :<C-u>CocListResume<cr>
 " 模糊搜索
 nnoremap <silent> <F3>  :<C-u>CocList --ignore-case --interactive grep<CR> 
 " 粘贴文本搜索
