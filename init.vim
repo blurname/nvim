@@ -472,6 +472,8 @@ let g:Lf_RgConfig = [
 let g:Lf_NormalMap = {
       \ "_":      [["<C-j>", "j"],
       \            ["<C-k>", "k"],
+      \            ["<M-f>", "<C-Down>"], 
+      \            ["<M-b>", "<C-Up>"],
       \           ],
       \ "File":   [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>'],
       \            ["<F6>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']
@@ -489,10 +491,12 @@ let g:Lf_NormalMap = {
       \ "Self":   [],
       \ "Colorscheme": []
       \}
+"let g:Lf_CommandMap = {'<A-f>': ['<C-Down>'],'<A-b>':['<C-Up>']}
 
 noremap <C-F> :<C-U><C-R>=printf("Leaderf rg -e %s ", expand("<cword>"))<CR><CR>
 noremap <leader>f; :Leaderf cmdHistory<CR>
 noremap <leader>r :Leaderf --recall<CR>
-noremap <leader>fj :Leaderf --next<CR>
-noremap <leader>fk :Leaderf --previous<CR>
+noremap ]g :Leaderf --next<CR>
+noremap [g :Leaderf --previous<CR>
+noremap <silent> <leader>fs :Leaderf gstatus<CR>
 noremap <F1> :Leaderf command<CR>

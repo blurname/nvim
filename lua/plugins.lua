@@ -55,6 +55,7 @@ return packer.startup({
     use {'tweekmonster/startuptime.vim', cmd = 'StartupTime',opt=true}
     -- fuzzy file finder
     use {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'}
+    use {'linjiX/LeaderF-git'}
 
     -- change surrounding symbol
     use {'machakann/vim-sandwich'}
