@@ -84,7 +84,7 @@ autocmd! BufWritePost /home/bl/.config/nvim/init.vim source /home/bl/.config/nvi
 
 source /home/bl/.config/nvim/cursor.vim
 
-"noremap <LEADER>re :source /home/bl/.config/nvim/init.vim<CR>
+noremap <LEADER>re :source /home/bl/.config/nvim/init.vim<CR>
 " Open the vimrc file anytime
 "noremap <LEADER>rc :e /home/bl/.config/nvim/entry.vim<CR>
 " let a = stdpath("config")
@@ -496,7 +496,33 @@ let g:Lf_NormalMap = {
 noremap <C-F> :<C-U><C-R>=printf("Leaderf rg -e %s ", expand("<cword>"))<CR><CR>
 noremap <leader>f; :Leaderf cmdHistory<CR>
 noremap <leader>r :Leaderf --recall<CR>
-noremap ]g :Leaderf --next<CR>
-noremap [g :Leaderf --previous<CR>
+"noremap ]g :Leaderf --next<CR>
+"noremap [g :Leaderf --previous<CR>
 noremap <silent> <leader>fs :Leaderf gstatus<CR>
-noremap <F1> :Leaderf command<CR>
+command! -nargs=0 ListPackgeJson :Leaderf! file --input package.json
+command! -nargs=0 Gs :GFiles?
+"let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0}
+    let g:Lf_PreviewResult = {
+            \ 'File': 0,
+            \ 'Buffer': 0,
+            \ 'Mru': 0,
+            \ 'Tag': 0,
+            \ 'BufTag': 0,
+            \ 'Function': 0,
+            \ 'Line': 0,
+            \ 'Colorscheme': 0,
+            \ 'Rg': 0,
+            \ 'Gtags': 0
+            \}
+let g:Lf_PreviewHorizontalPosition = 'right'
+
+let s:WindowHeight = 0.5
+let s:PositionLine = float2nr(&lines * (1 - s:WindowHeight))
+let s:PositionCol = 50
+
+let g:Lf_WindowHeight = s:WindowHeight
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PopupHeight = s:WindowHeight
+let g:Lf_PopupPosition = [s:PositionLine, s:PositionCol]
+
+noremap <F1> :Leaderf command --run-immediately<CR>
