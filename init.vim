@@ -4,7 +4,7 @@ lua require('door')
 let $VIM_HOME = '/home/bl/.config/nvim'
 source $VIM_HOME/config/cursor.vim
 source $VIM_HOME/config/coc.vim
-source $VIM_HOME/config/harppon.vim
+source $VIM_HOME/config/harpoon.vim
 source $VIM_HOME/config/leaderf.vim
 source $VIM_HOME/config/statusline.vim
 " ===
