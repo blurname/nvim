@@ -2,11 +2,11 @@ set termguicolors
 lua require('plugins')
 lua require('door')
 let $VIM_HOME = '/home/bl/.config/nvim'
-source $VIM_HOME/config/cursor.vim
-source $VIM_HOME/config/coc.vim
-source $VIM_HOME/config/harpoon.vim
-source $VIM_HOME/config/leaderf.vim
-source $VIM_HOME/config/statusline.vim
+source /home/bl/.config/nvim/config/cursor.vim
+source /home/bl/.config/nvim/config/coc.vim
+source /home/bl/.config/nvim/config/harpoon.vim
+source /home/bl/.config/nvim/config/leaderf.vim
+source /home/bl/.config/nvim/config/statusline.vim
 " ===
 " === Basic Mappings
 " ===
@@ -212,7 +212,6 @@ aug VMlens
   au User visual_multi_start lua require('vmlens').start()
   au User visual_multi_exit lua require('vmlens').exit()
 aug END
-
 
 "NERDCommenter
 " map <c-_> instead of <c-/>
