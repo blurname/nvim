@@ -80,3 +80,5 @@ let g:Lf_PopupHeight = s:WindowHeight
 let g:Lf_PopupPosition = [s:PositionLine, s:PositionCol]
 
 noremap <F1> :Leaderf command --run-immediately<CR>
+noremap <leader>; :Leaderf command --run-immediately<CR>
+noremap <tab> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>

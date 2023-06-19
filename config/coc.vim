@@ -95,7 +95,6 @@ nnoremap <silent><nowait><F4>  :<C-u>CocList --ignore-case grep
 "nnoremap <silent> <c-p>  :<C-u>CocList --auto-preview files<CR> 
 " mru
 "nnoremap <silent> <space><space>  :<C-u>CocList mru<CR> 
-noremap <space><space> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
 " yank
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
@@ -104,8 +103,8 @@ nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
 "noremap <F1> :Commands<CR>
 
-noremap <tab>w :CocList windows<CR> 
-noremap <tab>b :CocList --normal buffers<CR> 
+"noremap <tab>w :CocList windows<CR> 
+"noremap <tab>b :CocList --normal buffers<CR> 
 
 " Symbol renaming.
 "

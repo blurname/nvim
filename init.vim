@@ -231,3 +231,4 @@ map <c-_> <plug>NERDCommenterToggle
 map <leader>3 <Cmd>b #<CR>
 
 nnoremap <leader>gg :LazyGit<CR>
+nnoremap <leader>ge :Gedit<CR>
