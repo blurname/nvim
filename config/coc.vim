@@ -109,21 +109,24 @@ nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 " Symbol renaming.
 "
 " fit vscode's rename bindings
-nmap <F2> <Plug>(coc-rename)
-nmap <leader>cl  <Plug>(coc-codelens-action)
+nnoremap <F2> <Plug>(coc-rename)
+nnoremap <leader>cl  <Plug>(coc-codelens-action)
 
 nnoremap <silent> <c-k> <Plug>(coc-diagnostic-prev)
 nnoremap <silent> <c-J> <Plug>(coc-diagnostic-next)
 
 " nmap <leader>qf  <Plug>(coc-fix-current)
-nmap  <leader>ca <plug>(coc-codeaction)
+nnoremap  <leader>ca <plug>(coc-codeaction)
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Show all diagnostics.
 " filetree
 
-noremap  <leader>v  :CocCommand explorer --position floating <CR>
+"nnoremap  <leader>v  :CocCommand explorer --position floating <CR>
+command! -nargs=0 CocExplorer :CocCommand explorer
+command! -nargs=0 CocNearExplorer :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])
+"nmap <Leader>er 
 
 "nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
 

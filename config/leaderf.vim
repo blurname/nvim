@@ -47,12 +47,12 @@ let g:Lf_NormalMap = {
       \}
 "let g:Lf_CommandMap = {'<A-f>': ['<C-Down>'],'<A-b>':['<C-Up>']}
 
-noremap <C-F> :<C-U><C-R>=printf("Leaderf rg -e %s ", expand("<cword>"))<CR><CR>
-noremap <leader>f; :Leaderf cmdHistory<CR>
-noremap <leader>r :Leaderf --recall<CR>
+nnoremap <C-F> :<C-U><C-R>=printf("Leaderf rg -e %s ", expand("<cword>"))<CR><CR>
+nnoremap <leader>i :Leaderf cmdHistory<CR>
+nnoremap <leader>fr :Leaderf --recall<CR>
 "noremap ]g :Leaderf --next<CR>
 "noremap [g :Leaderf --previous<CR>
-noremap <silent> <leader>fs :Leaderf gstatus<CR>
+nnoremap <silent> <leader>fs :Leaderf gstatus<CR>
 command! -nargs=0 ListPackgeJson :Leaderf! file --input package.json
 command! -nargs=0 Gs :GFiles?
 "let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0}
@@ -79,6 +79,6 @@ let g:Lf_WindowPosition = 'popup'
 let g:Lf_PopupHeight = s:WindowHeight
 let g:Lf_PopupPosition = [s:PositionLine, s:PositionCol]
 
-noremap <F1> :Leaderf command --run-immediately<CR>
-noremap <leader>; :Leaderf command --run-immediately<CR>
-noremap <tab> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
+nnoremap <F1> :Leaderf command --run-immediately<CR>
+nnoremap <leader>fi :Leaderf command --run-immediately<CR>
+nnoremap <tab> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
