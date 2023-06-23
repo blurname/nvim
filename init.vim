@@ -1,12 +1,6 @@
 set termguicolors
 lua require('plugins')
 lua require('door')
-let $VIM_HOME = '/home/bl/.config/nvim'
-source /home/bl/.config/nvim/config/cursor.vim
-source /home/bl/.config/nvim/config/coc.vim
-source /home/bl/.config/nvim/config/harpoon.vim
-source /home/bl/.config/nvim/config/leaderf.vim
-source /home/bl/.config/nvim/config/statusline.vim
 " ===
 " === Basic Mappings
 " ===
@@ -51,6 +45,7 @@ set foldenable
 set foldcolumn=1
 set foldlevelstart=99
 set foldopen-=hor "this causes horizontal movements (like l, h) to open folds.
+filetype plugin on
 "set winbar=%F
 "set clipboard=unnamedplus
 "set cmdheight=0
@@ -78,7 +73,6 @@ autocmd FileChangedShellPost *
       \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 "set foldmethod=expr
-filetype plugin on
 " set scrolloff
 
 " set notimeout
@@ -90,6 +84,12 @@ autocmd! BufWritePost /home/bl/.config/nvim/init.vim source /home/bl/.config/nvi
 
 
 noremap <LEADER>re :source /home/bl/.config/nvim/init.vim<CR>
+let $VIM_HOME = '/home/bl/.config/nvim'
+source $VIM_HOME/config/cursor.vim
+source $VIM_HOME/config/coc.vim
+source $VIM_HOME/config/harpoon.vim
+source $VIM_HOME/config/leaderf.vim
+source $VIM_HOME/config/statusline.vim
 " Open the vimrc file anytime
 "noremap <LEADER>rc :e /home/bl/.config/nvim/entry.vim<CR>
 " let a = stdpath("config")

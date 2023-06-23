@@ -116,7 +116,7 @@ nnoremap <silent> <c-k> <Plug>(coc-diagnostic-prev)
 nnoremap <silent> <c-J> <Plug>(coc-diagnostic-next)
 
 " nmap <leader>qf  <Plug>(coc-fix-current)
-nnoremap  <leader>ca <plug>(coc-codeaction)
+nnoremap  <leader><leader> <plug>(coc-codeaction)
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
