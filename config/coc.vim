@@ -123,7 +123,7 @@ nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Show all diagnostics.
 " filetree
 
-"nnoremap  <leader>v  :CocCommand explorer --position floating <CR>
+nnoremap  <leader>v  :CocCommand explorer --position floating <CR>
 command! -nargs=0 CocExplorer :CocCommand explorer
 command! -nargs=0 CocNearExplorer :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])
 "nmap <Leader>er 
