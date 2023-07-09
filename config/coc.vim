@@ -145,3 +145,6 @@ function! s:GrepFromSelected(type)
   let @@ = saved_unnamed_register
   execute 'CocList --auto-preview --normal grep '.word
 endfunction
+
+nmap <silent> <C-e> <Plug>(coc-range-select)
+xmap <silent> <C-e> <Plug>(coc-range-select)
