@@ -82,7 +82,7 @@ nmap gs <Plug>(coc-git-chunkinfo)
 nmap gu  :CocCommand git.chunkUndo<CR>
 " show commit contains current position
 nmap gc <Plug>(coc-git-commit)
-nnoremap <silent> <leader>gl :<C-u>CocList --normal --no-quit --auto-preview gstatus<CR>
+nnoremap <silent> <leader>gs :<C-u>CocList --normal --no-quit --auto-preview gstatus<CR>
 command! FoldGit :CocCommand git.foldUnchanged
 nnoremap <silent> <leader>j  :<C-u>CocNext<CR>
 nnoremap <silent> <leader>k  :<C-u>CocPrev<CR>

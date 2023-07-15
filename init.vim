@@ -17,7 +17,6 @@ set noswapfile
 set secure
 set number
 set relativenumber
-" set formatoptions
 set cursorline
 set ignorecase
 set smartcase
@@ -73,9 +72,6 @@ autocmd FileChangedShellPost *
       \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 "set foldmethod=expr
-" set scrolloff
-
-" set notimeout
 
 " Save & quit
 noremap s <nop>
@@ -145,17 +141,16 @@ noremap <c-a> ggVG
 " Move around tabs with tn and ti
 noremap th :-tabnext<CR>
 noremap tl :+tabnext<CR>
-noremap <c-h> :-tabnext<CR>
-noremap <c-l> :+tabnext<CR>
-
-
 
 " get file path releated
-command! GetFilePathRelative :let @" = expand("%")
-command! GetFilePathLine     :let @" = expand("%") . ':' . line(".")
-command! GetFilePathAbsolute :let @" = expand("%:p")
+command! BlGetFilePathRelative :let @" = expand("%")
+command! BlGetFilePathLine     :let @" = expand("%") . ':' . line(".")
+command! BlGetFilePathAbsolute :let @" = expand("%:p")
 
 command! Bda silent! execute "%bd|e#|bd#"
+nnoremap <leader>w <cmd>bw<cr>
+nnoremap <c-l> :BufferLineCycleNext<CR>
+nnoremap <c-h> :BufferLineCyclePrev<CR>
 "nnoremap ss :<C-u>%s/
 nnoremap ss viw:%s/<C-R>"//g<Left><Left>
 
@@ -163,7 +158,7 @@ nnoremap ss viw:%s/<C-R>"//g<Left><Left>
 noremap tn <C-w>T
 
 " Move the tabs with tmn and tmi
-"noremap th :-tabmove<CR>
+"noremap :-tabmove<CR>
 "noremap tl :+tabmove<CR>
 
 " Search
@@ -179,15 +174,8 @@ let g:terminal_shell = 'elvish'
 "let g:closetag_filetypes = 'html,jsx,tsx'
 "let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
 
-
-
-"noremap  <leader>v  :Neotree filesystem toggle reveal_force_cwd float <CR>
-
-"nnoremap <C-n> <cmd>RnvimrToggle<cr>
-"
-"noremap <leader>fi :CocCommand eslint.executeAutofix<CR>
 noremap <c-s> :wa<CR>
-"command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Useful commands
 

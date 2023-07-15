@@ -36,6 +36,7 @@ return packer.startup({
     -- themes
     --use {'sainnhe/everforest'}
     use { 'EdenEast/nightfox.nvim'}
+    --use { 'NTBBloodbath/doom-one.nvim'}
     --use { 'glepnir/zephyr-nvim' }
     --use { 'theniceboy/nvim-deus' }
     --use {'hardhackerlabs/theme-vim',config=function() vim.cmd.colorscheme 'hardhacker' end}
@@ -46,6 +47,7 @@ return packer.startup({
 
     -- statusline
     use {'kyazdani42/nvim-web-devicons'}
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
     --use {'freddiehaddad/feline.nvim'}
 
     --coc

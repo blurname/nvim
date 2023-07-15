@@ -143,6 +143,6 @@
   "coc.preferences.useQuickfixForLocations": true,
   "list.source.files.defaultOptions": ["--number-select", "--no-quit"],
   "list.source.grep.args": ["--smart-case"],
-  "list.floatPreview": true,
+  "list.floatPreview": false,
   "tsserver.useLocalTsdk": true
 }
