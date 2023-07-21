@@ -60,22 +60,23 @@ command! -nargs=0 ListPackgeJson :Leaderf! file --input package.json
 command! -nargs=0 Gs :GFiles?
 "let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0}
     let g:Lf_PreviewResult = {
-            \ 'File': 1,
+            \ 'File': 0,
             \ 'Buffer': 0,
-            \ 'Mru': 1,
+            \ 'Mru': 0,
             \ 'Tag': 0,
             \ 'BufTag': 0,
             \ 'Function': 0,
             \ 'Line': 0,
             \ 'Colorscheme': 0,
-            \ 'Rg': 1,
+            \ 'Rg': 0,
             \ 'Gtags': 0
             \}
 "let g:Lf_PreviewHorizontalPosition = 'right'
+let g:Lf_PopupPreviewPosition = 'top'
 
-let s:WindowHeight = 0.5
-let s:PositionLine = float2nr(&lines * (1 - s:WindowHeight))
-let s:PositionCol = 50
+"let s:WindowHeight = 0.5
+"let s:PositionLine = float2nr(&lines * (1 - s:WindowHeight))
+"let s:PositionCol = 50
 
 "let g:Lf_WindowHeight = s:WindowHeight
 let g:Lf_WindowPosition = 'popup'

@@ -514,13 +514,6 @@
     "body": ["const $1 = useRef($2)$0"],
     "description": "React useRef() hook"
   },
-  "useReducer": {
-    "prefix": "urdh",
-    "body": [
-      "const [${1:state},${2: dispatch}] = useReducer(${3:reducer}, ${4:initialArg}, ${5:init})"
-    ],
-    "description": "React useReducer() hook"
-  },
   "useDispatch": {
     "prefix": "usd",
     "body": ["const $1 = $2 => dispatch($3)"]
@@ -528,5 +521,9 @@
   "textComment":{
     "prefix": "cm",
     "body": ["/*\n  * ${1}\n*/"]
+  },
+  "styled-conponent" :{
+    "prefix": "sp",
+    "body":["${props => props.theme.$1};"]
   }
 }
