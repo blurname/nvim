@@ -11,7 +11,7 @@ let g:Lf_ShortcutF = "<leader>fl"
 nnoremap <c-p> :Leaderf file<cr> 
 
 let g:Lf_fuzzyEngine_C = 1
-let g:Lf_PopupColorscheme = 'nord'
+let g:Lf_PopupColorscheme = 'onedark'
 let g:Lf_CursorBlink = 0
 "let g:Lf_WorkingDirectory = finddir('.git', '.;')
 let g:Lf_HideHep = 1
