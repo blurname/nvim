@@ -4,7 +4,7 @@ require('fFHighlight').setup()
 require('hlslens').setup()
 
 -- config patch
---require('config.treesitter')
+require('config.treesitter')
 require('config.nightfox')
 --require('config.gitsigns')
 require('config')
@@ -17,6 +17,7 @@ require("harpoon").setup({
         width = 120,
     }
 })
+
 --require("bufferline").setup{}
 --require('config.feline')
 --require('stl')
