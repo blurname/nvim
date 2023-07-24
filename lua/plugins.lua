@@ -36,6 +36,7 @@ return packer.startup({
     -- themes
     --use {'sainnhe/everforest'}
     use { 'EdenEast/nightfox.nvim'}
+    use {"rockyzhang24/arctic.nvim", branch ="v2",  requires = {"rktjmp/lush.nvim"}}
     --use { 'NTBBloodbath/doom-one.nvim'}
     --use { 'glepnir/zephyr-nvim' }
     --use { 'theniceboy/nvim-deus' }
