@@ -48,7 +48,7 @@ let g:Lf_NormalMap = {
 "let g:Lf_CommandMap = {'<A-f>': ['<C-Down>'],'<A-b>':['<C-Up>']}
 
 noremap <C-F> :<C-U><C-R>=printf("Leaderf rg -e %s ", expand("<cword>"))<CR><CR>
-nnoremap <leader>i :Leaderf cmdHistory<CR>
+"nnoremap <leader>i :Leaderf cmdHistory<CR>
 nnoremap <leader>fr :Leaderf --recall<CR>
 "noremap ]g :Leaderf --next<CR>
 "noremap [g :Leaderf --previous<CR>

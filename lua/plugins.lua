@@ -102,5 +102,8 @@ return packer.startup({
     use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
     use {'ThePrimeagen/harpoon'}
     --use {'Yggdroot/indentLine'}
+
+    use {'skywind3000/vim-quickui'}
+    use { 'skywind3000/vim-quickui-navigator' }
 	end
 })

@@ -18,7 +18,7 @@ require("harpoon").setup({
     }
 })
 
-require("bufferline").setup{}
+--require("bufferline").setup{}
 --require('config.feline')
 --require('stl')
 
