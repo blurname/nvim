@@ -49,7 +49,7 @@ let g:Lf_NormalMap = {
 
 noremap <C-F> :<C-U><C-R>=printf("Leaderf rg -e %s ", expand("<cword>"))<CR><CR>
 "nnoremap <leader>i :Leaderf cmdHistory<CR>
-nnoremap <leader>fr :Leaderf --recall<CR>
+nnoremap <leader>r :Leaderf --recall<CR>
 "noremap ]g :Leaderf --next<CR>
 "noremap [g :Leaderf --previous<CR>
 nnoremap <silent> <leader>fs :Leaderf gstatus<CR>
@@ -61,7 +61,7 @@ command! -nargs=0 Gs :GFiles?
 "let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0}
     let g:Lf_PreviewResult = {
             \ 'File': 0,
-            \ 'Buffer': 0,
+            \ 'Buffer': 1,
             \ 'Mru': 0,
             \ 'Tag': 0,
             \ 'BufTag': 0,
@@ -85,4 +85,5 @@ let g:Lf_WindowPosition = 'popup'
 
 noremap <F1> :Leaderf command --run-immediately<CR>
 nnoremap <leader>fi :Leaderf command --run-immediately<CR>
+nnoremap <silent><F3>  :Leaderf rg<CR>
 nnoremap <tab> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>

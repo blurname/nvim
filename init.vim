@@ -79,7 +79,7 @@ noremap q: <nop>
 autocmd! BufWritePost /home/bl/.config/nvim/init.vim source /home/bl/.config/nvim/init.vim | echo 'reload nvimrc'
 
 
-noremap <LEADER>re :source /home/bl/.config/nvim/init.vim<CR>
+command! -nargs=0 Resource source /home/bl/.config/nvim/init.vim  | echo 'reload nvimrc'
 let $VIM_HOME = '/home/bl/.config/nvim'
 source $VIM_HOME/config/cursor.vim
 source $VIM_HOME/config/coc.vim
@@ -87,7 +87,6 @@ source $VIM_HOME/config/harpoon.vim
 source $VIM_HOME/config/leaderf.vim
 source $VIM_HOME/config/statusline.vim
 " Open the vimrc file anytime
-"noremap <LEADER>rc :e /home/bl/.config/nvim/entry.vim<CR>
 " let a = stdpath("config")
 
 " move key
@@ -224,7 +223,7 @@ nnoremap <leader>ge :Gedit<CR>
 
 " initialize global keymap and declare prefix key
 let g:navigator = {'prefix':'<LEADER><i>'}
-nnoremap <silent><LEADER>i :Navigator g:navigator<cr>
+nnoremap <silent><LEADER>; :Navigator g:navigator<cr>
 
 " buffer management
 let g:navigator.b = {
@@ -258,4 +257,10 @@ let g:navigator.p = {
             \ '1' : [':BlGetFilePathRelative','1'],
             \ '2' : [':BlGetFilePathLine','2'],
             \ '3' : [':BlGetFilePathAbsolute','3'],
+            \ }
+
+let g:navigator.f = {
+            \ 'name': '+leaderf',
+            \ '1' : [':Leaderf! rg --recall','rg recall'],
+            \ '2' : [':Leaderf! file --recall','file recall'],
             \ }

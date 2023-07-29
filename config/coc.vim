@@ -88,7 +88,7 @@ nnoremap <silent> <leader>j  :<C-u>CocNext<CR>
 nnoremap <silent> <leader>k  :<C-u>CocPrev<CR>
 +"nnoremap <silent><nowait> <space>l  :<C-u>CocListResume<cr>
 " 模糊搜索
-nnoremap <silent> <F3>  :<C-u>CocList --ignore-case --interactive grep<CR> 
+"nnoremap <silent> <F3>  :<C-u>CocList --ignore-case --interactive grep<CR> 
 " 粘贴文本搜索
 nnoremap <silent><nowait><F4>  :<C-u>CocList --ignore-case grep 
 " 文件搜索
