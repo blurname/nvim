@@ -105,5 +105,8 @@ return packer.startup({
 
     use {'skywind3000/vim-quickui'}
     use { 'skywind3000/vim-quickui-navigator' }
+
+    -- copy between local & remote
+    use {'ojroques/vim-oscyank'}
 	end
 })

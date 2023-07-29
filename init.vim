@@ -264,3 +264,8 @@ let g:navigator.f = {
             \ '1' : [':Leaderf! rg --recall','rg recall'],
             \ '2' : [':Leaderf! file --recall','file recall'],
             \ }
+
+
+nmap <leader>c <Plug>OSCYankOperator
+nmap <leader>cc <leader>c_
+vmap <leader>c <Plug>OSCYankVisual
