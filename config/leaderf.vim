@@ -43,13 +43,15 @@ let g:Lf_NormalMap = {
       \ "History":[],
       \ "Help":   [],
       \ "Self":   [],
-      \ "Colorscheme": []
+      \ "Colorscheme": [],
+      \ "Rg" : [["<ESC>", ':exec g:Lf_py "rgExplManager.quit()"<CR>']] 
       \}
 "let g:Lf_CommandMap = {'<A-f>': ['<C-Down>'],'<A-b>':['<C-Up>']}
 
 noremap <C-F> :<C-U><C-R>=printf("Leaderf rg -e %s ", expand("<cword>"))<CR><CR>
-"nnoremap <leader>i :Leaderf cmdHistory<CR>
+nnoremap <leader>f; :Leaderf! cmdHistory<CR>
 nnoremap <leader>r :Leaderf --recall<CR>
+nnoremap <leader>b :Leaderf! buffer<CR>
 "noremap ]g :Leaderf --next<CR>
 "noremap [g :Leaderf --previous<CR>
 nnoremap <silent> <leader>fs :Leaderf gstatus<CR>
@@ -72,8 +74,8 @@ command! -nargs=0 Gs :GFiles?
             \ 'Gtags': 0
             \}
 "let g:Lf_PreviewHorizontalPosition = 'right'
-let g:Lf_PopupPreviewPosition = 'top'
-
+let g:Lf_PopupPreviewPosition = 'right'
+"let g:Lf_PreviewPosition = 'topright'
 "let s:WindowHeight = 0.5
 "let s:PositionLine = float2nr(&lines * (1 - s:WindowHeight))
 "let s:PositionCol = 50
