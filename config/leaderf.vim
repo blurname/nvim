@@ -11,6 +11,7 @@ let g:Lf_ShortcutF = "<leader>fl"
 nnoremap <c-p> :Leaderf file<cr> 
 
 let g:Lf_fuzzyEngine_C = 1
+let g:Lf_StlColorscheme = 'onedark'
 let g:Lf_PopupColorscheme = 'onedark'
 let g:Lf_CursorBlink = 0
 "let g:Lf_WorkingDirectory = finddir('.git', '.;')
@@ -48,7 +49,8 @@ let g:Lf_NormalMap = {
       \}
 "let g:Lf_CommandMap = {'<A-f>': ['<C-Down>'],'<A-b>':['<C-Up>']}
 
-noremap <C-F> :<C-U><C-R>=printf("Leaderf rg -e %s ", expand("<cword>"))<CR><CR>
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg --bottom --stayOpen -e %s ", expand("<cword>"))<CR><CR>
+vnoremap ff :<C-U><C-R>=printf("Leaderf! rg --bottom --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
 nnoremap <leader>f; :Leaderf! cmdHistory<CR>
 nnoremap <leader>r :Leaderf --recall<CR>
 nnoremap <leader>b :Leaderf! buffer<CR>
@@ -74,7 +76,7 @@ command! -nargs=0 Gs :GFiles?
             \ 'Gtags': 0
             \}
 "let g:Lf_PreviewHorizontalPosition = 'right'
-let g:Lf_PopupPreviewPosition = 'right'
+let g:Lf_PopupPreviewPosition = 'top'
 "let g:Lf_PreviewPosition = 'topright'
 "let s:WindowHeight = 0.5
 "let s:PositionLine = float2nr(&lines * (1 - s:WindowHeight))

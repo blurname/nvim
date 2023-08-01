@@ -130,7 +130,7 @@ command! -nargs=0 CocNearExplorer :call CocAction('runCommand', 'explorer.doActi
 
 "nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
 
-vnoremap ff :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
+"vnoremap ff :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 function! s:GrepFromSelected(type)
   let saved_unnamed_register = @@
   if a:type ==# 'v'
