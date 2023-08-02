@@ -49,13 +49,13 @@ let g:Lf_NormalMap = {
       \}
 "let g:Lf_CommandMap = {'<A-f>': ['<C-Down>'],'<A-b>':['<C-Up>']}
 
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg --bottom --stayOpen -e %s ", expand("<cword>"))<CR><CR>
-vnoremap ff :<C-U><C-R>=printf("Leaderf! rg --bottom --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg --right --stayOpen -e %s ", expand("<cword>"))<CR><CR>
+vnoremap ff :<C-U><C-R>=printf("Leaderf! rg --right --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
 nnoremap <leader>f; :Leaderf! cmdHistory<CR>
 nnoremap <leader>r :Leaderf --recall<CR>
 nnoremap <leader>b :Leaderf! buffer<CR>
-"noremap ]g :Leaderf --next<CR>
-"noremap [g :Leaderf --previous<CR>
+noremap <c-j> :Leaderf --next<CR>
+noremap <c-k> :Leaderf --previous<CR>
 nnoremap <silent> <leader>fs :Leaderf gstatus<CR>
 "noremap <leader>fw :Leaderf! --stayOpen --right rg -F -e
 "noremap <leader>fw :Leaderf rg -L -S 
@@ -78,11 +78,11 @@ command! -nargs=0 Gs :GFiles?
 "let g:Lf_PreviewHorizontalPosition = 'right'
 let g:Lf_PopupPreviewPosition = 'top'
 "let g:Lf_PreviewPosition = 'topright'
-"let s:WindowHeight = 0.5
+let s:WindowHeight = 0.5
 "let s:PositionLine = float2nr(&lines * (1 - s:WindowHeight))
 "let s:PositionCol = 50
 
-"let g:Lf_WindowHeight = s:WindowHeight
+let g:Lf_WindowHeight = s:WindowHeight
 let g:Lf_WindowPosition = 'popup'
 "let g:Lf_PopupHeight = s:WindowHeight
 "let g:Lf_PopupPosition = [s:PositionLine, s:PositionCol]
