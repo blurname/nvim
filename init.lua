@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 
 vim.g.mapleader = " "
-vim.cmd('source prev-init.vim')
+vim.cmd('source /home/bl/.config/nvim/prev-init.vim')
 
 require('door')
 
