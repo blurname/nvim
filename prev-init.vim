@@ -1,6 +1,4 @@
 set termguicolors
-lua require('plugins')
-lua require('door')
 " ===
 " === Basic Mappings
 " ===
@@ -8,7 +6,7 @@ lua require('door')
 "                                   basic                                    "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:mapleader=' '
+"let g:mapleader=' '
 let $FZF_DEFAULT_COMMAND = 'fd --type f --strip-cwd-prefix'
 " noremap ; :
 set exrc
@@ -76,7 +74,8 @@ autocmd FileChangedShellPost *
 " Save & quit
 noremap s <nop>
 noremap q: <nop>
-autocmd! BufWritePost /home/bl/.config/nvim/* silent execute 'source /home/bl/.config/nvim/init.vim' | execute 'lua require("notify")("reload vimrc")'
+"autocmd! BufWritePost /home/bl/.config/nvim/* silent execute 'source /home/bl/.config/nvim/init.vim' 
+"| execute 'lua require("notify")("reload vimrc")'
 
 command! -nargs=0 Resource source /home/bl/.config/nvim/init.vim  | echo 'reload nvimrc'
 let $VIM_HOME = '/home/bl/.config/nvim'
@@ -208,9 +207,6 @@ map <c-_> <plug>NERDCommenterToggle
 "let g:NERDAltDelims_typescriptreact=1
 "let g:NERDCustomDelimiters = { 'typescriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },'javascriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' } }
 
-
-"noremap <leader>gl :diffget //3<CR>
-"noremap <leader>gh :diffget //2<CR>
 
 "au ModeChanged *:s set clipboard=
 "au ModeChanged s:* set clipboard=unnamedplus
