@@ -108,5 +108,7 @@ return packer.startup({
 
     -- copy between local & remote
     use {'ojroques/vim-oscyank'}
+
+    use {'rcarriga/nvim-notify'}
 	end
 })

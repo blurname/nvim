@@ -76,8 +76,7 @@ autocmd FileChangedShellPost *
 " Save & quit
 noremap s <nop>
 noremap q: <nop>
-autocmd! BufWritePost /home/bl/.config/nvim/init.vim source /home/bl/.config/nvim/init.vim | echo 'reload nvimrc'
-
+autocmd! BufWritePost /home/bl/.config/nvim/* silent execute 'source /home/bl/.config/nvim/init.vim' | execute 'lua require("notify")("reload vimrc")'
 
 command! -nargs=0 Resource source /home/bl/.config/nvim/init.vim  | echo 'reload nvimrc'
 let $VIM_HOME = '/home/bl/.config/nvim'

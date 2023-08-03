@@ -62,7 +62,6 @@ nnoremap <silent> <leader>fs :Leaderf gstatus<CR>
 command! -nargs=1 Search :Leaderf! --stayOpen --right rg -F -e 
 command! -nargs=0 ListPackgeJson :Leaderf! file --input package.json
 command! -nargs=0 Gs :GFiles?
-"let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0}
     let g:Lf_PreviewResult = {
             \ 'File': 0,
             \ 'Buffer': 1,
