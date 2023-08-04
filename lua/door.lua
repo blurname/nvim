@@ -18,6 +18,7 @@ require("harpoon").setup({
     }
 })
 require("flash").setup()
+require('Comment').setup()
 
 --require("bufferline").setup{}
 --require('config.feline')

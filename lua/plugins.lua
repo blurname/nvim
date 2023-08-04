@@ -111,5 +111,6 @@ return packer.startup({
 
     use {'rcarriga/nvim-notify'}
     use {'folke/flash.nvim'}
+    use {'numToStr/Comment.nvim'}
 	end
 })

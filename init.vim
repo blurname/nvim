@@ -202,15 +202,10 @@ aug END
 "NERDCommenter
 " map <c-_> instead of <c-/>
 let g:NERDCreateDefaultMappings = 0
-map <c-_> <plug>NERDCommenterToggle
-"
-"let g:NERDAltDelims_javascriptreact=1
-"let g:NERDAltDelims_typescriptreact=1
-"let g:NERDCustomDelimiters = { 'typescriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },'javascriptreact': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' } }
-
-
-"noremap <leader>gl :diffget //3<CR>
-"noremap <leader>gh :diffget //2<CR>
+"map <c-_> <plug>NERDCommenterToggle
+" map <c-_> <Plug>(comment_toggle_blockwise)
+nnoremap <c-_> <Plug>(comment_toggle_linewise_current)
+vnoremap <c-_> <Plug>(comment_toggle_linewise_visual)
 
 "au ModeChanged *:s set clipboard=
 "au ModeChanged s:* set clipboard=unnamedplus
