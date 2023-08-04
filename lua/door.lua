@@ -17,6 +17,7 @@ require("harpoon").setup({
         width = 120,
     }
 })
+require("flash").setup()
 
 --require("bufferline").setup{}
 --require('config.feline')

@@ -110,5 +110,6 @@ return packer.startup({
     use {'ojroques/vim-oscyank'}
 
     use {'rcarriga/nvim-notify'}
+    use {'folke/flash.nvim'}
 	end
 })
