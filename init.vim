@@ -263,4 +263,4 @@ vmap <leader>c <Plug>OSCYankVisual
 
 
 " c-i equals tab
-nnoremap <c-m> :Spectre<CR>
+nnoremap <F4> :Spectre<CR>

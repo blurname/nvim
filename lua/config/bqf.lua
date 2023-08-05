@@ -51,27 +51,24 @@ local cmd = vim.cmd
 local api = vim.api
 
     --packadd nvim-treesitter
-cmd([[
-    packadd nvim-bqf
-    packadd fzf
-    packadd vim-grepper
-    packadd coc.nvim
-]])
+-- cmd([[
+--     packadd nvim-bqf
+-- ]])
 
 -- https://github.com/mhinz/vim-grepper
-vim.g.grepper = {tools = {'rg', 'grep'}, searchreg = 1}
-cmd(([[
-    aug Grepper
-        au!
-        au User Grepper ++nested %s
-    aug END
-]]):format([[call setqflist([], 'r', {'context': {'bqf': {'pattern_hl': '\%#' . getreg('/')}}})]]))
+-- vim.g.grepper = {tools = {'rg', 'grep'}, searchreg = 1}
+-- cmd(([[
+--     aug Grepper
+--         au!
+--         au User Grepper ++nested %s
+--     aug END
+-- ]]):format([[call setqflist([], 'r', {'context': {'bqf': {'pattern_hl': '\%#' . getreg('/')}}})]]))
 
 -- try `gsiw` under word
-cmd([[
-    nmap gs  <plug>(GrepperOperator)
-    xmap gs  <plug>(GrepperOperator)
-]])
+-- cmd([[
+--     nmap gs  <plug>(GrepperOperator)
+--     xmap gs  <plug>(GrepperOperator)
+-- ]])
 
 -- https://github.com/neoclide/coc.nvim
 -- if you use coc-fzf, you should disable its CocLocationsChange event
@@ -86,11 +83,6 @@ cmd([[
         au!
         au User CocLocationsChange lua _G.jumpToLoc()
     aug END
-]])
-
-cmd([[
-    nmap <silent> gr <Plug>(coc-references)
-    nnoremap <silent> <leader>qd <Cmd>lua _G.diagnostic()<CR>
 ]])
 
 -- just use `_G` prefix as a global function for a demo

@@ -127,11 +127,6 @@ _G.packer_plugins = {
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/fzf",
     url = "https://github.com/junegunn/fzf"
   },
-  ["fzf.vim"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/fzf.vim",
-    url = "https://github.com/junegunn/fzf.vim"
-  },
   harpoon = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/harpoon",
@@ -264,11 +259,6 @@ _G.packer_plugins = {
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
-  ["vim-grepper"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-grepper",
-    url = "https://github.com/mhinz/vim-grepper"
-  },
   ["vim-oscyank"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-oscyank",
@@ -334,9 +324,9 @@ time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> <F5> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F5>", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <F8> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F8>", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <F7> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F7>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <F5> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F5>", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <F6> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F6>", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
