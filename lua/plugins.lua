@@ -110,7 +110,12 @@ return packer.startup({
     use {'ojroques/vim-oscyank'}
 
     use {'rcarriga/nvim-notify'}
+
+    -- search
     use {'folke/flash.nvim'}
+
+    -- comment
     use {'numToStr/Comment.nvim'}
+    use {'JoosepAlviste/nvim-ts-context-commentstring'}
 	end
 })
