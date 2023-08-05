@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   LeaderF = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/LeaderF",
@@ -100,11 +105,6 @@ _G.packer_plugins = {
     url = "https://github.com/skywind3000/asynctasks.vim",
     wants = { "asyncrun.vim" }
   },
-  ["bufferline.nvim"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
-    url = "https://github.com/akinsho/bufferline.nvim"
-  },
   ["coc.nvim"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/coc.nvim",
@@ -117,10 +117,10 @@ _G.packer_plugins = {
     path = "/home/bl/.local/share/nvim/site/pack/packer/opt/delimitMate",
     url = "https://github.com/Raimondi/delimitMate"
   },
-  ["doom-one.nvim"] = {
+  ["flash.nvim"] = {
     loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/doom-one.nvim",
-    url = "https://github.com/NTBBloodbath/doom-one.nvim"
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/flash.nvim",
+    url = "https://github.com/folke/flash.nvim"
   },
   fzf = {
     loaded = true,
@@ -152,14 +152,6 @@ _G.packer_plugins = {
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/neovim-session-manager",
     url = "https://github.com/Shatur/neovim-session-manager"
   },
-  nerdcommenter = {
-    keys = { { "", "<Plug>NERDCommenterToggle" } },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/opt/nerdcommenter",
-    url = "https://github.com/preservim/nerdcommenter"
-  },
   ["nightfox.nvim"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
@@ -185,10 +177,35 @@ _G.packer_plugins = {
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-fFHighlight",
     url = "https://github.com/kevinhwang91/nvim-fFHighlight"
   },
+  ["nvim-highlight-colors"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-highlight-colors",
+    url = "https://github.com/brenoprata10/nvim-highlight-colors"
+  },
   ["nvim-hlslens"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-hlslens",
     url = "https://github.com/kevinhwang91/nvim-hlslens"
+  },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
+  },
+  ["nvim-spectre"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-spectre",
+    url = "https://github.com/nvim-pack/nvim-spectre"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/kevinhwang91/nvim-treesitter"
+  },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
   ["nvim-ufo"] = {
     loaded = true,
@@ -228,11 +245,6 @@ _G.packer_plugins = {
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/suda.vim",
     url = "https://github.com/lambdalisue/suda.vim"
   },
-  ["vCoolor.vim"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/vCoolor.vim",
-    url = "https://github.com/KabbAmine/vCoolor.vim"
-  },
   ["vim-asterisk"] = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-asterisk",
@@ -257,10 +269,20 @@ _G.packer_plugins = {
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-grepper",
     url = "https://github.com/mhinz/vim-grepper"
   },
-  ["vim-rescript"] = {
+  ["vim-oscyank"] = {
     loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-rescript",
-    url = "https://github.com/rescript-lang/vim-rescript"
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-oscyank",
+    url = "https://github.com/ojroques/vim-oscyank"
+  },
+  ["vim-quickui"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-quickui",
+    url = "https://github.com/skywind3000/vim-quickui"
+  },
+  ["vim-quickui-navigator"] = {
+    loaded = true,
+    path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-quickui-navigator",
+    url = "https://github.com/skywind3000/vim-quickui-navigator"
   },
   ["vim-sandwich"] = {
     loaded = true,
@@ -276,11 +298,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bl/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
     url = "https://github.com/mg979/vim-visual-multi"
-  },
-  ["yuck.vim"] = {
-    loaded = true,
-    path = "/home/bl/.local/share/nvim/site/pack/packer/start/yuck.vim",
-    url = "https://github.com/elkowar/yuck.vim"
   }
 }
 
@@ -292,19 +309,19 @@ time([[Config for vim-fugitive]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'StartupTime', function(cmdargs)
-          require('packer.load')({'startuptime.vim'}, { cmd = 'StartupTime', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'startuptime.vim'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('StartupTime ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'Flogsplit', function(cmdargs)
           require('packer.load')({'vim-flog'}, { cmd = 'Flogsplit', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'vim-flog'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('Flogsplit ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'StartupTime', function(cmdargs)
+          require('packer.load')({'startuptime.vim'}, { cmd = 'StartupTime', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'startuptime.vim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('StartupTime ', 'cmdline')
       end})
 pcall(vim.api.nvim_create_user_command, 'Flog', function(cmdargs)
           require('packer.load')({'vim-flog'}, { cmd = 'Flog', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
@@ -317,11 +334,10 @@ time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> <Plug>NERDCommenterToggle <cmd>lua require("packer.load")({'nerdcommenter'}, { keys = "<lt>Plug>NERDCommenterToggle", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> <F8> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F8>", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> <F6> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F6>", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <F5> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F5>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <F8> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F8>", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <F7> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F7>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <F6> <cmd>lua require("packer.load")({'asynctasks.vim'}, { keys = "<lt>F6>", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]

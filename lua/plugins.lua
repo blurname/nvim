@@ -14,9 +14,6 @@ return packer.startup({
         end
     use {'wbthomason/packer.nvim'}
 
-		-- comment
-		use {'preservim/nerdcommenter',keys ='<Plug>NERDCommenterToggle',opt=true}
-
     -- autopair
     use {'Raimondi/delimitMate', event = 'InsertEnter',opt = true }
 
@@ -24,6 +21,10 @@ return packer.startup({
          'kevinhwang91/nvim-treesitter',
         run = ':TSUpdate'
     }
+
+    -- comment
+    use {'numToStr/Comment.nvim'}
+    use {'JoosepAlviste/nvim-ts-context-commentstring'}
 
     -- imporve f action
     use {'kevinhwang91/nvim-fFHighlight',opt = false}
@@ -36,11 +37,10 @@ return packer.startup({
     -- themes
     --use {'sainnhe/everforest'}
     use { 'EdenEast/nightfox.nvim'}
-    use {"rockyzhang24/arctic.nvim", branch ="v2",  requires = {"rktjmp/lush.nvim"}}
+    -- use {"rockyzhang24/arctic.nvim", branch ="v2",  requires = {"rktjmp/lush.nvim"}}
     --use { 'NTBBloodbath/doom-one.nvim'}
     --use { 'glepnir/zephyr-nvim' }
     --use { 'theniceboy/nvim-deus' }
-    --use {'hardhackerlabs/theme-vim',config=function() vim.cmd.colorscheme 'hardhacker' end}
 
     -- show color
     -- use {'equalsraf/neovim-gui-shim'}
@@ -48,8 +48,6 @@ return packer.startup({
 
     -- statusline
     use {'kyazdani42/nvim-web-devicons'}
-    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
-    --use {'freddiehaddad/feline.nvim'}
 
     --coc
     use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile',disable=false}
@@ -69,7 +67,6 @@ return packer.startup({
     use {'haya14busa/vim-asterisk'}
 
     -- file-tree
-    --use {'nvim-neo-tree/neo-tree.nvim', branch='v2.x'}
     use {'MunifTanjim/nui.nvim'}
 
     --git
@@ -86,8 +83,11 @@ return packer.startup({
     use {'mhinz/vim-grepper', run = function()vim.fn['fzf#install']()end}
 
     use {'lambdalisue/suda.vim'}
-    use {'KabbAmine/vCoolor.vim'}
-    use {'elkowar/yuck.vim'}
+
+    use {'brenoprata10/nvim-highlight-colors'}
+
+    -- use {'elkowar/yuck.vim'}
+
     use {'sbdchd/neoformat'}
 
     use {'nvim-lua/plenary.nvim'}
@@ -96,7 +96,7 @@ return packer.startup({
     use {'Shatur/neovim-session-manager'}
 
     -- lsp
-    use {'rescript-lang/vim-rescript'}
+    -- use {'rescript-lang/vim-rescript'}
 
     -- fold
     use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
@@ -113,9 +113,6 @@ return packer.startup({
 
     -- search
     use {'folke/flash.nvim'}
-
-    -- comment
-    use {'numToStr/Comment.nvim'}
-    use {'JoosepAlviste/nvim-ts-context-commentstring'}
+    use {'nvim-pack/nvim-spectre'}
 	end
 })

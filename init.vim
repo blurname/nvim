@@ -76,9 +76,9 @@ autocmd FileChangedShellPost *
 " Save & quit
 noremap s <nop>
 noremap q: <nop>
-autocmd! BufWritePost /home/bl/.config/nvim/* silent execute 'source /home/bl/.config/nvim/init.vim' | execute 'lua require("notify")("reload vimrc")'
+autocmd BufWritePost /home/bl/.config/nvim/* source /home/bl/.config/nvim/init.vim | execute 'lua require("notify")("reload vimrc")'
 
-command! -nargs=0 Resource source /home/bl/.config/nvim/init.vim  | echo 'reload nvimrc'
+command -nargs=0 Resource source /home/bl/.config/nvim/init.vim  | echo 'reload nvimrc'
 let $VIM_HOME = '/home/bl/.config/nvim'
 source $VIM_HOME/config/cursor.vim
 source $VIM_HOME/config/coc.vim
@@ -147,8 +147,6 @@ command! BlGetFilePathAbsolute :let @" = expand("%:p")
 
 command! Bda silent! execute "%bd|e#|bd#"
 nnoremap <leader>w <cmd>bw<cr>
-nnoremap <c-l> :BufferLineCycleNext<CR>
-nnoremap <c-h> :BufferLineCyclePrev<CR>
 "nnoremap ss :<C-u>%s/
 nnoremap ss viw:%s/<C-R>"//g<Left><Left>
 
@@ -199,11 +197,9 @@ aug VMlens
   au User visual_multi_exit lua require('vmlens').exit()
 aug END
 
-"NERDCommenter
+
+" Comment.nvim
 " map <c-_> instead of <c-/>
-let g:NERDCreateDefaultMappings = 0
-"map <c-_> <plug>NERDCommenterToggle
-" map <c-_> <Plug>(comment_toggle_blockwise)
 nnoremap <c-_> <Plug>(comment_toggle_linewise_current)
 vnoremap <c-_> <Plug>(comment_toggle_linewise_visual)
 
@@ -260,6 +256,11 @@ let g:navigator.f = {
             \ }
 
 
+" OSYank
 nmap <leader>c <Plug>OSCYankOperator
 nmap <leader>cc <leader>c_
 vmap <leader>c <Plug>OSCYankVisual
+
+
+" c-i equals tab
+nnoremap <c-m> :Spectre<CR>

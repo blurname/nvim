@@ -54,12 +54,12 @@ vnoremap ff :<C-U><C-R>=printf("Leaderf! rg --right --stayOpen -e %s ", leaderf#
 nnoremap <leader>f; :Leaderf! cmdHistory<CR>
 nnoremap <leader>r :Leaderf --recall<CR>
 nnoremap <leader>b :Leaderf! buffer<CR>
-noremap <c-j> :Leaderf --next<CR>
-noremap <c-k> :Leaderf --previous<CR>
+" noremap <c-j> :Leaderf --next<CR>
+" noremap <c-k> :Leaderf --previous<CR>
 nnoremap <silent> <leader>fs :Leaderf gstatus<CR>
 "noremap <leader>fw :Leaderf! --stayOpen --right rg -F -e
 "noremap <leader>fw :Leaderf rg -L -S 
-command! -nargs=1 Search :Leaderf! --stayOpen --right rg -F -e 
+" command! -nargs=1 Search :Leaderf! --stayOpen --right rg -F -e 
 command! -nargs=0 ListPackgeJson :Leaderf! file --input package.json
 command! -nargs=0 Gs :GFiles?
     let g:Lf_PreviewResult = {
