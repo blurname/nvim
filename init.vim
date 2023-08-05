@@ -80,7 +80,7 @@ autocmd BufWritePost /home/bl/.config/nvim/* source /home/bl/.config/nvim/init.v
 
 command -nargs=0 Resource source /home/bl/.config/nvim/init.vim  | echo 'reload nvimrc'
 let $VIM_HOME = '/home/bl/.config/nvim'
-source $VIM_HOME/config/cursor.vim
+" source $VIM_HOME/config/cursor.vim
 source $VIM_HOME/config/coc.vim
 source $VIM_HOME/config/harpoon.vim
 source $VIM_HOME/config/leaderf.vim
