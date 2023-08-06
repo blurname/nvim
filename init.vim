@@ -1,5 +1,5 @@
 set termguicolors
-lua require('plugins')
+lua require('m-packer')
 lua require('door')
 " ===
 " === Basic Mappings
@@ -76,10 +76,10 @@ let $VIM_HOME = '/home/bl/.config/nvim'
 autocmd! BufWritePost /home/bl/.config/nvim/* source $VIM_HOME/init.vim | execute 'lua require("notify")("reload vimrc")'
 
 command! -nargs=0 Resource source $VIM_HOME/init.vim  | echo 'reload nvimrc'
-source $VIM_HOME/config/coc.vim
-source $VIM_HOME/config/harpoon.vim
-source $VIM_HOME/config/leaderf.vim
-source $VIM_HOME/config/statusline.vim
+source $VIM_HOME/vim/coc.vim
+source $VIM_HOME/vim/harpoon.vim
+source $VIM_HOME/vim/leaderf.vim
+source $VIM_HOME/vim/statusline.vim
 
 "set foldmethod=expr
 
