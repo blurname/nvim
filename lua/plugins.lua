@@ -48,6 +48,8 @@ return packer.startup({
 
     -- statusline
     use {'kyazdani42/nvim-web-devicons'}
+    use {'mg979/tabline.nvim'}
+    -- use {'mg979/vim-xtabline'}
 
     --coc
     use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile',disable=false}
@@ -104,7 +106,7 @@ return packer.startup({
     --use {'Yggdroot/indentLine'}
 
     use {'skywind3000/vim-quickui'}
-    use { 'skywind3000/vim-quickui-navigator' }
+    use {'skywind3000/vim-quickui-navigator' }
 
     -- copy between local & remote
     use {'ojroques/vim-oscyank'}

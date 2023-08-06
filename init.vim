@@ -86,6 +86,9 @@ source $VIM_HOME/config/statusline.vim
 " Save & quit
 noremap s <nop>
 noremap q: <nop>
+noremap <c-l> <nop>
+noremap <c-h> :Tabline prev 1<CR>
+noremap <c-l> :Tabline next 1<CR>
 
 " Open the vimrc file anytime
 " let a = stdpath("config")
@@ -106,7 +109,7 @@ noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
 
 " ===
-" === Use <space> + new arrow keys for moving the cursor around windows
+" === Use <alt> + new arrow keys for moving the cursor around windows
 " ===
 noremap <A-j> <C-w>j
 noremap <A-k> <C-w>k
@@ -117,17 +120,17 @@ noremap <A-l> <C-w>l
 " ===
 " move line up/donw
 " ===
-noremap <A-up> :m -2<CR>
-noremap <A-down> :m +1<CR>
+noremap <c-k> :m -2<CR>
+noremap <c-j> :m +1<CR>
 
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
-noremap sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
-noremap sj :set splitbelow<CR>:split<CR>
+" noremap sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
+" noremap sj :set splitbelow<CR>:split<CR>
 noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 noremap sl :set splitright<CR>:vsplit<CR>
 " Press <SPACE> + q to close the window below the current window
-noremap <C-w> :q<CR>
 
+noremap <C-w> :q<CR>
 noremap <c-a> ggVG
 
 "nnoremap <c-n> :%s/
@@ -139,8 +142,8 @@ noremap <c-a> ggVG
 
 " noremap tl :tabe<CR>
 " Move around tabs with tn and ti
-noremap th :-tabnext<CR>
-noremap tl :+tabnext<CR>
+" noremap th :-tabnext<CR>
+" noremap tl :+tabnext<CR>
 
 " get file path releated
 command! BlGetFilePathRelative :let @" = expand("%")
@@ -150,7 +153,7 @@ command! BlGetFilePathAbsolute :let @" = expand("%:p")
 command! Bda silent! execute "%bd|e#|bd#"
 nnoremap <leader>w <cmd>bw<cr>
 "nnoremap ss :<C-u>%s/
-nnoremap ss viw:%s/<C-R>"//g<Left><Left>
+" nnoremap ss viw:%s/<C-R>"//g<Left><Left>
 
 " move current window to new tab
 noremap tn <C-w>T
@@ -165,12 +168,8 @@ noremap <LEADER><CR> :nohlsearch<CR>
 " ===
 " === terminalHelp
 " ===
-"let g:terminal_shell = 'elvish'
 
 let g:terminal_shell = 'elvish'
-
-"let g:closetag_filetypes = 'html,jsx,tsx'
-"let g:closetag_xhtml_filetypes = 'html,jsx,tsx'
 
 noremap <c-s> :wa<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -184,15 +183,7 @@ noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR>
       \<Cmd>lua require('hlslens').start()<CR>
 noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR>
       \<Cmd>lua require('hlslens').start()<CR>
-"noremap * *<Cmd>lua require('hlslens').start()<CR>
-"noremap # #<Cmd>lua require('hlslens').start()<CR>
-"noremap g* g*<Cmd>lua require('hlslens').start()<CR>
-"noremap g# g#<Cmd>lua require('hlslens').start()<CR>
 
-map *  <Plug>(asterisk-z*)<Cmd>lua require('hlslens').start()<CR>
-map #  <Plug>(asterisk-z#)<Cmd>lua require('hlslens').start()<CR>
-map g* <Plug>(asterisk-gz*)<Cmd>lua require('hlslens').start()<CR>
-map g# <Plug>(asterisk-gz#)<Cmd>lua require('hlslens').start()<CR>
 aug VMlens
   au!
   au User visual_multi_start lua require('vmlens').start()
@@ -228,7 +219,7 @@ let g:navigator.b = {
             \ 'l' : [':blast'     , 'last-buffer']     ,
             \ 'n' : [':bnext'     , 'next-buffer']     ,
             \ 'p' : [':bprevious' , 'previous-buffer'] ,
-            \ '?' : [':Leaderf buffer'   , 'fzf-buffer']      ,
+            \ '?' : [':Leaderf buffer'   , 'fzf-buffer'],
             \ }
 
 " tab management
@@ -267,3 +258,41 @@ vmap <leader>c <Plug>OSCYankVisual
 " c-i equals tab
 nnoremap <F4> :Spectre<CR>
 
+" 0:up, 1:down, 2:pgup, 3:pgdown, 4:top, 5:bottom
+function! Tools_PreviousCursor(mode)
+    if winnr('$') <= 1
+        return
+    endif
+    noautocmd silent! wincmd p
+    if a:mode == 0
+        exec "normal! \<c-y>"
+    elseif a:mode == 1
+        exec "normal! \<c-e>"
+    elseif a:mode == 2
+        exec "normal! ".winheight('.')."\<c-y>"
+    elseif a:mode == 3
+        exec "normal! ".winheight('.')."\<c-e>"
+    elseif a:mode == 4
+        normal! gg
+    elseif a:mode == 5
+        normal! G
+    elseif a:mode == 6
+        exec "normal! \<c-u>"
+    elseif a:mode == 7
+        exec "normal! \<c-d>"
+    elseif a:mode == 8
+        exec "normal! k"
+    elseif a:mode == 9
+        exec "normal! j"
+    endif
+    noautocmd silent! wincmd p
+endfunc
+
+noremap <silent><M-u> :call Tools_PreviousCursor(6)<cr>
+noremap <silent><M-d> :call Tools_PreviousCursor(7)<cr>
+inoremap <silent><M-u> <c-\><c-o>:call Tools_PreviousCursor(6)<cr>
+inoremap <silent><M-d> <c-\><c-o>:call Tools_PreviousCursor(7)<cr>
+noremap <silent><m-2> :tabn 2<cr>
+noremap <silent><m-1> :tabn 1<cr>
+noremap <silent><m-3> :tabn 3<cr>
+noremap <silent><m-4> :tabn 4<cr>

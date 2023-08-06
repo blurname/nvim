@@ -29,7 +29,7 @@ function! ShowDocumentation()
   endif
 endfunction
 
-inoremap <silent><expr> <c-k> coc#refresh()
+inoremap <silent><expr> <c-l> coc#refresh()
 
 " nnoremap <c-p> <c-^>
 
@@ -52,7 +52,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-"imap <c-l> <Plug>(coc-snippets-expand)
+" imap <c-l> <Plug>(coc-snippets-expand)
 
 nnoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
@@ -112,8 +112,8 @@ nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 nnoremap <F2> <Plug>(coc-rename)
 nnoremap <leader>cl  <Plug>(coc-codelens-action)
 
-nnoremap <silent> <c-k> <Plug>(coc-diagnostic-prev)
-nnoremap <silent> <c-J> <Plug>(coc-diagnostic-next)
+nnoremap <silent> [d <Plug>(coc-diagnostic-prev)
+nnoremap <silent> ]d <Plug>(coc-diagnostic-next)
 
 " nmap <leader>qf  <Plug>(coc-fix-current)
 nnoremap  <leader><leader> <plug>(coc-codeaction)

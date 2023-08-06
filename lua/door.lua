@@ -17,11 +17,12 @@ require("harpoon").setup({
         width = 120,
     }
 })
-require("flash").setup()
+-- require("flash").setup()
 require('Comment').setup {
   pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
 }
-require('nvim-highlight-colors').setup {}
+require('nvim-highlight-colors').setup{}
+require('m-tabline')
 
 
 --require("bufferline").setup{}
