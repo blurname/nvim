@@ -131,7 +131,8 @@ noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 noremap sl :set splitright<CR>:vsplit<CR>
 " Press <SPACE> + q to close the window below the current window
 
-noremap <C-w> :q<CR>
+" noremap <C-w> :q<CR>
+
 noremap <c-a> ggVG
 
 "nnoremap <c-n> :%s/

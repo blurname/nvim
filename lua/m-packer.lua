@@ -48,8 +48,7 @@ return packer.startup({
 
     -- statusline
     use {'kyazdani42/nvim-web-devicons'}
-    use {'mg979/tabline.nvim'}
-    -- use {'mg979/vim-xtabline'}
+    use {'blurname/tabline.nvim'}
 
     --coc
     use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile',disable=false}
@@ -116,5 +115,6 @@ return packer.startup({
     -- search
     use {'folke/flash.nvim'}
     use {'nvim-pack/nvim-spectre'}
+    -- use '/home/bl/prjs/tabline.nvim'
 	end
 })
