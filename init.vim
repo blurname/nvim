@@ -71,20 +71,22 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 autocmd FileChangedShellPost *
       \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
+let $VIM_HOME = '/home/bl/.config/nvim'
+
+autocmd! BufWritePost /home/bl/.config/nvim/* source $VIM_HOME/init.vim | execute 'lua require("notify")("reload vimrc")'
+
+command! -nargs=0 Resource source $VIM_HOME/init.vim  | echo 'reload nvimrc'
+source $VIM_HOME/config/coc.vim
+source $VIM_HOME/config/harpoon.vim
+source $VIM_HOME/config/leaderf.vim
+source $VIM_HOME/config/statusline.vim
+
 "set foldmethod=expr
 
 " Save & quit
 noremap s <nop>
 noremap q: <nop>
-autocmd BufWritePost /home/bl/.config/nvim/* source /home/bl/.config/nvim/init.vim | execute 'lua require("notify")("reload vimrc")'
 
-command -nargs=0 Resource source /home/bl/.config/nvim/init.vim  | echo 'reload nvimrc'
-let $VIM_HOME = '/home/bl/.config/nvim'
-" source $VIM_HOME/config/cursor.vim
-source $VIM_HOME/config/coc.vim
-source $VIM_HOME/config/harpoon.vim
-source $VIM_HOME/config/leaderf.vim
-source $VIM_HOME/config/statusline.vim
 " Open the vimrc file anytime
 " let a = stdpath("config")
 
@@ -264,3 +266,4 @@ vmap <leader>c <Plug>OSCYankVisual
 
 " c-i equals tab
 nnoremap <F4> :Spectre<CR>
+
