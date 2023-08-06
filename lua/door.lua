@@ -22,4 +22,7 @@ require('Comment').setup {
   pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
 }
 require('nvim-highlight-colors').setup{}
-require('m-tabline')
+-- require('m-tabline')
+--
+-- test
+require('test/tabline.nvim/lua/tabline/tabline/setup').setup()

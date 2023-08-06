@@ -5,10 +5,11 @@
     default_mappings = false, 
     theme = 'apprentice',
     label_style = 'order',
-    modes = {'auto', 'tabs', 'buffers', 'args'},
+    modes = {'auto','buffers','tabs'},
     mode_badge = { tabs = 'T', buffers = 'B', args = 'A', auto = '' },
     tabs_badge = false,
-    show_button = true
+    show_button = true,
+    overflow_arrows = true
   }
 
   local L = '<leader><leader>'

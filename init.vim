@@ -44,6 +44,7 @@ set foldenable
 set foldcolumn=1
 set foldlevelstart=99
 set foldopen-=hor "this causes horizontal movements (like l, h) to open folds.
+set showtabline=2
 filetype plugin on
 "set winbar=%F
 "set clipboard=unnamedplus
@@ -193,8 +194,12 @@ aug END
 
 " Comment.nvim
 " map <c-_> instead of <c-/>
-nnoremap <c-_> <Plug>(comment_toggle_linewise_current)
 vnoremap <c-_> <Plug>(comment_toggle_linewise_visual)
+nnoremap <c-_> <Plug>(comment_toggle_linewise_current)
+map *  <Plug>(asterisk-z*)<Cmd>lua require('hlslens').start()<CR>
+map #  <Plug>(asterisk-z#)<Cmd>lua require('hlslens').start()<CR>
+map g* <Plug>(asterisk-gz*)<Cmd>lua require('hlslens').start()<CR>
+map g# <Plug>(asterisk-gz#)<Cmd>lua require('hlslens').start()<CR>
 
 "au ModeChanged *:s set clipboard=
 "au ModeChanged s:* set clipboard=unnamedplus
