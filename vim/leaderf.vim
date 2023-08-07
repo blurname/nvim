@@ -89,4 +89,6 @@ let g:Lf_WindowPosition = 'popup'
 noremap <F1> :Leaderf command --run-immediately<CR>
 nnoremap <leader>fi :Leaderf command --run-immediately<CR>
 nnoremap <silent><F3>  :Leaderf rg<CR>
+
+" c-i equals tab
 nnoremap <tab> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
