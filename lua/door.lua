@@ -1,5 +1,4 @@
 ---- mine
-require('close')
 
 ---- plugin
 -- raw

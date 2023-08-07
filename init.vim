@@ -1,4 +1,6 @@
 set termguicolors
+
+
 lua require('m-packer')
 lua require('door')
 " ===
@@ -87,9 +89,6 @@ source $VIM_HOME/vim/statusline.vim
 " Save & quit
 noremap s <nop>
 noremap q: <nop>
-noremap <c-l> <nop>
-noremap <c-h> :Tabline prev 1<CR>
-noremap <c-l> :Tabline next 1<CR>
 
 " Open the vimrc file anytime
 " let a = stdpath("config")

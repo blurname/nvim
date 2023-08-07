@@ -1,4 +1,6 @@
   local tabline = require'tabline.setup'
+  local h = require'tabline.helpers'
+  local k = vim.keymap
 
   -- only use your own mappings
   local settings = {
@@ -29,3 +31,16 @@
   }
   tabline.setup(settings)
   tabline.mappings(mappings)
+
+
+function CloseTabOrBuffer()
+  if h.tabs_mode() then
+    vim.cmd('q')
+  elseif h.buffers_mode() then
+    vim.cmd('bw')
+  end
+end
+
+k.set('n','<c-w>',CloseTabOrBuffer)
+k.set('n','<c-h>',':Tabline prev 1<CR>')
+k.set('n','<c-l>',':Tabline next 1<CR>')
