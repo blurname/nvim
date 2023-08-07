@@ -10,7 +10,7 @@ local settings = {
   theme = 'apprentice',
   label_style = 'order',
   modes = {'tabs','buffers'},
-  mode_badge = { tabs = 'T', buffers = 'B', args = 'A', auto = '' },
+  mode_badge = { tabs = 'Tab', buffers = 'Buf', args = 'A', auto = '' },
   tabs_badge = false,
   show_button = true,
   overflow_arrows = true
@@ -35,14 +35,29 @@ tabline.setup(settings)
 tabline.mappings(mappings)
 
 
-function CloseTabOrBuffer()
+function close_tab_or_buffer()
   if h.tabs_mode() then
     vim.cmd('q')
   elseif h.buffers_mode() then
-    vim.cmd('bw')
+    close_buffer()
   end
 end
 
-k.set('n','<c-w>',CloseTabOrBuffer)
+function close_buffer()
+  -- 获取当前 buffer 列表
+  local buffers = vim.api.nvim_list_bufs()
+  -- 计算实际的 buffer 数量
+  local buffer_count = #buffers
+  -- 如果只有一个 buffer，则不执行关闭操作
+  if buffer_count <= 1 then
+    print("---无法关闭最后一个 buffer")
+    return
+  end
+
+  -- 关闭当前 buffer
+  vim.cmd('bwipeout')
+end
+
+k.set('n','<c-w>',close_tab_or_buffer)
 k.set('n','<c-h>',':Tabline prev 1<CR>')
 k.set('n','<c-l>',':Tabline next 1<CR>')
