@@ -29,7 +29,7 @@ function! ShowDocumentation()
   endif
 endfunction
 
-inoremap <silent><expr> <c-l> coc#refresh()
+inoremap <silent><expr> <c-k> coc#refresh()
 
 " nnoremap <c-p> <c-^>
 
