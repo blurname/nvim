@@ -112,8 +112,8 @@ nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 nnoremap <F2> <Plug>(coc-rename)
 nnoremap <leader>cl  <Plug>(coc-codelens-action)
 
-nnoremap <silent> [d <Plug>(coc-diagnostic-prev)
-nnoremap <silent> ]d <Plug>(coc-diagnostic-next)
+nnoremap <silent> <c-k> <Plug>(coc-diagnostic-prev)
+nnoremap <silent> <c-j> <Plug>(coc-diagnostic-next)
 
 " nmap <leader>qf  <Plug>(coc-fix-current)
 nnoremap  <leader><leader> <plug>(coc-codeaction)
