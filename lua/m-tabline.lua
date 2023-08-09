@@ -6,7 +6,7 @@ vim.o.showtabline = 2
 
 -- only use your own mappings
 local settings = {
-  default_mappings = false, 
+  default_mappings = false,
   theme = 'apprentice',
   label_style = 'order',
   modes = {'tabs','buffers'},
@@ -19,17 +19,7 @@ local settings = {
 -- local L = '<leader><leader>'
 
 local mappings = {
-  ['mode next'] =   'T',   -- change tabline mode
-  -- ['next'] =        '<c-l>',     -- select next buffer/tab
-  -- ['prev'] =        '<c-h>',     -- select previous buffer/tab
-  -- ['tabname'] =     'tN',     -- give a custom label to the current tab
-  -- ['away'] =        L .. 'a', -- move current buffer away from sight (put last)
-  -- ['filtering!'] =  L .. 'f', -- toggle buffer filtering based on cwd
-  -- ['fullpath!'] =   L .. '/', -- toggle showing the paths/basenames
-  -- ['pin!'] =        L .. 'p', -- toggle pin buffer
-  -- ['reopen'] =      L .. 'u', -- reopen closed tab
-  -- ['purge'] =       L .. 'x', -- close anything in the tabpage that isn't a regular buffer
-  -- ['cleanup'] =     L .. 'X', -- delete all buffers that are unrelated to current directories
+  ['mode next'] =   'tt',   -- change tabline mode
 }
 tabline.setup(settings)
 tabline.mappings(mappings)
@@ -46,16 +36,26 @@ end
 function close_buffer()
   -- 获取当前 buffer 列表
   local buffers = vim.api.nvim_list_bufs()
+  local windows = vim.api.nvim_tabpage_list_wins(0)
   -- 计算实际的 buffer 数量
   local buffer_count = #buffers
+  local window_count = #windows
+
   -- 如果只有一个 buffer，则不执行关闭操作
   if buffer_count <= 1 then
     print("---无法关闭最后一个 buffer")
     return
   end
 
+  -- 先看 window 数量，防止同一个 buffer 开多个 window 的情况下，全被删了
+  if window_count >1 then
+    vim.cmd('q')
+    return
+  end
+
   -- 关闭当前 buffer
   vim.cmd('bwipeout')
+
 end
 
 k.set('n','<c-w>',close_tab_or_buffer)
