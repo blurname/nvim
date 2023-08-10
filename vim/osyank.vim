@@ -8,5 +8,5 @@
 " https://github.com/ojroques/vim-oscyank#usage
 autocmd TextYankPost *
     \ if v:event.operator is 'y' |
-    \ execute 'OSCYankRegister +' |
+    \ execute 'OSCYankRegister ""' |
     \ endif
