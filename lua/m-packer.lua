@@ -76,6 +76,7 @@ return packer.startup({
     --use {'TimUntersberger/neogit'}
     use {'kdheepak/lazygit.nvim'}
     --use {'lewis6991/gitsigns.nvim'}
+    use {'sindrets/diffview.nvim'}
 
     --quickfix
     use {'kevinhwang91/nvim-bqf'}
