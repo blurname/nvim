@@ -138,8 +138,15 @@
   "Lua.telemetry.enable": false,
   "sumneko-lua.enableNvimLuaDev": true,
   "sumneko-lua.enable": true,
-  "sumneko-lua.prompt": true,
+  "sumneko-lua.prompt": false,
   "sumneko-lua.checkUpdate": false,
+  "sumneko-lua.serverDir": null,
+    "Lua.misc.parameters": [
+    "--metapath",
+    "~/.cache/sumneko_lua/meta",
+    "--logpath",
+    "~/.cache/sumneko_lua/log"
+  ],
   "git.addGBlameToVirtualText": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.preferences.useAliasesForRenames": true,
