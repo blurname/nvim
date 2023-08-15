@@ -41,6 +41,10 @@ function close_buffer()
   local buffer_count = #buffers
   local window_count = #windows
 
+-- echo bufname()
+-- echo win_findbuf(bufnr('%'))
+  local currentBuf = vim.api.nvim_get_current_buf() -- get current buf
+  local currentWin = vim.api.nvim_get_current_win() -- get current buf
   -- 如果只有一个 buffer，则不执行关闭操作
   if buffer_count <= 1 then
     print("---无法关闭最后一个 buffer")

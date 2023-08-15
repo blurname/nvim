@@ -83,3 +83,7 @@ nnoremap <leader>gg :LazyGit<CR>
 nnoremap <leader>ge :Gedit<CR>
 
 nnoremap <F4> :Spectre<CR>
+
+
+" echo bufname()
+" echo win_findbuf(bufnr('%'))
