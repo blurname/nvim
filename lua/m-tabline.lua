@@ -26,7 +26,9 @@ tabline.mappings(mappings)
 
 
 function close_tab_or_buffer()
-  if h.tabs_mode() then
+  if string.find(vim.fn.bufname(0),'diffview://') then -- adapt to plugin diffview.vim
+    print('In diffview tabpage, using DiffviewClose to close')
+  elseif h.tabs_mode() then
     vim.cmd('q')
   elseif h.buffers_mode() then
     close_buffer()
@@ -34,7 +36,6 @@ function close_tab_or_buffer()
 end
 
 function close_buffer()
-
   -- 先看 window 数量，防止同一个 buffer 开多个 window 的情况下，全被删了
   local currentBufWindowNum = #vim.fn.win_findbuf(vim.fn.winbufnr(0))
 
@@ -42,7 +43,6 @@ function close_buffer()
     vim.cmd('q')
     return
   end
-
   -- 关闭当前 buffer
   vim.cmd('bwipeout')
 

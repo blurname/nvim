@@ -82,8 +82,10 @@ map <leader>3 <Cmd>b #<CR>
 nnoremap <leader>gg :LazyGit<CR>
 nnoremap <leader>ge :Gedit<CR>
 
-" nnoremap <F4> :Spectre<CR>
+nnoremap <leader>gl V \| :'<,'>DiffviewFileHistory<CR>
+nnoremap <leader>gc :DiffviewFileHistory %<CR>
 
-
-" echo bufname()
-" echo win_findbuf(bufnr('%'))
+" switch between current and last
+let g:last_tab = tabpagenr()
+au TabLeave * let g:last_tab = tabpagenr()
+nnoremap <silent><leader><tab> :execute "tabnext " . g:last_tab<cr>
