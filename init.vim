@@ -49,7 +49,7 @@ filetype plugin on
 " set clipboard=unnamedplus
 "set cmdheight=0
 "colorscheme everforest
-colorscheme catppuccin-frappe
+colorscheme nordfox
 "let g:everforest_background = 'hard'
 
 " Save & quit
@@ -82,7 +82,7 @@ map <leader>3 <Cmd>b #<CR>
 nnoremap <leader>gg :LazyGit<CR>
 nnoremap <leader>ge :Gedit<CR>
 
-nnoremap <F4> :Spectre<CR>
+" nnoremap <F4> :Spectre<CR>
 
 
 " echo bufname()

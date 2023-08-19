@@ -49,8 +49,8 @@ let g:Lf_NormalMap = {
       \}
 "let g:Lf_CommandMap = {'<A-f>': ['<C-Down>'],'<A-b>':['<C-Up>']}
 
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg --right --stayOpen -e %s ", expand("<cword>"))<CR><CR>
-vnoremap ff :<C-U><C-R>=printf("Leaderf! rg --right --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
+" noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg --right --stayOpen -e %s ", expand("<cword>"))<CR><CR>
+" vnoremap ff :<C-U><C-R>=printf("Leaderf! rg --right --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
 nnoremap <leader>f; :Leaderf! cmdHistory<CR>
 nnoremap <leader>r :Leaderf --recall<CR>
 nnoremap <leader>b :Leaderf! buffer<CR>
