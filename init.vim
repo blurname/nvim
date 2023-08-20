@@ -84,6 +84,7 @@ nnoremap <leader>ge :Gedit<CR>
 
 nnoremap <leader>gl V \| :'<,'>DiffviewFileHistory<CR>
 nnoremap <leader>gc :DiffviewFileHistory %<CR>
+command! DiffviewHead :DiffviewOpen HEAD~1<CR>
 
 " switch between current and last
 let g:last_tab = tabpagenr()
