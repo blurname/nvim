@@ -91,8 +91,8 @@ nmap gu  :CocCommand git.chunkUndo<CR>
 nmap gc <Plug>(coc-git-commit)
 nnoremap <silent> <leader>gs :<C-u>CocList --normal --no-quit --auto-preview gstatus<CR>
 command! FoldGit :CocCommand git.foldUnchanged
-nnoremap <silent> <leader>j  :<C-u>CocNext<CR>
-nnoremap <silent> <leader>k  :<C-u>CocPrev<CR>
+" nnoremap <silent> <leader>j  :<C-u>CocNext<CR>
+" nnoremap <silent> <leader>k  :<C-u>CocPrev<CR>
 " nnoremap <silent><nowait> <space>l  :<C-u>CocListResume<cr>
 " 模糊搜索
 "nnoremap <silent> <F3>  :<C-u>CocList --ignore-case --interactive grep<CR> 

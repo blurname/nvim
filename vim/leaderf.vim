@@ -45,7 +45,8 @@ let g:Lf_NormalMap = {
       \ "Help":   [],
       \ "Self":   [],
       \ "Colorscheme": [],
-      \ "Rg" : [["<ESC>", ':exec g:Lf_py "rgExplManager.quit()"<CR>']] 
+      \ "Rg" : [["<ESC>", ':exec g:Lf_py "rgExplManager.quit()"<CR>']] ,
+      \ "Jumps" : [["<ESC>", ':exec g:Lf_py "jumpsExplManager.quit()"<CR>']] ,
       \}
 "let g:Lf_CommandMap = {'<A-f>': ['<C-Down>'],'<A-b>':['<C-Up>']}
 
@@ -54,6 +55,8 @@ let g:Lf_NormalMap = {
 nnoremap <leader>f; :Leaderf! cmdHistory<CR>
 nnoremap <leader>r :Leaderf --recall<CR>
 nnoremap <leader>b :Leaderf! buffer<CR>
+nnoremap <leader>j :Telescope jumplist initial_mode='normal'<CR>
+nnoremap <leader>fh :Telescope help_tags<CR>
 " noremap <c-j> :Leaderf --next<CR>
 " noremap <c-k> :Leaderf --previous<CR>
 nnoremap <silent> <leader>fs :Leaderf gstatus<CR>
@@ -61,7 +64,7 @@ nnoremap <silent> <leader>fs :Leaderf gstatus<CR>
 "noremap <leader>fw :Leaderf rg -L -S 
 " command! -nargs=1 Search :Leaderf! --stayOpen --right rg -F -e 
 command! -nargs=0 ListPackgeJson :Leaderf! file --input package.json
-command! -nargs=0 Gs :GFiles?
+" command! -nargs=0 Gs :GFiles?
     let g:Lf_PreviewResult = {
             \ 'File': 0,
             \ 'Buffer': 1,

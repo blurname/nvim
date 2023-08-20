@@ -59,6 +59,18 @@ return packer.startup({
     -- fuzzy file finder
     use {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'}
     use {'linjiX/LeaderF-git'}
+    use {
+      'nvim-telescope/telescope.nvim', tag = '0.1.2',
+      -- or                            , branch = '0.1.x',
+      requires = { {'nvim-lua/plenary.nvim'} }
+    }
+    use {
+      'paopaol/telescope-git-diffs.nvim',
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "sindrets/diffview.nvim",
+      },
+    }
 
     -- change surrounding symbol
     use {'machakann/vim-sandwich'}

@@ -79,13 +79,6 @@ nnoremap <c-_> <Plug>(comment_toggle_linewise_current)
 "au ModeChanged s:* set clipboard=unnamedplus
 map <leader>3 <Cmd>b #<CR>
 
-nnoremap <leader>gg :LazyGit<CR>
-nnoremap <leader>ge :Gedit<CR>
-
-nnoremap <leader>gl V \| :'<,'>DiffviewFileHistory<CR>
-nnoremap <leader>gc :DiffviewFileHistory %<CR>
-command! DiffviewHead :DiffviewOpen HEAD~1<CR>
-
 " switch between current and last
 let g:last_tab = tabpagenr()
 au TabLeave * let g:last_tab = tabpagenr()
