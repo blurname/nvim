@@ -64,13 +64,13 @@ return packer.startup({
       -- or                            , branch = '0.1.x',
       requires = { {'nvim-lua/plenary.nvim'} }
     }
-    use {
-      'paopaol/telescope-git-diffs.nvim',
-      requires = {
-        "nvim-lua/plenary.nvim",
-        "sindrets/diffview.nvim",
-      },
-    }
+    -- use {
+      -- 'paopaol/telescope-git-diffs.nvim',
+      -- requires = {
+      --   "nvim-lua/plenary.nvim",
+      --   "sindrets/diffview.nvim",
+      -- },
+    -- }
 
     -- change surrounding symbol
     use {'machakann/vim-sandwich'}
@@ -131,5 +131,6 @@ return packer.startup({
     -- use {'nvim-pack/nvim-spectre'}
     -- use '/home/bl/prjs/tabline.nvim'
     use '/home/bl/prjs/nvim-spectre'
+    use '/home/bl/prjs/telescope-git-diffs.nvim'
 	end
 })

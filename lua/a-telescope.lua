@@ -20,5 +20,10 @@ require('telescope').setup({
       }
     }
   },
+  extensions = {
+    git_diffs = {
+      git_command = { "git","log","--oneline","--date=short"}
+      -- git_command = { "git","log","--oneline"}
+    }
+  }
 })
-require('telescope').load_extension('git_diffs')
