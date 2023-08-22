@@ -128,7 +128,8 @@ return packer.startup({
 
     -- search
     use {'folke/flash.nvim'}
-    use {'nvim-pack/nvim-spectre'}
+    -- use {'nvim-pack/nvim-spectre'}
     -- use '/home/bl/prjs/tabline.nvim'
+    use '/home/bl/prjs/nvim-spectre'
 	end
 })
