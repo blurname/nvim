@@ -2,7 +2,7 @@
 
 ---- plugin
 -- raw
-require('fFHighlight').setup()
+-- require('fFHighlight').setup()
 require('hlslens').setup()
 -- require('keymap')
 require('config')
@@ -21,8 +21,16 @@ require("harpoon").setup({
         width = 120,
     }
 })
--- require("flash").setup()
+require("flash").setup({
+  modes = {
+    char = {
+      keys = { "f", "F", ";", "," },
+    }
+  }
+})
 require('nvim-highlight-colors').setup{}
 require('m-tabline')
 require('a-spectre')
 require('a-telescope')
+
+

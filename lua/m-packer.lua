@@ -27,7 +27,7 @@ return packer.startup({
     use {'JoosepAlviste/nvim-ts-context-commentstring'}
 
     -- imporve f action
-    use {'kevinhwang91/nvim-fFHighlight',opt = false}
+    -- use {'kevinhwang91/nvim-fFHighlight',opt = false}
 
     -- asyncSeries
     use {'skywind3000/vim-terminal-help'}
