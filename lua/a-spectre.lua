@@ -18,7 +18,7 @@ require('spectre').setup({
 })
 
 -- 1wincmd l
-vim.keymap.set('n', '<leader>ff', '<cmd>lua require("spectre").toggle({path="*/**/**",is_insert_mode=true})<CR>', {
+vim.keymap.set('n', '<F4>', '<cmd>lua require("spectre").toggle({path="*/**/**",is_insert_mode=true})<CR>', {
     desc = "Toggle Spectre"
 })
 vim.keymap.set('n', '<c-f>', '<cmd>lua require("spectre").open_visual({select_word=true,path="*/**/**",begin_line_num=10})<CR>', {

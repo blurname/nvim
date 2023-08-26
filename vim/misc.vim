@@ -1,8 +1,8 @@
 
 " get file path releated
-command! BlGetFilePathRelative :let @" = expand("%")
-command! BlGetFilePathLine     :let @" = expand("%") . ':' . line(".")
-command! BlGetFilePathAbsolute :let @" = expand("%:p")
+command! GetFilePathRelative :let @" = expand("%")
+command! GetFilePathLine     :let @" = expand("%") . ':' . line(".")
+command! GetFilePathAbsolute :let @" = expand("%:p")
 
 command! Bda silent! execute "%bd|e#|bd#"
 
@@ -40,6 +40,12 @@ noremap <silent><M-u> :call Tools_PreviousCursor(6)<cr>
 noremap <silent><M-d> :call Tools_PreviousCursor(7)<cr>
 inoremap <silent><M-u> <c-\><c-o>:call Tools_PreviousCursor(6)<cr>
 inoremap <silent><M-d> <c-\><c-o>:call Tools_PreviousCursor(7)<cr>
+
+noremap <silent><M-up> :call Tools_PreviousCursor(6)<cr>
+noremap <silent><M-down> :call Tools_PreviousCursor(7)<cr>
+inoremap <silent><M-up> <c-\><c-o>:call Tools_PreviousCursor(6)<cr>
+inoremap <silent><M-down> <c-\><c-o>:call Tools_PreviousCursor(7)<cr>
+
 noremap <silent><m-2> :tabn 2<cr>
 noremap <silent><m-1> :tabn 1<cr>
 noremap <silent><m-3> :tabn 3<cr>
@@ -59,5 +65,18 @@ noremap L $
 " Copy to system clipboard
 vnoremap <LEADER>y "+y
 noremap <LEADER>p "+p
+
+function! JumpToFileAndLine(file_and_line)
+    " 拆分文件名和行号
+    let parts = split(a:file_and_line, ':')
+    let file = parts[0]
+    let line = parts[1]
+
+    " 打开文件并跳转到指定行
+    execute 'e ' . fnameescape(file) | execute 'normal! ' . line . 'G'
+endfunction
+
+" 定义命令来调用函数
+command! -nargs=1 JumpTo call JumpToFileAndLine(<f-args>)
 
 " nnoremap ss viw:%s/<C-R>"//g<Left><Left>
