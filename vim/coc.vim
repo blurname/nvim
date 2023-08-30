@@ -83,12 +83,14 @@ nnoremap <silent><nowait> <space>l  :<C-u>CocListResume<cr>
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+nmap <expr> gk  &diff ? '[c' : <Plug>(coc-git-prevchunk)
+nmap <expr> gj  &diff ? ']c' : <Plug>(coc-git-nextchunk)
 nmap gk <Plug>(coc-git-prevchunk)
 nmap gj <Plug>(coc-git-nextchunk)
 nmap gs <Plug>(coc-git-chunkinfo)
 nmap gu  :CocCommand git.chunkUndo<CR>
 " show commit contains current position
-nmap gc <Plug>(coc-git-commit)
+" nmap gc <Plug>(coc-git-commit)
 nnoremap <silent> <leader>gs :<C-u>CocList --normal --no-quit --auto-preview gstatus<CR>
 command! FoldGit :CocCommand git.foldUnchanged
 " nnoremap <silent> <leader>j  :<C-u>CocNext<CR>
