@@ -55,7 +55,7 @@ let g:Lf_NormalMap = {
 nnoremap <leader>f; :Leaderf! cmdHistory<CR>
 nnoremap <leader>r :Leaderf --recall<CR>
 nnoremap <leader>b :Leaderf! buffer<CR>
-nnoremap <leader>j :Telescope jumplist initial_mode='normal'<CR>
+nnoremap <leader>j :Telescope jumplist initial_mode=normal<CR>
 nnoremap <leader>fh :Telescope help_tags<CR>
 " noremap <c-j> :Leaderf --next<CR>
 " noremap <c-k> :Leaderf --previous<CR>
@@ -66,9 +66,9 @@ nnoremap <silent> <leader>fs :Leaderf gstatus<CR>
 command! -nargs=0 ListPackgeJson :Leaderf! file --input package.json
 " command! -nargs=0 Gs :GFiles?
     let g:Lf_PreviewResult = {
-            \ 'File': 0,
+            \ 'File': 1,
             \ 'Buffer': 1,
-            \ 'Mru': 0,
+            \ 'Mru': 1,
             \ 'Tag': 0,
             \ 'BufTag': 0,
             \ 'Function': 0,
@@ -78,7 +78,7 @@ command! -nargs=0 ListPackgeJson :Leaderf! file --input package.json
             \ 'Gtags': 0
             \}
 "let g:Lf_PreviewHorizontalPosition = 'right'
-let g:Lf_PopupPreviewPosition = 'top'
+" let g:Lf_PopupPreviewPosition = 'top'
 "let g:Lf_PreviewPosition = 'topright'
 let s:WindowHeight = 0.5
 "let s:PositionLine = float2nr(&lines * (1 - s:WindowHeight))
@@ -86,6 +86,7 @@ let s:WindowHeight = 0.5
 
 let g:Lf_WindowHeight = s:WindowHeight
 let g:Lf_WindowPosition = 'popup'
+let g:Lf_PopupWidth = 0.3
 "let g:Lf_PopupHeight = s:WindowHeight
 "let g:Lf_PopupPosition = [s:PositionLine, s:PositionCol]
 
@@ -94,4 +95,4 @@ nnoremap <leader>fi :Leaderf command --run-immediately<CR>
 nnoremap <silent><F3>  :Leaderf rg<CR>
 
 " c-i equals tab
-nnoremap <tab> :<C-U><C-R>=printf("Leaderf mru --cwd %s", "")<CR><CR>
+nnoremap <tab> :<C-U><C-R>=printf("Leaderf! mru --cwd %s", "")<CR><CR>

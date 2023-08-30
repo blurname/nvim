@@ -3,7 +3,16 @@ require('telescope').setup({
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
-    layout_strategy = 'center',
+    layout_strategy = 'horizontal',
+    layout_config = {
+      horizontal = {
+        -- width = 0.6,
+        width = 0.6,
+        height = 0.8,
+        preview_width = 0.5,
+        prompt_position = 'top'
+      },
+    },
     sorting_strategy = 'ascending',
     scroll_strategy = 'limit',
     mappings = {
