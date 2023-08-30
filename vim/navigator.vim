@@ -1,44 +1,36 @@
 
 " initialize global keymap and declare prefix key
 let g:navigator = {'prefix':'<LEADER><i>'}
-nnoremap <silent><LEADER>; :Navigator g:navigator<cr>
-
-" buffer management
-let g:navigator.b = {
-            \ 'name' : '+buffer' ,
-            \ '1' : [':b1'        , 'buffer 1']        ,
-            \ '2' : [':b2'        , 'buffer 2']        ,
-            \ 'd' : [':bd'        , 'delete-buffer']   ,
-            \ 'f' : [':bfirst'    , 'first-buffer']    ,
-            \ 'h' : [':Startify'  , 'home-buffer']     ,
-            \ 'l' : [':blast'     , 'last-buffer']     ,
-            \ 'n' : [':bnext'     , 'next-buffer']     ,
-            \ 'p' : [':bprevious' , 'previous-buffer'] ,
-            \ '?' : [':Leaderf buffer'   , 'fzf-buffer'],
-            \ }
-
-" tab management
-let g:navigator.t = {
-            \ 'name': '+tab',
-            \ '1' : ['<key>1gt', 'tab-1'],
-            \ '2' : ['<key>2gt', 'tab-2'],
-            \ '3' : ['<key>3gt', 'tab-3'],
-            \ 'c' : [':tabnew', 'new-tab'],
-            \ 'q' : [':tabclose', 'close-current-tab'],
-            \ 'n' : [':tabnext', 'next-tab'],
-            \ 'p' : [':tabprev', 'previous-tab'],
-            \ 'o' : [':tabonly', 'close-all-other-tabs'],
-            \ }
+let g:navigator_popup = 1
+let g:navigator_popup_position = 'bottom'
+let g:navigator_popup_border = 0
+nnoremap <silent><leader>i :Navigator g:navigator<cr>
 
 let g:navigator.p = {
             \ 'name': '+path',
-            \ '1' : [':BlGetFilePathRelative','1'],
-            \ '2' : [':BlGetFilePathLine','2'],
-            \ '3' : [':BlGetFilePathAbsolute','3'],
+            \ '1' : [':BlGetFilePathRelative','GetFilePathRelative'],
+            \ '2' : [':BlGetFilePathLine','GetFilePathLine'],
+            \ '3' : [':BlGetFilePathAbsolute','GetFilePathAbsolute'],
             \ }
 
 let g:navigator.f = {
             \ 'name': '+leaderf',
             \ '1' : [':Leaderf! rg --recall','rg recall'],
             \ '2' : [':Leaderf! file --recall','file recall'],
+            \ }
+
+let g:navigator.g = {
+            \ 'name': '+git',
+            \ 'c' : [':DiffviewClose','diff close'],
+            \ 'h' : [':DiffviewHead','diff head'],
+            \ 'o' : [':DiffviewOpen','diff current changes'],
+            \ '1' : [':DiffviewFileHistory','diff log branch'],
+            \ '2' : [':DiffviewFileHistory %','diff log file'],
+            \ 'f' : [':Flog','flog'],
+            \ }
+
+let g:navigator.c = {
+            \ 'name': '+coc',
+            \ 'd' : [':CocDisable','coc disable'],
+            \ 'e' : [':CocEnable','coc enable'],
             \ }
