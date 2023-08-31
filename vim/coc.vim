@@ -158,3 +158,12 @@ endfunction
 nmap <silent> <C-e> <Plug>(coc-range-select)
 xmap <silent> <C-e> <Plug>(coc-range-select)
 
+function! ToggleQuickFix()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+        copen
+    else
+        cclose
+    endif
+endfunction
+
+nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>

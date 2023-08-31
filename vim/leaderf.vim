@@ -59,7 +59,7 @@ nnoremap <leader>j :Telescope jumplist initial_mode=normal<CR>
 nnoremap <leader>fh :Telescope help_tags<CR>
 " noremap <c-j> :Leaderf --next<CR>
 " noremap <c-k> :Leaderf --previous<CR>
-nnoremap <silent> <leader>fs :Leaderf gstatus<CR>
+nnoremap <silent> <leader>fs :Telescope git_status initial_mode=normal<CR>
 "noremap <leader>fw :Leaderf! --stayOpen --right rg -F -e
 "noremap <leader>fw :Leaderf rg -L -S 
 " command! -nargs=1 Search :Leaderf! --stayOpen --right rg -F -e 
