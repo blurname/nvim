@@ -49,7 +49,7 @@ return packer.startup({
 
     -- statusline
     use {'kyazdani42/nvim-web-devicons'}
-    use {'blurname/tabline.nvim'}
+    -- use {'blurname/tabline.nvim'}
 
     --coc
     use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile',disable=false}
@@ -58,7 +58,7 @@ return packer.startup({
     use {'tweekmonster/startuptime.vim', cmd = 'StartupTime',opt=true}
     -- fuzzy file finder
     use {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'}
-    use {'linjiX/LeaderF-git'}
+    -- use {'linjiX/LeaderF-git'}
     use {
       'nvim-telescope/telescope.nvim', tag = '0.1.2',
       -- or                            , branch = '0.1.x',
@@ -124,7 +124,7 @@ return packer.startup({
     -- copy between local & remote
     use {'ojroques/vim-oscyank'}
 
-    use {'rcarriga/nvim-notify'}
+    -- use {'rcarriga/nvim-notify'}
 
     -- search
     use {'folke/flash.nvim'}
