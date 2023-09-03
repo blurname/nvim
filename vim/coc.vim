@@ -81,7 +81,7 @@ nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent><nowait> <space>l  :<C-u>CocListResume<cr>
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nmap <expr> gk  &diff ? '[c' : <Plug>(coc-git-prevchunk)
 nmap <expr> gj  &diff ? ']c' : <Plug>(coc-git-nextchunk)

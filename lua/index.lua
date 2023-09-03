@@ -4,7 +4,6 @@
 -- raw
 -- require('fFHighlight').setup()
 require('hlslens').setup()
--- require('keymap')
 require('config')
 
 -- config patch
@@ -25,7 +24,14 @@ require("flash").setup({
   modes = {
     char = {
       keys = { "f", "F", ";", "," },
-    }
+      jump_labels = true,
+      char_actions = function(motion)
+        return {
+          [";"] = "next", -- set to `right` to always go right
+          [","] = "prev", -- set to `left` to always go left
+        }
+      end
+    },
   }
 })
 require('nvim-highlight-colors').setup{}
