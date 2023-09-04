@@ -60,7 +60,7 @@ noremap <m-up> :m -2<CR>
 " move key
 noremap W 5w
 noremap B 5b
-noremap H 0
+noremap H ^
 noremap L $
 " Copy to system clipboard
 vnoremap <LEADER>y "+y
