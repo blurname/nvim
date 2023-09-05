@@ -83,3 +83,5 @@ map <leader>3 <Cmd>b #<CR>
 let g:last_tab = tabpagenr()
 au TabLeave * let g:last_tab = tabpagenr()
 nnoremap <silent><leader><tab> :execute "tabnext " . g:last_tab<cr>
+" TODO: bl:
+command! -nargs=0 TODO execute 'silent! cexpr systemlist("rg \"TODO: bl:\" --vimgrep")' | copen
