@@ -22,6 +22,9 @@ require("harpoon").setup({
 })
 require("flash").setup({
   modes = {
+    search = {
+      enabled = false
+    },
     char = {
       keys = { "f", "F", ";", "," },
       jump_labels = true,
