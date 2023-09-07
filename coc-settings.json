@@ -13,8 +13,7 @@
   "suggest.floatConfig": {
     "border": false,
     "highlight": "CocFloating",
-    "borderhighlight": "CocFloating",
-    "winblend": 8
+    "borderhighlight": "CocFloating"
   },
   "semanticTokens.enable": true,
   "suggest.noselect": false,

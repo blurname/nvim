@@ -87,7 +87,7 @@ nmap <expr> gk  &diff ? '[c' : <Plug>(coc-git-prevchunk)
 nmap <expr> gj  &diff ? ']c' : <Plug>(coc-git-nextchunk)
 nmap gk <Plug>(coc-git-prevchunk)
 nmap gj <Plug>(coc-git-nextchunk)
-nmap gs <Plug>(coc-git-chunkinfo)
+" nmap gs <Plug>(coc-git-chunkinfo)
 nmap gu  :CocCommand git.chunkUndo<CR>
 " show commit contains current position
 " nmap gc <Plug>(coc-git-commit)
@@ -107,8 +107,8 @@ command! FoldGit :CocCommand git.foldUnchanged
 " yank
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
-"noremap <C-F> :Grepper -noprompt -tool rg -cword<CR><CR>
-"nnoremap <silent> <c-f>  :exe 'CocList -I --normal --auto-preview --input='.expand('<cword>').' grep'<CR>
+noremap <C-F> :Grepper -noprompt -tool rg -cword<CR><CR>
+" nnoremap <silent> <c-f>  :exe 'CocList -I --normal --auto-preview --input='.expand('<cword>').' grep'<CR>
 
 "noremap <F1> :Commands<CR>
 
@@ -128,7 +128,7 @@ nnoremap <silent> <c-j> <Plug>(coc-diagnostic-next)
 nnoremap  <leader><leader> <plug>(coc-codeaction)
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Show all diagnostics.
 " filetree
 

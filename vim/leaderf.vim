@@ -45,10 +45,12 @@ let g:Lf_NormalMap = {
       \ "Help":   [],
       \ "Self":   [],
       \ "Colorscheme": [],
-      \ "Rg" : [["<ESC>", ':exec g:Lf_py "rgExplManager.quit()"<CR>']] ,
+      \ "Rg" : [ ["<ESC>", ':exec g:Lf_py "rgExplManager.quit()"<CR>'],
+      \        ["<c-q>", ':exec g:Lf_py "rgExplManager.outputToQflist()"<CR>'] 
+      \        ] ,
       \ "Jumps" : [["<ESC>", ':exec g:Lf_py "jumpsExplManager.quit()"<CR>']] ,
       \}
-"let g:Lf_CommandMap = {'<A-f>': ['<C-Down>'],'<A-b>':['<C-Up>']}
+" let g:Lf_CommandMap = {'<c-q>': ['echo "123"'] }
 
 " noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg --right --stayOpen -e %s ", expand("<cword>"))<CR><CR>
 " vnoremap ff :<C-U><C-R>=printf("Leaderf! rg --right --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
