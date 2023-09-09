@@ -5,6 +5,7 @@ let g:navigator_popup = 1
 let g:navigator_popup_position = 'bottom'
 let g:navigator_popup_border = 0
 nnoremap <silent><leader>i :Navigator g:navigator<cr>
+xnoremap <silent><leader>i :Navigator g:navigator<cr>
 
 let g:navigator.p = {
             \ 'name': '+path',

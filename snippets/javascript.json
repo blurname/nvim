@@ -520,7 +520,7 @@
   },
   "textComment":{
     "prefix": "cm",
-    "body": ["/*\n  * ${1}\n*/"]
+    "body": ["/**\n  * ${1}\n**/"]
   },
   "styled-conponent" :{
     "prefix": "sp",
