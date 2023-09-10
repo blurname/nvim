@@ -65,7 +65,7 @@ vim.o.qftf = '{info -> v:lua._G.qftf(info)}'
 
 require('bqf').setup({
     auto_enable = true,
-    auto_resize_height = true, -- highly recommended enable
+    auto_resize_height = false, -- highly recommended enable
     preview = {
         winblend = 0,
         win_height = 12,

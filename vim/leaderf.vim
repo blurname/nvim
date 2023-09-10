@@ -82,19 +82,20 @@ command! -nargs=0 ListPackgeJson :Leaderf! file --input package.json
 "let g:Lf_PreviewHorizontalPosition = 'right'
 " let g:Lf_PopupPreviewPosition = 'top'
 "let g:Lf_PreviewPosition = 'topright'
-let s:WindowHeight = 0.5
+" let s:WindowHeight = 0.5
 "let s:PositionLine = float2nr(&lines * (1 - s:WindowHeight))
 "let s:PositionCol = 50
 
-let g:Lf_WindowHeight = s:WindowHeight
+" let g:Lf_WindowHeight = s:WindowHeight
 let g:Lf_WindowPosition = 'popup'
-let g:Lf_PopupWidth = 0.3
+" let g:Lf_PopupWidth = 0.3
 "let g:Lf_PopupHeight = s:WindowHeight
 "let g:Lf_PopupPosition = [s:PositionLine, s:PositionCol]
 
 noremap <F1> :Leaderf command --run-immediately<CR>
 nnoremap <leader>fi :Leaderf command --run-immediately<CR>
 nnoremap <silent><F3>  :Leaderf rg<CR>
+let g:Lf_PopupPreviewPosition = 'top'
 
 " c-i equals tab
 nnoremap <tab> :<C-U><C-R>=printf("Leaderf! mru --cwd %s", "")<CR><CR>

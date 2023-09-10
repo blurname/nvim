@@ -50,5 +50,5 @@ end
 -- end
 
 k.set('n','<c-w>',close_tab_or_buffer)
-k.set('n','<c-h>',':tabnext<CR>')
-k.set('n','<c-l>',':tabprevious<CR>')
+k.set('n','<c-l>',':tabnext<CR>')
+k.set('n','<c-h>',':tabprevious<CR>')
