@@ -105,9 +105,11 @@ command! FoldGit :CocCommand git.foldUnchanged
 " mru
 "nnoremap <silent> <space><space>  :<C-u>CocList mru<CR> 
 " yank
-nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
+nmap <silent> <c-y> :<C-u>CocList -A --normal yank<cr>
+imap <silent> <c-y> :<C-u>CocList -A --normal yank<cr>
 
-noremap <C-F> :Grepper -noprompt -tool rg -cword<CR><CR>
+nmap <C-F> :Grepper -noprompt -tool rg -cword<CR><CR>
+" xmap <c-f> :Grepper -noprompt -tool rg -cword<CR><CR>
 " nnoremap <silent> <c-f>  :exe 'CocList -I --normal --auto-preview --input='.expand('<cword>').' grep'<CR>
 
 "noremap <F1> :Commands<CR>
@@ -139,7 +141,7 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 "nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
 
-"vnoremap ff :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
+" vnoremap <c-f> :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 function! s:GrepFromSelected(type)
   let saved_unnamed_register = @@
   if a:type ==# 'v'

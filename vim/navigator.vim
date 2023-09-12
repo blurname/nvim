@@ -27,7 +27,7 @@ let g:navigator.g = {
             \ 'c' : [':DiffviewClose','diff close'],
             \ 'h' : [':DiffviewHead','diff head'],
             \ 'o' : [':DiffviewOpen','diff current changes'],
-            \ '1' : [':DiffviewFileHistory','diff log branch'],
+            \ 'l' : [':DiffviewFileHistory','diff log branch'],
             \ '2' : [':DiffviewFileHistory %','diff log file'],
             \ 'f' : [':Flog','flog'],
             \ }
