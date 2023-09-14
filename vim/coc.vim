@@ -77,9 +77,9 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent><nowait> <space>l  :<C-u>CocListResume<cr>
+" nnoremap <silent><nowait> <space>l  :<C-u>CocListResume<cr>
 " Highlight the symbol and its references when holding the cursor.
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 
@@ -169,3 +169,28 @@ function! ToggleQuickFix()
 endfunction
 
 nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>
+nnoremap <silent><nowait> <leader>l  :<C-u>CocOutline<cr>
+autocmd VimEnter,Tabnew *
+      \ if empty(&buftype) | call CocActionAsync('showOutline', 1) | endif
+
+autocmd BufEnter * call CheckOutline()
+function! CheckOutline() abort
+  if &filetype ==# 'coctree' && winnr('$') == 1
+    if tabpagenr('$') != 1
+      close
+    else
+      bdelete
+    endif
+  endif
+endfunction
+
+nnoremap <silent><nowait> <c-]>  :call ToggleOutline()<CR>
+function! ToggleOutline() abort
+  let winid = coc#window#find('cocViewId', 'OUTLINE')
+  if winid == -1
+    call CocActionAsync('showOutline', 1)
+  else
+    call coc#window#close(winid)
+  endif
+endfunction
+

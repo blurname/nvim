@@ -154,5 +154,11 @@
   "list.source.files.defaultOptions": ["--number-select", "--no-quit"],
   "list.source.grep.args": ["--smart-case"],
   "list.floatPreview": false,
-  "tsserver.useLocalTsdk": true
+  "tsserver.useLocalTsdk": true,
+  "outline.followCursor": true,
+  "outline.sortBy": "position",
+  "outline.keepWindow": false,
+  "outline.autoPreview": true,
+  "outline.expandLevel": 1,
+  "tree.key.close": ""
 }

@@ -99,3 +99,4 @@ let g:Lf_PopupPreviewPosition = 'top'
 
 " c-i equals tab
 nnoremap <tab> :<C-U><C-R>=printf("Leaderf! mru --cwd %s", "")<CR><CR>
+let g:Lf_MruEnableFrecency = 1
