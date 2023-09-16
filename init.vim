@@ -143,10 +143,10 @@ function! NpmRun()
         let command = 'npm run '.line[start_quote + 1 : end_quote - 1]
         let job = jobstart(command, {'on_stdout': 'HandleOutput'})
         call chansend(job, '')
-        call setqflist([], 'r')
+        call setloclist(0,[], 'r')
 
         if empty(filter(getwininfo(), 'v:val.quickfix'))
-            copen
+            lopen
             execute "normal! G" | call feedkeys("\<CR>")
         endif
 
@@ -159,10 +159,10 @@ function! HandleOutput(job_id, data, event)
     if a:event == 'stdout'
         let text = join(a:data, "\n")
         " call setqflist(map(a:data, '{"text": v:val}'), 'a')
-        call setqflist([], 'a',{'lines':a:data})
+        call setloclist(0,[], 'a',{'lines':a:data})
         " 检查 Quickfix 窗口是否已经打开，如果没有则打开它
-        if empty(filter(getwininfo(), 'v:val.quickfix'))
-          copen
+        if empty(filter(getwininfo(), 'v:val.loclist'))
+          lopen
         endif
         execute "normal! G" | call feedkeys("\<CR>")
     endif
