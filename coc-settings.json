@@ -1,20 +1,5 @@
 {
   "hover.target": "float",
-  "hover.floatConfig": {
-    "border": false,
-    "highlight": "CocFloating",
-    "borderhighlight": "CocFloating"
-  },
-  "diagnostic.floatConfig": {
-    "border": false,
-    "highlight": "CocFloating",
-    "borderhighlight": "CocFloating"
-  },
-  "suggest.floatConfig": {
-    "border": false,
-    "highlight": "CocFloating",
-    "borderhighlight": "CocFloating"
-  },
   "semanticTokens.enable": true,
   "suggest.noselect": false,
   "suggest.enablePreselect": true,
@@ -22,33 +7,8 @@
   "suggest.autoTrigger": "always",
   "suggest.timeout": 500,
   "suggest.virtualText": true,
-  "suggest.completionItemKindLabels": {
-    "keyword": "key",
-    "variable": "var",
-    "value": "值",
-    "operator": "Ψ",
-    "constructor": "",
-    "function": "fn",
-    "reference": "ref",
-    "constant": "con",
-    "method": "fn",
-    "struct": "struct",
-    "class": "类",
-    "interface": "接口",
-    "text": "text",
-    "enum": "enum",
-    "enumMember": "",
-    "module": "模块",
-    "color": "",
-    "property": "prop",
-    "field": "prop",
-    "unit": "",
-    "event": "e",
-    "file": "文件",
-    "folder": "",
-    "snippet": "",
-    "typeParameter": "type",
-    "default": "*"
+  "suggest.floatConfig": {
+    "winblend": 1
   },
   "diagnostic.errorSign": "",
   "diagnostic.warningSign": "",
@@ -146,7 +106,10 @@
     "--logpath",
     "~/.cache/sumneko_lua/log"
   ],
+
   "git.addGBlameToVirtualText": false,
+  "git.blameUseRealTime": false,
+
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.preferences.useAliasesForRenames": true,
   "typescript.preferences.jsxAttributeCompletionStyle": "none", 
@@ -155,6 +118,7 @@
   "list.source.grep.args": ["--smart-case"],
   "list.floatPreview": false,
   "tsserver.useLocalTsdk": true,
+
   "outline.followCursor": false,
   "outline.sortBy": "position",
   "outline.keepWindow": false,
