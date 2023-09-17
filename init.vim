@@ -97,27 +97,6 @@ command! -nargs=0 TODO execute 'silent! cexpr systemlist("rg \"TODO: bl:\" --vim
 "         echo "No command found within double quotes on the current line."
 "     endif
 " endfunction
-function! NpmRun()
-    let line = getline('.')
-    let start_quote = match(line, '"')
-    let end_quote = match(line, '"', start_quote + 1)
-    if start_quote != -1 && end_quote != -1 && start_quote < end_quote
-        let command = 'npm run '.line[start_quote + 1 : end_quote - 1]
-        let job = job_start(command, {'on_stdout': 'HandleOutput'})
-        call job_send(job, '')
-    else
-        echo "No command found within double quotes on the current line."
-    endif
-endfunction
-
-function! HandleOutput(job_id, data, event)
-    if a:event == 'stdout'
-        let text = join(a:data, "\n")
-        call setloclist(0, [], 'r')
-        call setloclist(0, [{'text': text}], 'a')
-        lopen
-    endif
-endfunction
 
 
 " function! ExecuteCommandFromFirstQuote()
@@ -169,3 +148,14 @@ function! HandleOutput(job_id, data, event)
 endfunction
 
 nnoremap <F9> :call NpmRun()<CR>
+
+function! MyFunction()
+    if getchar(1) == 1
+        echo "hello"
+    endif
+endfunction
+
+augroup MyAutoCmds
+    autocmd!
+    autocmd CursorMoved * call MyFunction()
+augroup END
