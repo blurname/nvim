@@ -162,7 +162,7 @@ xmap <silent> <C-e> <Plug>(coc-range-select)
 
 function! ToggleQuickFix()
     if empty(filter(getwininfo(), 'v:val.quickfix'))
-        copen
+      top copen
     else
         cclose
     endif
