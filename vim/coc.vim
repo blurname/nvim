@@ -170,19 +170,6 @@ endfunction
 
 nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>
 nnoremap <silent><nowait> <leader>l  :<C-u>CocOutline<cr>
-autocmd VimEnter,Tabnew *
-      \ if empty(&buftype) | call CocActionAsync('showOutline', 1) | endif
-
-autocmd BufEnter * call CheckOutline()
-function! CheckOutline() abort
-  if &filetype ==# 'coctree' && winnr('$') == 1
-    if tabpagenr('$') != 1
-      close
-    else
-      bdelete
-    endif
-  endif
-endfunction
 
 nnoremap <silent><nowait> <c-]>  :call ToggleOutline()<CR>
 function! ToggleOutline() abort

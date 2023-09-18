@@ -154,13 +154,8 @@ cmd([[
 -- please use module instead in reality
 function _G.jumpToLoc(locs)
     locs = locs or vim.g.coc_jump_locations
-    fn.setloclist(0, {}, ' ', {title = 'CocLocationList', items = locs})
-    local winid = fn.getloclist(0, {winid = 0}).winid
-    if winid == 0 then
-        cmd('abo lw')
-    else
-        api.nvim_set_current_win(winid)
-    end
+    fn.setqflist({}, ' ', {title = 'CocLocationList',items = locs })
+    cmd('top copen')
 end
 
 function _G.diagnostic()
@@ -183,7 +178,7 @@ function _G.diagnostic()
             end
             fn.setqflist({}, ' ', {title = 'CocDiagnosticList', items = items})
 
-            cmd('bo cope')
+            cmd('top cope')
         end
     end)
 end

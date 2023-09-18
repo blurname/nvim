@@ -113,7 +113,7 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.preferences.useAliasesForRenames": true,
   "typescript.preferences.jsxAttributeCompletionStyle": "none", 
-  "coc.preferences.useQuickfixForLocations": true,
+  "coc.preferences.useQuickfixForLocations": false,
   "list.source.files.defaultOptions": ["--number-select", "--no-quit"],
   "list.source.grep.args": ["--smart-case"],
   "list.floatPreview": false,
