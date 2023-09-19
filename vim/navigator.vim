@@ -5,7 +5,6 @@ let g:navigator_popup = 1
 let g:navigator_popup_position = 'bottom'
 let g:navigator_popup_border = 0
 nnoremap <silent><leader>i :Navigator g:navigator<cr>
-xnoremap <silent><leader>i :Navigator g:navigator<cr>
 
 let g:navigator.p = {
             \ 'name': '+path',
@@ -28,7 +27,7 @@ let g:navigator.g = {
             \ 'h' : [':DiffviewHead','diff head'],
             \ 'o' : [':DiffviewOpen','diff current changes'],
             \ 'l' : [':DiffviewFileHistory','diff log branch'],
-            \ '2' : [':DiffviewFileHistory %','diff log file'],
+            \ 'b' : [':DiffviewFileHistory %','diff log file'],
             \ 'f' : [':Flog','flog'],
             \ }
 
