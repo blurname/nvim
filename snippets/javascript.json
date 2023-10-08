@@ -147,6 +147,10 @@
     "prefix": "cf",
     "body": "const $1 = ($2) => {\n\t$3\n\treturn ${0}\n}"
   },
+  "class arrow function assignment": {
+    "prefix": "clf",
+    "body": "$1 = ($2) => {\n\t$3\n\treturn ${0}\n}"
+  },
   "const arrow function rerutrn object": {
     "prefix": "cfo",
     "body": "const $1 = ($2) => ({\n\t$3\n\t\n})"
