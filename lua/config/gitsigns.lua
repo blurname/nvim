@@ -63,8 +63,8 @@ require('gitsigns').setup {
     -- Actions
     map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
     map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
-    map('n', 'gj', ':Gitsigns next_hunk<CR>')
-    map('n', 'gk', ':Gitsigns prev_hunk<CR>')
+    -- map('n', 'gj', ':Gitsigns next_hunk<CR>')
+    -- map('n', 'gk', ':Gitsigns prev_hunk<CR>')
     --map('n', '<leader>hS', gs.stage_buffer)
     map('n', '<leader>hu', gs.undo_stage_hunk)
     --map('n', '<leader>hR', gs.reset_buffer)
@@ -76,6 +76,6 @@ require('gitsigns').setup {
     --map('n', '<leader>td', gs.toggle_deleted)
 
     -- Text object
-    map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+    -- map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
   end
 }
