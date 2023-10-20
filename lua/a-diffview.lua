@@ -6,7 +6,7 @@ require("diffview").setup({
       -- vim.cmd('CocDisable')
     end,
     view_opened = function(view)
-      vim.cmd('CocDisable')
+      -- vim.cmd('CocDisable')
     end,
     view_closed = function(view)
       vim.cmd('CocEnable')

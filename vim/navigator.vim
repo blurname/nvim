@@ -25,7 +25,7 @@ let g:navigator.g = {
             \ 'name': '+git',
             \ 'c' : [':DiffviewClose','diff close'],
             \ 'h' : [':DiffviewHead','diff head'],
-            \ 'o' : [':DiffviewOpen','diff current changes'],
+            \ 'o' : ['execute("DiffviewOpen") | CocDisable','diff current changes'],
             \ 'l' : [':DiffviewFileHistory','diff log branch'],
             \ 'b' : [':DiffviewFileHistory %','diff log file'],
             \ 'f' : [':Flog','flog'],
