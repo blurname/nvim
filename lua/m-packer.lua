@@ -32,7 +32,7 @@ return packer.startup({
     -- asyncSeries
     use {'skywind3000/vim-terminal-help'}
     use {'skywind3000/asynctasks.vim',keys={'<F5>','<F6>','<F7>','<F8>'},wants={'asyncrun.vim'},opt=true,config=conf('asynctask')}
-    use {'skywind3000/asyncrun.vim',opt=true}
+    use {'skywind3000/asyncrun.vim'}
 
     -- themes
     --use {'sainnhe/everforest'}

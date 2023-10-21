@@ -85,7 +85,7 @@ au TabLeave * let g:last_tab = tabpagenr()
 nnoremap <silent><leader><tab> :execute "tabnext " . g:last_tab<cr>
 " TODO: bl:
 command! -nargs=0 TODO execute 'silent! cexpr systemlist("rg \"TODO: bl:\" --vimgrep")' | copen
-" command! -nargs=1 TerminalBelow :split | wincmd J | execute 'terminal ' . <q-args>
+command! -nargs=1 TerminalBelow :split | wincmd J | execute 'terminal ' . <q-args>
 " function! ExecuteCommandFromFirstQuote()
 "     let line = getline('.')
 "     let start_quote = match(line, '"')
@@ -134,6 +134,7 @@ function! NpmRun()
     endif
 endfunction
 
+
 function! HandleOutput(job_id, data, event)
     if a:event == 'stdout'
         let text = join(a:data, "\n")
@@ -147,7 +148,21 @@ function! HandleOutput(job_id, data, event)
     endif
 endfunction
 
-nnoremap <F9> :call NpmRun()<CR>
+function! NpmRunAsync()
+    let line = getline('.')
+    let start_quote = match(line, '"')
+    let end_quote = match(line, '"', start_quote + 1)
+    if start_quote != -1 && end_quote != -1 && start_quote < end_quote
+        let command = 'npm run '.line[start_quote + 1 : end_quote - 1]
+        " let job = jobstart(command, {'on_stdout': 'HandleOutput'})
+        call execute('AsyncRun -mode=term '.command)
+
+    else
+        echo "No command found within double quotes on the current line."
+    endif
+endfunction
+
+nnoremap <F9> :call NpmRunAsync()<CR>
 
 function! MyFunction()
     if getchar(1) == 1
