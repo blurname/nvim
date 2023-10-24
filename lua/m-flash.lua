@@ -8,7 +8,7 @@ require("flash").setup({
     },
     char = {
       keys = { "f", "F", ";", "," },
-      label = { exclude = "iardcxpyv" },
+      label = { exclude = "hljkiardcxpyv" },
       jump_labels = true,
       char_actions = function(motion)
         return {
