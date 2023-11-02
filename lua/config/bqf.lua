@@ -128,8 +128,8 @@ local api = vim.api
 
 -- try `gsiw` under word
  cmd([[
-     nmap <leader>d <plug>(GrepperOperator)
-     xmap <leader>d <plug>(GrepperOperator)
+     nmap gs <plug>(GrepperOperator)
+     xmap gs <plug>(GrepperOperator)
  ]])
 
 -- https://github.com/neoclide/coc.nvim

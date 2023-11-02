@@ -4,11 +4,11 @@ require("flash").setup({
   -- wrap = false,
   modes = {
     search = {
-      enabled = false,
-      before = true
+      -- enabled = false,
+      -- before = true
     },
     char = {
-      keys = { "f", ";", "," },
+      keys = { "f","F", ";", "," },
       label = { exclude = "hljkiardcxpyv" },
       jump_labels = true,
       char_actions = function(motion)
@@ -17,7 +17,7 @@ require("flash").setup({
           [","] = "next", -- set to `left` to always go left
         }
       end,
-      search = {wrap = true}
+      -- search = {wrap = true}
     },
   }
 })
