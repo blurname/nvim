@@ -4,7 +4,7 @@ require("flash").setup({
   -- wrap = false,
   modes = {
     search = {
-      -- enabled = false,
+      enabled = false,
       -- before = true
     },
     char = {

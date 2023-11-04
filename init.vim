@@ -55,6 +55,7 @@ colorscheme nordfox
 " Save & quit
 noremap s <nop>
 noremap q: <nop>
+noremap q <nop>
 
 " Open the vimrc file anytime
 " let a = stdpath("config")
