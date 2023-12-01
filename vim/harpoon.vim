@@ -1,6 +1,6 @@
 
 " ============ harpoon ==========
-nnoremap <silent><A-0> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <silent><A-p> :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <A-m> :lua require("harpoon.mark").add_file()<CR>
 nnoremap <silent><A-1> :lua require("harpoon.ui").nav_prev()<CR>
 nnoremap <silent><A-2> :lua require("harpoon.ui").nav_next()<CR>
