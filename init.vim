@@ -156,7 +156,7 @@ function! NpmRunAsync()
     if start_quote != -1 && end_quote != -1 && start_quote < end_quote
         let command = 'npm run '.line[start_quote + 1 : end_quote - 1]
         " let job = jobstart(command, {'on_stdout': 'HandleOutput'})
-        call execute('AsyncRun -mode=term '.command)
+        call execute('AsyncRun -mode=term -cwd=$(VIM_FILEDIR) '.command)
 
     else
         echo "No command found within double quotes on the current line."
