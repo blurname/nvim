@@ -95,6 +95,7 @@ let g:Lf_WindowPosition = 'popup'
 noremap <F1> :Leaderf command --run-immediately<CR>
 nnoremap <leader>fi :Leaderf command --run-immediately<CR>
 nnoremap <silent><F3>  :Leaderf rg<CR>
+nnoremap <silent><F10>  :ListPackgeJson<CR>
 let g:Lf_PopupPreviewPosition = 'top'
 
 " c-i equals tab
