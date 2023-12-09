@@ -65,7 +65,7 @@ nnoremap <silent> <leader>fs :Telescope git_status initial_mode=normal<CR>
 "noremap <leader>fw :Leaderf! --stayOpen --right rg -F -e
 "noremap <leader>fw :Leaderf rg -L -S 
 " command! -nargs=1 Search :Leaderf! --stayOpen --right rg -F -e 
-command! -nargs=0 ListPackgeJson :Leaderf! file --input package.json
+command! -nargs=0 ListPackgeJson :Leaderf! file --input package.json --no-sort --regexMode
 " command! -nargs=0 Gs :GFiles?
     let g:Lf_PreviewResult = {
             \ 'File': 1,
