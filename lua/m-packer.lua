@@ -130,7 +130,7 @@ return packer.startup({
     use {'folke/flash.nvim'}
     -- use {'nvim-pack/nvim-spectre'}
     -- use '/home/bl/prjs/tabline.nvim'
-    use '/home/bl/prjs/nvim-spectre'
-    use '/home/bl/prjs/telescope-git-diffs.nvim'
+    use {'blurname/nvim-spectre', branch = 'bl/dev'}
+    use {'paopaol/telescope-git-diffs.nvim'}
 	end
 })
