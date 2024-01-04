@@ -1,10 +1,10 @@
 
 " initialize global keymap and declare prefix key
-let g:navigator = {'prefix':'<LEADER><i>'}
+let g:navigator = {'prefix':'<LEADER><k>'}
 let g:navigator_popup = 1
 let g:navigator_popup_position = 'bottom'
 let g:navigator_popup_border = 0
-nnoremap <silent><leader>i :Navigator g:navigator<cr>
+nnoremap <silent><leader>k :Navigator g:navigator<cr>
 
 let g:navigator.p = {
             \ 'name': '+path',

@@ -57,7 +57,8 @@ let g:Lf_NormalMap = {
 nnoremap <leader>f; :Leaderf! cmdHistory<CR>
 nnoremap  <tab> :Leaderf! --recall<CR>
 nnoremap <leader>b :Leaderf! buffer<CR>
-nnoremap <leader>j :Telescope jumplist initial_mode=normal<CR>
+" nnoremap <leader>j :Telescope jumplist initial_mode=normal<CR>
+nnoremap <leader>j :Leaderf! jumps<CR>
 nnoremap <leader>fh :Telescope help_tags<CR>
 " noremap <c-j> :Leaderf --next<CR>
 " noremap <c-k> :Leaderf --previous<CR>
