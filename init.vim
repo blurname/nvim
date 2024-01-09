@@ -175,3 +175,14 @@ augroup MyAutoCmds
     autocmd!
     autocmd CursorMoved * call MyFunction()
 augroup END
+
+
+function! WrapConsoleLog()
+    let word = expand('<cword>')
+    let log_line = "console.log('".word.": ', " . word . ")"
+    execute "normal! o" . log_line
+endfunction
+
+command! WrapConsoleLog call WrapConsoleLog()
+
+nnoremap <CR> :call WrapConsoleLog()<CR>
