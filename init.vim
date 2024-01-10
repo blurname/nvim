@@ -177,12 +177,27 @@ augroup MyAutoCmds
 augroup END
 
 
-function! WrapConsoleLog()
+" function! WrapConsoleLog(type)
+"     let log_line = "console.log('".word.": ', " . word . ")"
+"     execute "normal! o" . log_line
+" endfunction
+
+function! WrapConsoleLog(type)
+  let word = ''
+  if a:type == 'v'
+    silent execute "normal! gvy"
+    let word = @@
+  else 
     let word = expand('<cword>')
+  endif
     let log_line = "console.log('".word.": ', " . word . ")"
     execute "normal! o" . log_line
 endfunction
 
+vnoremap <silent> <leader>cl :call WrapConsoleLog()<CR>
+
 command! WrapConsoleLog call WrapConsoleLog()
 
-nnoremap <CR> :call WrapConsoleLog()<CR>
+
+nnoremap <CR> :call WrapConsoleLog('n')<CR>
+xmap <CR> :call WrapConsoleLog('v')<CR>
