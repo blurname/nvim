@@ -167,14 +167,20 @@ nnoremap <F9> :call NpmRunAsync()<CR>
 
 function! WrapConsoleLog(type)
   let word = ''
+  const vMode = visualmode()
   if a:type == 'v'
-    silent execute "normal! gvy"
-    let word = @@
-  else 
-    let word = expand('<cword>')
+    if vMode == 'v'
+      silent execute "normal! gvy"
+      let word = @@
+      let log_line = "console.log('".word.": ', " . word . ")"
+      execute "normal! o" . log_line
+    endif
+  elseif a:type == 'n'
+     let word = expand('<cword>')
+     echo word
+     let log_line = "console.log('".word.": ', " . word . ")"
+     execute "normal! o" . log_line
   endif
-    let log_line = "console.log('".word.": ', " . word . ")"
-    execute "normal! o" . log_line
 endfunction
 
 nnoremap <CR> :call WrapConsoleLog('n')<CR>
