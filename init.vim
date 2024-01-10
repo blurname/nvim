@@ -165,23 +165,6 @@ endfunction
 
 nnoremap <F9> :call NpmRunAsync()<CR>
 
-function! MyFunction()
-    if getchar(1) == 1
-        echo "hello"
-    endif
-endfunction
-
-augroup MyAutoCmds
-    autocmd!
-    autocmd CursorMoved * call MyFunction()
-augroup END
-
-
-" function! WrapConsoleLog(type)
-"     let log_line = "console.log('".word.": ', " . word . ")"
-"     execute "normal! o" . log_line
-" endfunction
-
 function! WrapConsoleLog(type)
   let word = ''
   if a:type == 'v'
@@ -193,11 +176,6 @@ function! WrapConsoleLog(type)
     let log_line = "console.log('".word.": ', " . word . ")"
     execute "normal! o" . log_line
 endfunction
-
-vnoremap <silent> <leader>cl :call WrapConsoleLog()<CR>
-
-command! WrapConsoleLog call WrapConsoleLog()
-
 
 nnoremap <CR> :call WrapConsoleLog('n')<CR>
 xmap <CR> :call WrapConsoleLog('v')<CR>
