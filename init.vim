@@ -168,17 +168,18 @@ nnoremap <F9> :call NpmRunAsync()<CR>
 function! WrapConsoleLog(type)
   let word = ''
   const vMode = visualmode()
+  let beginLogStr = "console.log('🟦[ylnO]->"
   if a:type == 'v'
     if vMode == 'v'
       silent execute "normal! gvy"
       let word = @@
-      let log_line = "console.log('".word.": ', " . word . ")"
+      let log_line = beginLogStr . word.": ', " . word . ")"
       execute "normal! o" . log_line
     endif
   elseif a:type == 'n'
      let word = expand('<cword>')
      echo word
-     let log_line = "console.log('".word.": ', " . word . ")"
+     let log_line = beginLogStr . word.": ', " . word . ")"
      execute "normal! o" . log_line
   endif
 endfunction
