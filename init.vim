@@ -183,6 +183,6 @@ function! WrapConsoleLog(type)
      execute "normal! o" . log_line
   endif
 endfunction
-
-nnoremap <CR> :call WrapConsoleLog('n')<CR>
-xmap <CR> :call WrapConsoleLog('v')<CR>
+" can't map to <CR>
+nmap <leader>o :call WrapConsoleLog('n')<CR>
+xmap <leader>o :call WrapConsoleLog('v')<CR>
