@@ -52,7 +52,7 @@ return packer.startup({
     -- use {'blurname/tabline.nvim'}
 
     --coc
-    use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile',disable=false}
+    use {'neoclide/coc.nvim', branch = 'master', run = 'npm ci',disable=false}
 
     --vista.vim symbol navigation
     use {'tweekmonster/startuptime.vim', cmd = 'StartupTime',opt=true}
