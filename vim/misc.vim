@@ -1,8 +1,16 @@
 
 " get file path releated
-command! GetFilePathRelative :let @" = expand("%")
-command! GetFilePathLine     :let @" = expand("%") . ':' . line(".")
-command! GetFilePathAbsolute :let @" = expand("%:p")
+function GetFilePathLine()
+  let pathLine = expand("%") . ':' . line(".")
+  let @" = pathLine
+  echo pathLine
+  execute 'silent OSCYankRegister ""'
+endfunc
+
+nmap <leader>\ :call GetFilePathLine()<CR>
+
+" command! GetFilePathRelative :let @" = expand("%")
+" command! GetFilePathAbsolute :let @" = expand("%:p")
 
 command! Bda silent! execute "%bd|e#|bd#"
 
