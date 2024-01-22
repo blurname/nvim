@@ -37,3 +37,9 @@ let g:navigator.c = {
             \ 'd' : [':CocDisable','coc disable'],
             \ 'e' : [':CocEnable','coc enable'],
             \ }
+
+let g:navigator.j = {
+            \ 'name': 'jump',
+            \ 'j' : [':JumpTo','jump to file with path and line'],
+            \ 'y' : [':GetFilePathLineCommand', 'get current file path and line']
+            \ }

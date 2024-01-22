@@ -8,6 +8,7 @@ function GetFilePathLine()
 endfunc
 
 nmap <leader>\ :call GetFilePathLine()<CR>
+command! -nargs=0 GetFilePathLineCommand call GetFilePathLine()
 
 " command! GetFilePathRelative :let @" = expand("%")
 " command! GetFilePathAbsolute :let @" = expand("%:p")

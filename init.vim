@@ -168,7 +168,7 @@ nnoremap <F9> :call NpmRunAsync()<CR>
 function! WrapConsoleLog(type)
   let word = ''
   const vMode = visualmode()
-  let beginLogStr = "console.log('🟦[ylnO]->"
+  let beginLogStr = "console.log('🟦[blue]->"
   if a:type == 'v'
     if vMode == 'v'
       silent execute "normal! gvy"
