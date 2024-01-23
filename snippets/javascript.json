@@ -423,15 +423,22 @@
     "description": "New Statement"
   },
   "Switch Statement": {
-    "prefix": "switch",
+    "prefix": "sc",
     "body": [
       "switch (${1:key}) {",
-      "\tcase ${2:value}:",
+      "\tcase ${2:value}: {",
       "\t\t$0",
-      "\t\tbreak;",
+      "\t\tbreak",
+      "\t}",
       "",
-      "\tdefault:",
-      "\t\tbreak;",
+      "\tcase ${2:value}: {",
+      "\t\t$0",
+      "\t\tbreak",
+      "\t}",
+      "",
+      "\tdefault: {",
+      "\t\tbreak",
+      "\t}",
       "}"
     ],
     "description": "Switch Statement"
