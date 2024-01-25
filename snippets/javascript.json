@@ -536,5 +536,19 @@
   "styled-conponent" :{
     "prefix": "sp",
     "body":["${props => props.theme.$1};"]
+  },
+  "console.log-performmnce-start":{
+    "prefix": "cps",
+    "body":[
+      "const $1Start = performance.now()"
+    ]
+  },
+  "console.log-performmnce-end":{
+    "prefix": "cpe",
+    "body":[
+
+      "const $1Consume = performance.now() - $1Start",
+      "console.log('$1-comsume-time', $1Consume)"
+    ]
   }
 }
