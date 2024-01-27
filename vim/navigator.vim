@@ -43,3 +43,7 @@ let g:navigator.j = {
             \ 'j' : [':JumpTo','jump to file with path and line'],
             \ 'y' : [':GetFilePathLineCommand', 'get current file path and line']
             \ }
+let g:navigator.l = {
+            \ 'name': 'list',
+            \ 'c' : [':ListConsoleLog','list console.log contains blue'],
+            \ }
