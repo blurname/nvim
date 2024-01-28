@@ -132,5 +132,7 @@ return packer.startup({
     -- use '/home/bl/prjs/tabline.nvim'
     use {'blurname/nvim-spectre', branch = 'bl/dev'}
     use {'paopaol/telescope-git-diffs.nvim'}
+    use {'akinsho/toggleterm.nvim'}
+    use {'willothy/flatten.nvim'}
 	end
 })

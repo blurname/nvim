@@ -5,7 +5,7 @@ command! Gl :DiffviewFileHistory<CR>
 command! Glfile :DiffviewFileHistory<CR>
 command! Glfuzzy :Telescope git_diffs  diff_commits
 
-nnoremap <leader>gg :LazyGit<CR>
+" nnoremap <leader>gg :LazyGit<CR>
 nnoremap <leader>ge :Gedit<CR>
 
 nnoremap <leader>gl V \| :'<,'>DiffviewFileHistory<CR>
