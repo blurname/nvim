@@ -134,5 +134,6 @@ return packer.startup({
     use {'paopaol/telescope-git-diffs.nvim'}
     use {'akinsho/toggleterm.nvim'}
     use {'willothy/flatten.nvim'}
+    use {'lukas-reineke/indent-blankline.nvim'}
 	end
 })
