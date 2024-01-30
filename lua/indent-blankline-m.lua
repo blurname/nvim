@@ -27,7 +27,7 @@ require("ibl").setup {
     highlight = highlight,
     remove_blankline_trail = false,
   },
-  -- scope = { enabled = false }
+  scope = { enabled = false }
 }
 -- hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 
