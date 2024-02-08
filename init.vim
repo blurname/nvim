@@ -1,9 +1,8 @@
 set termguicolors
 let g:mapleader=' '
 
-lua require('m-packer')
-lua require('index')
 lua require('vim-index')
+lua require('lua-index')
 source /home/bl/.config/nvim/vim/index.vim
 
 " ===

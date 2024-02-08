@@ -1,6 +1,7 @@
 " ===
 " === coc.nvim
 " ===
+      " \ 'coc-sumneko-lua',
 let g:coc_global_extensions = ['coc-json',
       \ 'coc-vimlsp',
       \ 'coc-html',
@@ -11,7 +12,6 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-emmet',
       \ 'coc-eslint',
       \ 'coc-snippets',
-      \ 'coc-sumneko-lua',
       \ 'coc-eslint',
       \ 'coc-explorer',
       \ 'coc-lit-html',

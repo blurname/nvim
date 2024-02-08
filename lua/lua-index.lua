@@ -3,6 +3,11 @@
 ---- plugin
 -- raw
 -- require('fFHighlight').setup()
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+vim.opt.rtp:prepend(lazypath)
+
+require('lazy-a')
+
 require('hlslens').setup()
 require('config')
 
@@ -23,7 +28,7 @@ require("harpoon").setup({
 require('nvim-highlight-colors').setup{}
 require('m-tabline')
 require('a-spectre')
-require('a-telescope')
+-- require('a-telescope')
 require('a-diffview')
 require('m-flash')
 require('toggleterm-m')
