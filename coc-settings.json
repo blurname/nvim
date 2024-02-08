@@ -62,10 +62,6 @@
       ],
       "filetypes": ["haskell", "lhaskell"]
     },
-    "lua": {
-      "command": "lua-language-server",
-      "filetypes": ["lua"]
-    },
     "nix": {
       "command": "nil",
       "filetypes": ["nix"]
