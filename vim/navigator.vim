@@ -45,5 +45,6 @@ let g:navigator.j = {
             \ }
 let g:navigator.l = {
             \ 'name': 'list',
-            \ 'c' : [':ListConsoleLog','list console.log contains blue'],
+            \ 'c' : [':ListLog','list console.log contains blue'],
+            \ 't' : [':ListTodo','list Todo'],
             \ }
