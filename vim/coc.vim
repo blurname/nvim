@@ -169,6 +169,8 @@ function! ToggleQuickFix()
 endfunction
 
 nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>
+nnoremap <silent> <a-q> :cprev<cr>
+nnoremap <silent> <a-e> :cnext<cr>
 nnoremap <silent><nowait> <leader>l  :<C-u>CocOutline<cr>
 
 nnoremap <silent><nowait> <c-]>  :call ToggleOutline()<CR>
