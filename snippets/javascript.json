@@ -354,6 +354,10 @@
     "prefix": "js",
     "body": "JSON.stringify($0)"
   },
+  "JSON.stringify(a,null,2)": {
+    "prefix": "jsl",
+    "body": "JSON.stringify($0,null,2)"
+  },
   "JSON.parse()": {
     "prefix": "jp",
     "body": "JSON.parse($0)"
