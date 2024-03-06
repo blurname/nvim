@@ -16,7 +16,8 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-explorer',
       \ 'coc-lit-html',
       \ 'coc-git',
-      \ 'coc-lists']
+      \ 'coc-lists',
+      \ 'coc-styled-components']
 let g:coc_default_semantic_highlight_groups = 0
 
 nnoremap <silent> K :call ShowDocumentation()<CR>
