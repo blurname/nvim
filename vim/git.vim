@@ -9,4 +9,5 @@ command! Glfuzzy :Telescope git_diffs  diff_commits
 nnoremap <leader>ge :Gedit<CR>
 
 nnoremap <leader>gl V \| :'<,'>DiffviewFileHistory<CR>
+nnoremap <leader>gb :Git blame<cr>
 command! DiffviewHead :DiffviewOpen HEAD~1<CR>

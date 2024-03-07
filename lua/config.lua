@@ -18,7 +18,7 @@ function M.suda()
 end
 function M.fugitive()
   --k.set('n','<leader>gg',':Git<cr>')
-  k.set('n','<leader>gb',':Git blame<cr>')
+  -- k.set('n','<leader>gb','')
 end
 
 return M
