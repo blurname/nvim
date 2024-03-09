@@ -55,10 +55,10 @@ let g:Lf_NormalMap = {
 " noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg --right --stayOpen -e %s ", expand("<cword>"))<CR><CR>
 " vnoremap ff :<C-U><C-R>=printf("Leaderf! rg --right --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
 nnoremap <leader>f; :Leaderf! cmdHistory<CR>
-nnoremap  <tab> :Leaderf! --recall<CR>
+nnoremap <leader>j :Leaderf! --recall<CR>
 nnoremap <leader>b :Leaderf! buffer<CR>
 " nnoremap <leader>j :Telescope jumplist initial_mode=normal<CR>
-nnoremap <leader>j :Leaderf! jumps<CR>
+" nnoremap <leader>j :Leaderf! jumps<CR>
 nnoremap <leader>fh :Telescope help_tags<CR>
 " noremap <c-j> :Leaderf --next<CR>
 " noremap <c-k> :Leaderf --previous<CR>
