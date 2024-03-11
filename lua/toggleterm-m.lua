@@ -3,7 +3,12 @@ require("toggleterm").setup{
 }
 local api = vim.api
 local Terminal  = require('toggleterm.terminal').Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float"})
+local lazygit = Terminal:new({
+  cmd = "lazygit", hidden = true, direction = "float",
+    on_open = function(term)
+    vim.api.nvim_buf_set_keymap(term.bufnr, "t", "<tab>", "<cmd>close<CR>", {noremap = true, silent = true})
+  end,
+})
 local yazi = Terminal:new({ cmd = "yazi", hidden = true, direction = "float" })
 -- local termid = nil
 
