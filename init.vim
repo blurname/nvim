@@ -1,6 +1,8 @@
 set termguicolors
 let g:mapleader=' '
 
+noremap q: <nop>
+nnoremap q <nop>
 lua require('vim-index')
 lua require('lua-index')
 source /home/bl/.config/nvim/vim/index.vim
@@ -53,8 +55,6 @@ colorscheme nordfox
 
 " Save & quit
 noremap s <nop>
-noremap q: <nop>
-noremap q <nop>
 
 " Open the vimrc file anytime
 " let a = stdpath("config")

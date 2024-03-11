@@ -6,7 +6,8 @@ local Terminal  = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({
   cmd = "lazygit", hidden = true, direction = "float",
     on_open = function(term)
-    vim.api.nvim_buf_set_keymap(term.bufnr, "t", "<tab>", "<cmd>close<CR>", {noremap = true, silent = true})
+    vim.api.nvim_buf_set_keymap(term.bufnr, "t", "<tab>", "<cmd>close<CR>", {noremap = true, silent = true, nowait= true})
+    -- vim.api.nvim_buf_set_keymap(term.bufnr, "t", "q", "", {noremap = true, silent = true})
   end,
 })
 local yazi = Terminal:new({ cmd = "yazi", hidden = true, direction = "float" })
@@ -20,8 +21,8 @@ function _yazi_toggle()
   yazi:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "<tab>", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<leader>gf", "<cmd>lua _yazi_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<tab>", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true, nowait= true})
+-- vim.api.nvim_set_keymap("n", "<leader>gf", "<cmd>lua _yazi_toggle()<CR>", {noremap = true, silent = true})
 
 local saved_terminal
 
