@@ -22,7 +22,9 @@ let g:Lf_WildIgnore = {
       \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.min.js', '.svg']
       \}
 let g:Lf_RgConfig = [
-      \ "--max-columns=130",
+      \ "--max-columns=200",
+      \ "--hidden",
+      \ "--glob=!.git/*"
       \ ]
 let g:Lf_NormalMap = {
       \ "_":      [["<C-j>", "j"],
