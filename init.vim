@@ -5,7 +5,7 @@ noremap q: <nop>
 nnoremap q <nop>
 lua require('vim-index')
 lua require('lua-index')
-source /home/bl/.config/nvim/vim/index.vim
+source $HOME/.config/nvim/vim/index.vim
 
 " ===
 " === Basic

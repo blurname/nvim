@@ -15,5 +15,6 @@ local function source_vim_files(directory)
   end
 end
 
-local VIM_CONFI = '/home/bl/.config/nvim/vim'
+local home = os.getenv("HOME")
+local VIM_CONFI = home .."/.config/nvim/vim"
 source_vim_files(VIM_CONFI)

@@ -82,7 +82,7 @@
   "snippets.ultisnips.enable": false,
   "snippets.snipmate.enable": false,
   "snippets.loadFromExtensions": false,
-  "snippets.textmateSnippetsRoots": ["/home/bl/.config/nvim/snippets"],
+  "snippets.textmateSnippetsRoots": ["$HOME/.config/nvim/snippets"],
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]
