@@ -81,7 +81,7 @@ command! -nargs=0 ListLog :GrepperRg blue]-
             \ 'Function': 0,
             \ 'Line': 0,
             \ 'Colorscheme': 0,
-            \ 'Rg': 0,
+            \ 'Rg': 1,
             \ 'Gtags': 0
             \}
 "let g:Lf_PreviewHorizontalPosition = 'right'
@@ -99,7 +99,7 @@ let g:Lf_WindowPosition = 'popup'
 
 noremap <F1> :Leaderf command --run-immediately<CR>
 nnoremap <leader>fi :Leaderf command --run-immediately<CR>
-nnoremap <silent><F3>  :Leaderf rg<CR>
+nnoremap <silent><F3>  :Leaderf rg --live<CR>
 nnoremap <silent><F10>  :ListPackgeJson<CR>
 let g:Lf_PopupPreviewPosition = 'top'
 
