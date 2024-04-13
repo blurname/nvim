@@ -106,8 +106,7 @@ command! FoldGit :CocCommand git.foldUnchanged
 " mru
 "nnoremap <silent> <space><space>  :<C-u>CocList mru<CR> 
 " yank
-nmap <silent> <c-y> :<C-u>CocList -A --normal yank<cr>
-imap <silent> <c-y> :<C-u>CocList -A --normal yank<cr>
+nmap <silent> <leader>p :<C-u>CocList --normal yank<cr>
 
 nmap <C-F> :Grepper -noprompt -tool rg -cword<CR><CR>
 " xmap <c-f> :Grepper -noprompt -tool rg -cword<CR><CR>

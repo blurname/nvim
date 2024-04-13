@@ -72,8 +72,8 @@ noremap B 5b
 noremap H ^
 noremap L $
 " Copy to system clipboard
-vnoremap <LEADER>y "+y
-noremap <LEADER>p "+p
+" vnoremap <LEADER>y "+y
+" noremap <floatingLEADER>p "+p
 
 function! JumpToFileAndLine(file_and_line)
     " 拆分文件名和行号
