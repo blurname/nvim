@@ -2,7 +2,8 @@
   "name": "bluranmenvim",
   "private": true,
   "scripts": {
-    "install-packer": "git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim",
-    "install-lazy": "git clone --depth 1 https://github.com/folke/lazy.nvim ~/.local/share/nvim/lazy/lazy.nvim"
+    "install-lazy": "git clone --depth 1 https://github.com/folke/lazy.nvim ~/.local/share/nvim/lazy/lazy.nvim",
+    "=== platform ===":"",
+    "arch-linux-dep":"sudo pacaman -S python-pynvim"
   }
 }
