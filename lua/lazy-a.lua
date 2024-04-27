@@ -93,7 +93,7 @@ return lazy.setup({
     --   {'nvim-pack/nvim-spectre'}
     --   '/home/bl/prjs/tabline.nvim'
       {'blurname/nvim-spectre', branch = 'bl/dev'},
-      {'paopaol/telescope-git-diffs.nvim'},
+      -- {'paopaol/telescope-git-diffs.nvim'},
       {'akinsho/toggleterm.nvim'},
       {'willothy/flatten.nvim'},
       {'lukas-reineke/indent-blankline.nvim'}
