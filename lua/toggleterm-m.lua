@@ -22,6 +22,7 @@ function _yazi_toggle()
 end
 
 vim.api.nvim_set_keymap("n", "<tab>", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true, nowait= true})
+vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true, nowait= true})
 -- vim.api.nvim_set_keymap("n", "<leader>gf", "<cmd>lua _yazi_toggle()<CR>", {noremap = true, silent = true})
 
 local saved_terminal
