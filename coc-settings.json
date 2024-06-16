@@ -122,5 +122,8 @@
   "outline.autoPreview": false,
   "outline.expandLevel": 1,
   "tree.key.close": "",
-  "outline.showLineNumber": true
+  "outline.showLineNumber": true,
+  "rust-analyzer.files.excludeDirs": [
+    "ts"
+  ]
 }
