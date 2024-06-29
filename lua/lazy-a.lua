@@ -70,7 +70,9 @@ return lazy.setup({
       {'nvim-lua/plenary.nvim'},
 
     -- session
-      {'Shatur/neovim-session-manager'},
+      -- {'Shatur/neovim-session-manager'},
+      -- {'rmagatti/auto-session'},
+      {'jedrzejboczar/possession.nvim'},
 
     -- lsp
     --   {'rescript-lang/vim-rescript'}
