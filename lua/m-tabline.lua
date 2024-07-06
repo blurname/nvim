@@ -49,6 +49,6 @@ end
 --   vim.cmd('bwipeout')
 -- end
 
-k.set('n','<c-w>',close_tab_or_buffer)
+k.set('n','<c-q>',close_tab_or_buffer) -- 2024.7.6 暂时使用 c-q, c-w 不知道被什么占掉了
 k.set('n','<c-l>',':tabnext<CR>')
 k.set('n','<c-h>',':tabprevious<CR>')
