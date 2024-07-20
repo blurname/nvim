@@ -22,6 +22,9 @@ let g:coc_default_semantic_highlight_groups = 0
 
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
+" coc#float#close_all()
+nnoremap <silent> U :call coc#float#jump()<CR>
+
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
