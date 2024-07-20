@@ -125,5 +125,10 @@
   "outline.showLineNumber": true,
   "rust-analyzer.files.excludeDirs": [
     "ts"
+  ],
+  "workspace.ignoredFolders": [
+    "$HOME",
+    "$HOME/.cargo/**",
+    "$HOME/.rustup/**"
   ]
 }
