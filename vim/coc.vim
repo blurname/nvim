@@ -23,7 +23,19 @@ let g:coc_default_semantic_highlight_groups = 0
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
 " coc#float#close_all()
-nnoremap <silent> U :call coc#float#jump()<CR>
+nnoremap <silent> U :call JumpInOutCocFloat()<CR>
+
+function! JumpInOutCocFloat()
+  let winids = coc#float#get_float_win_list(get(a:, 1, 0))
+  let currentWinId = win_getid()
+  for id in winids
+    if id == currentWinId
+      call coc#float#close_all()
+      return
+    endif
+  endfor
+call coc#float#jump()
+endfunction
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
