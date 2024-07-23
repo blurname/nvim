@@ -119,10 +119,11 @@
   "outline.followCursor": false,
   "outline.sortBy": "position",
   "outline.keepWindow": false,
-  "outline.autoPreview": false,
+  "outline.autoPreview": true,
   "outline.expandLevel": 1,
-  "tree.key.close": "",
+  "outline.autoWidth": false,
   "outline.showLineNumber": true,
+  "tree.key.close": "",
   "rust-analyzer.files.excludeDirs": [
     "ts"
   ],
