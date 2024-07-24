@@ -127,6 +127,7 @@
   "rust-analyzer.files.excludeDirs": [
     "ts"
   ],
+  "rust-analyzer.updates.checkOnStartup": false,
   "workspace.ignoredFolders": [
     "$HOME",
     "$HOME/.cargo/**",
