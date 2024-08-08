@@ -98,5 +98,6 @@ return lazy.setup({
       -- {'paopaol/telescope-git-diffs.nvim'},
       {'akinsho/toggleterm.nvim'},
       {'willothy/flatten.nvim'},
-      {'lukas-reineke/indent-blankline.nvim'}
+      {'lukas-reineke/indent-blankline.nvim'},
+      {'MagicDuck/grug-far.nvim'}
 })

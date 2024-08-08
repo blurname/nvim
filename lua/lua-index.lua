@@ -32,4 +32,7 @@ require('a-spectre')
 require('a-diffview')
 require('m-flash')
 require('toggleterm-m')
+require('grug-far').setup({
+   -- engine = 'ripgrep' is default, but 'astgrep' can be specified...
+});
 -- require('indent-blankline-m')
