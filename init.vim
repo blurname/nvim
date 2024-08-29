@@ -1,5 +1,6 @@
 set termguicolors
 let g:mapleader=' '
+let g:maplocalleader='-'
 
 noremap q: <nop>
 nnoremap q <nop>

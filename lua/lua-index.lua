@@ -35,7 +35,15 @@ require('toggleterm-m')
 require('grug-far').setup({
    -- engine = 'ripgrep' is default, but 'astgrep' can be specified...
    debounceMs = 500,
-   wrap = true,
+   wrap = false,
+   searchOnInsertLeave= true,
+   prefills = {
+     search = '',
+     replacement = '',
+     filesFilter = '',
+     flags = '',
+     paths = '',
+   },
 });
 vim.keymap.set('n', '<F4>', '<cmd>lua require("grug-far").toggle_instance({instanceName = "gf"})<CR>' )
 -- require('indent-blankline-m')
