@@ -32,6 +32,7 @@ require('a-spectre')
 require('a-diffview')
 require('m-flash')
 require('toggleterm-m')
+require('config.nvim-tree')
 require('grug-far').setup({
    -- engine = 'ripgrep' is default, but 'astgrep' can be specified...
    debounceMs = 500,

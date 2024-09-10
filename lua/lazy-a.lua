@@ -99,5 +99,6 @@ return lazy.setup({
       {'akinsho/toggleterm.nvim'},
       {'willothy/flatten.nvim'},
       {'lukas-reineke/indent-blankline.nvim'},
-      {'MagicDuck/grug-far.nvim'}
+      {'MagicDuck/grug-far.nvim'},
+      {'nvim-tree/nvim-tree.lua'}
 })
