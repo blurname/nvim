@@ -6,6 +6,8 @@ noremap <A-j> <C-w>j
 noremap <A-k> <C-w>k
 noremap <A-h> <C-w>h
 noremap <A-l> <C-w>l
+noremap <A-i> <C-i>
+noremap <A-o> <C-o>
 "
 " Resize splits with arrow keys
 noremap <down> :res -5<CR>
