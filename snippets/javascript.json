@@ -494,6 +494,13 @@
     ],
     "description": "React useEffect() hook"
   },
+  "useDispatch": {
+    "prefix": "udh",
+    "body": [
+      "const dispatch = useDispatch()"
+    ],
+    "description": "React useEffect() hook"
+  },
   "useContext": {
     "prefix": "uch",
     "body": ["const $1 = useContext($2)$0"],
@@ -529,10 +536,6 @@
     "body": ["const $1 = useRef($2)$0"],
     "description": "React useRef() hook"
   },
-  "useDispatch": {
-    "prefix": "usd",
-    "body": ["const $1 = $2 => dispatch($3)"]
-  },
   "textComment":{
     "prefix": "cm",
     "body": ["/**\n  * ${1}\n**/"]
@@ -553,6 +556,12 @@
 
       "const $1Consume = performance.now() - $1Start",
       "console.log('$1-comsume-time', $1Consume)"
+    ]
+  },
+  "redux dispatch":{
+    "prefix": "rd",
+    "body":[
+      "dispatch({type:$1,payload:{}})"
     ]
   }
 }
