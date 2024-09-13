@@ -42,7 +42,7 @@ require('grug-far').setup({
      search = '',
      replacement = '',
      filesFilter = '',
-     flags = '',
+     flags = '-i',
      paths = '',
    },
 });
