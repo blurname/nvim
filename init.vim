@@ -47,7 +47,7 @@ set foldenable
 set foldcolumn=1
 set foldlevelstart=99
 set foldopen-=hor "this causes horizontal movements (like l, h) to open folds.
-set sel=exclusive
+" set sel=exclusive
 filetype plugin on
 " set clipboard=unnamedplus
 "set cmdheight=0

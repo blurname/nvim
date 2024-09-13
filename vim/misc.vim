@@ -70,7 +70,7 @@ noremap <m-up> :m -2<CR>
 noremap W 5w
 noremap B 5b
 noremap H ^
-noremap L $
+noremap L g_
 " Copy to system clipboard
 " vnoremap <LEADER>y "+y
 " noremap <floatingLEADER>p "+p
