@@ -70,6 +70,7 @@ noremap <m-up> :m -2<CR>
 noremap W 5w
 noremap B 5b
 noremap H ^
+" https://www.reddit.com/r/vim/comments/2xsl9i/why_does_in_visual_mode_goes_after_the_last/?rdt=47792
 noremap L g_
 " Copy to system clipboard
 " vnoremap <LEADER>y "+y
