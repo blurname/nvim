@@ -187,4 +187,4 @@ endfunction
 " can't map to <CR>
 nmap <leader>o :call WrapConsoleLog('n')<CR>
 xmap <leader>o :call WrapConsoleLog('v')<CR>
-nmap <nowait> q za
+" nmap <nowait> q za
