@@ -90,8 +90,9 @@ require('bqf').setup({
     },
     -- make `drop` and `tab drop` to become preferred
     func_map = {
-        drop = 'o',
-        openc = 'O',
+        drop = 'O',
+        open = 'o',
+        openc = '<CR>',
         split = '<C-s>',
         tabdrop = '<C-t>',
         -- set to empty string to disable
@@ -126,11 +127,9 @@ local api = vim.api
      aug END
  ]]):format([[call setqflist([], 'r', {'context': {'bqf': {'pattern_hl': '\%#' . getreg('/')}}})]]))
 
--- try `gsiw` under word
- cmd([[
-     nmap gs <plug>(GrepperOperator)
-     xmap gs <plug>(GrepperOperator)
- ]])
+-- try `qiw` under word
+ -- cmd([[
+ -- ]])
 
 -- https://github.com/neoclide/coc.nvim
 -- if you use coc-fzf, you should disable its CocLocationsChange event

@@ -101,8 +101,11 @@ noremap <F1> :Leaderf command --run-immediately<CR>
 nnoremap <leader>fi :Leaderf command --run-immediately<CR>
 " nnoremap <silent><F3>  :Leaderf rg --live<CR>
 " nnoremap <silent><F3>  :Leaderf rg<CR>
-nnoremap <nowait><silent>q  :<C-u>lua require('grug-far').open({ prefills = { search = vim.fn.expand("<cword>") }})<CR>
-vnoremap <nowait><silent>q  :<C-u>lua require('grug-far').with_visual_selection()<CR>
+" nnoremap <nowait><silent>q  :<C-u>lua require('grug-far').open({ prefills = { search = vim.fn.expand("<cword>") }})<CR>
+" vnoremap <nowait><silent>q  :<C-u>lua require('grug-far').with_visual_selection()<CR>
+nnoremap <nowait><silent>q <plug>(GrepperOperator)
+xnoremap <nowait><silent>q <plug>(GrepperOperator)
+
 nnoremap <silent><F10>  :ListPackgeJson<CR>
 let g:Lf_PopupPreviewPosition = 'top'
 
