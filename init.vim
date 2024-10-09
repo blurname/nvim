@@ -86,7 +86,7 @@ let g:last_tab = tabpagenr()
 au TabLeave * let g:last_tab = tabpagenr()
 nnoremap <silent><leader><tab> :execute "tabnext " . g:last_tab<cr>
 " TODO: bl:
-command! -nargs=0 ListTodo :GrepperRg TODO 
+command! -nargs=0 ListTodo :GrepperRg 'TODO: bl'
 command! -nargs=1 TerminalBelow :split | wincmd J | execute 'terminal ' . <q-args>
 " function! ExecuteCommandFromFirstQuote()
 "     let line = getline('.')
