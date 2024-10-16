@@ -17,7 +17,7 @@ let g:navigator.f = {
             \ 'name': '+leaderf',
             \ '1' : [':Leaderf! rg --recall','rg recall'],
             \ '2' : [':Leaderf! file --recall','file recall'],
-            \ 'f': [':lua require("spectre").open_visual({select_word=true})','Spec: open file in project'],
+            \ 'f': [':Leaderf rg','rg'],
             \ 'c': [':lua require("spectre").open_file_search({select_word=true})','Spec: open ']
             \ }
 
