@@ -467,6 +467,11 @@
     "body": ["import { $1 } from \"$0\""],
     "description": "Import external module."
   },
+  "import cx": {
+    "prefix": "icx",
+    "body": ["import cx from 'classnames'"],
+    "description": "import cx"
+  },
   "Log warning to console": {
     "prefix": "warn",
     "body": ["console.warn($1)", "$0"],
