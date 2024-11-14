@@ -2,8 +2,8 @@
 " ===
 " === Use <alt> + new arrow keys for moving the cursor around windows
 " ===
-noremap <A-j> <C-w>j
-noremap <A-k> <C-w>k
+" noremap <A-j> <C-w>j
+" noremap <A-k> <C-w>k
 noremap <A-h> <C-w>h
 noremap <A-l> <C-w>l
 noremap <A-i> <C-i>

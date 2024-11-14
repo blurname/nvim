@@ -63,8 +63,8 @@ noremap <silent><m-4> :tabn 4<cr>
 " ===
 " move line up/donw
 " ===
-noremap <m-down> :m +1<CR>
-noremap <m-up> :m -2<CR>
+noremap <m-j> :m +1<CR>
+noremap <m-k> :m -2<CR>
 
 " move key
 noremap W 5w
