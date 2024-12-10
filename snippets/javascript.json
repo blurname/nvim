@@ -514,19 +514,17 @@
   "useCallback": {
     "prefix": "ucbh",
     "body": [
-      "const ${1} = useCallback(",
-      "\t() => {",
-      "\t\t${2}(${3})",
-      "\t},",
-      "\t[${4}],",
-      ")$0"
+      "const ${1} = useCallback(() => {",
+      "\t",
+      "\t},[${4}])"
     ],
     "description": "React useCallback() hook"
   },
   "useMemo": {
     "prefix": "umh",
     "body": [
-      "const ${1} = useMemo(() => ${2}( ${3} ), [${4}])$0"
+      "const ${1} = useMemo(() => {",
+      "\t}, [${4}])"
     ],
     "description": "React useMemo() hook"
   },
