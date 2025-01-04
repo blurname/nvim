@@ -10,5 +10,17 @@
   "check proerty if is in object":{
     "prefix": "tin",
     "body": "${2: property} in ${1:object}"
+  },
+  "styled:import":{
+    "prefix": "is",
+    "body": "import styled from 'styled-components'"
+  },
+  "styled:div":{
+    "prefix": "sd",
+    "body":[
+      "const Styled${0} = styled.div`",
+      "\t",
+      "`"
+    ]
   }
 }
