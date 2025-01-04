@@ -65,6 +65,7 @@
   "typescript.autoClosingTags": true,
   "eslint.run": "onSave",
   "eslint.autoFixOnSave": true,
+  "eslint.experimental.useFlatConfig":false,
   "Lua.telemetry.enable": false,
   "sumneko-lua.enableNvimLuaDev": true,
   "sumneko-lua.enable": true,
