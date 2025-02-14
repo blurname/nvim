@@ -334,17 +334,9 @@
     "prefix": "cl",
     "body": "console.log(${0})"
   },
-  "console.log with name": {
-    "prefix": "cln",
-    "body": "console.log('${0}', ${1})"
-  },
-  "console.log a variable": {
-    "prefix": "cv",
-    "body": "console.log('${0}:', ${0})"
-  },
-  "console.dir": {
-    "prefix": "cod",
-    "body": "console.dir('${0}:', ${0})"
+  "console.trace": {
+    "prefix": "ct",
+    "body": "console.log(${0})"
   },
   "constructor": {
     "prefix": "cons",
