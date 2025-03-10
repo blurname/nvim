@@ -27,7 +27,7 @@ require("harpoon").setup({
 })
 require('nvim-highlight-colors').setup{}
 require('m-tabline')
-require('a-spectre')
+-- require('a-spectre')
 -- require('a-telescope')
 require('a-diffview')
 require('m-flash')

@@ -43,7 +43,7 @@ return lazy.setup({
       {'haya14busa/vim-asterisk'},
 
     -- file-tree
-      {'MunifTanjim/nui.nvim'},
+      -- {'MunifTanjim/nui.nvim'},
 
     --git
       {'tpope/vim-fugitive'},
@@ -65,7 +65,7 @@ return lazy.setup({
 
     --   {'elkowar/yuck.vim'}
 
-      {'sbdchd/neoformat'},
+      -- {'sbdchd/neoformat'},
 
       {'nvim-lua/plenary.nvim'},
 
@@ -92,13 +92,13 @@ return lazy.setup({
 
     -- search
       {'folke/flash.nvim'},
-    --   {'nvim-pack/nvim-spectre'}
+      -- {'nvim-pack/nvim-spectre'},
     --   '/home/bl/prjs/tabline.nvim'
-      {'blurname/nvim-spectre', branch = 'bl/dev'},
+      -- {'blurname/nvim-spectre', branch = 'bl/dev'},
       -- {'paopaol/telescope-git-diffs.nvim'},
       {'akinsho/toggleterm.nvim'},
       {'willothy/flatten.nvim'},
-      {'lukas-reineke/indent-blankline.nvim'},
+      -- {'lukas-reineke/indent-blankline.nvim'},
       {'MagicDuck/grug-far.nvim'},
       {'nvim-tree/nvim-tree.lua'}
 })
