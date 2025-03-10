@@ -47,4 +47,5 @@ require('grug-far').setup({
    }
 });
 vim.keymap.set('n', '<F4>', '<cmd>lua require("grug-far").toggle_instance({instanceName = "gf"})<CR>' )
+require('fzf')
 -- require('indent-blankline-m')
