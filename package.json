@@ -5,6 +5,7 @@
     "install-lazy": "git clone --depth 1 https://github.com/folke/lazy.nvim ~/.local/share/nvim/lazy/lazy.nvim",
     "clean-install": "rm -rf ~/.local/share/nvim/",
     "=== platform ===":"",
-    "arch-linux-dep":"sudo pacaman -S python-pynvim"
+    "arch-linux-dep":"sudo pacaman -S python-pynvim",
+    "pack":"bash pack.sh"
   }
 }
