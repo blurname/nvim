@@ -27,8 +27,6 @@ require("harpoon").setup({
 })
 require('nvim-highlight-colors').setup{}
 require('m-tabline')
--- require('a-spectre')
--- require('a-telescope')
 require('a-diffview')
 require('m-flash')
 require('toggleterm-m')
@@ -48,4 +46,3 @@ require('grug-far').setup({
 });
 vim.keymap.set('n', '<F4>', '<cmd>lua require("grug-far").toggle_instance({instanceName = "gf"})<CR>' )
 require('fzf')
--- require('indent-blankline-m')

@@ -1,6 +1,5 @@
 -- local tabline = require('tabline.setup')
 -- local h = require('tabline.helpers')
-local k = vim.keymap
 
 vim.o.showtabline = 2
 
@@ -49,6 +48,6 @@ end
 --   vim.cmd('bwipeout')
 -- end
 
-k.set('n','<c-w>',close_tab_or_buffer,{nowait = true}) -- 2024.8.3 c-w 不知道被什么占掉了，用 nowait
-k.set('n','<c-l>',':tabnext<CR>')
-k.set('n','<c-h>',':tabprevious<CR>')
+vim.keymap.set('n','<c-w>',close_tab_or_buffer,{nowait = true}) -- 2024.8.3 c-w 不知道被什么占掉了，用 nowait
+vim.keymap.set('n','<c-l>',':tabnext<CR>')
+vim.keymap.set('n','<c-h>',':tabprevious<CR>')
