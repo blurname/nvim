@@ -83,7 +83,6 @@ vim.g.fzf_layout = {
     yoffset = 0.6
   },
 }
-
 ---Color a string by ANSI color code that is converted from a highlight group
 ---@param str string string to be colored
 ---@param hl string highlight group name
@@ -395,5 +394,132 @@ end
 
 vim.keymap.set('n', '<leader>b', function()
     run(buffers)
+end)
+
+local rg_prefix = 'rg --column --line-number --no-heading --color=always --smart-case --with-filename'
+-- Use bat to preview text file
+local bat_prefix = 'bat --color=always --paging=never --style=numbers'
+
+---Generate the fzf options for rg and fzf integration
+---@param rg string The final rg command
+---@param rg_query string The initial query for rg
+---@param path string File or directory for rg to search
+---@param prompt string Fzf prompt string
+---@param extra_opts table? Extra fzf options
+---@param from_resume boolean? Whether or not the finder is called from fzf resume
+---@return table Fzf options for live grep
+local function get_fzf_opts_for_live_grep(rg, rg_query, path, prompt, extra_opts, from_resume)
+    extra_opts = extra_opts or {}
+    if not from_resume then
+        cached_rg_query = vim.fn.tempname()
+        cached_fzf_query = vim.fn.tempname()
+        fzf_mode_enabled = vim.fn.tempname() -- tempfile to record whether it is currently in fzf mode
+    end
+    local is_fzf_mode = vim.uv.fs_stat(fzf_mode_enabled)
+    local mode = is_fzf_mode and 'FZF' or 'RG'
+    local search_enabled = is_fzf_mode and true or false
+    -- Initial rg query
+    if from_resume and vim.uv.fs_stat(cached_rg_query) then
+        rg_query = '"$(cat ' .. cached_rg_query .. ')"'
+    else
+        rg_query = vim.fn.shellescape(rg_query)
+    end
+    -- Initial fzf query
+    local set_query = ''
+    if from_resume then
+        set_query = string.format(
+            '+transform-query(cat %s)',
+            is_fzf_mode and cached_fzf_query or cached_rg_query
+        )
+    end
+    -- Unbind the change event if it is called by fzf resume and rg's initial mode is fzf mode
+    local unbind_change = ''
+    if from_resume and is_fzf_mode then
+        unbind_change = '+unbind(change)'
+    end
+    -- Print quickfix title used in winbar of quickfix window
+    -- E.g., "Live Grep: Rg Query foo | Fzf Query bar"
+    local print_qf_title = 'transform(rg_query=$(cat ' .. cached_rg_query .. '); rg_query=${rg_query:-[empty]}; fzf_query=$(cat ' .. cached_fzf_query .. '); fzf_query=${fzf_query:-[empty]}; echo "print(' .. prompt .. ': Rg Query $rg_query | Fzf Query $fzf_query)")'
+
+    local opts =  {
+        '--ansi',
+        '--multi',
+        '--prompt',
+        string.format('%s [%s]> ', prompt, mode),
+        '--bind',
+        'start:reload(' .. rg .. ' ' .. rg_query .. ' ' .. path .. ')' .. set_query .. unbind_change,
+        '--bind',
+        'change:reload:' .. rg .. ' {q} ' .. path .. ' || true',
+        '--bind',
+        -- Cache the query into the specific tempfile based on the current mode
+        'result:execute-silent([[ ! -e ' .. fzf_mode_enabled .. ' ]] && echo {q} > ' .. cached_rg_query .. ' || echo {q} > ' .. cached_fzf_query .. ')',
+        '--bind',
+        'alt-f:transform:\
+        [[ ! -e ' .. fzf_mode_enabled .. ' ]] && { \
+            touch ' .. fzf_mode_enabled .. '; \
+            echo "unbind(change)+change-prompt(' .. prompt .. ' [FZF]> )+enable-search+transform-query(cat ' .. cached_fzf_query .. ')"; \
+        } || { \
+            rm ' .. fzf_mode_enabled .. '; \
+            echo "change-prompt(' .. prompt .. ' [RG]> )+disable-search+reload(' .. rg .. ' {q} || true)+rebind(change)+transform-query(cat ' .. cached_rg_query .. ')"\
+        }',
+        '--bind',
+        set_preview_label('$(echo {1} | sed "s|$HOME|~|"):{2}:{3}'),
+        '--delimiter',
+        ':',
+        '--header',
+        ':: ALT-F (toggle FZF mode and RG mode), CTRL-Q (send to quickfix), CTRL-L (send to loclist)',
+        '--bind',
+        'enter:print()+accept,ctrl-x:print(ctrl-x)+accept,ctrl-v:print(ctrl-v)+accept,ctrl-t:print(ctrl-t)+accept',
+        '--bind',
+        'ctrl-l:print(ctrl-l)+' .. print_qf_title .. '+accept',
+        '--bind',
+        'ctrl-q:print(ctrl-q)+' .. print_qf_title .. '+accept',
+        '--preview-window',
+        'down,45%,+{2}-/2',
+        '--preview',
+        bat_prefix .. ' --highlight-line {2} -- {1}',
+    }
+
+    if not search_enabled then
+        table.insert(opts, '--disabled')
+    end
+    return vim.list_extend(opts, extra_opts)
+end
+
+---sink* for live grep
+---ENTER/CTRL-X/CTRL-V/CTRL-T to open files and set cursor position
+---CTRL-Q/CTRL-L to send selections to quickfix or location list
+---@param lines table lines[1] is the query used as the title when sent to qf. For CTRL-Q/CTRL-L,
+---lines[2] is the title for quickfix or loclist and lines[3..] are selected lines. For other keys,
+---lines[2..] are selected lines.
+local function sink_grep(lines)
+    local key = lines[1]
+    if key == 'ctrl-q' then
+        grep_sel_to_qf(lines)
+    elseif key == 'ctrl-l' then
+        grep_sel_to_qf(lines, true)
+    else
+        for i = 2, #lines do
+            local filename, lnum, col = lines[i]:match('^([^:]+):([^:]+):([^:]+):.*$')
+            local cmd = vim.g.fzf_action[key] or 'edit'
+            -- if vim.fn.fnamemodify(lines[i], ':p') ~= vim.fn.expand('%:p') then
+            -- end
+            vim.cmd(cmd .. ' ' .. filename)
+            vim.api.nvim_win_set_cursor(0, { tonumber(lnum), tonumber(col) - 1 })
+        end
+    end
+end
+-- Live grep
+local function live_grep(from_resume)
+    local rg_cmd = rg_prefix .. ' --'
+    local spec = {
+        ['sink*'] = sink_grep,
+        options = get_fzf_opts_for_live_grep(rg_cmd, '', '', 'Live Grep', {}, from_resume)
+    }
+    fzf(spec, nil, rg_cmd)
+end
+
+vim.keymap.set('n', '<Leader>i', function()
+    run(live_grep)
 end)
 
