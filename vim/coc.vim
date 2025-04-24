@@ -184,6 +184,7 @@ function! ToggleQuickFix()
 endfunction
 
 nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>
+nnoremap <silent> '' :CocCommand eslint.executeAutofix<cr>
 nnoremap <silent> <a-q> :cprev<cr>
 nnoremap <silent> <a-e> :cnext<cr>
 " nnoremap <silent><nowait> <leader>l  :<C-u>CocOutline<cr>
@@ -197,4 +198,5 @@ function! ToggleOutline() abort
     call coc#window#close(winid)
   endif
 endfunction
+
 
