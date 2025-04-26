@@ -34,8 +34,9 @@ local black4 = '#181818' -- Statusline and Tabline (editorGroupHeader.tabsBackgr
 
 local white = '#ffffff'
 
+
 local norm_fg = '#000000'
-local norm_bg = '#ffffff'
+local norm_bg = '#EFF0F2'
 -- local norm_fg = '#cccccc'
 -- local norm_bg = '#1f1f1f'
 
