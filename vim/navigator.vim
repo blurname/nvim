@@ -13,13 +13,13 @@ let g:navigator.p = {
             \ '3' : [':BlGetFilePathAbsolute','GetFilePathAbsolute'],
             \ }
 
-let g:navigator.f = {
-            \ 'name': '+leaderf',
-            \ '1' : [':Leaderf! rg --recall','rg recall'],
-            \ '2' : [':Leaderf! file --recall','file recall'],
-            \ 'f': [':Leaderf rg','rg'],
-            \ 'c': [':lua require("spectre").open_file_search({select_word=true})','Spec: open ']
-            \ }
+" let g:navigator.f = {
+"             \ 'name': '+leaderf',
+"             \ '1' : [':Leaderf! rg --recall','rg recall'],
+"             \ '2' : [':Leaderf! file --recall','file recall'],
+"             \ 'f': [':Leaderf rg','rg'],
+"             \ 'c': [':lua require("spectre").open_file_search({select_word=true})','Spec: open ']
+"             \ }
 
 let g:navigator.g = {
             \ 'name': '+git',

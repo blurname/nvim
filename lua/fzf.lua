@@ -209,7 +209,7 @@ local function files(from_resume)
 end
 
 vim.keymap.set('n', '<leader>l', function()
-    run(files)
+    run(files, true)
 end)
 -- Close the pipe and kill tail process to terminate fzf's "loading" indicator
 local function finish()
@@ -456,7 +456,27 @@ local function live_grep(from_resume)
     fzf(spec, nil, rg_cmd)
 end
 
+local function listPackageJson(from_resume)
+    -- local rg_cmd = rg_prefix .. ' --'
+    local spec = {
+        -- ['source'] = "package.json",
+
+        ['sink*'] = sink_file,
+        options = get_fzf_opts(from_resume, {
+            '--prompt',
+            shortpath(vim.uv.cwd()),
+            '--expect',
+            get_expect(),
+        }),
+        -- options = get_fzf_opts_for_live_grep(rg_cmd, '', '', 'Live Grep', {}, from_resume)
+    }
+    fzf(spec, nil, 'fd package.json')
+end
 vim.keymap.set('n', '<Leader>i', function()
     run(live_grep)
+end)
+
+vim.keymap.set('n', '<F10>', function()
+    run(listPackageJson)
 end)
 

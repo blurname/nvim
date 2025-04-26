@@ -32,7 +32,7 @@ return lazy.setup({
     --vista.vim symbol navigation
       {'tweekmonster/startuptime.vim', cmd = 'StartupTime'},
     -- fuzzy file finder
-      {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'},
+      -- {'Yggdroot/LeaderF', run = ':LeaderfInstallCExtension'},
 
     -- change surrounding symbol
       {'machakann/vim-sandwich'},

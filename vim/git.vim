@@ -9,7 +9,7 @@
 nnoremap <leader>ge :Gedit<CR>
 
 nnoremap <leader>gl V \| :'<,'>DiffviewFileHistory<CR>
-nnoremap <leader>gb :Leaderf git blame<cr>
+" nnoremap <leader>gb :Leaderf git blame<cr>
 command! DiffviewHead :DiffviewOpen HEAD~1<CR>
 
 " visual line
