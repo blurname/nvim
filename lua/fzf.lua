@@ -460,3 +460,74 @@ vim.keymap.set('n', '<Leader>i', function()
     run(live_grep)
 end)
 
+
+-- Registers
+local function registers(from_resume)
+    local spec = {
+        ['sink*'] = function(lines)
+            -- ENTER will paster the content in the selected register at the cursor position
+            local reg = lines[1]:match("%[(.-)%]")
+            local ok, text = pcall(vim.fn.getreg, reg)
+            if ok and #text > 0 then
+                vim.api.nvim_paste(text, false, -1)
+            end
+        end,
+        options = get_fzf_opts(from_resume, {
+            '--read0',
+            '--no-multi',
+            '--prompt',
+            'Registers> ',
+            '--header',
+            ':: ENTER (paste at cursor)',
+            '--preview', -- show register content in preview
+            "echo {} | sed '1s/^\\[[0-9A-Z\"-\\#\\=_/\\*\\+:\\.%]\\] //'",
+            '--bind',
+            set_preview_label('Register {1}'),
+        }),
+    }
+
+    local function handle_contents()
+        local regs = { [["]], "-", "#", "=", "_", "/", "*", "+", ":", ".", "%" }
+        -- Numbered registers
+        for i = 0, 9 do
+            table.insert(regs, tostring(i))
+        end
+        -- Named registers
+        for i = 65, 90 do
+            table.insert(regs, string.char(i))
+        end
+
+        local function escape_special(text)
+            local gsub_map = {
+                ['\3']  = '^C', -- <C-c>
+                ['\27'] = '^[', -- <Esc>
+                ['\18'] = '^R', -- <C-r>
+            }
+            for k, v in pairs(gsub_map) do
+                text = text:gsub(k, ansi_string(v, 'PreProc')):gsub('\n$', '')
+            end
+            return text
+        end
+
+        -- Entry: <[register]> <text>
+        local entries = {}
+        for _, r in ipairs(regs) do
+            local _, text = pcall(vim.fn.getreg, r)
+            text = escape_special(text)
+            if text and #text > 0 then
+                table.insert(
+                    entries,
+                    string.format('[%s] %s\0', ansi_string(r, 'FzfLnum'), text)
+                )
+            end
+        end
+
+        write(entries, true)
+    end
+
+    fzf(spec, handle_contents)
+end
+
+vim.keymap.set('n', '<Leader>fr', function()
+    run(registers)
+end)
