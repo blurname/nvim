@@ -40,7 +40,7 @@ require('grug-far').setup({
      search = '',
      replacement = '',
      filesFilter = '',
-     flags = '-i',
+     flags = '-i -F',
      paths = '',
    }
 });
