@@ -5,6 +5,7 @@
 -- require('fFHighlight').setup()
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 vim.opt.rtp:prepend(lazypath)
+vim.opt.termguicolors = true
 
 require('lazy-a')
 
@@ -13,7 +14,7 @@ require('config')
 
 -- config patch
 require('config.treesitter')
-require('config.nightfox')
+-- require('config.nightfox')
 require('config.gitsigns')
 require('config.session-manager')
 require('config.ufo')

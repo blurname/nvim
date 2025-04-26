@@ -7,16 +7,17 @@
 -- 2. VSCode theme color: https://code.visualstudio.com/api/references/theme-color
 --
 
+vim.o.background = 'light'
 local util = require('util.color')
 
 local red = '#f44747'
 local dark_red = '#d16969'
 local orange = '#f9ae28'
-local brown = '#ce9178'
+local brown = '#6a9955'
 local yellow = '#dcdcaa'
 local yellow_orange = '#d7ba7d'
 local green = '#6a9955'
-local blue_green = '#4ec9b0'
+local blue_green = '#569cd6'
 local blue = '#4fc1ff'
 local light_blue = '#000000'
 local dark_blue = '#569cd6'
@@ -28,13 +29,13 @@ local gray3 = '#808080'
 
 local black = '#2d2d2d' -- TabLine
 local black2 = '#252526'
-local black3 = '#282828' -- CursorLine (editor.lineHighlightBorder). Or use #2a2d2e (list.hoverBackground) for a brighter color
+local black3 = '#EFF0F0' -- CursorLine (editor.lineHighlightBorder). Or use #2a2d2e (list.hoverBackground) for a brighter color
 local black4 = '#181818' -- Statusline and Tabline (editorGroupHeader.tabsBackground, tab.inactiveBackground)
 
 local white = '#ffffff'
 
 local norm_fg = '#000000'
-local norm_bg = '#EFEFF0'
+local norm_bg = '#ffffff'
 -- local norm_fg = '#cccccc'
 -- local norm_bg = '#1f1f1f'
 
@@ -723,20 +724,6 @@ local groups = {
     -- TreesitterContextSeparator = {},
     TreesitterContextBottom = { underline = true, sp = '#000000' },
     -- TreesitterContextLineNumberBottom = {},
-
-    --
-    -- Fzf
-    --
-
-    FzfFilename = { fg = filename },
-    FzfLnum = { fg = lnum },
-    FzfCol = { fg = col },
-    FzfDesc = { fg = util.lighten(norm_bg, 0.4) },
-    FzfRgQuery = { fg = red },
-    FzfTagsPattern = { fg = dark_blue },
-
-    GitStatusStaged = { fg = green },
-    GitStatusUnstaged = { fg = red },
 }
 
 for k, v in pairs(groups) do
