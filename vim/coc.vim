@@ -16,7 +16,8 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-lit-html',
       \ 'coc-git',
       \ 'coc-lists',
-      \ 'coc-styled-components']
+      \ 'coc-styled-components',
+      \ '@yaegassy/coc-tailwindcss3' ]
 let g:coc_default_semantic_highlight_groups = 0
 
 nnoremap <silent> K :call ShowDocumentation()<CR>
