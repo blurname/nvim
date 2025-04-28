@@ -209,7 +209,7 @@ local function files(from_resume)
 end
 
 vim.keymap.set('n', '<leader>l', function()
-    run(files, true)
+    run(files)
 end)
 -- Close the pipe and kill tail process to terminate fzf's "loading" indicator
 local function finish()
