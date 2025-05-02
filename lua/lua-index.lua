@@ -48,3 +48,5 @@ vim.keymap.set('n', '<F4>', '<cmd>lua require("grug-far").toggle_instance({insta
 require('fzf')
 require('config.autosave')
 require('vmlens')
+require('lspConfig')
+require('blinkConfig')
