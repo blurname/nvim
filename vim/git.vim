@@ -17,3 +17,4 @@ vnoremap <leader>gl :'<,'>DiffviewFileHistory<CR>
 " current Line
 " nnoremap gl :normal! V^\<CR>:DiffviewFileHistory\<CR> 
 
+nnoremap  <leader>v :NvimTreeFindFileToggle <CR>
