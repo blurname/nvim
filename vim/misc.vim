@@ -88,5 +88,15 @@ endfunction
 
 " 定义命令来调用函数
 command! -nargs=1 JumpTo call JumpToFileAndLine(<f-args>)
+function! ToggleQuickFix()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+      top copen
+    else
+        cclose
+    endif
+endfunction
+
+nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>
+nmap <C-F> :Grepper -noprompt -tool rg -cword<CR><CR>
 
 " nnoremap ss viw:%s/<C-R>"//g<Left><Left>
