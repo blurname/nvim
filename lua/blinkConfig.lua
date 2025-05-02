@@ -6,13 +6,14 @@ require('blink.cmp').setup({
         ['<C-Enter>'] = { 'show', 'show_documentation', 'hide_documentation', 'fallback' },
         ['<C-e>'] = { 'cancel', 'fallback' },
         ['<C-\\>'] = { 'hide', 'fallback' },
-        ['<C-y>'] = { 'select_and_accept', 'fallback' },
+        ['<CR>'] = { 'select_and_accept', 'fallback' },
 
         ['<S-Tab>'] = { 'select_prev', 'fallback' },
         ['<Tab>'] = { 'select_next', 'show', 'fallback' },
 
         ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
         ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+        -- ['Enter'] = {'select_and_accept','fallback'} 
     },
     sources = {
         default = { 'lsp', 'snippets', 'buffer', 'path' },
@@ -34,13 +35,13 @@ require('blink.cmp').setup({
     completion = {
         list = {
             selection = {
-                preselect = false,
+                preselect = true,
                 auto_insert = true,
             },
         },
         accept = {
             auto_brackets = {
-                enabled = false,
+                enabled = true,
             },
         },
         menu = {
@@ -63,7 +64,7 @@ require('blink.cmp').setup({
             },
         },
         ghost_text = {
-            enabled = true,
+            enabled = false,
         },
     },
     fuzzy = {

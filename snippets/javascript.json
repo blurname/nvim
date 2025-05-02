@@ -558,5 +558,29 @@
     "body":[
       "dispatch({type:$1,payload:{}})"
     ]
+  },
+  "type": {
+    "prefix": "t",
+    "body": "type ${1:name} = {\n\t${0:}\n}"
+  },
+  "export type": {
+    "prefix": "et",
+    "body": "export type ${1:name}= {\n\t${0}\n}"
+  },
+  "check proerty if is in object":{
+    "prefix": "tin",
+    "body": "${2: property} in ${1:object}"
+  },
+  "styled:import":{
+    "prefix": "ims",
+    "body": "import styled from 'styled-components'"
+  },
+  "styled:div":{
+    "prefix": "sd",
+    "body":[
+      "const Styled${0} = styled.div`",
+      "\t",
+      "`"
+    ]
   }
 }
