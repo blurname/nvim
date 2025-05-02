@@ -15,6 +15,14 @@ local function suffix(d)
     return string.format(' [%s]', d.code and d.code or 'Unknown')
 end
 
+local function on_list1(options)
+  -- print(options.items)
+  vim.fn.setqflist({}, ' ', options)
+  -- vim.cmd.cfirst()
+  vim.cmd('top copen')
+  -- vim.cmd.cfirst()
+end
+
 local virtual_text_opts = {
     source = false,
     prefix = '',
@@ -89,12 +97,14 @@ local function on_attach(client, bufnr)
     --  * <C-w>d and <C-w><C-d> map to vim.diagnostic.open_float()
     --
 
-    local opts = { buffer = bufnr }
+    local opts = { buffer = bufnr, nowait = true }
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = bufnr, nowait = true })
+    vim.keymap.set('n', 'gr', function()
+        vim.lsp.buf.references(nil, { on_list = on_list1 })
+    end, opts)
     -- vim.keymap.set({ 'i', 's' }, '<C-s>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
@@ -231,5 +241,6 @@ for _, v in ipairs(vim.api.nvim_get_runtime_file('lsp/*', true)) do
 end
 
 vim.lsp.enable(vim.tbl_keys(lsp_configs))
+
 
 return M
