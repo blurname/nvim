@@ -52,7 +52,7 @@ local virtual_lines_opts = {
 
 vim.diagnostic.config({
     float = float_opts,
-    virtual_text = virtual_text_opts,
+    virtual_text = true,
     virtual_lines = false,
     signs = false,
     severity_sort = true,
@@ -60,12 +60,17 @@ vim.diagnostic.config({
 
 local hover = vim.lsp.buf.hover
 ---@diagnostic disable-next-line: duplicate-set-field
-vim.lsp.buf.hover = function()
+local lspHover = function()
+      -- if vim.fn.win_gettype(vim.fn.win_getid()) == 'popup' then
+        -- print('hahaha')
+        -- vim.cmd('close')
+    -- else
     return hover {
         border = vim.g.border_style,
         max_height = math.floor(vim.o.lines * 0.5),
         max_width = math.floor(vim.o.columns * 0.4),
     }
+  -- end
 end
 
 local signature_help = vim.lsp.buf.signature_help
@@ -106,7 +111,7 @@ local function on_attach(client, bufnr)
         vim.lsp.buf.references(nil, { on_list = on_list1 })
     end, opts)
     -- vim.keymap.set({ 'i', 's' }, '<C-s>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'K', lspHover, opts)
     vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
     -- Code actions for the current line.
     -- In order to get the code actions only for the cursor position, the diagnostics overlap the
@@ -120,10 +125,10 @@ local function on_attach(client, bufnr)
 
     -- Diagnostics
     vim.keymap.set('n', 'go', vim.diagnostic.open_float, opts)
-    vim.keymap.set('n', '[d', function() -- previous
+    vim.keymap.set('n', '<c-k>', function() -- previous
         vim.diagnostic.jump({ count = -vim.v.count1 })
     end, opts)
-    vim.keymap.set('n', ']d', function() -- next
+    vim.keymap.set('n', '<c-j>', function() -- next
         vim.diagnostic.jump({ count = vim.v.count1 })
     end, opts)
     vim.keymap.set('n', '[D', function() -- first

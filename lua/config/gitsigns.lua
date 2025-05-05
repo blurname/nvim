@@ -6,6 +6,22 @@ require('gitsigns').setup {
   --   topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
   --   changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
   -- },
+  signs = {
+    add          = { text = '+' },
+    change       = { text = '=' },
+    delete       = { text = '-' },
+    topdelete    = { text = 'q' },
+    changedelete = { text = 'w' },
+    untracked    = { text = 'e' },
+  },
+  signs_staged = {
+    add          = { text = '+' },
+    change       = { text = '=' },
+    delete       = { text = '-' },
+    topdelete    = { text = 'q' },
+    changedelete = { text = 'w' },
+    untracked    = { text = 'e' },
+  },
   signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
   numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
   linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
@@ -58,8 +74,8 @@ require('gitsigns').setup {
     end, {expr=true})
 
     -- Actions
-    map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-    map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+    -- map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+    map({'n', 'v'}, 'gu', ':Gitsigns reset_hunk<CR>')
     map('n', 'gj', ':Gitsigns next_hunk<CR>')
     map('n', 'gk', ':Gitsigns prev_hunk<CR>')
     --map('n', '<leader>hS', gs.stage_buffer)

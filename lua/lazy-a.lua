@@ -113,5 +113,7 @@ return lazy.setup({
         -- If you use nix, you can build from source using latest nightly rust with:
         -- build = 'nix run .#build-plugin',
         opts_extend = { "sources.default" }
-      }
+      },
+      {'esmuellert/nvim-eslint'},
+      {'mfussenegger/nvim-lint'}
 })

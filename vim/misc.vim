@@ -99,4 +99,8 @@ endfunction
 nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>
 nmap <C-F> :Grepper -noprompt -tool rg -cword<CR><CR>
 
+nnoremap <nowait><silent>q <plug>(GrepperOperator)
+xnoremap <nowait><silent>q <plug>(GrepperOperator)
+
+command! -nargs=0 ListLog :GrepperRg blue]-
 " nnoremap ss viw:%s/<C-R>"//g<Left><Left>
