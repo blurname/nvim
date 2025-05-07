@@ -2,8 +2,7 @@
   "name": "personal-snippets",
   "contributes": {
     "snippets": [
-      { "language": "typescript", "path": "./javascript.json" },
-      { "language": "javascript", "path": "./javascript.json" }
+      { "language": ["typescriptreact", "javascriptreact","typescript","javascript"], "path": "./javascript.json" }
     ]
   }
 }
