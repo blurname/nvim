@@ -52,7 +52,7 @@ local virtual_lines_opts = {
 
 vim.diagnostic.config({
     float = float_opts,
-    virtual_text = true,
+    virtual_text = false,
     virtual_lines = false,
     signs = false,
     severity_sort = true,
@@ -158,8 +158,8 @@ local function on_attach(client, bufnr)
             return
         end
         local new_opts = {}
-        new_opts.virtual_text = not old_opts.virtual_text and virtual_text_opts or false
-        new_opts.virtual_lines = not old_opts.virtual_lines and virtual_lines_opts or false
+        new_opts.virtual_text = not old_opts.virtual_text --and virtual_text_opts or false
+        -- new_opts.virtual_lines = not old_opts.virtual_lines and virtual_lines_opts or false
         vim.diagnostic.config(new_opts)
     end, opts)
 

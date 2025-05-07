@@ -3,7 +3,7 @@ require('blink.cmp').setup({
     -- keymaps for snippet jumping forward and backward are defined in luasnip config
     keymap = {
         preset = 'none',
-        ['<C-Enter>'] = { 'show', 'show_documentation', 'hide_documentation', 'fallback' },
+        ['<C-l>'] = { 'show', 'show_documentation', 'hide_documentation', 'fallback' },
         ['<C-e>'] = { 'cancel', 'fallback' },
         ['<C-\\>'] = { 'hide', 'fallback' },
         ['<CR>'] = { 'select_and_accept', 'fallback' },
@@ -52,8 +52,8 @@ require('blink.cmp').setup({
             border = vim.g.border_style,
             draw = {
                 columns = {
-                    { 'kind_icon' },
                     { 'label', 'label_description', gap = 1 },
+                    -- { 'kind_icon' },
                 },
             },
         },
@@ -76,9 +76,9 @@ require('blink.cmp').setup({
             return 0
         end,
     },
-    -- appearance = {
-    --     kind_icons = kind_icons,
-    -- },
+    appearance = {
+        kind_icons = kind_icons,
+    },
 
     -- Command line
     cmdline = {
