@@ -12,8 +12,9 @@ require('hlslens').setup()
 require('config')
 
 -- config patch
-require('config.treesitter')
+-- require('config.treesitter')
 require('config.nightfox')
+-- require('arctic')
 require('config.gitsigns')
 require('config.session-manager')
 require('config.ufo')
