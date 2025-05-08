@@ -71,7 +71,7 @@ function system.sync(command)
 end
 
 -- local fd_prefix = 'fd --hidden --follow --color=never --type f --type l ' .. vim.env.FD_EXCLUDE
-local fd_prefix = 'fd --hidden --follow --color=never --type f --type l '
+local fd_prefix = 'fd --hidden --follow --color=never --type f --type l --exclude .git'
 
 local cached_fzf_query -- cached the last fzf query
 local cached_rg_query -- cached the last rg query (for live greps)
