@@ -52,7 +52,7 @@ filetype plugin on
 " set clipboard=unnamedplus
 "set cmdheight=0
 "colorscheme everforest
-colorscheme nordfox
+" colorscheme nordfox
 "let g:everforest_background = 'hard'
 
 " Save & quit
