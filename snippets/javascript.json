@@ -3,6 +3,10 @@
     "prefix": "td",
     "body": "// TODO: bl: ${0}"
   },
+  "deprecated comment": {
+    "prefix": "dp",
+    "body": "/** @deprecated no usage */"
+  },
   "setTimeout": {
     "prefix": "st",
     "body": "setTimeout(() => {\n\t${0}\n}, ${1:delay})"
