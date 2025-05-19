@@ -7,6 +7,10 @@
     "prefix": "dp",
     "body": "/** @deprecated no usage */"
   },
+  "eslint disable next line": {
+    "prefix": "disl",
+    "body": "// eslint-disable-next-line"
+  },
   "setTimeout": {
     "prefix": "st",
     "body": "setTimeout(() => {\n\t${0}\n}, ${1:delay})"
