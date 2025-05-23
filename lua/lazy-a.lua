@@ -114,6 +114,7 @@ return lazy.setup({
         -- build = 'nix run .#build-plugin',
         opts_extend = { "sources.default" }
       },
+      {'mfussenegger/nvim-lint'},
       {'esmuellert/nvim-eslint'},
-      {'mfussenegger/nvim-lint'}
+      {'jinzhongjia/LspUI.nvim',},
 })

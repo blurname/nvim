@@ -112,7 +112,10 @@ local function on_attach(client, bufnr)
     end, opts)
     -- vim.keymap.set({ 'i', 's' }, '<C-s>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', 'K', lspHover, opts)
-    vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
+    -- vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', '<F2>',function()
+      vim.cmd('LspUI rename')
+    end , opts)
     -- Code actions for the current line.
     -- In order to get the code actions only for the cursor position, the diagnostics overlap the
     -- cursor position could be passed as part of the parameter to vim.lsp.buf.code_action(). However,
@@ -121,7 +124,10 @@ local function on_attach(client, bufnr)
     --
     -- TODO: modify this keymap to only get the code actions for the current cursor position after the
     -- API is fixed.
-    vim.keymap.set({ 'n', 'x' }, '<Leader><leader>', vim.lsp.buf.code_action, opts)
+    vim.keymap.set({ 'n', 'x' }, '<Leader><leader>', function()
+    -- vim.lsp.buf.code_action
+      vim.cmd('LspUI code_action')
+  end, opts)
 
     -- Diagnostics
     vim.keymap.set('n', 'go', vim.diagnostic.open_float, opts)
@@ -168,9 +174,9 @@ local function on_attach(client, bufnr)
     vim.keymap.set('n', '<Leader>dl', vim.diagnostic.setloclist, opts)
 
     -- Format
-    -- vim.keymap.set({ 'n', 'x' }, '<leader>F', function()
-    --     vim.lsp.buf.format({ async = true })
-    -- end, opts)
+    vim.keymap.set({ 'n', 'x' }, '\'\'', function()
+        vim.lsp.buf.format({ async = true })
+    end, opts)
 
     -- Inlay hints
     if vim.g.inlay_hint_enabled then
