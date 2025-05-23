@@ -61,15 +61,16 @@ vim.diagnostic.config({
 local hover = vim.lsp.buf.hover
 ---@diagnostic disable-next-line: duplicate-set-field
 local lspHover = function()
+  vim.cmd('LspUI hover')
       -- if vim.fn.win_gettype(vim.fn.win_getid()) == 'popup' then
         -- print('hahaha')
         -- vim.cmd('close')
     -- else
-    return hover {
-        border = vim.g.border_style,
-        max_height = math.floor(vim.o.lines * 0.5),
-        max_width = math.floor(vim.o.columns * 0.4),
-    }
+    -- return hover {
+    --     border = vim.g.border_style,
+    --     max_height = math.floor(vim.o.lines * 0.5),
+    --     max_width = math.floor(vim.o.columns * 0.4),
+    -- }
   -- end
 end
 

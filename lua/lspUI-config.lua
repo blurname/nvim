@@ -49,15 +49,15 @@ local default_diagnostic_config = {
 
 --- @type LspUI_hover_config
 local default_hover_config = {
-  enable = false,
-  command_enable = false,
+  enable = true,
+  command_enable = true,
 	-- these keybind only works when there are multiple hovers
 	key_binding = {
 		prev = "p",
 		next = "n",
 		quit = "q",
 	},
-        transparency = default_transparency,
+        -- transparency = default_transparency,
 }
 
 --- @type LspUI_inlay_hint_config
