@@ -6,7 +6,7 @@
     "clean-install": "rm -rf ~/.local/share/nvim/",
     "=== platform ===":"",
     "arch-linux-dep":"sudo pacaman -S python-pynvim",
-    "install-lsp": "sudo npm i -g @vtsls/language-server",
+    "install-lsp": "sudo npm i -g @vtsls/language-server typescript-styled-plugin",
     "pack":"bash pack.sh"
   }
 }

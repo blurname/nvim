@@ -32,6 +32,15 @@ return {
                     enableServerSideFuzzyMatch = true,
                 },
             },
+            tsserver = {
+              globalPlugins = {
+                {
+                  name = "@styled/typescript-styled-plugin",
+                  location = "/home/bl/.npm-global/lib/node_modules/@styled/typescript-styled-plugin/lib",
+                  enableForWorkspaceTypeScriptVersions = true,
+                }
+              }
+            }
         },
     },
 }
