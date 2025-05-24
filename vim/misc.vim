@@ -45,9 +45,11 @@ function! Tools_PreviousCursor(mode)
     noautocmd silent! wincmd p
 endfunc
 
-noremap <silent><M-u> :call Tools_PreviousCursor(6)<cr>
+noremap <silent><c-e> <c-u>
+
+noremap <silent><M-e> :call Tools_PreviousCursor(6)<cr>
 noremap <silent><M-d> :call Tools_PreviousCursor(7)<cr>
-inoremap <silent><M-u> <c-\><c-o>:call Tools_PreviousCursor(6)<cr>
+inoremap <silent><M-e> <c-\><c-o>:call Tools_PreviousCursor(6)<cr>
 inoremap <silent><M-d> <c-\><c-o>:call Tools_PreviousCursor(7)<cr>
 
 noremap <silent><M-up> :call Tools_PreviousCursor(6)<cr>
