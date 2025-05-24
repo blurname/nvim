@@ -8,7 +8,7 @@ require('gitsigns').setup {
   -- },
   signs = {
     add          = { text = '+' },
-    change       = { text = '=' },
+    change       = { text = '~' },
     delete       = { text = '-' },
     topdelete    = { text = 'q' },
     changedelete = { text = 'w' },
@@ -16,7 +16,7 @@ require('gitsigns').setup {
   },
   signs_staged = {
     add          = { text = '+' },
-    change       = { text = '=' },
+    change       = { text = '~' },
     delete       = { text = '-' },
     topdelete    = { text = 'q' },
     changedelete = { text = 'w' },

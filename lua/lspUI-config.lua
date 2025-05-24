@@ -29,7 +29,7 @@ local default_lightbulb_config = {
 local default_code_action_config = {
 	enable = true,
 	command_enable = true,
-	gitsigns = true, -- this will support gitsigns code actions, if you install gitsigns
+	gitsigns = false, -- this will support gitsigns code actions, if you install gitsigns
 	-- keybind support number keybind emmit code action
 	key_binding = {
 		exec = "<cr>",

@@ -40,7 +40,7 @@ require('grug-far').setup({
    prefills = {
      search = '',
      replacement = '',
-     filesFilter = '',
+     filesFilter = '!public/,',
      flags = '-i -F',
      paths = '',
    }

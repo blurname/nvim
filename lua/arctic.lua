@@ -33,7 +33,8 @@ local black4 = '#181818' -- Statusline and Tabline (editorGroupHeader.tabsBackgr
 local white = '#ffffff'
 
 local norm_fg = '#cccccc'
-local norm_bg = '#1f1f1f'
+-- local norm_bg = '#1f1f1f'
+local norm_bg = '#2e3440'
 
 -- Signs for git in signcolumn
 local gutter_git_added = '#2ea043' -- editorGutter.addedBackground
