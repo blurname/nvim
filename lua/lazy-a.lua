@@ -114,7 +114,8 @@ return lazy.setup({
         -- build = 'nix run .#build-plugin',
         opts_extend = { "sources.default" }
       },
-      {'mfussenegger/nvim-lint'},
+      -- {'mfussenegger/nvim-lint'},
       {'esmuellert/nvim-eslint'},
       {'jinzhongjia/LspUI.nvim',},
+      {'windwp/nvim-ts-autotag'}
 })

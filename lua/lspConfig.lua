@@ -104,7 +104,9 @@ local function on_attach(client, bufnr)
     --
 
     local opts = { buffer = bufnr, nowait = true }
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gd', function()
+        vim.lsp.buf.definition(nil, { on_list = on_list1 })
+    end, opts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, opts)
@@ -253,6 +255,5 @@ for _, v in ipairs(vim.api.nvim_get_runtime_file('lsp/*', true)) do
 end
 
 vim.lsp.enable(vim.tbl_keys(lsp_configs))
-
 
 return M
