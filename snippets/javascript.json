@@ -330,10 +330,6 @@
     "prefix": "afb",
     "body": "($1) => {\n\t$2\n}"
   },
-  "generator function": {
-    "prefix": "gf",
-    "body": "function* (${1:args}) {\n\t${0}\n}"
-  },
   "named generator": {
     "prefix": "gfn",
     "body": "function* ${1:name}(${2:args}) {\n\t${0}\n}"
@@ -566,5 +562,18 @@
     "body":[
       "dispatch({type:$1,payload:{}})"
     ]
+  },
+  "function *":{
+    "prefix": "fs",
+    "body": [
+      "function * $1(){ \n}"
+    ]
+  },
+  "yiled *":{
+    "prefix": "ys",
+    "body": [
+      "yield *"
+    ]
+
   }
 }
