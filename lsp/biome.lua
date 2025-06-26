@@ -1,0 +1,13 @@
+return {
+    cmd = { 'biome', 'lsp-proxy' },
+    filetypes = {
+        'javascript',
+        'javascriptreact',
+        'javascript.jsx',
+        'typescript',
+        'typescriptreact',
+        'typescript.tsx',
+    },
+    root_markers = { 'tsconfig.json', 'package.json', 'jsconfig.json', '.git' },
+}
+

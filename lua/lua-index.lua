@@ -52,7 +52,16 @@ require('vmlens')
 require('lspConfig')
 require('blinkConfig')
 -- require('lint')
-require('nvim-eslint').setup({})
+-- require('nvim-eslint').setup({
+--   on_attach = function(client, bufnr)
+--   client.server_capabilities.documentFormattingProvider = true
+--
+--   local format = function()
+--     vim.lsp.buf.format({ timeout_ms = 2000 })
+--   end
+--   vim.keymap.set('n', 'ff', format, { silent = true, buffer = bufnr, desc = 'eslint fix' })
+-- end,
+-- })
 require('lspUI-config')
 require('nvim-ts-autotag').setup({
   opts = {
