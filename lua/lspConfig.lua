@@ -249,7 +249,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- Enable LSP servers
 local lsp_configs = {}
 for _, v in ipairs(vim.api.nvim_get_runtime_file('lsp/*', true)) do
-   print(v)
     local name = vim.fn.fnamemodify(v, ':t:r')
     lsp_configs[name] = true
 end
