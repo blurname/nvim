@@ -177,9 +177,9 @@ local function on_attach(client, bufnr)
     vim.keymap.set('n', '<Leader>dl', vim.diagnostic.setloclist, opts)
 
     -- Format
-    vim.keymap.set({ 'n', 'x' }, '\'\'', function()
-        vim.lsp.buf.format({ async = true })
-    end, opts)
+    -- vim.keymap.set({ 'n', 'x' }, '\'\'', function()
+    --     vim.lsp.buf.format({ async = true })
+    -- end, opts)
 
     -- Inlay hints
     if vim.g.inlay_hint_enabled then
@@ -255,5 +255,28 @@ for _, v in ipairs(vim.api.nvim_get_runtime_file('lsp/*', true)) do
 end
 
 vim.lsp.enable(vim.tbl_keys(lsp_configs))
+local function eslint_fix()
+  local params = vim.lsp.util.make_range_params(nil, "utf-16")
+  params.context = { only = { 'source.fixAll.eslint' } }
 
+  vim.lsp.buf_request(0, 'textDocument/codeAction', params, function(_, actions)
+    if actions then
+      for _, action in ipairs(actions) do
+        if action.edit then
+          vim.lsp.util.apply_workspace_edit(action.edit, 'utf-8')
+        elseif action.command then
+          local command = {
+            command = action.command.command,
+            arguments = action.command.arguments,
+            title = action.command.title
+          }
+          vim.lsp.buf.execute_command(command)
+        end
+      end
+    end
+  end)
+end
+
+-- 设置快捷键来调用 eslint_fix 函数
+vim.keymap.set('n', '\'\'', eslint_fix, { noremap = true, silent = true })
 return M

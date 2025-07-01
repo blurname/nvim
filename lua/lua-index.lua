@@ -52,7 +52,7 @@ require('vmlens')
 require('lspConfig')
 require('blinkConfig')
 -- require('lint')
--- require('nvim-eslint').setup({
+require('nvim-eslint').setup({})
 --   on_attach = function(client, bufnr)
 --   client.server_capabilities.documentFormattingProvider = true
 --
