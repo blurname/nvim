@@ -479,4 +479,5 @@ end)
 vim.keymap.set('n', '<F10>', function()
     run(listPackageJson)
 end)
+vim.keymap.set({'n', 'v'}, 'z', 'za', {noremap = true, silent = true})
 
