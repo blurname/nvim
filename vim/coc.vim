@@ -67,7 +67,10 @@ endfunction
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+
+" nowait for gr* which imported in v0.11 
+nmap <silent><nowait> gr <Plug>(coc-references)
+
 " nmap <silent> gl :rightbelow vsplit<CR> \| <Plug>(coc-references)
 
 function! CheckBackspace() abort
