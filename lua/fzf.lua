@@ -472,9 +472,9 @@ local function listPackageJson(from_resume)
     }
     fzf(spec, nil, 'fd package.json')
 end
-vim.keymap.set('n', '<Leader>i', function()
-    run(live_grep)
-end)
+-- vim.keymap.set('n', '<Leader>i', function()
+--     run(live_grep)
+-- end)
 
 vim.keymap.set('n', '<F10>', function()
     run(listPackageJson)

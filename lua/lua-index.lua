@@ -45,7 +45,8 @@ require('grug-far').setup({
      paths = '',
    }
 });
-vim.keymap.set('n', '<F4>', '<cmd>lua require("grug-far").toggle_instance({instanceName = "gf"})<CR>' )
+vim.keymap.set('n', '<leader>i', '<cmd>lua require("grug-far").toggle_instance({instanceName = "gf"})<CR>' )
+vim.keymap.set('x', '<leader>i', '<cmd>lua require("grug-far").with_visual_selection({ prefills = { paths = vim.fn.expand("%") } })<CR>' )
 require('fzf')
 -- require('config.autosave')
 require('vmlens')
