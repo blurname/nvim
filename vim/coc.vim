@@ -150,7 +150,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " filetree
 
 " nnoremap  <leader>v  :CocCommand explorer --position right <CR>
-nnoremap  <leader>v :NvimTreeFindFileToggle <CR>
+nnoremap  <leader>v :Neotree position=float reveal<CR>
 " command! -nargs=0 CocExplorer :CocCommand explorer
 command! -nargs=0 CocNearExplorer :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])
 " command! -nargs=0 Prettier :CocCommand prettier.formatFile
