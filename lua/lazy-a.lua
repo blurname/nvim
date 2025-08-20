@@ -100,5 +100,11 @@ return lazy.setup({
       {'willothy/flatten.nvim'},
       -- {'lukas-reineke/indent-blankline.nvim'},
       {'MagicDuck/grug-far.nvim'},
-      {'nvim-tree/nvim-tree.lua'}
+      {'nvim-tree/nvim-tree.lua'},
+      {'nvim-neo-tree/neo-tree.nvim',
+          dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    }
 })
