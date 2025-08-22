@@ -30,6 +30,7 @@ let g:navigator.g = {
             \ 'b' : [':DiffviewFileHistory %','diff log file'],
             \ 'p' : [':Glfuzzy','diff log file'],
             \ 'f' : [':Flog','flog'],
+            \ 't' : [':Gitsigns toggle_current_line_blame','toggle git blame']
             \ }
 
 let g:navigator.c = {
