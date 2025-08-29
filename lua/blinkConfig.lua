@@ -20,8 +20,13 @@ require('blink.cmp').setup({
         -- ['Enter'] = {'select_and_accept','fallback'} 
     },
     sources = {
-        default = { 'lsp', 'snippets', 'buffer', 'path' },
+        default = { 'mooncake', 'lsp', 'snippets', 'buffer', 'path' },
         providers = {
+          mooncake = {
+            name   = 'Mooncakes',
+            module = 'moonbit.mooncakes.completion.blink',
+            opts   = { max_items = 100 },
+          },
             -- lsp = {
             --     -- By default it fallbacks to 'buffer'. It means buffer items will only be listed
             --     -- when lsp returns 0 items. Remove 'buffer' from the fallbacks to make buffer items

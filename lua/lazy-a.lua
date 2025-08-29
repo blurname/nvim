@@ -43,12 +43,10 @@ return lazy.setup({
       {'haya14busa/vim-asterisk'},
 
     -- file-tree
-      -- {'MunifTanjim/nui.nvim'},
 
     --git
       {'tpope/vim-fugitive'},
       {'rbong/vim-flog',cmd={'Flog','Flogsplit'}},
-    --  {'TimUntersberger/neogit'}
       {'kdheepak/lazygit.nvim'},
       {'lewis6991/gitsigns.nvim'},
       {'sindrets/diffview.nvim'},
@@ -56,7 +54,6 @@ return lazy.setup({
     --quickfix
       {'kevinhwang91/nvim-bqf'},
       {'junegunn/fzf', build = function()vim.fn['fzf#install']()end},
-    --  {'junegunn/fzf.vim', run = function()vim.fn['fzf#install']()end}
       {'blurname/vim-grepper'},
 
       {'lambdalisue/suda.vim'},
@@ -71,11 +68,8 @@ return lazy.setup({
 
     -- session
       {'Shatur/neovim-session-manager'},
-      -- {'rmagatti/auto-session'},
-      -- {'jedrzejboczar/possession.nvim'},
 
     -- lsp
-    --   {'rescript-lang/vim-rescript'}
 
     -- fold
       {'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async'},
@@ -92,10 +86,8 @@ return lazy.setup({
 
     -- search
       {'folke/flash.nvim'},
-      -- {'nvim-pack/nvim-spectre'},
     --   '/home/bl/prjs/tabline.nvim'
       -- {'blurname/nvim-spectre', branch = 'bl/dev'},
-      -- {'paopaol/telescope-git-diffs.nvim'},
       {'akinsho/toggleterm.nvim'},
       {'willothy/flatten.nvim'},
       -- {'lukas-reineke/indent-blankline.nvim'},
@@ -136,5 +128,41 @@ return lazy.setup({
     config = function()
       require("lsp-file-operations").setup()
     end,
-  }
+  },
+  {
+  "hedyhli/outline.nvim",
+  config = function()
+    -- Example mapping to toggle outline
+    vim.keymap.set("n", "<leader>s", "<cmd>Outline<CR>",
+      { desc = "Toggle Outline" })
+
+    require("outline").setup {
+      -- Your setup opts here (leave empty to use defaults)
+    }
+  end,
+},
+{
+  'moonbit-community/moonbit.nvim',
+  ft = { 'moonbit' },
+  opts = {
+    mooncakes = {
+      virtual_text = true,   -- virtual text showing suggestions
+      use_local = true,      -- recommended, use index under ~/.moon
+    },
+    -- optionally disable the treesitter integration
+    treesitter =  {
+      enabled = true,
+      -- Set false to disable automatic installation and updating of parsers.
+      auto_install = true
+    },
+    -- configure the language server integration
+    -- set `lsp = false` to disable the language server integration
+    lsp = {
+      -- provide an `on_attach` function to run when the language server starts
+      on_attach = function(client, bufnr) end,
+      -- provide client capabilities to pass to the language server
+      capabilities = vim.lsp.protocol.make_client_capabilities(),
+    }
+  },
+}
 })
