@@ -119,9 +119,22 @@ return lazy.setup({
       {'jinzhongjia/LspUI.nvim',},
       {'windwp/nvim-ts-autotag'},
       {'nvim-neo-tree/neo-tree.nvim',
-          dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "MunifTanjim/nui.nvim",
+      },
     },
-    }
+      {
+    "antosha417/nvim-lsp-file-operations",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    -- Uncomment whichever supported plugin(s) you use
+    -- "nvim-tree/nvim-tree.lua",
+    -- "nvim-neo-tree/neo-tree.nvim",
+    -- "simonmclean/triptych.nvim"
+    },
+    config = function()
+      require("lsp-file-operations").setup()
+    end,
+  }
 })
