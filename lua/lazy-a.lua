@@ -164,5 +164,46 @@ return lazy.setup({
       capabilities = vim.lsp.protocol.make_client_capabilities(),
     }
   },
+},
+{
+  'dmtrKovalenko/fff.nvim',
+  build = 'cargo build --release',
+  -- or if you are using nixos
+  -- build = "nix run .#release",
+  opts = { -- (optional)
+    debug = {
+      enabled = true,     -- we expect your collaboration at least during the beta
+      show_scores = true, -- to help us optimize the scoring system, feel free to share your scores!
+    },
+    layout = {
+      height = 0.8,
+      width = 0.5,
+      prompt_position = 'top', -- or 'top'
+      preview_position = 'right', -- or 'left', 'right', 'top', 'bottom'
+      preview_size = 0.2,
+    },
+    keymaps = {
+      close = '<Esc>',
+      select = '<CR>',
+      select_split = '<C-s>',
+      select_vsplit = '<C-v>',
+      select_tab = '<C-t>',
+      move_up = { '<Up>', '<C-k>' },
+      move_down = { '<Down>', '<C-j>' },
+      preview_scroll_up = '<C-u>',
+      preview_scroll_down = '<C-d>',
+      toggle_debug = '<F2>',
+    },
+  },
+  -- No need to lazy-load with lazy.nvim.
+  -- This plugin initializes itself lazily.
+  lazy = false,
+  keys = {
+    {
+      "<leader>l", -- try it if you didn't it is a banger keybinding for a picker
+      function() require('fff').find_in_git_root()  end,
+      desc = 'FFFind files',
+    }
+  }
 }
 })

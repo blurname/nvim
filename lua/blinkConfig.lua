@@ -11,12 +11,12 @@ require('blink.cmp').setup({
         -- ['<Tab>'] = { 'select_next', 'show', 'fallback' },
         -- ['<S-Tab>'] = { 'select_prev', 'fallback' },
 
-        ['<tab>'] = { 'select_next', 'show', 'fallback' },
-        ['<s-tab>'] = { 'select_prev', 'fallback' },
+        ['<c-j>'] = { 'select_next', 'fallback' },
+        ['<c-k>'] = { 'select_prev', 'fallback' },
 
         ['<a-k>'] = { 'scroll_documentation_up', 'fallback' },
         ['<a-j>'] = { 'scroll_documentation_down', 'fallback' },
-        ['<c-k>'] = { function(cmp) cmp.show() end },
+        ['<m-k>'] = { function(cmp) cmp.show() end },
         -- ['Enter'] = {'select_and_accept','fallback'} 
     },
     sources = {
