@@ -8,15 +8,15 @@ require('blink.cmp').setup({
         ['<C-\\>'] = { 'hide', 'fallback' },
         ['<CR>'] = { 'select_and_accept', 'fallback' },
 
-        -- ['<Tab>'] = { 'select_next', 'show', 'fallback' },
-        -- ['<S-Tab>'] = { 'select_prev', 'fallback' },
+        ['<Tab>'] = { 'select_next', 'fallback' },
+        ['<S-Tab>'] = { 'select_prev', 'fallback' },
 
-        ['<c-j>'] = { 'select_next', 'fallback' },
-        ['<c-k>'] = { 'select_prev', 'fallback' },
+        -- ['<c-j>'] = { 'select_next', 'fallback' },
+        -- ['<c-k>'] = { 'select_prev', 'fallback' },
 
         ['<a-k>'] = { 'scroll_documentation_up', 'fallback' },
         ['<a-j>'] = { 'scroll_documentation_down', 'fallback' },
-        ['<m-k>'] = { function(cmp) cmp.show() end },
+        ['<c-k>'] = { function(cmp) cmp.show() end },
         -- ['Enter'] = {'select_and_accept','fallback'} 
     },
     sources = {
@@ -42,6 +42,10 @@ require('blink.cmp').setup({
     --     preset = 'luasnip',
     -- },
     completion = {
+      trigger = {
+        -- show_on_backspace_in_keyword = true,
+        -- show_on_backspace = true
+      },
         list = {
             selection = {
                 preselect = true,
@@ -60,6 +64,7 @@ require('blink.cmp').setup({
                     { 'kind_icon' },
                     { 'label', 'label_description', gap = 1 },
                 },
+                align_to = 'label'
             },
         },
         documentation = {
@@ -76,11 +81,11 @@ require('blink.cmp').setup({
             enabled = false,
         },
     },
-    fuzzy = {
-        max_typos = function()
-            return 0
-        end,
-    },
+    -- fuzzy = {
+    --     max_typos = function()
+    --         return 0
+    --     end,
+    -- },
     -- appearance = {
     --     kind_icons = kind_icons,
     -- },
@@ -97,7 +102,7 @@ require('blink.cmp').setup({
             },
             list = {
                 selection = {
-                    preselect = false,
+                    preselect = true,
                     auto_insert = true,
                 },
             },
@@ -113,7 +118,7 @@ require('blink.cmp').setup({
                     end
                 end
             },
-            ['<M-Tab>'] = {
+            ['<s-Tab>'] = {
                 function(cmp)
                     if cmp.is_visible() then
                         cmp.select_prev()
@@ -125,3 +130,5 @@ require('blink.cmp').setup({
         },
     },
 })
+ -- require('blink.cmp').setup()
+
