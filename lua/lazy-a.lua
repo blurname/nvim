@@ -171,9 +171,11 @@ return lazy.setup({
   -- or if you are using nixos
   -- build = "nix run .#release",
   opts = { -- (optional)
+    -- prompt = '🧊 ',
+    prompt = '❄️',
     debug = {
-      enabled = true,     -- we expect your collaboration at least during the beta
-      show_scores = true, -- to help us optimize the scoring system, feel free to share your scores!
+      enabled = false,     -- we expect your collaboration at least during the beta
+      show_scores = false, -- to help us optimize the scoring system, feel free to share your scores!
     },
     layout = {
       height = 0.8,

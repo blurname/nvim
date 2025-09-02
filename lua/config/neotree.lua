@@ -1,5 +1,15 @@
 require('neo-tree').setup({
-    filesystem = {
+        hide_root_node = true,
+        retain_hidden_root_indent = true,
+              default_component_configs = {
+        indent = {
+          with_expanders = true,
+          expander_collapsed = '',
+          expander_expanded = '',
+        },
+      },
+      -- nesting_rules = require('neotree-file-nesting-config').nesting_rules,
+  filesystem = {
     filtered_items = {
       visible = false, -- when true, they will just be displayed differently than normal items
       hide_dotfiles = false,
@@ -26,7 +36,7 @@ require('neo-tree').setup({
         --".null-ls_*",
       },
     },
-      window = {
+    window = {
       mappings = {
         ["<bs>"] = "navigate_up",
         ["."] = "set_root",
