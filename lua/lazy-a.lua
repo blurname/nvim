@@ -182,7 +182,7 @@ return lazy.setup({
       width = 0.5,
       prompt_position = 'top', -- or 'top'
       preview_position = 'right', -- or 'left', 'right', 'top', 'bottom'
-      preview_size = 0.2,
+      preview_size = 0.5,
     },
     keymaps = {
       close = '<Esc>',

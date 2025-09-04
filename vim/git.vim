@@ -11,3 +11,4 @@ vnoremap <leader>gl :'<,'>DiffviewFileHistory<CR>
 " nnoremap gl :normal! V^\<CR>:DiffviewFileHistory\<CR> 
 
 nnoremap  <leader>v :Neotree position=float reveal<CR>
+nnoremap  <leader>e :Neotree position=right reveal<CR>
