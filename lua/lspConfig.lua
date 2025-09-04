@@ -217,20 +217,20 @@ local function on_attach(client, bufnr)
     -- end
 
     -- Document highlight
-    if client:supports_method('textDocument/documentHighlight') then
-        vim.api.nvim_create_autocmd({ 'CursorHold', 'InsertLeave' }, {
-            buffer = bufnr,
-            callback = function()
-                vim.lsp.buf.document_highlight()
-            end,
-        })
-        vim.api.nvim_create_autocmd({ 'CursorMoved', 'InsertEnter', 'BufLeave' }, {
-            buffer = bufnr,
-            callback = function()
-                vim.lsp.buf.clear_references()
-            end,
-        })
-    end
+    -- if client:supports_method('textDocument/documentHighlight') then
+    --     vim.api.nvim_create_autocmd({ 'CursorHold', 'InsertLeave' }, {
+    --         buffer = bufnr,
+    --         callback = function()
+    --             vim.lsp.buf.document_highlight()
+    --         end,
+    --     })
+    --     vim.api.nvim_create_autocmd({ 'CursorMoved', 'InsertEnter', 'BufLeave' }, {
+    --         buffer = bufnr,
+    --         callback = function()
+    --             vim.lsp.buf.clear_references()
+    --         end,
+    --     })
+    -- end
 
     -- Document colors
     if client:supports_method('textDocument/documentColor') then

@@ -73,11 +73,11 @@ local directory = dark_blue
 local winbar_fg = '#666666'
 
 -- Tabline
-local tab_bg = light_gray -- Tab background
+local tab_bg = light_gray3 -- Tab background
 local tab_active_fg = black -- Active tab foreground
 local tab_active_bg = white -- Active tab background
 local tab_inactive_fg = black2 -- Inactive tab foreground
-local tab_inactive_bg = light_gray -- Inactive tab background
+local tab_inactive_bg = light_gray3 -- Inactive tab background
 local tab_indicator_active_fg = '#171717'
 local tab_indicator_inactive_fg = utils.darken(tab_active_bg, 0.1)
 
