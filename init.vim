@@ -175,18 +175,29 @@ function! WrapConsoleLog(type)
   let word = ''
   const vMode = visualmode()
   let beginLogStr = "console.log('🟦[blue]->"
+  let log_line = ""
+  
+  if &filetype == 'moonbit'
+    let beginLogStr = "println(\"🟦[blue]->"
+  endif
+  
   if a:type == 'v'
     if vMode == 'v'
       silent execute "normal! gvy"
       let word = @@
-      let log_line = beginLogStr . word.": ', " . word . ")"
-      execute "normal! o" . log_line
     endif
   elseif a:type == 'n'
-     let word = expand('<cword>')
-     echo word
-     let log_line = beginLogStr . word.": ', " . word . ")"
-     execute "normal! o" . log_line
+    let word = expand('<cword>')
+    echo word
+  endif
+  
+  if word != ''
+    if &filetype == 'moonbit'
+      let log_line = beginLogStr . word.": \\{" . word . "}\")"
+    else
+      let log_line = beginLogStr . word.": ', " . word . ")"
+    endif
+    execute "normal! o" . log_line
   endif
 endfunction
 " can't map to <CR>
