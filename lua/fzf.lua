@@ -329,10 +329,9 @@ local function buffers(from_resume)
     fzf(spec, handle_contents)
 end
 
-vim.keymap.set('n', '<leader>b', ':Neotree buffers position=float<cr>')
--- vim.keymap.set('n', '<leader>b', function()
---     run(buffers)
--- end)
+vim.keymap.set('n', '<leader>b', function()
+    run(buffers)
+end)
 
 local rg_prefix = 'rg --column --line-number --no-heading --color=always --smart-case --with-filename'
 -- Use bat to preview text file
