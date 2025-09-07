@@ -36,6 +36,7 @@ set autoindent
 set ttimeoutlen=0
 set modifiable
 set signcolumn=yes:1
+set signcolumn=number
 set pumblend=8
 set title
 "set cole=1
@@ -44,7 +45,7 @@ set splitright
 set splitbelow
 set foldlevel=99
 set foldenable
-set foldcolumn=1
+set foldcolumn=0
 set foldlevelstart=99
 set foldopen-=hor "this causes horizontal movements (like l, h) to open folds.
 " set sel=exclusive
