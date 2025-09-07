@@ -27,7 +27,7 @@ return lazy.setup({
       {'kyazdani42/nvim-web-devicons'},
 
     --coc
-      {'neoclide/coc.nvim', branch = 'master', build = 'npm ci'},
+      -- {'neoclide/coc.nvim', branch = 'master', build = 'npm ci'},
 
     --vista.vim symbol navigation
       {'tweekmonster/startuptime.vim', cmd = 'StartupTime'},
@@ -43,12 +43,10 @@ return lazy.setup({
       {'haya14busa/vim-asterisk'},
 
     -- file-tree
-      -- {'MunifTanjim/nui.nvim'},
 
     --git
       {'tpope/vim-fugitive'},
       {'rbong/vim-flog',cmd={'Flog','Flogsplit'}},
-    --  {'TimUntersberger/neogit'}
       {'kdheepak/lazygit.nvim'},
       {'lewis6991/gitsigns.nvim'},
       {'sindrets/diffview.nvim'},
@@ -56,7 +54,6 @@ return lazy.setup({
     --quickfix
       {'kevinhwang91/nvim-bqf'},
       {'junegunn/fzf', build = function()vim.fn['fzf#install']()end},
-    --  {'junegunn/fzf.vim', run = function()vim.fn['fzf#install']()end}
       {'blurname/vim-grepper'},
 
       {'lambdalisue/suda.vim'},
@@ -71,11 +68,8 @@ return lazy.setup({
 
     -- session
       {'Shatur/neovim-session-manager'},
-      -- {'rmagatti/auto-session'},
-      -- {'jedrzejboczar/possession.nvim'},
 
     -- lsp
-    --   {'rescript-lang/vim-rescript'}
 
     -- fold
       {'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async'},
@@ -92,13 +86,126 @@ return lazy.setup({
 
     -- search
       {'folke/flash.nvim'},
-      -- {'nvim-pack/nvim-spectre'},
     --   '/home/bl/prjs/tabline.nvim'
       -- {'blurname/nvim-spectre', branch = 'bl/dev'},
-      -- {'paopaol/telescope-git-diffs.nvim'},
       {'akinsho/toggleterm.nvim'},
       {'willothy/flatten.nvim'},
       -- {'lukas-reineke/indent-blankline.nvim'},
       {'MagicDuck/grug-far.nvim'},
-      {'nvim-tree/nvim-tree.lua'}
+      {'nvim-tree/nvim-tree.lua'},
+      {
+        'saghen/blink.cmp',
+        -- optional: provides snippets for the snippet source
+        dependencies = { 'rafamadriz/friendly-snippets' },
+
+        -- use a release tag to download pre-built binaries
+        version = '1.*',
+        -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+        -- build = 'cargo build --release',
+        -- If you use nix, you can build from source using latest nightly rust with:
+        -- build = 'nix run .#build-plugin',
+        opts_extend = { "sources.default" }
+      },
+      -- {'mfussenegger/nvim-lint'},
+      {'esmuellert/nvim-eslint'},
+      {'jinzhongjia/LspUI.nvim',},
+      {'windwp/nvim-ts-autotag'},
+      {'nvim-neo-tree/neo-tree.nvim',
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "MunifTanjim/nui.nvim",
+      },
+    },
+      {
+    "antosha417/nvim-lsp-file-operations",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    -- Uncomment whichever supported plugin(s) you use
+    -- "nvim-tree/nvim-tree.lua",
+    -- "nvim-neo-tree/neo-tree.nvim",
+    -- "simonmclean/triptych.nvim"
+    },
+    config = function()
+      require("lsp-file-operations").setup()
+    end,
+  },
+  {
+  "hedyhli/outline.nvim",
+  config = function()
+    -- Example mapping to toggle outline
+    vim.keymap.set("n", "<leader>s", "<cmd>Outline<CR>",
+      { desc = "Toggle Outline" })
+
+    require("outline").setup {
+      -- Your setup opts here (leave empty to use defaults)
+    }
+  end,
+},
+{
+  'moonbit-community/moonbit.nvim',
+  ft = { 'moonbit' },
+  opts = {
+    mooncakes = {
+      virtual_text = true,   -- virtual text showing suggestions
+      use_local = true,      -- recommended, use index under ~/.moon
+    },
+    -- optionally disable the treesitter integration
+    treesitter =  {
+      enabled = true,
+      -- Set false to disable automatic installation and updating of parsers.
+      auto_install = true
+    },
+    -- configure the language server integration
+    -- set `lsp = false` to disable the language server integration
+    lsp = {
+      -- provide an `on_attach` function to run when the language server starts
+      on_attach = function(client, bufnr) end,
+      -- provide client capabilities to pass to the language server
+      capabilities = vim.lsp.protocol.make_client_capabilities(),
+    }
+  },
+},
+{
+  'dmtrKovalenko/fff.nvim',
+  build = 'cargo build --release',
+  -- or if you are using nixos
+  -- build = "nix run .#release",
+  opts = { -- (optional)
+    -- prompt = '🧊 ',
+    prompt = '❄️',
+    debug = {
+      enabled = false,     -- we expect your collaboration at least during the beta
+      show_scores = false, -- to help us optimize the scoring system, feel free to share your scores!
+    },
+    layout = {
+      height = 0.8,
+      width = 0.5,
+      prompt_position = 'top', -- or 'top'
+      preview_position = 'right', -- or 'left', 'right', 'top', 'bottom'
+      preview_size = 0.5,
+    },
+    keymaps = {
+      close = '<Esc>',
+      select = '<CR>',
+      select_split = '<C-s>',
+      select_vsplit = '<C-v>',
+      select_tab = '<C-t>',
+      move_up = { '<Up>', '<C-k>' },
+      move_down = { '<Down>', '<C-j>' },
+      preview_scroll_up = '<C-u>',
+      preview_scroll_down = '<C-d>',
+      toggle_debug = '<F2>',
+    },
+  },
+  -- No need to lazy-load with lazy.nvim.
+  -- This plugin initializes itself lazily.
+  lazy = false,
+  keys = {
+    {
+      "<leader>l", -- try it if you didn't it is a banger keybinding for a picker
+      function() require('fff').find_in_git_root()  end,
+      desc = 'FFFind files',
+    }
+  }
+}
 })

@@ -7,7 +7,7 @@ nightfox.setup({
   styles = {
     --comments = "italic", -- change style of comments to be italic
 		keywords = "bold", -- change style of keywords to be bold
-		functions = "italic,bold", -- styles can be a comma separated list
+		functions = "bold", -- styles can be a comma separated list
   },
   --transparent = true,
   --dim_inactive = true,
@@ -15,5 +15,5 @@ nightfox.setup({
 })
 
 -- Load the configuration set above and apply the colorscheme
---vim.cmd("colorscheme nordfox")
---vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme nordfox")
+-- vim.cmd("colorscheme nightfox")

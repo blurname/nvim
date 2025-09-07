@@ -1,10 +1,3 @@
-" command! Grc :G rebase --continue
-" command! Gra :G rebase --abort
-" command! Gwip :G commit -am "WIP"
-" command! Gl :DiffviewFileHistory<CR>
-" command! Glfile :DiffviewFileHistory<CR>
-" command! Glfuzzy :Telescope git_diffs  diff_commits
-
 " nnoremap <leader>gg :LazyGit<CR>
 nnoremap <leader>ge :Gedit<CR>
 
@@ -17,3 +10,5 @@ vnoremap <leader>gl :'<,'>DiffviewFileHistory<CR>
 " current Line
 " nnoremap gl :normal! V^\<CR>:DiffviewFileHistory\<CR> 
 
+nnoremap  <leader>v :Neotree position=float reveal<CR>
+nnoremap  <leader>e :Neotree position=right reveal<CR>

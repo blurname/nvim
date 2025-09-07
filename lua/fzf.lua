@@ -208,9 +208,9 @@ local function files(from_resume)
     fzf(spec, nil, fd_cmd)
 end
 
-vim.keymap.set('n', '<leader>l', function()
-    run(files)
-end)
+-- vim.keymap.set('n', '<leader>l', function()
+--     run(files)
+-- end)
 -- Close the pipe and kill tail process to terminate fzf's "loading" indicator
 local function finish()
     system.async({ 'bash', '-c', 'kill -9 $(<' .. tail_pid .. ')' }, {}, nil, system_on_error)
@@ -329,9 +329,10 @@ local function buffers(from_resume)
     fzf(spec, handle_contents)
 end
 
-vim.keymap.set('n', '<leader>b', function()
-    run(buffers)
-end)
+vim.keymap.set('n', '<leader>b', ':Neotree buffers position=float<cr>')
+-- vim.keymap.set('n', '<leader>b', function()
+--     run(buffers)
+-- end)
 
 local rg_prefix = 'rg --column --line-number --no-heading --color=always --smart-case --with-filename'
 -- Use bat to preview text file

@@ -45,9 +45,11 @@ function! Tools_PreviousCursor(mode)
     noautocmd silent! wincmd p
 endfunc
 
-noremap <silent><M-u> :call Tools_PreviousCursor(6)<cr>
+noremap <silent><c-e> <c-u>
+
+noremap <silent><M-e> :call Tools_PreviousCursor(6)<cr>
 noremap <silent><M-d> :call Tools_PreviousCursor(7)<cr>
-inoremap <silent><M-u> <c-\><c-o>:call Tools_PreviousCursor(6)<cr>
+inoremap <silent><M-e> <c-\><c-o>:call Tools_PreviousCursor(6)<cr>
 inoremap <silent><M-d> <c-\><c-o>:call Tools_PreviousCursor(7)<cr>
 
 noremap <silent><M-up> :call Tools_PreviousCursor(6)<cr>
@@ -88,5 +90,19 @@ endfunction
 
 " 定义命令来调用函数
 command! -nargs=1 JumpTo call JumpToFileAndLine(<f-args>)
+function! ToggleQuickFix()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+      top copen
+    else
+        cclose
+    endif
+endfunction
 
+nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>
+nmap <C-F> :Grepper -noprompt -tool rg -cword<CR><CR>
+
+nnoremap <nowait><silent>q <plug>(GrepperOperator)
+xnoremap <nowait><silent>q <plug>(GrepperOperator)
+
+command! -nargs=0 ListLog :GrepperRg blue]-
 " nnoremap ss viw:%s/<C-R>"//g<Left><Left>

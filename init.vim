@@ -36,6 +36,7 @@ set autoindent
 set ttimeoutlen=0
 set modifiable
 set signcolumn=yes:1
+set signcolumn=number
 set pumblend=8
 set title
 "set cole=1
@@ -44,7 +45,7 @@ set splitright
 set splitbelow
 set foldlevel=99
 set foldenable
-set foldcolumn=1
+set foldcolumn=0
 set foldlevelstart=99
 set foldopen-=hor "this causes horizontal movements (like l, h) to open folds.
 " set sel=exclusive
@@ -52,7 +53,7 @@ filetype plugin on
 " set clipboard=unnamedplus
 "set cmdheight=0
 "colorscheme everforest
-colorscheme nordfox
+" colorscheme nordfox
 "let g:everforest_background = 'hard'
 
 " Save & quit
@@ -175,18 +176,29 @@ function! WrapConsoleLog(type)
   let word = ''
   const vMode = visualmode()
   let beginLogStr = "console.log('🟦[blue]->"
+  let log_line = ""
+  
+  if &filetype == 'moonbit'
+    let beginLogStr = "println(\"🟦[blue]->"
+  endif
+  
   if a:type == 'v'
     if vMode == 'v'
       silent execute "normal! gvy"
       let word = @@
-      let log_line = beginLogStr . word.": ', " . word . ")"
-      execute "normal! o" . log_line
     endif
   elseif a:type == 'n'
-     let word = expand('<cword>')
-     echo word
-     let log_line = beginLogStr . word.": ', " . word . ")"
-     execute "normal! o" . log_line
+    let word = expand('<cword>')
+    echo word
+  endif
+  
+  if word != ''
+    if &filetype == 'moonbit'
+      let log_line = beginLogStr . word.": \\{" . word . "}\")"
+    else
+      let log_line = beginLogStr . word.": ', " . word . ")"
+    endif
+    execute "normal! o" . log_line
   endif
 endfunction
 " can't map to <CR>
