@@ -177,9 +177,11 @@ local function on_attach(client, bufnr)
     vim.keymap.set('n', '<Leader>dl', vim.diagnostic.setloclist, opts)
 
     -- Format
-    -- vim.keymap.set({ 'n', 'x' }, '\'\'', function()
-    --     vim.lsp.buf.format({ async = true })
-    -- end, opts)
+    vim.keymap.set({ 'n', 'x' }, '\'\'', function()
+        if vim.bo.filetype == 'moonbit' then
+            vim.lsp.buf.format({ async = true })
+        end
+    end, opts)
 
     -- Inlay hints
     if vim.g.inlay_hint_enabled then
@@ -276,6 +278,7 @@ local function eslint_fix()
   end)
 end
 
+
 -- 设置快捷键来调用 eslint_fix 函数
-vim.keymap.set('n', '\'\'', eslint_fix, { noremap = true, silent = true })
+-- vim.keymap.set('n', '\'\'', eslint_fix, { noremap = true, silent = true })
 return M

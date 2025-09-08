@@ -6,11 +6,13 @@ local default_transparency = 100
 local default_rename_config = {
 	enable = true,
 	command_enable = true,
-	auto_select = true,
+	auto_select = false,
 	key_binding = {
 		exec = "<CR>",
 		quit = "<ESC>",
 	},
+  fixed_width = true,
+  width = 30
         -- transparency = default_transparency,
 }
 

@@ -108,7 +108,9 @@ return lazy.setup({
       },
       -- {'mfussenegger/nvim-lint'},
       {'esmuellert/nvim-eslint'},
-      {'jinzhongjia/LspUI.nvim',},
+      {'jinzhongjia/LspUI.nvim',
+      dir="~/prj/nvim-lib/LspUI.nvim/"
+    },
       {'windwp/nvim-ts-autotag'},
       {'nvim-neo-tree/neo-tree.nvim',
       dependencies = {
