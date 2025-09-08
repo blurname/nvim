@@ -2,7 +2,8 @@
   "name": "personal-snippets",
   "contributes": {
     "snippets": [
-      { "language": ["typescriptreact", "javascriptreact","typescript","javascript"], "path": "./javascript.json" }
+      { "language": ["typescriptreact", "javascriptreact","typescript","javascript"], "path": "./javascript.json" },
+      { "language": ["moonbit"], "path": "./moonbit.json" }
     ]
   }
 }

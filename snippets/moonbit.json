@@ -1,0 +1,10 @@
+{
+  "|> ignore": {
+    "prefix": "ig",
+    "body": "|> ignore"
+  },
+  "fn": {
+    "prefix": "cf",
+    "body": "fn ${1} () -> ${2} {\n\n}"
+  }
+}
