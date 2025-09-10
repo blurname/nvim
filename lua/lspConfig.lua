@@ -109,7 +109,7 @@ local function on_attach(client, bufnr)
     end, opts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'gr', function()
         vim.lsp.buf.references(nil, { on_list = on_list1 })
     end, opts)
@@ -133,7 +133,7 @@ local function on_attach(client, bufnr)
   end, opts)
 
     -- Diagnostics
-    vim.keymap.set('n', 'go', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', ';', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '<c-k>', function() -- previous
         vim.diagnostic.jump({ count = -vim.v.count1 })
     end, opts)
@@ -153,15 +153,15 @@ local function on_attach(client, bufnr)
         vim.diagnostic.jump({ count = vim.v.count1, severity = vim.diagnostic.severity.ERROR })
     end, opts)
     -- Toggle diagnostics (buffer-local)
-    vim.keymap.set('n', '\\e', function()
-        vim.diagnostic.enable(not vim.diagnostic.is_enabled({ bufnr = 0 }), { bufnr = 0 })
-    end, opts)
+    -- vim.keymap.set('n', '\\e', function()
+    --     vim.diagnostic.enable(not vim.diagnostic.is_enabled({ bufnr = 0 }), { bufnr = 0 })
+    -- end, opts)
     -- Toggle diagnostics (global)
-    vim.keymap.set('n', '\\E', function()
-        vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-    end, opts)
+    -- vim.keymap.set('n', '\\E', function()
+    --     vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+    -- end, opts)
     -- Switch the way diagnostics are displayed (virtual text or virtual line)
-    vim.keymap.set('n', 'gK', function()
+    vim.keymap.set('n', 'g;', function()
         local old_opts = vim.diagnostic.config()
         if not old_opts then
             return
@@ -173,8 +173,8 @@ local function on_attach(client, bufnr)
     end, opts)
 
     -- Feed all diagnostics to quickfix list, or buffer diagnostics to location list
-    vim.keymap.set('n', '<Leader>dq', vim.diagnostic.setqflist, opts)
-    vim.keymap.set('n', '<Leader>dl', vim.diagnostic.setloclist, opts)
+    vim.keymap.set('n', '<Leader>a', vim.diagnostic.setqflist, opts)
+    -- vim.keymap.set('n', '<Leader>a', vim.diagnostic.setloclist, opts)
 
     -- Format
     vim.keymap.set({ 'n', 'x' }, '\'\'', function()
@@ -188,19 +188,19 @@ local function on_attach(client, bufnr)
         vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end
     -- Toggle (buffer-local)
-    vim.keymap.set('n', '\\h', function()
-        local is_enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
-        vim.b.inlay_hint_enabled = not is_enabled
-        vim.lsp.inlay_hint.enable(vim.b.inlay_hint_enabled, { bufnr = 0 })
-
-        vim.notify(string.format('Inlay hints (buffer-local) is %s', vim.b.inlay_hint_enabled and 'enabled' or 'disabled'), vim.log.levels.INFO)
-    end, opts)
+    -- vim.keymap.set('n', '\\h', function()
+    --     local is_enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+    --     vim.b.inlay_hint_enabled = not is_enabled
+    --     vim.lsp.inlay_hint.enable(vim.b.inlay_hint_enabled, { bufnr = 0 })
+    --
+    --     vim.notify(string.format('Inlay hints (buffer-local) is %s', vim.b.inlay_hint_enabled and 'enabled' or 'disabled'), vim.log.levels.INFO)
+    -- end, opts)
     -- Toggle (global)
-    vim.keymap.set('n', '\\H', function()
-        vim.g.inlay_hint_enabled = not vim.g.inlay_hint_enabled
-        vim.lsp.inlay_hint.enable(vim.g.inlay_hint_enabled)
-        vim.notify(string.format('Inlay hints (global) is %s', vim.g.inlay_hint_enabled and 'enabled' or 'disabled'), vim.log.levels.INFO)
-    end, opts)
+    -- vim.keymap.set('n', '\\H', function()
+    --     vim.g.inlay_hint_enabled = not vim.g.inlay_hint_enabled
+    --     vim.lsp.inlay_hint.enable(vim.g.inlay_hint_enabled)
+    --     vim.notify(string.format('Inlay hints (global) is %s', vim.g.inlay_hint_enabled and 'enabled' or 'disabled'), vim.log.levels.INFO)
+    -- end, opts)
 
     -- Lsp progress
     require('lspProgress')
