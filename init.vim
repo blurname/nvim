@@ -36,7 +36,7 @@ set autoindent
 set ttimeoutlen=0
 set modifiable
 set signcolumn=yes:1
-set signcolumn=number
+" set signcolumn=number
 set pumblend=8
 set title
 "set cole=1

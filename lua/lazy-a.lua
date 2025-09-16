@@ -109,7 +109,7 @@ return lazy.setup({
       -- {'mfussenegger/nvim-lint'},
       {'esmuellert/nvim-eslint'},
       {'jinzhongjia/LspUI.nvim',
-      dir="~/prj/nvim-lib/LspUI.nvim/"
+      -- dir="~/prj/nvim-lib/LspUI.nvim/"
     },
       {'windwp/nvim-ts-autotag'},
       {'nvim-neo-tree/neo-tree.nvim',
@@ -209,5 +209,10 @@ return lazy.setup({
       desc = 'FFFind files',
     }
   }
+},
+{
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy",
+    priority = 1000,
 }
 })

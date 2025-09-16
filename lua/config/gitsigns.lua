@@ -12,7 +12,7 @@ require('gitsigns').setup {
     delete       = { text = '-' },
     topdelete    = { text = 'q' },
     changedelete = { text = 'w' },
-    untracked    = { text = 'e' },
+    untracked    = { text = '+' },
   },
   signs_staged = {
     add          = { text = '+' },

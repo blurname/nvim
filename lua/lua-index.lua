@@ -81,3 +81,4 @@ require('nvim-ts-autotag').setup({
     }
   }
 })
+require('diagnostic')

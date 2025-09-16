@@ -173,7 +173,7 @@ local function on_attach(client, bufnr)
     end, opts)
 
     -- Feed all diagnostics to quickfix list, or buffer diagnostics to location list
-    vim.keymap.set('n', '<Leader>a', vim.diagnostic.setqflist, opts)
+    vim.keymap.set('n', '<leader>a', vim.diagnostic.setqflist, opts)
     -- vim.keymap.set('n', '<Leader>a', vim.diagnostic.setloclist, opts)
 
     -- Format
