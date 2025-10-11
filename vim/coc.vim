@@ -15,6 +15,7 @@ let g:coc_global_extensions = ['coc-json',
       \ 'coc-eslint',
       \ 'coc-lit-html',
       \ 'coc-git',
+      \ 'coc-oxc',
       \ 'coc-lists',
       \ 'coc-styled-components',
       \ '@yaegassy/coc-tailwindcss3' ]
