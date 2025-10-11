@@ -5,7 +5,7 @@ local function source_vim_files(directory)
   end
 
   for _, file in ipairs(files) do
-    if file ~= 'coc.vim' then 
+    -- if file ~= 'coc.vim' then 
       local path = directory .. '/' .. file
       local filetype = vim.fn.fnamemodify(path, ':e')
       if filetype == 'vim' then
@@ -13,7 +13,7 @@ local function source_vim_files(directory)
       elseif vim.fn.isdirectory(path) == 1 then
         source_vim_files(path)
       end
-    end
+    -- end
   end
 end
 

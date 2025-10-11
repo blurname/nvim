@@ -6,8 +6,8 @@ set laststatus=2
 "set statusline+=%{get(b:,'gitsigns_status','')}
 set statusline=
 set statusline+=%4*%F
-" set statusline+=%2*\ %{get(g:,'coc_git_status','')}
-" set statusline+=%3*\ %{get(g:,'coc_status','')}
+set statusline+=%2*\ %{get(g:,'coc_git_status','')}
+set statusline+=%3*\ %{get(g:,'coc_status','')}
 
 "git
 
@@ -15,7 +15,7 @@ set statusline+=%4*%F
 "coc
 " hi User3 guibg=#7D8CA5 guifg=#EBCB8B
 "filename
-" hi User4 guibg=#F3F5F9 guifg=#35445D
+hi User4 guibg=#F3F5F9 guifg=#35445D
 hi User4 guibg=#282a36 guifg=#A3BE8C
 
 

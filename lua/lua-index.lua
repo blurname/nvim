@@ -51,10 +51,10 @@ vim.keymap.set('x', '<leader>i', '<cmd>lua require("grug-far").with_visual_selec
 require('fzf')
 -- require('config.autosave')
 require('vmlens')
-require('lspConfig')
-require('blinkConfig')
+-- require('lspConfig')
+-- require('blinkConfig')
 -- require('lint')
-require('nvim-eslint').setup({})
+-- require('nvim-eslint').setup({})
 --   on_attach = function(client, bufnr)
 --   client.server_capabilities.documentFormattingProvider = true
 --
@@ -64,21 +64,21 @@ require('nvim-eslint').setup({})
 --   vim.keymap.set('n', 'ff', format, { silent = true, buffer = bufnr, desc = 'eslint fix' })
 -- end,
 -- })
-require('lspUI-config')
-require('nvim-ts-autotag').setup({
-  opts = {
-    -- Defaults
-    enable_close = true, -- Auto close tags
-    enable_rename = true, -- Auto rename pairs of tags
-    enable_close_on_slash = false -- Auto close on trailing </
-  },
-  -- Also override individual filetype configs, these take priority.
-  -- Empty by default, useful if one of the "opts" global settings
-  -- doesn't work well in a specific filetype
-  per_filetype = {
-    ["html"] = {
-      enable_close = false
-    }
-  }
-})
-require('diagnostic')
+-- require('lspUI-config')
+-- require('nvim-ts-autotag').setup({
+--   opts = {
+--     -- Defaults
+--     enable_close = true, -- Auto close tags
+--     enable_rename = true, -- Auto rename pairs of tags
+--     enable_close_on_slash = false -- Auto close on trailing </
+--   },
+--   -- Also override individual filetype configs, these take priority.
+--   -- Empty by default, useful if one of the "opts" global settings
+--   -- doesn't work well in a specific filetype
+--   per_filetype = {
+--     ["html"] = {
+--       enable_close = false
+--     }
+--   }
+-- })
+-- require('diagnostic')

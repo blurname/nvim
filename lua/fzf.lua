@@ -208,9 +208,9 @@ local function files(from_resume)
     fzf(spec, nil, fd_cmd)
 end
 
--- vim.keymap.set('n', '<leader>l', function()
---     run(files)
--- end)
+vim.keymap.set('n', '<leader>l', function()
+    run(files)
+end)
 -- Close the pipe and kill tail process to terminate fzf's "loading" indicator
 local function finish()
     system.async({ 'bash', '-c', 'kill -9 $(<' .. tail_pid .. ')' }, {}, nil, system_on_error)

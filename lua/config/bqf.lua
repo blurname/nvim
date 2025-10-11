@@ -138,48 +138,48 @@ local api = vim.api
 -- vim.schedule(function()
 --     cmd('au! CocFzfLocation User CocLocationsChange')
 -- end)
--- vim.g.coc_enable_locationlist = 0
--- cmd([[
---     aug Coc
---         au!
---         au User CocLocationsChange lua _G.jumpToLoc()
---     aug END
--- ]])
--- cmd([[
---     nnoremap <silent> <leader>a <Cmd>lua _G.diagnostic()<CR>
--- ]])
+vim.g.coc_enable_locationlist = 0
+cmd([[
+    aug Coc
+        au!
+        au User CocLocationsChange lua _G.jumpToLoc()
+    aug END
+]])
+cmd([[
+    nnoremap <silent> <leader>a <Cmd>lua _G.diagnostic()<CR>
+]])
 
 -- just use `_G` prefix as a global function for a demo
 -- please use module instead in reality
--- function _G.jumpToLoc(locs)
---     locs = locs or vim.g.coc_jump_locations
---     fn.setqflist({}, ' ', {title = 'CocLocationList',items = locs })
---     cmd('top copen')
--- end
+function _G.jumpToLoc(locs)
+    locs = locs or vim.g.coc_jump_locations
+    fn.setqflist({}, ' ', {title = 'CocLocationList',items = locs })
+    cmd('top copen')
+end
 
--- function _G.diagnostic()
---     fn.CocActionAsync('diagnosticList', '', function(err, res)
---         if err == vim.NIL then
---             local items = {}
---             for _, d in ipairs(res) do
---                 local text = ('[%s%s] %s'):format((d.source == '' and 'coc.nvim' or d.source),
---                     (d.code == vim.NIL and '' or ' ' .. d.code), d.message:match('([^\n]+)\n*'))
---                 local item = {
---                     filename = d.file,
---                     lnum = d.lnum,
---                     end_lnum = d.end_lnum,
---                     col = d.col,
---                     end_col = d.end_col,
---                     text = text,
---                     type = d.severity
---                 }
---                 table.insert(items, item)
---             end
---             fn.setqflist({}, ' ', {title = 'CocDiagnosticList', items = items})
---
---             cmd('top cope')
---         end
---     end)
--- end
+function _G.diagnostic()
+    fn.CocActionAsync('diagnosticList', '', function(err, res)
+        if err == vim.NIL then
+            local items = {}
+            for _, d in ipairs(res) do
+                local text = ('[%s%s] %s'):format((d.source == '' and 'coc.nvim' or d.source),
+                    (d.code == vim.NIL and '' or ' ' .. d.code), d.message:match('([^\n]+)\n*'))
+                local item = {
+                    filename = d.file,
+                    lnum = d.lnum,
+                    end_lnum = d.end_lnum,
+                    col = d.col,
+                    end_col = d.end_col,
+                    text = text,
+                    type = d.severity
+                }
+                table.insert(items, item)
+            end
+            fn.setqflist({}, ' ', {title = 'CocDiagnosticList', items = items})
+
+            cmd('top cope')
+        end
+    end)
+end
 -- you can also subscribe User `CocDiagnosticChange` event to reload your diagnostic in quickfix
 -- dynamically, enjoy yourself :)
