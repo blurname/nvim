@@ -44,6 +44,10 @@ require('grug-far').setup({
      filesFilter = '!public/',
      flags = '-i -F',
      paths = '',
+   },
+   keymaps = {
+      gotoLocation = { n = 'o' },
+      openLocation = { n = '<enter>' },
    }
 });
 vim.keymap.set('n', '<leader>i', '<cmd>lua require("grug-far").toggle_instance({instanceName = "gf"})<CR>' )
