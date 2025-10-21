@@ -86,3 +86,39 @@ require('vmlens')
 --   }
 -- })
 -- require('diagnostic')
+
+-- 查看 server log 专用配置
+-- 每 1000 毫秒（1秒）刷新当前 log 文件
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*.log",
+  callback = function(args)
+    -- 安全检查并停止已有定时器（避免重复创建）
+    local timer_id, err = pcall(vim.api.nvim_buf_get_var, args.buf, "log_timer")
+    if not err and timer_id then  -- 若变量存在且有效
+      vim.fn.timer_stop(timer_id)
+    end
+
+    -- 创建新定时器
+    local new_timer = vim.fn.timer_start(1000, function()
+      if vim.fn.filereadable(vim.fn.expand("%")) == 1 and not vim.bo.modified then
+        vim.cmd("checktime")
+      end
+    end, { ["repeat"] = -1 })
+
+    -- 保存定时器 ID 到缓冲区变量
+    vim.api.nvim_buf_set_var(args.buf, "log_timer", new_timer)
+  end
+})
+
+-- 离开缓冲区时停止定时器
+vim.api.nvim_create_autocmd("BufLeave", {
+  pattern = "*.log",
+  callback = function(args)
+    -- 同样先检查变量是否存在
+    local timer_id, err = pcall(vim.api.nvim_buf_get_var, args.buf, "log_timer")
+    if not err and timer_id then
+      vim.fn.timer_stop(timer_id)
+      vim.api.nvim_buf_del_var(args.buf, "log_timer")
+    end
+  end
+})
