@@ -73,14 +73,14 @@ noremap <LEADER><CR> :nohlsearch<CR>
 
 let g:terminal_shell = 'elvish'
 " Comment.nvim 跨平台快捷键配置
-if has('macunix')
-    " macOS 系统使用 Ctrl+/ 映射
-    vnoremap <c-/> <Plug>(comment_toggle_linewise_visual)
-    nnoremap <c-/> <Plug>(comment_toggle_linewise_current)
-else
-    " Linux/Windows 系统使用 Ctrl+_ 映射
+if has('win32')
+    " Windows 系统使用 Ctrl+_ 映射
     vnoremap <c-_> <Plug>(comment_toggle_linewise_visual)
     nnoremap <c-_> <Plug>(comment_toggle_linewise_current)
+else
+    " Linux/macOS 系统使用 Ctrl+/ 映射
+    vnoremap <c-/> <Plug>(comment_toggle_linewise_visual)
+    nnoremap <c-/> <Plug>(comment_toggle_linewise_current)
 endif
 
 "au ModeChanged *:s set clipboard=
