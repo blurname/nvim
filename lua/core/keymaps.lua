@@ -47,10 +47,10 @@ keymap('n', 'sl', ':set splitright<CR>:vsplit<CR>')
 keymap('n', '<c-s>', ':wa<CR>')
 
 -- 移动增强
-keymap('n', 'W', '5w')
-keymap('n', 'B', '5b')
-keymap('n', 'H', '^')
-keymap('n', 'L', 'g_')
+keymap({ 'n', 'v' }, 'W', '5w')
+keymap({ 'n', 'v' }, 'B', '5b')
+keymap({ 'n', 'v' }, 'H', '^')
+keymap({ 'n', 'v' }, 'L', 'g_')
 
 -- 行上下移动
 keymap('n', '<m-j>', ':m +1<CR>')

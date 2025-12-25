@@ -81,7 +81,7 @@ return {
         else
           return vim.fn['coc#refresh']()
         end
-      end, { silent = true, noremap = true, expr = true, replace_keycodes = false })
+      end, { silent = true, noremap = true, expr = true })
 
       keyset('i', '<S-TAB>', function()
         if vim.fn['coc#pum#visible']() == 1 then
@@ -89,7 +89,7 @@ return {
         else
           return '<C-h>'
         end
-      end, { silent = true, noremap = true, expr = true, replace_keycodes = false })
+      end, { silent = true, noremap = true, expr = true })
 
       -- Enter 确认补全
       keyset('i', '<CR>', function()
@@ -98,7 +98,7 @@ return {
         else
           return '<C-g>u<CR><c-r>=coc#on_enter()<CR>'
         end
-      end, { silent = true, noremap = true, expr = true, replace_keycodes = false })
+      end, { silent = true, noremap = true, expr = true })
 
       -- 跳转定义
       keyset('n', 'gd', '<Plug>(coc-definition)', { silent = true })
@@ -129,7 +129,7 @@ return {
         else
           return '<Right>'
         end
-      end, { silent = true, nowait = true, expr = true, replace_keycodes = false })
+      end, { silent = true, nowait = true, expr = true })
 
       keyset('i', '<A-b>', function()
         if vim.fn['coc#float#has_scroll']() == 1 then
@@ -137,7 +137,7 @@ return {
         else
           return '<Left>'
         end
-      end, { silent = true, nowait = true, expr = true, replace_keycodes = false })
+      end, { silent = true, nowait = true, expr = true })
 
       keyset('v', '<A-f>', function()
         if vim.fn['coc#float#has_scroll']() == 1 then
