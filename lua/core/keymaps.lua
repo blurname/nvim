@@ -15,15 +15,6 @@ keymap('n', '<leader><CR>', ':nohlsearch<CR>')
 -- 切换上一个 buffer
 keymap('n', '<leader>3', '<Cmd>b #<CR>')
 
--- Comment.nvim 跨平台快捷键
-if vim.fn.has('win32') == 1 then
-  keymap('v', '<c-_>', '<Plug>(comment_toggle_linewise_visual)')
-  keymap('n', '<c-_>', '<Plug>(comment_toggle_linewise_current)')
-else
-  keymap('v', '<c-/>', '<Plug>(comment_toggle_linewise_visual)')
-  keymap('n', '<c-/>', '<Plug>(comment_toggle_linewise_current)')
-end
-
 -- 窗口导航
 keymap('n', '<A-h>', '<C-w>h')
 keymap('n', '<A-l>', '<C-w>l')

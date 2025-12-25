@@ -29,6 +29,19 @@ return {
       require('Comment').setup({
         pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
       })
+
+      -- Comment.nvim 跨平台快捷键 (使用原来的 VimScript 风格映射)
+      -- if vim.fn.has('win32') == 1 then
+        vim.cmd([[
+          vnoremap <c-_> <Plug>(comment_toggle_linewise_visual)
+          nnoremap <c-_> <Plug>(comment_toggle_linewise_current)
+        ]])
+      -- else
+        vim.cmd([[
+          vnoremap <c-/> <Plug>(comment_toggle_linewise_visual)
+          nnoremap <c-/> <Plug>(comment_toggle_linewise_current)
+        ]])
+      -- end
     end,
   },
   { 'JoosepAlviste/nvim-ts-context-commentstring' },
