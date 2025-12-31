@@ -50,21 +50,23 @@ return {
   { 'skywind3000/vim-quickui' },
   {
     'skywind3000/vim-quickui-navigator',
+    lazy = false,
     config = function()
-      vim.g.navigator = { prefix = '<LEADER><k>' }
+      local navigator = {
+        prefix = '<leader>k',
+      }
       vim.g.navigator_popup = 1
       vim.g.navigator_popup_position = 'bottom'
       vim.g.navigator_popup_border = 0
-      vim.keymap.set('n', '<leader>k', ':Navigator g:navigator<cr>', { silent = true })
 
-      vim.g.navigator.p = {
+      navigator.p = {
         name = '+path',
         ['1'] = { ':BlGetFilePathRelative', 'GetFilePathRelative' },
         ['2'] = { ':BlGetFilePathLine', 'GetFilePathLine' },
         ['3'] = { ':BlGetFilePathAbsolute', 'GetFilePathAbsolute' },
       }
 
-      vim.g.navigator.g = {
+      navigator.g = {
         name = '+git',
         c = { ':DiffviewClose', 'diff close' },
         h = { ':DiffviewHead', 'diff head' },
@@ -76,23 +78,26 @@ return {
         t = { ':Gitsigns toggle_current_line_blame', 'toggle git blame' },
       }
 
-      vim.g.navigator.c = {
+      navigator.c = {
         name = '+coc',
         d = { ':CocDisable', 'coc disable' },
         e = { ':CocEnable', 'coc enable' },
       }
 
-      vim.g.navigator.j = {
+      navigator.j = {
         name = 'jump',
         j = { ':JumpTo', 'jump to file with path and line' },
         y = { ':GetFilePathLineCommand', 'get current file path and line' },
       }
 
-      vim.g.navigator.l = {
+      navigator.l = {
         name = 'list',
         c = { ':ListLog', 'list console.log contains blue' },
         t = { ':ListTodo', 'list Todo' },
       }
+
+      vim.g.navigator = navigator
+      vim.keymap.set('n', '<leader>k', ':Navigator g:navigator<cr>', { silent = true })
     end,
   },
 

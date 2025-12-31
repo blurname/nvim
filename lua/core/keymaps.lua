@@ -90,8 +90,25 @@ local function get_file_path_line()
   vim.cmd('silent OSCYankRegister ""')
 end
 
+local function get_file_path_relative()
+  local path = vim.fn.expand('%:.')
+  vim.fn.setreg('"', path)
+  print(path)
+  vim.cmd('silent OSCYankRegister ""')
+end
+
+local function get_file_path_absolute()
+  local path = vim.fn.expand('%:p')
+  vim.fn.setreg('"', path)
+  print(path)
+  vim.cmd('silent OSCYankRegister ""')
+end
+
 keymap('n', '<leader>\\', get_file_path_line)
 vim.api.nvim_create_user_command('GetFilePathLineCommand', get_file_path_line, {})
+vim.api.nvim_create_user_command('BlGetFilePathRelative', get_file_path_relative, {})
+vim.api.nvim_create_user_command('BlGetFilePathLine', get_file_path_line, {})
+vim.api.nvim_create_user_command('BlGetFilePathAbsolute', get_file_path_absolute, {})
 
 -- 删除所有 buffer 除了当前
 vim.api.nvim_create_user_command('Bda', 'silent! execute "%bd|e#|bd#"', {})
