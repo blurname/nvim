@@ -2,17 +2,11 @@
 return {
   -- 主题
   {
-    'EdenEast/nightfox.nvim',
+    'dchinmay2/alabaster.nvim',
+    lazy = false,
+    priority = 1000,
     config = function()
-      require('nightfox').setup({
-        options = {
-          styles = {
-            keywords = 'bold',
-            functions = 'bold',
-          },
-        },
-      })
-      vim.cmd('colorscheme nordfox')
+      vim.cmd('colorscheme alabaster')
     end,
   },
 

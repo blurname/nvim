@@ -8,6 +8,7 @@ g.maplocalleader = '-'
 
 -- 基础设置
 opt.termguicolors = true
+opt.background = "light"
 opt.exrc = true
 opt.backup = false
 opt.swapfile = false
