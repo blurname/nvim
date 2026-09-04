@@ -72,3 +72,12 @@ api.nvim_create_autocmd('BufLeave', {
   end,
 })
 
+-- herdr edit_scrollback（prefix+e）打开的是 $TMPDIR/herdr-scrollback-*.txt，每次都是新文件，
+-- 没有 shada 位置可恢复，所以手动跳到最后一行有内容的输出
+api.nvim_create_autocmd('BufReadPost', {
+  pattern = 'herdr-scrollback-*.txt',
+  callback = function()
+    vim.cmd('normal! G')
+    vim.fn.search([[\S]], 'bcW')
+  end,
+})
